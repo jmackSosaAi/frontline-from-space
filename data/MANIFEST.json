@@ -1,0 +1,1004 @@
+[
+ {
+  "file": "viirs-snpp_2012_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2012/viirs-snpp_2012_Ukraine.csv",
+  "bytes": 5662142,
+  "rows": 72361,
+  "sha256": "66e9b0165ff16ad4e961c9ed7d408e89a2993dfff9b410e0fb40f2fa4576e82b",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:22+00:00"
+ },
+ {
+  "file": "viirs-snpp_2013_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2013/viirs-snpp_2013_Ukraine.csv",
+  "bytes": 5018837,
+  "rows": 64125,
+  "sha256": "df3a8a81b33439ee8d5b8db8d236956b989dfd8a8dede9cd8b1336fdeb2539fa",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:24+00:00"
+ },
+ {
+  "file": "viirs-snpp_2014_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2014/viirs-snpp_2014_Ukraine.csv",
+  "bytes": 13069120,
+  "rows": 166968,
+  "sha256": "220f1800ffc59383ce5afd3ba0bc18e90e3f4d9b16e2e7c7dbc0429162835b19",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:28+00:00"
+ },
+ {
+  "file": "viirs-snpp_2015_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2015/viirs-snpp_2015_Ukraine.csv",
+  "bytes": 13422703,
+  "rows": 171492,
+  "sha256": "7695000b02a9af95c174554124bc82efe3f8fadcb55f8f3fb3c83369ce40228c",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:30+00:00"
+ },
+ {
+  "file": "viirs-snpp_2016_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2016/viirs-snpp_2016_Ukraine.csv",
+  "bytes": 7719849,
+  "rows": 98643,
+  "sha256": "66a3507cdaaeac6dcac095baada0c5e333449e73bf180ad382ae1e6c3d7d9c3a",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:32+00:00"
+ },
+ {
+  "file": "viirs-snpp_2017_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2017/viirs-snpp_2017_Ukraine.csv",
+  "bytes": 9336732,
+  "rows": 119312,
+  "sha256": "a23b3fa4faa41d14ceb20596c879003249d3ecb53cae6a2efdf5850d00d7cf82",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:37+00:00"
+ },
+ {
+  "file": "viirs-snpp_2018_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2018/viirs-snpp_2018_Ukraine.csv",
+  "bytes": 5681980,
+  "rows": 72621,
+  "sha256": "8c8b253fda29f58762c52d7bf6f4c7b30db849c67d5ae425baa1acf23c5a0b61",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:47+00:00"
+ },
+ {
+  "file": "viirs-snpp_2019_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2019/viirs-snpp_2019_Ukraine.csv",
+  "bytes": 7799660,
+  "rows": 99652,
+  "sha256": "b96ac123e2123d2f389de89ce493a81b3456e0f45badf224b18e31145f960f03",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:13:56+00:00"
+ },
+ {
+  "file": "viirs-snpp_2020_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2020/viirs-snpp_2020_Ukraine.csv",
+  "bytes": 7368722,
+  "rows": 94158,
+  "sha256": "e2031efa3504ebb2c5c872fbe6adb5791bbf155ba828341df448824f9519d9dc",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:03+00:00"
+ },
+ {
+  "file": "viirs-snpp_2021_Ukraine.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2021/viirs-snpp_2021_Ukraine.csv",
+  "bytes": 3672672,
+  "rows": 46926,
+  "sha256": "ae26c522fca54bf4676979813efa9159f29e4d734be129768942284a9ed4b50d",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:04+00:00"
+ },
+ {
+  "file": "viirs-snpp_2012_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2012/viirs-snpp_2012_Azerbaijan.csv",
+  "bytes": 377264,
+  "rows": 4822,
+  "sha256": "bb2df0ffd041926fe32cdf3dd8b51f6e3ef71cfc5716862da8a5cf4eccc52d70",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:06+00:00"
+ },
+ {
+  "file": "viirs-snpp_2013_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2013/viirs-snpp_2013_Azerbaijan.csv",
+  "bytes": 441800,
+  "rows": 5647,
+  "sha256": "25c73ce94d92bb9884bb8a1c583b74168a8a678a906b9cd7468217011951d283",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:08+00:00"
+ },
+ {
+  "file": "viirs-snpp_2014_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2014/viirs-snpp_2014_Azerbaijan.csv",
+  "bytes": 318332,
+  "rows": 4068,
+  "sha256": "7db34141c6aaab69001f44b8c24310d481cf64f0eb2fa536fb1b0b2406fe19d4",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:09+00:00"
+ },
+ {
+  "file": "viirs-snpp_2015_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2015/viirs-snpp_2015_Azerbaijan.csv",
+  "bytes": 758226,
+  "rows": 9693,
+  "sha256": "2ee8e7e9bf099de5b10689c68d0dd31f7ad37341d516d51bee39ec60b0369f88",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:10+00:00"
+ },
+ {
+  "file": "viirs-snpp_2016_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2016/viirs-snpp_2016_Azerbaijan.csv",
+  "bytes": 536065,
+  "rows": 6849,
+  "sha256": "9b45b3687c14d385be67a48e9b8ba25c076e237a37969d3111c93b8404d35ef2",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:12+00:00"
+ },
+ {
+  "file": "viirs-snpp_2017_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2017/viirs-snpp_2017_Azerbaijan.csv",
+  "bytes": 556085,
+  "rows": 7104,
+  "sha256": "b9f12e930c9135494aed53c2d204c52ad916126a9bc86878f0b99d2348468cd3",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:14+00:00"
+ },
+ {
+  "file": "viirs-snpp_2018_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2018/viirs-snpp_2018_Azerbaijan.csv",
+  "bytes": 463861,
+  "rows": 5927,
+  "sha256": "5b86c9d3848b4118815984849edd60c34d3bde7e4cebeaa9dda1ae62c7bf9ec0",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:15+00:00"
+ },
+ {
+  "file": "viirs-snpp_2019_Azerbaijan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2019/viirs-snpp_2019_Azerbaijan.csv",
+  "bytes": 732133,
+  "rows": 9355,
+  "sha256": "8aa8ef8b54f27d48b57e6a0188b0b114a82d59dd723dee063fc8e6280349f4fb",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:17+00:00"
+ },
+ {
+  "file": "viirs-snpp_2012_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2012/viirs-snpp_2012_Armenia.csv",
+  "bytes": 105272,
+  "rows": 1342,
+  "sha256": "feee53ed218ceddcf95dd55b55ae72bba3bbcbedc62d78128c45df3deca2af35",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:18+00:00"
+ },
+ {
+  "file": "viirs-snpp_2013_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2013/viirs-snpp_2013_Armenia.csv",
+  "bytes": 137794,
+  "rows": 1759,
+  "sha256": "b8d57973ad253f8e2eefa51005ca403178c951d43761d5c987102ec1b78e5cce",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:19+00:00"
+ },
+ {
+  "file": "viirs-snpp_2014_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2014/viirs-snpp_2014_Armenia.csv",
+  "bytes": 82887,
+  "rows": 1058,
+  "sha256": "03d6357bed15d6b52dac5968500ce9a1c2526225a31107cac897d1822287d45b",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:21+00:00"
+ },
+ {
+  "file": "viirs-snpp_2015_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2015/viirs-snpp_2015_Armenia.csv",
+  "bytes": 89341,
+  "rows": 1138,
+  "sha256": "12090ddda4312b442820785fb832359d277c2c637c9ebeeb1ff20532b552fc4e",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:22+00:00"
+ },
+ {
+  "file": "viirs-snpp_2016_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2016/viirs-snpp_2016_Armenia.csv",
+  "bytes": 110740,
+  "rows": 1413,
+  "sha256": "4c5d20f0f045ddf8f7d793b876672a7f81fec7a639edf7b977c68853527e2468",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:23+00:00"
+ },
+ {
+  "file": "viirs-snpp_2017_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2017/viirs-snpp_2017_Armenia.csv",
+  "bytes": 141477,
+  "rows": 1807,
+  "sha256": "8fc5175f17b7ad2cb926b520b63df8814510c0591fd3003393cbbc7722914918",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:24+00:00"
+ },
+ {
+  "file": "viirs-snpp_2018_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2018/viirs-snpp_2018_Armenia.csv",
+  "bytes": 134038,
+  "rows": 1710,
+  "sha256": "97bc3bdff997dce77ea9656f0b8af8e587ca93bb57d7e3af2633909b0fe750d6",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:26+00:00"
+ },
+ {
+  "file": "viirs-snpp_2019_Armenia.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2019/viirs-snpp_2019_Armenia.csv",
+  "bytes": 136750,
+  "rows": 1745,
+  "sha256": "1e1a81f0ff7f7a2e342af0c09d7df88efb04c4c47c7d2863f7a4c3c28602eb22",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:14:27+00:00"
+ },
+ {
+  "file": "viirs-snpp_2012_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2012/viirs-snpp_2012_Sudan.csv",
+  "bytes": 13314693,
+  "sha256": "38b68ea3865dae96a1027e4a99a4392ebaa66706c603bfd152c28096fe941142",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:06+00:00"
+ },
+ {
+  "file": "viirs-snpp_2013_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2013/viirs-snpp_2013_Sudan.csv",
+  "bytes": 14004470,
+  "sha256": "684f70fed2506e88b0be55e13c504f93bfc1b2fb06b45796bd19c8b9aeadbfeb",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:09+00:00"
+ },
+ {
+  "file": "viirs-snpp_2014_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2014/viirs-snpp_2014_Sudan.csv",
+  "bytes": 12466042,
+  "sha256": "d9f4cb74790ccb47d40b8a2df5727f1d4484ef8bb9505bb42b4c9678535201f0",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:12+00:00"
+ },
+ {
+  "file": "viirs-snpp_2015_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2015/viirs-snpp_2015_Sudan.csv",
+  "bytes": 12447485,
+  "sha256": "968d155198c0864933dd20ffd732396934aa5973bd35ff86a6de23a71a20ae6f",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:15+00:00"
+ },
+ {
+  "file": "viirs-snpp_2016_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2016/viirs-snpp_2016_Sudan.csv",
+  "bytes": 12556213,
+  "sha256": "210dd340ccf6fda0a5277a216f2923900c7833d0842e776355a51ab56a858303",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:17+00:00"
+ },
+ {
+  "file": "viirs-snpp_2017_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2017/viirs-snpp_2017_Sudan.csv",
+  "bytes": 12460078,
+  "sha256": "9794f31496f945a061ee1b1e74abf6b81d2d3b159eed1a3c8c423858698bff71",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:20+00:00"
+ },
+ {
+  "file": "viirs-snpp_2018_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2018/viirs-snpp_2018_Sudan.csv",
+  "bytes": 12654523,
+  "sha256": "e81aadad743e3fecc91ba2c315ffb9da79f716526ac315206e3b0d8ec11ba922",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:23+00:00"
+ },
+ {
+  "file": "viirs-snpp_2019_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2019/viirs-snpp_2019_Sudan.csv",
+  "bytes": 12997461,
+  "sha256": "8f5938a53ff333589de76594cedbe55b37cab23ed0da27582e940f331b2e5c6b",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:41+00:00"
+ },
+ {
+  "file": "viirs-snpp_2020_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2020/viirs-snpp_2020_Sudan.csv",
+  "bytes": 15542497,
+  "sha256": "c97fb0ddf712693910f18541ed65b893683b58ceb119c7de5b7c6c9c63e2fb75",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:44+00:00"
+ },
+ {
+  "file": "viirs-snpp_2021_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2021/viirs-snpp_2021_Sudan.csv",
+  "bytes": 14794071,
+  "sha256": "e5658748913a6f757bd5c6d5d2a57db74aabd14270ad966928e53f2c649d0739",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:47+00:00"
+ },
+ {
+  "file": "viirs-snpp_2022_Sudan.csv",
+  "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2022/viirs-snpp_2022_Sudan.csv",
+  "bytes": 11964750,
+  "sha256": "5c04d16d4a5efc063dcfd3bd2dd0859b009916c42df98786ddf4c68653e8773e",
+  "set": "baseline",
+  "retrieved_utc": "2026-10-14T21:28:50+00:00"
+ },
+ {
+  "file": "geoconfirmed_Ukraine.json",
+  "url": "https://geoconfirmed.org/api/placemark/Ukraine",
+  "bytes": 7057780,
+  "sha256": "7f83f7eefe972bcdf5fbcbc27aa788ba0a6c0a2a45c772f0683cbc5ef35e6e66",
+  "set": "validation",
+  "retrieved_utc": "2026-10-14T21:28:53+00:00"
+ },
+ {
+  "file": "bellingcat_timemap.json",
+  "url": "https://bellingcat-embeds.ams3.cdn.digitaloceanspaces.com/production/ukr/timemap/api.json",
+  "bytes": 1126003,
+  "sha256": "bae8a0a881da6501e192702ec9a8b7f7aee934883e15922af0e69932cafb85ef",
+  "set": "validation",
+  "retrieved_utc": "2026-10-14T21:28:54+00:00"
+ },
+ {
+  "file": "economist/keep/COMMIT",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 41,
+  "sha256": "2c2182a7babf013f0712d9f3a7fc6d0444a0e07243800633794c270373985ca8",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/LICENCE",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1080,
+  "sha256": "9c0bc11e939a4dbe7e4de546cd7ea1206366cc7bc6fd29652c5265408dfd8679",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/README.md",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 9678,
+  "sha256": "d5c197e81a36c69369c7698db08dd5a18d332dd96a01f4c2e3cf4a44115d031c",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/areas_of_control_daily_summary.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 662196,
+  "sha256": "4fc99bd9b82bea13e19faf104e30bb03a6cbef6e1d48ce28159f2e544b82a825",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/ave_cloud_cover.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 55769,
+  "sha256": "fd92fab0e8a2f7f1542fdcff43b30b8f410452f6cc18dceca01cd59f9560dfb8",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/cloud_cover_in_ukraine_by_day.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 85276,
+  "sha256": "d9d288470bd516a729dd3466c6375fb69969d86f25c7255ad52e721092741e2e",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/cloud_cover_in_ukraine_by_day_with_forecast_for_recent_days.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 85277,
+  "sha256": "577011c5696ef61298bfb00faacf25528c41a94cf6af0657e5bae35222c9ade7",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/control_status_of_fires_II.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 27969338,
+  "sha256": "f9a4311f14ea6007827d424bb6df73ad8e29358f9727e217943c4c07537901da",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/dates_of_successfully_acquired_fire_data.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 14581,
+  "sha256": "30732c88c08c4c1b340e93599491d2654e89940271a7a7e3d34239bb837b697d",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/dates_of_successfully_acquired_fire_data_RU.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1806,
+  "sha256": "a5947d71ccefc6beb5eddd254bc013224181f6016fae35cfd1f4dc82d8bf980f",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/oblast_activity_by_day.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 54544,
+  "sha256": "366093d6bf7dcf8aa05067a54208fe6a26e2821d37efe1d2f53e4c7722de731a",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/strikes_by_location_and_day.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 295546,
+  "sha256": "408c365e24c62a0a67c12304a5762324e37e38e1975b2375ba3b224e3b62b681",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/ukraine_war_fires.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 71289406,
+  "sha256": "ad5da4bfc7ac554104b78c7373f2a24dbdae966ac03f11ad520971ba882e80cf",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/output-data/war_fires_by_ADM3.csv",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 133111041,
+  "sha256": "971205c5f4c3370a1efe9737527708b037bf83cbb8bdcdc7afc3192120f666b0",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/.gitkeep",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/00-master-script.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 7738,
+  "sha256": "f075c599f22b3c92812220439a5e3a72a24e074716115305c543304351b4a37b",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/000-autoupdater.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 30179,
+  "sha256": "e74bd7ca7341292b9c2567508fe06e9b9a458d4f295d18bcd27df4f18346a0db",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/01-construct-training-and-prediction-data.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 25119,
+  "sha256": "a4e69654c0ac02eda8ea2e6ab0055dcd917e1425f855d40f7ba60adb076533a0",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/02-train-model-ensemble.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5309,
+  "sha256": "d3ab97884ab33623a8328c55645f340a3b44d9b38bb190ac8fe18a6306adf2f3",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/03-generate-predictions-from-model-ensemble.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1613,
+  "sha256": "a39d84d876c2347f02de11f2ae1c615ac85c4cb9bfe710b4dcd9ea2bf4f4b694",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/04-get-urban-density-of-points.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1990,
+  "sha256": "c5e9cfd40c71a2c01ea365a5ffe951d53168a43eec6f316b80f7d4ad8d2d77ff",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/05-war-fire-classifier.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 4421,
+  "sha256": "2f70e17a5e9a835997141076d81345947594e9b26de07b1072dbdbf3d0c62219",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux-natural-forest-fire-detector.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 8269,
+  "sha256": "984afc0bd3f0b9bed4fbcc8807ba75337820c40e2f6857a6fbe5865313475b9f",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_add_fires_manually.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 7348,
+  "sha256": "75c0221206fb80a9361baea5d478efe747d978577289dea1582e480ddbe42e10",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_assess_size_of_area_of_control_by_day.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 4730,
+  "sha256": "c6a3749d2180ff8441c79090d4237b57615dd113dc68b2e7a753d64bdfac8997",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_check_for_extreme_heat.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 3140,
+  "sha256": "e3be766a70aa2ca9099dc764a74cb74819b64186d125270c7018ba06b93aaabf",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_download_firms_data_via_https.r",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 6112,
+  "sha256": "3c5cf925e3ba2de3d7e37691b87c4534609ebf6f532714dd1ef95264723d3929",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_fire_activity_by_oblast.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 4702,
+  "sha256": "efa0975a8e2763be2a9c792e65545736cc3ca31c5bb1fc10785f7383b2f1b414",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_forest_fires_plots.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 3882,
+  "sha256": "ff02f666587df40fa026a60aefd5e98ac60b011c8d84bf267e2d178fcb62381c",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_generate_analysis_charts.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5795,
+  "sha256": "393661c7c1c0377406c01ee9dd9f569b84413469884fbe392bd5c6071b4065ec",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_generate_boot_predictions_csv.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1468,
+  "sha256": "ace40635aa800f90dea3db332ccd336c1c495ae717e8c4d21c42dc51b32ac639",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_generate_dataframe_with_all_stable_covariates.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 4025,
+  "sha256": "41cce8b3992aea457173f36a2437bfd04931351d26ef2d12242f9b00993f7a31",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_generate_shapefile_archives.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2721,
+  "sha256": "f6c3ff7cec1382de1c1b206691e16f7661ee6cc6ba3a38c9164c070ebb2f1b5d",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_assessed_russian_attacks.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5257,
+  "sha256": "7a078a7c18f486fd79d10bb71d86a0912f85bdd6fd60a7ff653788bffa5f1465",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_assessed_russian_control.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5678,
+  "sha256": "1d745c0130ce6bc631b3716ab3de0d8e4e52ecaf951d850252f6e952d510ee2b",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_assessed_ukrainian_counterattacks.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5682,
+  "sha256": "7d62cffe3d67db67195a2773f15ca2d17a7b859fab02dfcc0b08bb12139a54b7",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_claimed_russian_control.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5744,
+  "sha256": "d652f1553eec1830e7e928c306ac1bb2f1e61dbff1fb1340294adbc7ae237893",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_cloud_cover_daily.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1204,
+  "sha256": "88e624f44bc882f7500736bfd67960935532e30bb92cf80d4546c0e39ff5ca07",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_control_status_of_fires.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 9138,
+  "sha256": "b41a0aae695511f479e1c89dd1936ef1705c4cef56e4cf7f6797d990548f99e7",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_control_status_of_fires_II.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2636,
+  "sha256": "d962911f89b8ff19e8d1f0089283e764d33dc68230d728bfa94e76e62b1f95d9",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_days_municipalities_spent_as_contested.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 3216,
+  "sha256": "3537932616ad670d22139de149ecb44ff63a4632035af3e0f2daee9d6448e73c",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_municipalities_of_war_fires.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2952,
+  "sha256": "1dc4ff6751cd67a9c80dfe51f54fa9a289506748fbcea8f8efc405c181528e64",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_nightlights_data.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1403,
+  "sha256": "4ba515e6e0371a3627bada3be39b6cddfc2e91549d1a5d4d29efa97557fa37d2",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_get_osm_background.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1398,
+  "sha256": "952f656e090177a779f3f7af35aabf26224dc8697c73a8aa5f3a45de827453af",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_load_and_merge_fire_data.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2219,
+  "sha256": "0884154d165f7679b00824241a02a2faa1e46197d39ef544d677213e8ba88888",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_load_prediction_matrix.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 609,
+  "sha256": "2f41229ad87e720ef5c92b2b00469c3958c6cf8d7a791ba6a0a10a2f8b3c2ae4",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_plot_fires_by_day_and_territorial_control.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 4589,
+  "sha256": "bfb7b494c6b259f05e8586f8f5ac77504d6bd4443f959bb334f541d5805932aa",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_process_cloud_tiffs.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1395,
+  "sha256": "63e5d63fe430f4c764659f2b84d8b2b49679f455854ffdeebbebb548eb17fd03",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_raw_cloud_data_to_average_by_day.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2155,
+  "sha256": "a1cd08221169016d1965beeacbc1d553267ab6407bc70e339d7ed4ed4b5d15e9",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_update_cloud_cover_daily_with_forecast.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 3486,
+  "sha256": "ececf9d06926874d0631546d358983adf6108b599a18b1006cd1413b3d2c52cd",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_update_firms_data.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2523,
+  "sha256": "64406802626daf8c2f7d6efe013c09bb457682ee2095deed699b82484fa5a65d",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_update_firms_data_RU.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 4392,
+  "sha256": "feb80dc2545aed1301a2292987b9e055dcf8549c9983392701247d431bc16b6e",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/aux_war_fire_classifier_function.R",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 9046,
+  "sha256": "dcd36818e347fb94a316c0fb81065a597b4c25eab468df45cb8a072dc3974f16",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/scripts/docker-build.sh",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 292,
+  "sha256": "7a927734d453026b7ba23571d95401e3287d1cdcd745271403999c2e68060d4d",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.cpg",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5,
+  "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.dbf",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5316,
+  "sha256": "2ef72183ed8c5b1486e8ed1bd83fd9ba628cffc07dde6753fa128ddb5ad81173",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.prj",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 425,
+  "sha256": "f2e7fb14d55bdd8d6a3bc2c272a48729d8f9d0ad72936e20eae6a9a81c2fccd0",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.sbn",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 260,
+  "sha256": "b0cc84684e84e02e2748ed283584f92ba96bfefdc90e69646858c5b96b7f69f9",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.sbx",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 124,
+  "sha256": "b9dbef9eb6b70897f07fe71598621bc3e9e6e81ccbfb89a5cb694ef654558d6a",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.shp",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 238132,
+  "sha256": "74d5a8f7bf6c7085264832eb3e40f85c272400cd8a9e59e7878a6a5b29c61a68",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.shp.xml",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5361,
+  "sha256": "b3f220e09763431d4e56cab22b969f1c41edc6aea0ae5d9f62dfb3ba42970129",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/AssessedRussianAdvancesinUkraineAPR022023.shx",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 212,
+  "sha256": "c01efa721e5b2a69e8020ddd3f9457fbb398dbffbb4be2c3b643591a08e502a1",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.cpg",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 5,
+  "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.dbf",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 2701,
+  "sha256": "4c74befc6fc34cc4805fddcb3938bceb7649bfe6f28bd309ce8ddb27bcd14921",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.prj",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 425,
+  "sha256": "f2e7fb14d55bdd8d6a3bc2c272a48729d8f9d0ad72936e20eae6a9a81c2fccd0",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.sbn",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 212,
+  "sha256": "7ce35548c449d29c9ab1f259bbf054d67ac59c531680f102f609811068adcf0a",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.sbx",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 132,
+  "sha256": "20a9aead3cbf8aff4dc97d6bfe486096869d8fb0985b9051a70a0211706a5d34",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.shp",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 773236,
+  "sha256": "28a582162aee8570647565bd98b182ad4e7a12e15c22778f5bd4653717a50650",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.shp.xml",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 8441,
+  "sha256": "3c4f5a0b157618ae0487fc7c492e84e223399e47002f4cab9bc561c9e21d2e5c",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_APR022023/UkraineControlMapAO02APR2023.shx",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 156,
+  "sha256": "fbd01328de3a318cc03eec6de6a90c310dbf41e224c69b7c1b10a56b69952b1e",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/ClaimedRussian_shapes.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 22714398,
+  "sha256": "a276de4152822c6fd6dc9193dfabb0b8950cc7511d78b452418a624c9cef54eb",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/ClaimedUkrainian_shapes.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 36260522,
+  "sha256": "c043dc292ca652e2e80300130a90820bf4b5e714ffd0b97ad77ecdcf67ee85de",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/ControlMap_shapes.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 80748980,
+  "sha256": "89897ace1069839c7d75c4d8d9389b8a225c2804205f3a2c54ecd4a34fadf416",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/RussianAdvances_shapes.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 17930043,
+  "sha256": "00e7f34d32d9caabb4a27a012902551919cd20ab92294b692eedc67c8649b0c9",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/area_assessed_as_controlled_by_Russia_by_day.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 16233031,
+  "sha256": "4dd4fa721028036808265aede3b1da8d3c0b20eb3e66ff0d8f7f4034c2c7e5d5",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/area_attacked_by_russia_by_day.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 676628,
+  "sha256": "5814b07ccad6322042a0c90a2bf5a3df3e4c68463037773708abf93c102ab07b",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/area_claimed_as_controlled_by_Russia_by_day.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 247234,
+  "sha256": "396e706b2adcce2f404a4971e765490cb1b34637ee634bc01eeac31fbc3be568",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/ISW_historical/area_counterattacked_by_ukraine_by_day.RDS",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1517530,
+  "sha256": "3e8b5f7df3d4d93b9c6615a258e0d15632e6a0768cad896c280c0798fe67a93a",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/fortifications/Russian_and_Belarusian_Fortifications.kmz",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 275926,
+  "sha256": "a7f45e1cd4fa3401d5538aea323d66ed0939b96863dad8457d31632fe7b8bee9",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/fortifications/doc.kml",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 8206346,
+  "sha256": "6024f25ce6cb0081201e74492de8c729125fba9051d2e80e7523e0bf889370b0",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/fortifications/images/icon-1.png",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 280,
+  "sha256": "8852b8d5c51046568ebe80da48492107e5c512c1d463e9346eeb9d2ce3c60d13",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source-data/fortifications/images/icon-2.png",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 1703,
+  "sha256": "d2f0a167b532d0d5da1c1a117bb9120d2199fc3935a505395aade05c72a18ed8",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ },
+ {
+  "file": "economist/keep/source_notes.txt",
+  "url": "https://github.com/TheEconomist/the-economist-war-fire-model @8b431f9",
+  "bytes": 3799,
+  "sha256": "d3a241334ce5c21af68b87a65612d857a61853e4b3476af803608445dfe0fbeb",
+  "set": "economist",
+  "retrieved_utc": "2026-10-14T22:09:10+00:00"
+ }
+]

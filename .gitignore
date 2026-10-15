@@ -1,0 +1,13 @@
+# data: raw is re-fetchable from MANIFEST.json; only derived aggregates are committed
+# raw data (re-fetchable; never redistributed)
+# secrets
+*.grib
+*.nc
+*.parquet
+.DS_Store
+.env
+.netrc
+.venv/
+__pycache__/
+data/interim/
+data/raw/
