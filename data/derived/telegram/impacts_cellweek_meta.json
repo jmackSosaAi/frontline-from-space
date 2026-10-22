@@ -1,0 +1,30 @@
+{
+  "output": "data/derived/telegram/impacts_cellweek.csv",
+  "written_utc": "2026-10-22T21:03:02+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "strike_events": {
+      "path": "data/derived/telegram/strike_events.parquet",
+      "sha256": "3812d55ea6acb25f164784bfc3fe8aba4c2c3c7c485595ed2877431c602f56b2"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 10136,
+    "events": 18404,
+    "cells": 339,
+    "events_by_year": {
+      "2022": 2229,
+      "2023": 2357,
+      "2024": 3633,
+      "2025": 4309,
+      "2026": 5876
+    },
+    "killed": 6308,
+    "wounded": 32958
+  },
+  "lag_days": 7,
+  "cutoff": "2026-10-15",
+  "h3_resolution": 5,
+  "casualties": "sum over events of the per-event max across sources"
+}

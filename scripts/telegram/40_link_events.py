@@ -4,8 +4,18 @@ launch_waves.parquet  one row per wave. A wave opens at the first launch / launc
                       session and closes at the last all_clear before a >= QUIET_H gap in launch/track activity
                       (fallback: last activity + QUIET_H when no all_clear was posted). Every track, launch,
                       launch_intel, alert and all_clear inside [start, end] is linked (msg_ids only, no text).
-strike_events.parquet STUB: needs extract/impacts.parquet (LLM extraction, awaiting API key). When the input is
-                      missing an empty table with the §L5 schema is written so downstream scripts can run.
+strike_events.parquet one row per strike event, clustered from extract/impacts.parquet (after 30_resolve.py). Rule
+                      (§L5): incidents with the same place key and event time within ±CLUSTER_H form one event. Place
+                      key = geo_id (resolved settlement/raion feature), else oblast + raion_raw, else oblast +
+                      settlement_raw string, else oblast alone (location withheld). Single-link chaining in time.
+                      Incidents with a date but no clock time (22%) sit at 12:00 Kyiv and also chain to any same-key
+                      incident on the same Kyiv date (ts_precision = 'date'). is_update rows (casualty revisions of
+                      an earlier incident) merge into the nearest non-update event of the same key within
+                      ±UPDATE_H; with none they stand alone (n_updates_standalone). Per event: event_ts = earliest
+                      timed incident, killed/wounded = max across sources (never summed), weapon_class = most
+                      specific class present, target_type = mode ('unknown' last), confidence = best, wave_id =
+                      the wave whose [start_ts, end_ts] contains event_ts. msg_ids and numbers only; no post text.
+                      When impacts.parquet is missing an empty table with the same schema is written.
 
 Design decisions (see planning/TELEGRAM_PIPELINE.md §5 and the report of 2026-10-22):
   * KAB (glide bomb) launches/tracks are frontline fire, not strike waves. They never open, extend or bridge a
@@ -44,7 +54,7 @@ TYPED = INTERIM / "posts_typed.parquet"
 OUT_WAVES = DERIVED / "launch_waves.parquet"
 OUT_LINKS = INTERIM / "link" / "wave_links.parquet"          # event -> wave_id (interim: has text_span-free ids only)
 OUT_STRIKES = DERIVED / "strike_events.parquet"
-LINK_VERSION = "waves-1"
+LINK_VERSION = "waves-1+strikes-1"
 QUIET_H = 2.0
 LAG_DAYS = 7
 ACTIVE_STATUS = {"takeoff", "airborne", "active", "launch_likely", "launch_confirmed"}
@@ -52,6 +62,21 @@ PLATFORM_CLASS = {"Tu-95": "cruise", "Tu-160": "cruise", "Tu-22M3": "cruise", "s
                   "ship": "cruise", "submarine": "cruise", "MiG-31K": "kinzhal", "ground": "ballistic",
                   "tactical": "kab", "other_aircraft": "unknown"}
 LAG_CLASSES = ["cruise", "ballistic", "kinzhal", "shahed"]
+CLUSTER_H = 3.0      # incidents of one place within ±3 h -> one event
+UPDATE_H = 48.0      # an is_update row joins the nearest event of its place within ±48 h
+# specificity order for weapon_class across an event's sources (most specific first)
+WEAPON_SPECIFICITY = ["kinzhal", "ballistic", "cruise", "kab", "jet_uav", "shahed", "fpv", "recon_uav", "artillery", "missile", "unknown"]
+CONF_RANK = {"high": 0, "medium": 1, "low": 2}
+STRIKE_SCHEMA = pa.schema([("event_id", pa.string()), ("event_ts", pa.timestamp("ns", tz="UTC")), ("time_is_post_time", pa.bool_()),
+                           ("ts_precision", pa.string()), ("event_date_kyiv", pa.date32()),
+                           ("oblast_iso", pa.string()), ("raion_raw", pa.string()), ("settlement_raw", pa.string()),
+                           ("loc_key_level", pa.string()), ("geo_id", pa.int64()), ("geo_level", pa.string()), ("geo_conf", pa.float64()),
+                           ("lat", pa.float64()), ("lon", pa.float64()), ("h3_r5", pa.string()), ("weapon_class", pa.string()),
+                           ("target_type", pa.string()), ("killed", pa.int64()), ("wounded", pa.int64()), ("is_debris_only", pa.bool_()),
+                           ("location_withheld", pa.bool_()), ("tier", pa.string()), ("n_sources", pa.int64()), ("n_incidents", pa.int64()),
+                           ("n_updates", pa.int64()), ("update_only", pa.bool_()), ("channels", pa.list_(pa.string())),
+                           ("source_msg_ids", pa.list_(pa.string())), ("wave_id", pa.string()), ("confidence", pa.string()),
+                           ("link_version", pa.string())])
 MON_CLASS = [("kinzhal", re.compile(r"Кинджал|МіГ-31", re.I)),
              ("kab", re.compile(r"\bКАБ|авіаційн\w*\s+бомб|плануюч", re.I)),
              ("ballistic", re.compile(r"баліст|ОТРК|Іскандер|С-300|С-400|KN-23", re.I)),
@@ -235,19 +260,165 @@ def attach_summaries(w: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def stub_strike_events() -> None:
-    schema = pa.schema([("event_id", pa.string()), ("event_ts", pa.timestamp("ns", tz="UTC")), ("time_is_post_time", pa.bool_()),
-                        ("oblast_iso", pa.string()), ("raion_raw", pa.string()), ("settlement_raw", pa.string()),
-                        ("lat", pa.float64()), ("lon", pa.float64()), ("h3_r5", pa.string()), ("weapon_class", pa.string()),
-                        ("target_type", pa.string()), ("killed", pa.int64()), ("wounded", pa.int64()), ("tier", pa.string()),
-                        ("n_sources", pa.int64()), ("channels", pa.list_(pa.string())), ("source_msg_ids", pa.list_(pa.string())),
-                        ("wave_id", pa.string())])
-    pq.write_table(schema.empty_table(), OUT_STRIKES)
-    meta = {"output": str(OUT_STRIKES.relative_to(DERIVED.parents[2])), "status": "stub",
-            "reason": "extract/impacts.parquet absent (23_extract_impacts.py needs the Anthropic API key); schema only, 0 rows",
-            "written_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "link_version": LINK_VERSION,
-            "counts": {"rows": 0}}
-    OUT_STRIKES.with_name("strike_events_meta.json").write_text(json.dumps(meta, indent=2))
+def _place_key(r) -> tuple:
+    """(level, key) for clustering. geo_id when the place resolved, else raw raion / settlement string within the oblast."""
+    if r.geo_id == r.geo_id and r.geo_id is not None:
+        return "geo", f"g:{int(r.geo_id)}"
+    ob = r.oblast_iso_canon if isinstance(r.oblast_iso_canon, str) else "?"
+    if isinstance(r.raion_raw, str) and r.raion_raw.strip():
+        return "raion_str", f"r:{ob}:{r.raion_raw.strip().lower()}"
+    if isinstance(r.settlement_raw, str) and r.settlement_raw.strip():
+        return "settlement_str", f"s:{ob}:{r.settlement_raw.strip().lower()}"
+    return "oblast", f"o:{ob}"
+
+
+def _chain(ts: np.ndarray, date_only: np.ndarray, day: np.ndarray) -> np.ndarray:
+    """Single-link cluster ids for one place key. ts sorted ascending (ns int64). Consecutive rows link when the gap is
+    <= CLUSTER_H, or when either is date-only and both fall on the same Kyiv date."""
+    if len(ts) == 0:
+        return np.zeros(0, dtype=np.int64)
+    gap_ok = np.diff(ts) <= np.int64(CLUSTER_H * 3600e9)
+    same_day = (day[1:] == day[:-1]) & (date_only[1:] | date_only[:-1])
+    brk = ~(gap_ok | same_day)
+    return np.concatenate([[0], np.cumsum(brk)])
+
+
+def cluster_impacts(imp: pd.DataFrame) -> pd.DataFrame:
+    """-> impacts with cluster_ts, ts_precision, loc_level, loc_key, cluster (int event index)."""
+    imp = imp.copy()
+    kyiv_noon = pd.to_datetime(imp.event_date, errors="coerce").dt.tz_localize("Europe/Kyiv", ambiguous="NaT", nonexistent="shift_forward") + pd.Timedelta(hours=12)
+    imp["cluster_ts"] = imp.event_ts_utc.where(imp.event_ts_utc.notna(), kyiv_noon.dt.tz_convert("UTC"))
+    imp["cluster_ts"] = imp.cluster_ts.where(imp.cluster_ts.notna(), imp.post_ts_utc)   # 26 rows with no date at all
+    imp["ts_precision"] = np.where(imp.event_ts_utc.isna(), "date", np.where(imp.time_is_post_time.astype(bool), "post_time", "time"))
+    imp["date_kyiv"] = imp.cluster_ts.dt.tz_convert("Europe/Kyiv").dt.date.astype(str)
+    lk = [_place_key(r) for r in imp.itertuples()]
+    imp["loc_level"] = [a for a, _ in lk]; imp["loc_key"] = [b for _, b in lk]
+    imp = imp.sort_values(["loc_key", "cluster_ts"], kind="mergesort").reset_index(drop=True)
+    imp["cluster"] = -1
+    nxt = 0
+    base = imp[~imp.is_update]
+    for key, g in base.groupby("loc_key", sort=False):
+        ids = _chain(g.cluster_ts.values.astype("datetime64[ns]").astype(np.int64), (g.ts_precision == "date").values, g.date_kyiv.values)
+        imp.loc[g.index, "cluster"] = ids + nxt
+        nxt += int(ids.max()) + 1
+    # updates: nearest non-update event of the same key within UPDATE_H, else cluster among themselves
+    ev_ts = imp[imp.cluster >= 0].groupby("cluster").cluster_ts.min()
+    ev_key = imp[imp.cluster >= 0].groupby("cluster").loc_key.first()
+    by_key = {k: (v.cluster_ts.values.astype("datetime64[ns]").astype(np.int64), v.index.values)
+              for k, v in pd.DataFrame({"cluster_ts": ev_ts, "loc_key": ev_key}).sort_values("cluster_ts").groupby("loc_key")}
+    upd = imp[imp.is_update]
+    assigned = {}
+    lim = np.int64(UPDATE_H * 3600e9)
+    for key, g in upd.groupby("loc_key", sort=False):
+        if key in by_key:
+            ets, eid = by_key[key]
+            for i, t in zip(g.index, g.cluster_ts.values.astype("datetime64[ns]").astype(np.int64)):
+                j = np.searchsorted(ets, t)
+                cands = [c for c in (j - 1, j) if 0 <= c < len(ets) and abs(ets[c] - t) <= lim]
+                if cands:
+                    c = min(cands, key=lambda c: abs(ets[c] - t)); assigned[i] = int(eid[c])
+    imp.loc[list(assigned), "cluster"] = pd.Series(assigned)
+    rest = imp[imp.is_update & (imp.cluster < 0)]
+    for key, g in rest.groupby("loc_key", sort=False):
+        ids = _chain(g.cluster_ts.values.astype("datetime64[ns]").astype(np.int64), (g.ts_precision == "date").values, g.date_kyiv.values)
+        imp.loc[g.index, "cluster"] = ids + nxt
+        nxt += int(ids.max()) + 1
+    return imp
+
+
+def _mode(s: pd.Series, last=("unknown",)):
+    vc = s.dropna().value_counts()
+    vc = vc[~vc.index.isin(last)] if (~vc.index.isin(last)).any() else vc
+    return vc.index[0] if len(vc) else None
+
+
+def build_strike_events(waves: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+    imp = pd.read_parquet(IMPACTS)
+    need = {"geo_id", "oblast_iso_canon", "weapon_class_canon", "lat"}
+    if not need <= set(imp.columns):
+        raise SystemExit("impacts.parquet lacks resolve columns: run 30_resolve.py first")
+    imp = cluster_impacts(imp)
+    imp["post_key"] = imp.channel + "/" + imp.msg_id.astype(str)
+    g = imp.groupby("cluster", sort=True)
+    prec_rank = imp.ts_precision.map({"time": 0, "post_time": 1, "date": 2})
+    # event_ts: earliest incident of the best precision present
+    best = imp.assign(_pr=prec_rank).sort_values(["cluster", "_pr", "cluster_ts"]).groupby("cluster").head(1).set_index("cluster")
+    ev = pd.DataFrame(index=g.size().index)
+    ev["event_ts"] = best.cluster_ts
+    ev["ts_precision"] = best.ts_precision
+    ev["time_is_post_time"] = best.ts_precision.eq("post_time")
+    ev["event_date_kyiv"] = ev.event_ts.dt.tz_convert("Europe/Kyiv").dt.date
+    ev["oblast_iso"] = g.oblast_iso_canon.agg(_mode)
+    ev["raion_raw"] = g.raion_raw.agg(_mode)
+    ev["settlement_raw"] = g.settlement_raw.agg(_mode)
+    ev["loc_key_level"] = g.loc_level.first()
+    geo = imp[imp.geo_id.notna()].sort_values("geo_conf", ascending=False).groupby("cluster").head(1).set_index("cluster")
+    for c in ("geo_id", "geo_level", "geo_conf", "lat", "lon", "h3_r5"):
+        ev[c] = geo[c]
+    spec = {c: i for i, c in enumerate(WEAPON_SPECIFICITY)}
+    ev["weapon_class"] = g.weapon_class_canon.agg(lambda s: min((x for x in s.dropna()), key=lambda x: spec.get(x, 99), default=None))
+    ev["target_type"] = g.target_type.agg(_mode)
+    ev["killed"] = g.killed.max(); ev["wounded"] = g.wounded.max()
+    ev["is_debris_only"] = g.is_debris_only.all()
+    ev["location_withheld"] = g.location_withheld.all()
+    ev["tier"] = "A"
+    ev["n_sources"] = g.post_key.nunique()
+    ev["n_incidents"] = g.size()
+    ev["n_updates"] = g.is_update.sum().astype(int)
+    ev["update_only"] = g.is_update.all()
+    ev["channels"] = g.channel.agg(lambda s: sorted(set(s)))
+    ev["source_msg_ids"] = g.post_key.agg(lambda s: sorted(set(s)))
+    ev["confidence"] = g.confidence.agg(lambda s: min(s.dropna(), key=lambda x: CONF_RANK.get(x, 9), default=None))
+    # wave: [start_ts, end_ts] containing event_ts (waves are disjoint in time)
+    wv = waves.sort_values("start_ts")
+    st = wv.start_ts.dt.tz_convert(None).values.astype("datetime64[ns]"); en = wv.end_ts.dt.tz_convert(None).values.astype("datetime64[ns]")
+    ts = ev.event_ts.dt.tz_convert(None).values.astype("datetime64[ns]")
+    idx = np.searchsorted(st, ts, side="right") - 1
+    ok = (idx >= 0) & (ts <= en[np.clip(idx, 0, len(en) - 1)])
+    ev["wave_id"] = np.where(ok, wv.wave_id.values[np.clip(idx, 0, len(en) - 1)], None)
+    ev = ev.sort_values(["event_ts", "oblast_iso"], kind="mergesort").reset_index(drop=True)
+    ev["event_id"] = ["E" + t.strftime("%Y%m%d-%H%M") + f"-{i:04d}" for i, t in enumerate(ev.event_ts.dt.tz_convert("UTC"))]
+    ev["link_version"] = LINK_VERSION
+    ev["killed"] = ev.killed.astype("Int64"); ev["wounded"] = ev.wounded.astype("Int64"); ev["geo_id"] = ev.geo_id.astype("Int64")
+    ev["wave_id"] = ev.wave_id.astype("string")
+    ev = ev[[f.name for f in STRIKE_SCHEMA]]
+    stats = {"impacts_rows": int(len(imp)), "impacts_updates": int(imp.is_update.sum()),
+             "events": int(len(ev)), "events_update_only": int(ev.update_only.sum()),
+             "updates_merged_rows": int(ev.n_updates[~ev.update_only].sum()),
+             "updates_standalone_rows": int(ev.n_updates[ev.update_only].sum()),
+             "events_multi_source": int((ev.n_sources > 1).sum()), "events_multi_incident": int((ev.n_incidents > 1).sum()),
+             "events_with_coords": int(ev.lat.notna().sum()), "events_with_wave": int(ev.wave_id.notna().sum()),
+             "loc_key_level": ev.loc_key_level.value_counts().to_dict(), "ts_precision": ev.ts_precision.value_counts().to_dict(),
+             "by_oblast": ev.oblast_iso.value_counts().to_dict(), "by_weapon_class": ev.weapon_class.fillna("<none>").value_counts().to_dict(),
+             "by_year": ev.event_ts.dt.year.value_counts().sort_index().to_dict(),
+             "killed_sum_of_event_max": int(ev.killed.sum()), "wounded_sum_of_event_max": int(ev.wounded.sum()),
+             "kyiv_city_events": int((ev.oblast_iso == "UA-30").sum()), "kyiv_oblast_events": int((ev.oblast_iso == "UA-32").sum())}
+    return ev, stats
+
+
+def write_strike_events(waves: pd.DataFrame, cutoff: pd.Timestamp) -> pd.DataFrame:
+    if not IMPACTS.exists():
+        log("impacts.parquet absent: writing empty strike_events with schema")
+        pq.write_table(STRIKE_SCHEMA.empty_table(), OUT_STRIKES)
+        meta = {"output": str(OUT_STRIKES.relative_to(DERIVED.parents[2])), "status": "stub",
+                "reason": "extract/impacts.parquet absent (23_extract_impacts.py not run); schema only, 0 rows",
+                "written_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "link_version": LINK_VERSION, "counts": {"rows": 0}}
+        OUT_STRIKES.with_name("strike_events_meta.json").write_text(json.dumps(meta, indent=2))
+        return pd.DataFrame(columns=[f.name for f in STRIKE_SCHEMA])
+    ev, stats = build_strike_events(waves)
+    n_all = len(ev)
+    ev = ev[ev.event_ts < cutoff].reset_index(drop=True)
+    pq.write_table(pa.Table.from_pandas(ev, schema=STRIKE_SCHEMA, preserve_index=False), OUT_STRIKES)
+    stats.update(rows=int(len(ev)), rows_before_lag_cut=int(n_all))
+    write_meta(OUT_STRIKES, inputs={"impacts": IMPACTS, "waves": OUT_WAVES}, counts=stats,
+               extra={"link_version": LINK_VERSION, "cluster_hours": CLUSTER_H, "update_hours": UPDATE_H, "lag_days": LAG_DAYS,
+                      "cutoff_event_ts_utc": str(cutoff), "weapon_specificity": WEAPON_SPECIFICITY,
+                      "notes": ["killed/wounded = max over an event's sources incl. updates (as last reported), never summed",
+                                "date-only incidents placed at 12:00 Europe/Kyiv (ts_precision='date')",
+                                "raion_raw/settlement_raw are place names as the extractor returned them, no post text"]})
+    log(f"strike_events: {len(ev):,} events from {stats['impacts_rows']:,} incidents; {stats['events_with_coords']:,} with coords; "
+        f"{stats['events_with_wave']:,} inside a wave")
+    return ev
 
 
 def main() -> None:
@@ -260,8 +431,13 @@ def main() -> None:
     n_all = len(w)
     w = w[w.start_ts < cutoff].sort_values("start_ts").reset_index(drop=True)
     links = links[links.wave_id.isin(w.wave_id)]
-    w.to_parquet(OUT_WAVES, index=False)
     links.to_parquet(OUT_LINKS, index=False)
+    w.to_parquet(OUT_WAVES, index=False)            # written first so write_meta can hash it as a strike_events input
+    se = write_strike_events(w, cutoff)
+    n_imp = se.groupby("wave_id").size() if len(se) else pd.Series(dtype="int64")
+    w["n_impacts_linked"] = w.wave_id.map(n_imp).fillna(0).astype("int64")
+    w["n_impacts_linked_kyiv_city"] = w.wave_id.map(se[se.oblast_iso == "UA-30"].groupby("wave_id").size() if len(se) else pd.Series(dtype="int64")).fillna(0).astype("int64")
+    w.to_parquet(OUT_WAVES, index=False)
     yrs = w.start_ts.dt.year
     counts = {
         "rows": int(len(w)), "rows_before_lag_cut": int(n_all), "linked_events": int(len(links)),
@@ -278,14 +454,12 @@ def main() -> None:
         "lag_median_min": {c: (round(float(w[f"lag_min_{c}"].median()), 1) if w[f"lag_min_{c}"].notna().any() else None) for c in LAG_CLASSES},
         "takeoff_to_first_cruise_track_median_min": round(float(w.takeoff_to_first_cruise_track_min.median()), 1),
         "share_tracks_linked": round(float(links[links.kind == "track"].shape[0] / (ev.kind == "track").sum()), 4),
+        "strike_events_linked": int(w.n_impacts_linked.sum()), "waves_with_impacts": int((w.n_impacts_linked > 0).sum()),
     }
     write_meta(OUT_WAVES, inputs={"tracks": TRACKS, "launches": LAUNCHES, "launch_intel": INTEL, "summaries": SUMM, "posts_typed": TYPED},
                counts=counts, extra={"link_version": LINK_VERSION, "quiet_hours": QUIET_H, "lag_days": LAG_DAYS, "cutoff_start_utc": str(cutoff),
                                      "links_table": str(OUT_LINKS.relative_to(DERIVED.parents[2])), "kab_excluded_from_activity": True,
                                      "noon_cut_kyiv_hour": 12})
-    if IMPACTS.exists():
-        log("impacts.parquet present but strike_events clustering not implemented yet; writing stub")
-    stub_strike_events()
     log(json.dumps(counts, default=str))
 
 

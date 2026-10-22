@@ -1,6 +1,6 @@
 {
   "output": "data/derived/telegram/national_night.csv",
-  "written_utc": "2026-10-22T18:05:07+00:00",
+  "written_utc": "2026-10-22T21:03:00+00:00",
   "script": "50_aggregate.py",
   "inputs": {
     "summaries": {
@@ -13,7 +13,7 @@
     },
     "waves": {
       "path": "data/derived/telegram/launch_waves.parquet",
-      "sha256": "20970218abb64076819690f5dfdaa7eb72e9616f35e4114609f5bb7835aecd35"
+      "sha256": "e3f9344cd8545c93b859186d517bcb207216fbd648696b4cea4b9770514a2655"
     }
   },
   "prompt_version": null,

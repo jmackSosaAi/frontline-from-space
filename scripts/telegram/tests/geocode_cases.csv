@@ -14,7 +14,7 @@ id,kind,string,oblast_iso,raion_raw,truth,truth_name_uk,truth_oblast_iso
 13,track,Сікер,UA-32,,skip,,
 14,track,Глухів,,,place,Глухів,UA-59
 15,track,Т,,,none,,
-16,track,Самар,UA-12,,none,,
+16,track,Самар,UA-12,,place,Самар|Новомосковськ,UA-12
 17,track,Запоріжжя,UA-23,,place,Запоріжжя,UA-23
 18,track,Вінничині,,,none,,
 19,track,Чернігів,UA-74,,place,Чернігів,UA-74

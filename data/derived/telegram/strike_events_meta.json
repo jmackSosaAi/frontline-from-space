@@ -1,10 +1,114 @@
 {
   "output": "data/derived/telegram/strike_events.parquet",
-  "status": "stub",
-  "reason": "extract/impacts.parquet absent (23_extract_impacts.py needs the Anthropic API key); schema only, 0 rows",
-  "written_utc": "2026-10-22T18:05:05+00:00",
-  "link_version": "waves-1",
+  "written_utc": "2026-10-22T20:59:48+00:00",
+  "script": "40_link_events.py",
+  "inputs": {
+    "impacts": {
+      "path": "data/interim/telegram/extract/impacts.parquet",
+      "sha256": "ff7347cf2c62bb184784d77a78c56601e5cc9c14b847f141b4c745d18d1db007"
+    },
+    "waves": {
+      "path": "data/derived/telegram/launch_waves.parquet",
+      "sha256": "15c972b0cc32233b9c12e68395050a8932f36ca1fef44990e838dbc3f0425276"
+    }
+  },
+  "prompt_version": null,
   "counts": {
-    "rows": 0
-  }
+    "impacts_rows": 33111,
+    "impacts_updates": 4051,
+    "events": 22050,
+    "events_update_only": 308,
+    "updates_merged_rows": 3683,
+    "updates_standalone_rows": 368,
+    "events_multi_source": 3696,
+    "events_multi_incident": 4282,
+    "events_with_coords": 18568,
+    "events_with_wave": 5814,
+    "loc_key_level": {
+      "geo": 18568,
+      "raion_str": 1628,
+      "oblast": 1582,
+      "settlement_str": 272
+    },
+    "ts_precision": {
+      "post_time": 13492,
+      "date": 5331,
+      "time": 3227
+    },
+    "by_oblast": {
+      "UA-63": 10098,
+      "UA-12": 6762,
+      "UA-23": 3400,
+      "UA-51": 813,
+      "UA-30": 421,
+      "UA-46": 178,
+      "UA-32": 78,
+      "UA-59": 65,
+      "UA-14": 52,
+      "UA-65": 41,
+      "UA-48": 25,
+      "UA-53": 24,
+      "UA-74": 20,
+      "UA-07": 11,
+      "UA-18": 10,
+      "UA-05": 10,
+      "UA-68": 10,
+      "UA-71": 7,
+      "UA-61": 6,
+      "UA-26": 6,
+      "UA-35": 6,
+      "UA-21": 3,
+      "UA-56": 3,
+      "UA-09": 1
+    },
+    "by_weapon_class": {
+      "<none>": 10778,
+      "shahed": 4898,
+      "artillery": 2135,
+      "kab": 1485,
+      "missile": 1146,
+      "fpv": 885,
+      "ballistic": 498,
+      "cruise": 132,
+      "recon_uav": 61,
+      "kinzhal": 18,
+      "jet_uav": 14
+    },
+    "by_year": {
+      "2022": 2677,
+      "2023": 2754,
+      "2024": 4130,
+      "2025": 5183,
+      "2026": 7306
+    },
+    "killed_sum_of_event_max": 7938,
+    "wounded_sum_of_event_max": 41368,
+    "kyiv_city_events": 421,
+    "kyiv_oblast_events": 78,
+    "rows": 21831,
+    "rows_before_lag_cut": 22050
+  },
+  "link_version": "waves-1+strikes-1",
+  "cluster_hours": 3.0,
+  "update_hours": 48.0,
+  "lag_days": 7,
+  "cutoff_event_ts_utc": "2026-10-15 00:00:00+00:00",
+  "weapon_specificity": [
+    "kinzhal",
+    "ballistic",
+    "cruise",
+    "kab",
+    "jet_uav",
+    "shahed",
+    "fpv",
+    "recon_uav",
+    "artillery",
+    "missile",
+    "unknown"
+  ],
+  "notes": [
+    "killed/wounded = max over an event's sources incl. updates (as last reported), never summed",
+    "date-only incidents placed at 12:00 Europe/Kyiv (ts_precision='date')",
+    "raion_raw/settlement_raw are place names as the extractor returned them, no post text"
+  ]
 }

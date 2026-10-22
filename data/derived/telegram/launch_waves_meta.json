@@ -1,15 +1,15 @@
 {
   "output": "data/derived/telegram/launch_waves.parquet",
-  "written_utc": "2026-10-22T18:05:05+00:00",
+  "written_utc": "2026-10-22T20:59:48+00:00",
   "script": "40_link_events.py",
   "inputs": {
     "tracks": {
       "path": "data/interim/telegram/extract/tracks.parquet",
-      "sha256": "f05f4ce35ba78133044ae50679269cd4b97f90815ab7c4ccb2d1b03276a4eed7"
+      "sha256": "fb3b663261f05b309778c5e7ff896c7c390cee710e5a554a3dc0a741399c3dcb"
     },
     "launches": {
       "path": "data/interim/telegram/extract/launches.parquet",
-      "sha256": "b1e99d6e54890d8a9c6f5377bdd0eb70b669f2ec0185c8a37840c8eb1e56bccb"
+      "sha256": "c200ac1d8c0054c2625c23b01e6c952f79fea012b4398e627650ca8320b407ed"
     },
     "launch_intel": {
       "path": "data/interim/telegram/extract/launch_intel.parquet",
@@ -78,9 +78,11 @@
       "shahed": 26.6
     },
     "takeoff_to_first_cruise_track_median_min": 178.4,
-    "share_tracks_linked": 0.6606
+    "share_tracks_linked": 0.6606,
+    "strike_events_linked": 5802,
+    "waves_with_impacts": 1502
   },
-  "link_version": "waves-1",
+  "link_version": "waves-1+strikes-1",
   "quiet_hours": 2.0,
   "lag_days": 7,
   "cutoff_start_utc": "2026-10-15 00:00:00+00:00",

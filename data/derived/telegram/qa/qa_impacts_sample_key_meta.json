@@ -1,0 +1,26 @@
+{
+  "output": "data/derived/telegram/qa/qa_impacts_sample_key.csv",
+  "written_utc": "2026-10-22T21:03:08+00:00",
+  "script": "90_qa_sample.py",
+  "inputs": {
+    "impacts": {
+      "path": "data/interim/telegram/extract/impacts.parquet",
+      "sha256": "ff7347cf2c62bb184784d77a78c56601e5cc9c14b847f141b4c745d18d1db007"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 200,
+    "by_channel": {
+      "synegubov": 56,
+      "dnipropetrovskaODA": 40,
+      "zoda_gov_ua": 34,
+      "VA_Kyiv": 26,
+      "odeskaODA": 23,
+      "kozytskyy_maksym_official": 21
+    }
+  },
+  "seed": 20261014,
+  "text_free": true,
+  "sheet_with_text": "data/interim/telegram/qa/qa_impacts_sample.csv"
+}

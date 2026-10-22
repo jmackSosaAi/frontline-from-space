@@ -1,0 +1,23 @@
+{
+  "output": "data/derived/telegram/impacts_oblastweek.csv",
+  "written_utc": "2026-10-22T21:03:02+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "strike_events": {
+      "path": "data/derived/telegram/strike_events.parquet",
+      "sha256": "3812d55ea6acb25f164784bfc3fe8aba4c2c3c7c485595ed2877431c602f56b2"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 1648,
+    "events_without_coords": 3427,
+    "by_loc_key_level": {
+      "raion_str": 1606,
+      "oblast": 1555,
+      "settlement_str": 266
+    }
+  },
+  "lag_days": 7,
+  "cutoff": "2026-10-15"
+}

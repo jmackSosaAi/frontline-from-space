@@ -1,0 +1,30 @@
+{
+  "output": "data/derived/telegram/qa/qa_typing_sample_key.csv",
+  "written_utc": "2026-10-22T21:03:07+00:00",
+  "script": "90_qa_sample.py",
+  "inputs": {
+    "typed": {
+      "path": "data/interim/telegram/posts_typed_final.parquet",
+      "sha256": "d1edae825dfdc0b8e383ad8d704afad92c47c52f12c694328b4c693368b95c0f"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 500,
+    "per_type": {
+      "alert": 50,
+      "all_clear": 50,
+      "aviation_activity": 50,
+      "daily_summary": 50,
+      "impact_report": 50,
+      "launch": 50,
+      "launch_intel": 50,
+      "other": 50,
+      "track": 50,
+      "ua_strike_on_ru": 50
+    }
+  },
+  "seed": 20261014,
+  "text_free": true,
+  "sheet_with_text": "data/interim/telegram/qa/qa_typing_sample.csv"
+}

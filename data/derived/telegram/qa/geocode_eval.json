@@ -1,11 +1,11 @@
 {
   "settlement": {
     "n": 157,
-    "n_place": 130,
-    "resolved": 127,
-    "correct": 123,
+    "n_place": 131,
+    "resolved": 128,
+    "correct": 124,
     "precision": 0.969,
-    "recall": 0.946,
+    "recall": 0.947,
     "false_positive_on_none_or_ambiguous": 2,
     "wrong_place": 2,
     "missed_place": 5
@@ -22,8 +22,8 @@
   },
   "settlement_track": {
     "n": 117,
-    "precision": 0.955,
-    "recall": 0.924
+    "precision": 0.956,
+    "recall": 0.925
   },
   "precision_by_method": {
     "geonames_exact": {
@@ -35,8 +35,8 @@
       "correct": 1
     },
     "viina_exact": {
-      "n": 51,
-      "correct": 50
+      "n": 52,
+      "correct": 51
     },
     "viina_exact_dup": {
       "n": 2,
@@ -92,8 +92,8 @@
     }
   },
   "settlement_conf_ge_0.8": {
-    "resolved": 97,
-    "correct": 95
+    "resolved": 98,
+    "correct": 96
   },
   "launch_site": {
     "n": 40,

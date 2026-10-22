@@ -4,7 +4,19 @@
   launch_waves_week.csv   ISO week x wave counts by start kind / platform / weapon class, durations, lags.
   kyiv_tracks_week.csv    ISO week x tracks over Kyiv city (UA-30) or heading toward Kyiv city; oblast (UA-32) kept
                           as a separate column, never merged (TELEGRAM_PIPELINE.md §5 "Oblast != city").
-Still missing (need impacts.parquet): kyiv_strikes_week.csv impacts columns, impacts_cellweek.csv, firms_match.csv.
+  impacts_cellweek.csv    H3 res-5 cell x ISO week x weapon_class x tier -> n_events, n_sources, killed, wounded, from
+                          strike_events with coordinates. impacts_oblastweek.csv is the same for events without
+                          coordinates (oblast x week), so nothing is silently dropped.
+  kyiv_strikes_week.csv   ISO week x n_waves_reaching_kyiv (tracks over UA-30), n_impacts_tier_A (strike events in Kyiv
+                          city, UA-30), n_impacts_kyiv_oblast (UA-32, separate column), n_tracks_toward_kyiv,
+                          n_alert_hours (VA_Kyiv alert -> next all_clear, state machine, capped at ALERT_CAP_H, week of
+                          the alert start), killed/wounded in the city. H12 input.
+  firms_match.csv         one row per tier-A strike event with coordinates: nearest FIRMS VIIRS detection (SNPP, NOAA-20,
+                          NOAA-21; SP + NRT from data/raw/firms_api/ukraine) within FIRMS_RADIUS_M in
+                          [event_ts - 1 h, event_ts + 12 h] (date-only events: the whole Kyiv date - 1 h .. + 12 h,
+                          window_kind='date'), plus a placebo column for the same place and window 7 days earlier.
+                          Observability covariates (ERA5 cloud / snow) are not attached yet (meta says so).
+All derived tables carry msg_ids / counts only and respect the >= LAG_DAYS lag.
 
 No raw text leaves data/interim: the derived CSV carries msg_ids and numbers only. The disagreement list
 with both texts is written to data/interim/telegram/extract/qa_ivaniuk_disagreements.csv.
@@ -12,6 +24,7 @@ with both texts is written to data/interim/telegram/extract/qa_ivaniuk_disagreem
 from __future__ import annotations
 import json, sys, datetime as dt
 from pathlib import Path
+import numpy as np
 import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import ROOT, INTERIM, DERIVED, write_meta, log, kyiv_flags
@@ -28,6 +41,18 @@ OUT_KYIV_WEEK = DERIVED / "kyiv_tracks_week.csv"
 LAG_CLASSES = ["cruise", "ballistic", "kinzhal", "shahed"]
 QA_DIR = DERIVED / "qa"
 LAG_DAYS = 7
+STRIKES = DERIVED / "strike_events.parquet"
+TYPED_FINAL = INTERIM / "posts_typed_final.parquet"
+FIRMS_DIR = ROOT / "data" / "raw" / "firms_api" / "ukraine"
+OUT_CELLWEEK = DERIVED / "impacts_cellweek.csv"
+OUT_OBLWEEK = DERIVED / "impacts_oblastweek.csv"
+OUT_KYIV_STRIKES = DERIVED / "kyiv_strikes_week.csv"
+OUT_FIRMS = DERIVED / "firms_match.csv"
+FIRMS_RADIUS_M = 1000.0
+FIRMS_RADIUS_WIDE_M = 3000.0   # diagnostic only: settlement centroids sit km from the actual hit in towns
+FIRMS_BEFORE_H, FIRMS_AFTER_H = 1.0, 12.0
+PLACEBO_DAYS = 7
+ALERT_CAP_H = 12.0
 CATEGORY_BREAK = dt.date(2026, 8, 10)  # Air Force stopped reporting some per-type counts
 
 
@@ -149,6 +174,12 @@ def main() -> None:
     log(json.dumps(stats, default=str))
     waves_week(cutoff)
     kyiv_week(cutoff)
+    if STRIKES.exists() and len(pd.read_parquet(STRIKES, columns=["event_id"])):
+        impacts_cellweek(cutoff)
+        kyiv_strikes_week(cutoff)
+        firms_match(cutoff)
+    else:
+        log("strike_events.parquet empty or missing: impacts_cellweek / kyiv_strikes_week / firms_match skipped")
 
 
 def iso_week(ts: pd.Series) -> pd.DataFrame:
@@ -241,6 +272,219 @@ def kyiv_week(cutoff: dt.date) -> None:
                "toward_only_tracks": int((t.toward & ~t.city).sum()), "oblast_only_tracks": int((t.oblast & ~t.city & ~t.toward).sum())},
                extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff)})
     log(f"kyiv_tracks_week: {len(agg)} weeks, city tracks {int(t.city.sum())}")
+
+
+# ----------------------------------------------------------------------------------------------- impacts (L6)
+def load_strikes(cutoff: dt.date) -> pd.DataFrame:
+    e = pd.read_parquet(STRIKES)
+    e = e[e.event_ts.dt.tz_convert("Europe/Kyiv").dt.date <= cutoff].copy()
+    e["weapon_class"] = e.weapon_class.fillna("unknown")
+    e["killed"] = e.killed.fillna(0).astype(int); e["wounded"] = e.wounded.fillna(0).astype(int)
+    return pd.concat([e, iso_week(e.event_ts)], axis=1)
+
+
+def impacts_cellweek(cutoff: dt.date) -> None:
+    e = load_strikes(cutoff)
+    def agg(d, keys):
+        g = d.groupby(keys, dropna=False)
+        out = pd.DataFrame({"n_events": g.size(), "n_sources": g.n_sources.sum(), "n_incidents": g.n_incidents.sum(),
+                            "n_multi_source": g.n_sources.apply(lambda s: int((s > 1).sum())),
+                            "killed": g.killed.sum(), "wounded": g.wounded.sum(),
+                            "n_debris_only": g.is_debris_only.sum().astype(int),
+                            "n_time_known": g.ts_precision.apply(lambda s: int((s != "date").sum()))}).reset_index()
+        return out.sort_values(keys)
+    wc = e[e.lat.notna()]
+    cw = agg(wc.assign(oblast_iso=wc.oblast_iso), ["h3_r5", "iso_year", "iso_week", "week_start", "weapon_class", "tier"])
+    # oblast of the cell = modal oblast of its events (a res-5 cell can straddle a border)
+    cell_ob = wc.groupby("h3_r5").oblast_iso.agg(lambda s: s.value_counts().index[0] if s.notna().any() else None)
+    cw.insert(1, "oblast_iso", cw.h3_r5.map(cell_ob))
+    cw.to_csv(OUT_CELLWEEK, index=False)
+    write_meta(OUT_CELLWEEK, inputs={"strike_events": STRIKES}, counts={"rows": int(len(cw)), "events": int(len(wc)), "cells": int(wc.h3_r5.nunique()),
+               "events_by_year": wc.groupby("iso_year").size().to_dict(), "killed": int(wc.killed.sum()), "wounded": int(wc.wounded.sum())},
+               extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff), "h3_resolution": 5, "casualties": "sum over events of the per-event max across sources"})
+    nc = e[e.lat.isna()]
+    ow = agg(nc, ["oblast_iso", "iso_year", "iso_week", "week_start", "weapon_class", "tier"])
+    ow["n_location_withheld"] = nc.groupby(["oblast_iso", "iso_year", "iso_week", "week_start", "weapon_class", "tier"], dropna=False).location_withheld.sum().astype(int).values
+    ow.to_csv(OUT_OBLWEEK, index=False)
+    write_meta(OUT_OBLWEEK, inputs={"strike_events": STRIKES}, counts={"rows": int(len(ow)), "events_without_coords": int(len(nc)),
+               "by_loc_key_level": nc.loc_key_level.value_counts().to_dict()}, extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff)})
+    log(f"impacts_cellweek: {len(cw)} cell-weeks from {len(wc)} events; oblast-week: {len(ow)} rows from {len(nc)} events without coords")
+
+
+def kyiv_alert_hours(cutoff: dt.date) -> tuple[pd.DataFrame, dict]:
+    """VA_Kyiv alert -> next all_clear. State machine: an alert opens an episode if none is open (repeat alert posts
+    inside an episode are ignored); the next all_clear closes it. Episodes longer than ALERT_CAP_H are capped
+    (missed all_clear). Hours are attributed to the ISO week of the alert start."""
+    t = pd.read_parquet(TYPED_FINAL, columns=["channel", "msg_id", "ts_utc", "post_type"])
+    t = t[(t.channel == "VA_Kyiv") & t.post_type.isin(["alert", "all_clear"])].sort_values(["ts_utc", "msg_id"])
+    open_ts, eps, dup_alert, unpaired_clear = None, [], 0, 0
+    for r in t.itertuples():
+        if r.post_type == "alert":
+            if open_ts is None:
+                open_ts = r.ts_utc
+            else:
+                dup_alert += 1
+        else:
+            if open_ts is None:
+                unpaired_clear += 1
+                continue
+            h = (r.ts_utc - open_ts).total_seconds() / 3600
+            eps.append((open_ts, min(h, ALERT_CAP_H), h > ALERT_CAP_H)); open_ts = None
+    ep = pd.DataFrame(eps, columns=["start_ts", "hours", "capped"])
+    ep = ep[ep.start_ts.dt.tz_convert("Europe/Kyiv").dt.date <= cutoff]
+    ep = pd.concat([ep, iso_week(ep.start_ts)], axis=1)
+    g = ep.groupby(["iso_year", "iso_week", "week_start"])
+    out = pd.DataFrame({"n_alert_episodes": g.size(), "n_alert_hours": g.hours.sum().round(2), "n_alert_episodes_capped": g.capped.sum().astype(int)}).reset_index()
+    info = {"episodes": int(len(ep)), "repeat_alert_posts_ignored": int(dup_alert), "all_clear_without_alert": int(unpaired_clear),
+            "episodes_capped": int(ep.capped.sum()), "median_hours": round(float(ep.hours.median()), 2) if len(ep) else None,
+            "first_alert": str(ep.start_ts.min()) if len(ep) else None}
+    return out, info
+
+
+def kyiv_strikes_week(cutoff: dt.date) -> None:
+    e = load_strikes(cutoff)
+    keys = ["iso_year", "iso_week", "week_start"]
+    city = e[e.oblast_iso == "UA-30"]; obl = e[e.oblast_iso == "UA-32"]
+    gc = city.groupby(keys); go = obl.groupby(keys)
+    imp = pd.DataFrame({"n_impacts_tier_A": gc.size(), "n_impacts_tier_A_with_coords": gc.lat.apply(lambda s: int(s.notna().sum())),
+                        "n_impacts_tier_A_debris_only": gc.is_debris_only.sum().astype(int),
+                        "n_impact_incidents_kyiv_city": gc.n_incidents.sum(), "n_impact_sources_kyiv_city": gc.n_sources.sum(),
+                        "killed_kyiv_city": gc.killed.sum(), "wounded_kyiv_city": gc.wounded.sum(),
+                        "n_days_with_impact_kyiv_city": gc.event_date_kyiv.nunique(),
+                        "n_impacts_in_wave_kyiv_city": gc.wave_id.apply(lambda s: int(s.notna().sum()))})
+    for cls in ["shahed", "cruise", "ballistic", "kinzhal", "unknown"]:
+        imp[f"n_impacts_kyiv_city_{cls}"] = gc.weapon_class.apply(lambda s, c=cls: int((s == c).sum()))
+    impo = pd.DataFrame({"n_impacts_kyiv_oblast": go.size(), "killed_kyiv_oblast": go.killed.sum(), "wounded_kyiv_oblast": go.wounded.sum()})
+    # waves + tracks from the already-written weekly tables (same flags, same lag)
+    kw = pd.read_csv(OUT_KYIV_WEEK)[keys + ["n_waves_reaching_kyiv_city", "n_waves_toward_kyiv_city", "n_tracks_kyiv_city", "n_tracks_toward_kyiv_city", "n_tracks_kyiv_oblast_only"]]
+    kw = kw.rename(columns={"n_waves_reaching_kyiv_city": "n_waves_reaching_kyiv", "n_tracks_toward_kyiv_city": "n_tracks_toward_kyiv"})
+    kw["week_start"] = pd.to_datetime(kw.week_start).dt.date
+    al, al_info = kyiv_alert_hours(cutoff)
+    out = kw.merge(imp.reset_index(), on=keys, how="outer").merge(impo.reset_index(), on=keys, how="outer").merge(al, on=keys, how="outer")
+    for c in out.columns:
+        if c.startswith(("n_", "killed", "wounded")) and c != "n_alert_hours":
+            out[c] = out[c].fillna(0).astype("int64")
+    out["n_alert_hours"] = out.n_alert_hours.fillna(0.0)
+    out = out.sort_values(keys).reset_index(drop=True)
+    out.to_csv(OUT_KYIV_STRIKES, index=False)
+    write_meta(OUT_KYIV_STRIKES, inputs={"strike_events": STRIKES, "kyiv_tracks_week": OUT_KYIV_WEEK, "posts_typed_final": TYPED_FINAL},
+               counts={"rows": int(len(out)), "kyiv_city_events": int(len(city)), "kyiv_oblast_events": int(len(obl)),
+                       "kyiv_city_events_by_year": city.groupby("iso_year").size().to_dict(), "alerts": al_info},
+               extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff), "alert_cap_hours": ALERT_CAP_H,
+                      "notes": ["UA-30 = Kyiv city (H12 unit); UA-32 = Kyiv oblast, separate columns, never merged",
+                                "n_alert_hours from VA_Kyiv alert/all_clear posts only (not the official siren API)"]})
+    log(f"kyiv_strikes_week: {len(out)} weeks; {len(city)} city events; alert episodes {al_info['episodes']}")
+
+
+def load_firms() -> pd.DataFrame:
+    files = sorted(FIRMS_DIR.glob("VIIRS_*/*/*.csv"))
+    parts = []
+    for f in files:
+        d = pd.read_csv(f, usecols=["latitude", "longitude", "acq_date", "acq_time", "satellite", "confidence", "frp", "daynight"],
+                        dtype={"acq_date": str, "satellite": str, "confidence": str, "daynight": str})
+        d["source"] = f.parent.parent.name
+        parts.append(d)
+    fi = pd.concat([x for x in parts if len(x)], ignore_index=True)
+    n0 = len(fi)
+    fi = fi.drop_duplicates(["latitude", "longitude", "acq_date", "acq_time", "satellite"])
+    t = fi.acq_time.astype(int)
+    fi["ts"] = pd.to_datetime(fi.acq_date, utc=True) + pd.to_timedelta(t // 100, unit="h") + pd.to_timedelta(t % 100, unit="m")
+    fi = fi.sort_values("ts").reset_index(drop=True)
+    log(f"FIRMS: {len(fi):,} detections from {len(files)} files ({n0 - len(fi):,} SP/NRT duplicates dropped); "
+        f"{fi.ts.min().date()}..{fi.ts.max().date()}; satellites {fi.satellite.value_counts().to_dict()}")
+    return fi
+
+
+def _nearest(fi_ts, fi_lat, fi_lon, lo, hi, lat, lon):
+    """nearest detection in [lo, hi] (int64 ns) within FIRMS_RADIUS_M -> (idx|None, dist_m, n_within, n_within_wide)"""
+    i0, i1 = np.searchsorted(fi_ts, lo), np.searchsorted(fi_ts, hi, side="right")
+    if i1 <= i0:
+        return None, None, 0, 0
+    la = fi_lat[i0:i1]; lo_ = fi_lon[i0:i1]
+    dlat = np.abs(la - lat); box = dlat < (FIRMS_RADIUS_WIDE_M / 111_195.0) * 1.1
+    if not box.any():
+        return None, None, 0, 0
+    j = np.nonzero(box)[0]
+    dlon = (lo_[j] - lon) * np.cos(np.radians(lat))
+    d = np.hypot(dlat[j] * 111_195.0, dlon * 111_195.0)
+    nw = int((d <= FIRMS_RADIUS_WIDE_M).sum())
+    k = np.nonzero(d <= FIRMS_RADIUS_M)[0]
+    if len(k) == 0:
+        return None, None, 0, nw
+    b = k[np.argmin(d[k])]
+    return int(i0 + j[b]), float(d[b]), int(len(k)), nw
+
+
+def firms_match(cutoff: dt.date) -> None:
+    e = load_strikes(cutoff)
+    e = e[(e.tier == "A") & e.lat.notna()].copy()
+    fi = load_firms()
+    fi_ts = fi.ts.values.astype("datetime64[ns]").astype(np.int64)
+    fi_lat = fi.latitude.values.astype(float); fi_lon = fi.longitude.values.astype(float)
+    H = np.int64(3600e9)
+    ev_ts = e.event_ts.values.astype("datetime64[ns]").astype(np.int64)
+    kyiv_day0 = e.event_ts.dt.tz_convert("Europe/Kyiv").dt.normalize()
+    day_lo = kyiv_day0.dt.tz_convert("UTC").values.astype("datetime64[ns]").astype(np.int64)
+    day_hi = (kyiv_day0 + pd.Timedelta(days=1)).dt.tz_convert("UTC").values.astype("datetime64[ns]").astype(np.int64)
+    date_only = (e.ts_precision == "date").values
+    lo = np.where(date_only, day_lo - np.int64(FIRMS_BEFORE_H * 3600e9), ev_ts - np.int64(FIRMS_BEFORE_H * 3600e9))
+    hi = np.where(date_only, day_hi + np.int64(FIRMS_AFTER_H * 3600e9), ev_ts + np.int64(FIRMS_AFTER_H * 3600e9))
+    shift = np.int64(PLACEBO_DAYS * 24) * H
+    rows = []
+    for n, (lat, lon, a, b) in enumerate(zip(e.lat.values, e.lon.values, lo, hi)):
+        i, d, k, kw = _nearest(fi_ts, fi_lat, fi_lon, a, b, lat, lon)
+        ip, dp, kp, kwp = _nearest(fi_ts, fi_lat, fi_lon, a - shift, b - shift, lat, lon)
+        rows.append((i, d, k, kw, ip is not None, kp, kwp))
+    m = pd.DataFrame(rows, columns=["_i", "dist_m", "n_firms_within_1km_12h", "n_firms_within_3km_12h", "matched_placebo_m7d",
+                                    "n_firms_placebo_m7d", "n_firms_placebo_m7d_3km"], index=e.index)
+    hit = m._i.notna()
+    f = fi.loc[m._i[hit].astype(int).values]
+    out = pd.DataFrame({"event_id": e.event_id, "event_ts": e.event_ts.dt.strftime("%Y-%m-%dT%H:%M:%SZ"), "ts_precision": e.ts_precision,
+                        "window_kind": np.where(date_only, "date", "ts"), "h3_r5": e.h3_r5, "oblast_iso": e.oblast_iso,
+                        "weapon_class": e.weapon_class, "target_type": e.target_type, "geo_level": e.geo_level, "geo_conf": e.geo_conf,
+                        "n_sources": e.n_sources, "killed": e.killed, "wounded": e.wounded, "is_debris_only": e.is_debris_only,
+                        "matched": hit, "firms_ts": pd.Series(index=e.index, dtype="object"), "dist_m": m.dist_m.round(0),
+                        "frp": pd.Series(index=e.index, dtype="float"), "satellite": pd.Series(index=e.index, dtype="object"),
+                        "daynight": pd.Series(index=e.index, dtype="object"), "confidence": pd.Series(index=e.index, dtype="object"),
+                        "n_firms_within_1km_12h": m.n_firms_within_1km_12h, "matched_placebo_m7d": m.matched_placebo_m7d,
+                        "n_firms_placebo_m7d": m.n_firms_placebo_m7d,
+                        "matched_3km": m.n_firms_within_3km_12h > 0, "n_firms_within_3km_12h": m.n_firms_within_3km_12h,
+                        "matched_placebo_m7d_3km": m.n_firms_placebo_m7d_3km > 0})
+    out.loc[hit, "firms_ts"] = f.ts.dt.strftime("%Y-%m-%dT%H:%MZ").values
+    out.loc[hit, "frp"] = f.frp.values; out.loc[hit, "satellite"] = f.satellite.values
+    out.loc[hit, "daynight"] = f.daynight.values; out.loc[hit, "confidence"] = f.confidence.values
+    out["lag_h"] = ((pd.to_datetime(out.firms_ts, utc=True) - e.event_ts).dt.total_seconds() / 3600).round(2)
+    out = out.sort_values("event_ts").reset_index(drop=True)
+    out.to_csv(OUT_FIRMS, index=False)
+    def rate(d):
+        return {"n": int(len(d)), "match": round(float(d.matched.mean()), 4) if len(d) else None,
+                "placebo": round(float(d.matched_placebo_m7d.mean()), 4) if len(d) else None,
+                "match_3km": round(float(d.matched_3km.mean()), 4) if len(d) else None,
+                "placebo_3km": round(float(d.matched_placebo_m7d_3km.mean()), 4) if len(d) else None}
+    firms_end = fi.ts.max()
+    cov = out[pd.to_datetime(out.event_ts, utc=True) <= firms_end]
+    yr = pd.to_datetime(out.event_ts).dt.year
+    stats = {"rows": int(len(out)), "events_within_firms_coverage": int(len(cov)), "firms_last_detection": str(firms_end),
+             "overall": rate(out), "overall_within_coverage": rate(cov),
+             "by_weapon_class": {k: rate(d) for k, d in out.groupby("weapon_class")},
+             "by_year": {int(k): rate(d) for k, d in out.groupby(yr)},
+             "by_window_kind": {k: rate(d) for k, d in out.groupby("window_kind")},
+             "by_geo_level": {k: rate(d) for k, d in out.groupby("geo_level")},
+             "by_target_type": {k: rate(d) for k, d in out.groupby("target_type")},
+             "kyiv_city": rate(out[out.oblast_iso == "UA-30"]),
+             "median_lag_h_matched": round(float(out.lag_h[out.matched].median()), 2) if out.matched.any() else None,
+             "median_dist_m_matched": round(float(out.dist_m[out.matched].median()), 0) if out.matched.any() else None,
+             "firms_detections": int(len(fi))}
+    write_meta(OUT_FIRMS, inputs={"strike_events": STRIKES}, counts=stats,
+               extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff), "radius_m": FIRMS_RADIUS_M, "window_h": [-FIRMS_BEFORE_H, FIRMS_AFTER_H],
+                      "placebo_shift_days": PLACEBO_DAYS, "wide_radius_m_diagnostic": FIRMS_RADIUS_WIDE_M, "firms_dir": str(FIRMS_DIR.relative_to(ROOT)),
+                      "firms_sources": sorted(fi.source.unique().tolist()),
+                      "observability_covariates": "not attached yet (ERA5 cloud cover / snow to be joined later)",
+                      "notes": ["date-only events use the whole Kyiv date -1 h .. +12 h (window_kind='date')",
+                                "placebo = same place, same window shifted 7 days earlier; match - placebo is the excess detection rate",
+                                "a non-match is not evidence of no fire: cloud, overpass timing, small or short fires"]})
+    log(f"firms_match: {len(out)} events, match {stats['overall']['match']}, placebo {stats['overall']['placebo']}; "
+        f"by class {json.dumps({k: v['match'] for k, v in stats['by_weapon_class'].items()})}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,18 @@
+{
+  "output": "data/derived/telegram/qa/qa_impacts_empty_sample_key.csv",
+  "written_utc": "2026-10-22T21:03:08+00:00",
+  "script": "90_qa_sample.py",
+  "inputs": {
+    "impacts_posts": {
+      "path": "data/interim/telegram/extract/impacts_posts.parquet",
+      "sha256": "f22a064b33bc5ea52299d1584eb65255b638aa6364378130ff49c816165228ca"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 50
+  },
+  "seed": 20261014,
+  "text_free": true,
+  "sheet_with_text": "data/interim/telegram/qa/qa_impacts_empty_sample.csv"
+}

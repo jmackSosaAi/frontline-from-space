@@ -1,0 +1,285 @@
+{
+  "output": "data/derived/telegram/firms_match.csv",
+  "written_utc": "2026-10-22T21:03:06+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "strike_events": {
+      "path": "data/derived/telegram/strike_events.parquet",
+      "sha256": "3812d55ea6acb25f164784bfc3fe8aba4c2c3c7c485595ed2877431c602f56b2"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 18404,
+    "events_within_firms_coverage": 18404,
+    "firms_last_detection": "2026-10-22 12:08:00+00:00",
+    "overall": {
+      "n": 18404,
+      "match": 0.0126,
+      "placebo": 0.0065,
+      "match_3km": 0.0546,
+      "placebo_3km": 0.0397
+    },
+    "overall_within_coverage": {
+      "n": 18404,
+      "match": 0.0126,
+      "placebo": 0.0065,
+      "match_3km": 0.0546,
+      "placebo_3km": 0.0397
+    },
+    "by_weapon_class": {
+      "artillery": {
+        "n": 1968,
+        "match": 0.0076,
+        "placebo": 0.0041,
+        "match_3km": 0.0259,
+        "placebo_3km": 0.0239
+      },
+      "ballistic": {
+        "n": 407,
+        "match": 0.0025,
+        "placebo": 0.0,
+        "match_3km": 0.0295,
+        "placebo_3km": 0.0319
+      },
+      "cruise": {
+        "n": 91,
+        "match": 0.0,
+        "placebo": 0.0,
+        "match_3km": 0.044,
+        "placebo_3km": 0.011
+      },
+      "fpv": {
+        "n": 832,
+        "match": 0.006,
+        "placebo": 0.006,
+        "match_3km": 0.0361,
+        "placebo_3km": 0.0361
+      },
+      "jet_uav": {
+        "n": 4,
+        "match": 0.0,
+        "placebo": 0.0,
+        "match_3km": 0.0,
+        "placebo_3km": 0.0
+      },
+      "kab": {
+        "n": 1261,
+        "match": 0.0087,
+        "placebo": 0.0032,
+        "match_3km": 0.0571,
+        "placebo_3km": 0.0412
+      },
+      "kinzhal": {
+        "n": 12,
+        "match": 0.0,
+        "placebo": 0.0,
+        "match_3km": 0.0,
+        "placebo_3km": 0.0
+      },
+      "missile": {
+        "n": 925,
+        "match": 0.0022,
+        "placebo": 0.0032,
+        "match_3km": 0.0422,
+        "placebo_3km": 0.0432
+      },
+      "recon_uav": {
+        "n": 56,
+        "match": 0.0,
+        "placebo": 0.0,
+        "match_3km": 0.0179,
+        "placebo_3km": 0.0536
+      },
+      "shahed": {
+        "n": 4206,
+        "match": 0.0031,
+        "placebo": 0.001,
+        "match_3km": 0.0373,
+        "placebo_3km": 0.0314
+      },
+      "unknown": {
+        "n": 8642,
+        "match": 0.0213,
+        "placebo": 0.011,
+        "match_3km": 0.0738,
+        "placebo_3km": 0.0478
+      }
+    },
+    "by_year": {
+      "2022": {
+        "n": 2223,
+        "match": 0.004,
+        "placebo": 0.004,
+        "match_3km": 0.0414,
+        "placebo_3km": 0.0382
+      },
+      "2023": {
+        "n": 2364,
+        "match": 0.0055,
+        "placebo": 0.0017,
+        "match_3km": 0.0321,
+        "placebo_3km": 0.025
+      },
+      "2024": {
+        "n": 3646,
+        "match": 0.0134,
+        "placebo": 0.0052,
+        "match_3km": 0.0603,
+        "placebo_3km": 0.0417
+      },
+      "2025": {
+        "n": 4329,
+        "match": 0.0132,
+        "placebo": 0.0076,
+        "match_3km": 0.0538,
+        "placebo_3km": 0.036
+      },
+      "2026": {
+        "n": 5842,
+        "match": 0.0176,
+        "placebo": 0.0092,
+        "match_3km": 0.0656,
+        "placebo_3km": 0.0478
+      }
+    },
+    "by_window_kind": {
+      "date": {
+        "n": 4455,
+        "match": 0.0323,
+        "placebo": 0.0193,
+        "match_3km": 0.0893,
+        "placebo_3km": 0.0548
+      },
+      "ts": {
+        "n": 13949,
+        "match": 0.0062,
+        "placebo": 0.0024,
+        "match_3km": 0.0434,
+        "placebo_3km": 0.0349
+      }
+    },
+    "by_geo_level": {
+      "city": {
+        "n": 8,
+        "match": 0.0,
+        "placebo": 0.0,
+        "match_3km": 0.0,
+        "placebo_3km": 0.0
+      },
+      "hromada_seat": {
+        "n": 663,
+        "match": 0.0015,
+        "placebo": 0.0015,
+        "match_3km": 0.0106,
+        "placebo_3km": 0.0106
+      },
+      "raion": {
+        "n": 3320,
+        "match": 0.0003,
+        "placebo": 0.0009,
+        "match_3km": 0.019,
+        "placebo_3km": 0.0163
+      },
+      "settlement": {
+        "n": 14413,
+        "match": 0.0159,
+        "placebo": 0.008,
+        "match_3km": 0.0648,
+        "placebo_3km": 0.0465
+      }
+    },
+    "by_target_type": {
+      "agri": {
+        "n": 582,
+        "match": 0.0086,
+        "placebo": 0.0,
+        "match_3km": 0.0344,
+        "placebo_3km": 0.0172
+      },
+      "energy": {
+        "n": 722,
+        "match": 0.0055,
+        "placebo": 0.0055,
+        "match_3km": 0.0568,
+        "placebo_3km": 0.0568
+      },
+      "industrial": {
+        "n": 1015,
+        "match": 0.0118,
+        "placebo": 0.0049,
+        "match_3km": 0.066,
+        "placebo_3km": 0.0502
+      },
+      "military": {
+        "n": 12,
+        "match": 0.0833,
+        "placebo": 0.0,
+        "match_3km": 0.0833,
+        "placebo_3km": 0.0
+      },
+      "other": {
+        "n": 2775,
+        "match": 0.0101,
+        "placebo": 0.004,
+        "match_3km": 0.0649,
+        "placebo_3km": 0.0389
+      },
+      "residential": {
+        "n": 9009,
+        "match": 0.0159,
+        "placebo": 0.0082,
+        "match_3km": 0.0581,
+        "placebo_3km": 0.0406
+      },
+      "transport": {
+        "n": 467,
+        "match": 0.0043,
+        "placebo": 0.0064,
+        "match_3km": 0.0171,
+        "placebo_3km": 0.0214
+      },
+      "unknown": {
+        "n": 3822,
+        "match": 0.0094,
+        "placebo": 0.0058,
+        "match_3km": 0.0429,
+        "placebo_3km": 0.0379
+      }
+    },
+    "kyiv_city": {
+      "n": 408,
+      "match": 0.0,
+      "placebo": 0.0,
+      "match_3km": 0.0343,
+      "placebo_3km": 0.0123
+    },
+    "median_lag_h_matched": 3.87,
+    "median_dist_m_matched": 555.0,
+    "firms_detections": 1527468
+  },
+  "lag_days": 7,
+  "cutoff": "2026-10-15",
+  "radius_m": 1000.0,
+  "window_h": [
+    -1.0,
+    12.0
+  ],
+  "placebo_shift_days": 7,
+  "wide_radius_m_diagnostic": 3000.0,
+  "firms_dir": "data/raw/firms_api/ukraine",
+  "firms_sources": [
+    "VIIRS_NOAA20_NRT",
+    "VIIRS_NOAA20_SP",
+    "VIIRS_NOAA21_NRT",
+    "VIIRS_NOAA21_SP",
+    "VIIRS_SNPP_NRT",
+    "VIIRS_SNPP_SP"
+  ],
+  "observability_covariates": "not attached yet (ERA5 cloud cover / snow to be joined later)",
+  "notes": [
+    "date-only events use the whole Kyiv date -1 h .. +12 h (window_kind='date')",
+    "placebo = same place, same window shifted 7 days earlier; match - placebo is the excess detection rate",
+    "a non-match is not evidence of no fire: cloud, overpass timing, small or short fires"
+  ]
+}

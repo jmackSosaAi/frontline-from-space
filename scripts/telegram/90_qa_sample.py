@@ -8,7 +8,8 @@ Impacts:  200 incident rows from extract/impacts.parquet, stratified by channel 
           Skipped with a message if 23_extract_impacts.py has not run.
 
 Raw post text is needed by the checker, so the CSVs WITH text go to data/interim/telegram/qa/ (gitignored).
-data/derived/telegram/qa/ gets text-free key copies (channel, msg_id, labels, blank columns) that can be committed.
+data/derived/telegram/qa/ gets text-free key copies (channel, msg_id, labels, blank columns) that can be committed;
+damage_text_short (LLM-written) stays in the interim sheet only.
 Blank columns (human_*, chk_*) are for the checker: y/n, or the corrected value. Re-running overwrites with the same
 sample (fixed seed) but never touches a filled-in sheet: if <name>.csv already has any non-blank human/chk cell the
 fresh sample is written to <name>.new.csv instead.
@@ -105,7 +106,7 @@ def impacts_sample():
                   "killed", "wounded", "is_debris_only", "is_update", "damage_text_short", "confidence"]
     cols = ["channel", "msg_id", "url"] + model_cols + ["text"]
     out = s[cols].reset_index(drop=True)
-    write_sheet(out, "qa_impacts_sample", IMP_BLANK, ["channel", "msg_id", "url"] + model_cols,
+    write_sheet(out, "qa_impacts_sample", IMP_BLANK, ["channel", "msg_id", "url"] + [c for c in model_cols if c != "damage_text_short"],
                 {"impacts": IMPACTS}, {"rows": len(out), "by_channel": out.channel.value_counts().to_dict()})
 
     posts = pd.read_parquet(IMPACTS_POSTS)

@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 """L4 resolve: canonical weapon_class / oblast (ISO 3166-2:UA) + settlement and launch-site geocoding.
 
-In place on data/interim/telegram/extract/{tracks,launches,launch_intel}.parquet (adds columns; the
-columns this script adds are dropped and rebuilt on every run, so it is idempotent).
+In place on data/interim/telegram/extract/{tracks,launches,launch_intel,impacts}.parquet (adds columns; the
+columns this script adds are dropped and rebuilt on every run, so it is idempotent). impacts.parquet is
+skipped with a note when 23_extract_impacts.py has not run.
 
 Settlements: VIINA tessellation (data/raw/viina/gn_UA_tess.geojson, GeoNames P-features) first,
 GeoNames UA (P-features absent from the tessellation) second. Oblast-constrained when an oblast is known.
@@ -16,7 +17,15 @@ Added columns:
   tracks     : oblast_iso_canon, oblast_canon_src, geo_* (settlement_raw, else raion_raw)
   launches   : target_oblast_iso, target_oblast_iso_all, geo_* (target_settlement_raw), site_* (launch_site_raw)
   launch_intel: loc_* (location_raw)
-geo_*: geo_method, geo_conf, geo_level {settlement, raion, raion_seat}, geo_name, geo_id, geo_n_cand,
+  impacts    : weapon_class_canon/weapon_canon_src (weapon_raw via taxonomy + the frontline classes below),
+               oblast_iso_canon/oblast_canon_src (oblast_raw, else the channel's home oblast; VA_Kyiv -> UA-30),
+               geo_* (settlement_raw, else raion_raw, constrained to the oblast; a Kyiv-city row with no
+               settlement is geocoded to the city feature with geo_level 'city', geo_conf 0.3)
+Impacts-only weapon classes (resolver-side, not in taxonomy.yaml, which is the launch/track contract):
+  fpv (FPV drones), artillery (tube/MLRS/mortar/tank fire), missile (unspecified "ракета"). fpv is tested before
+  the taxonomy's shahed pattern (FPV-дрон would otherwise match 'дрон'); artillery after it, so mixed strings
+  ("безпілотники та артилерія") keep the drone class.
+geo_*: geo_method, geo_conf, geo_level {settlement, raion, raion_seat, hromada_seat, city}, geo_name, geo_id, geo_n_cand,
        geo_oblast_iso, lat, lon, h3_r5
 """
 from __future__ import annotations
@@ -54,6 +63,7 @@ _CYR = re.compile(r"[а-яіїєґё]", re.I)
 _PREFIX = re.compile(r"^(?:м\.|с\.|смт\.?|н\.\s?п\.|с-ще|місто|село|селище|селі|селищі|місті|місту|міста|селом)\s*", re.I)
 _OBLAST_FORM = re.compile(r"(?:щин|чин|чч)\w*$|област|\bобл\b", re.I)
 _RAION_WORD = re.compile(r"\b(?:район\w*|р-н\w*|райони)\b", re.I)
+_HROMADA_WORD = re.compile(r"\b(?:громад\w*|ТГ|ОТГ|тергромад\w*)\b", re.I)   # "Покровська громада" -> seat of the hromada
 
 
 def norm(s: str) -> str:
@@ -111,7 +121,8 @@ def adj_base(word: str):
     if not m:
         return None
     base = m.group(1) + ("ц" if m.group(2) == "цк" else "")
-    return [base, base + "к"] if m.group(2) == "цк" else [base]
+    # Козелецького -> козелец / козелецк ; Покровська -> покров (Покров) then покровск (Покровське)
+    return [base, base + "к"] if m.group(2) == "цк" else [base, base + "ск"]
 
 
 def hav(a, b):
@@ -127,7 +138,10 @@ def h3r5(lat, lon):
 # --------------------------------------------------------------------------- gazetteer
 # 2023-24 decommunisation renames absent from the GeoNames alternate names (normalised query -> old name).
 RENAMED = {"звягель": "новоград волинський", "звягеля": "новоград волинський", "звягелі": "новоград волинський",
-           "шептицький": "червоноград", "шептицького": "червоноград"}
+           "шептицький": "червоноград", "шептицького": "червоноград",
+           "самар": "новомосковськ", "самарі": "новомосковськ", "самара": "новомосковськ",       # Novomoskovsk -> Samar (2024)
+           "златопіль": "первомайський", "златополі": "первомайський", "златополя": "первомайський",  # Pervomaiskyi -> Zlatopil (2024)
+           "кривийріг": "кривий ріг", "кривомуроз": "кривий ріг", "кривомурозі": "кривий ріг"}
 # Resolver-side launch-site additions (spelling variants of taxonomy sites; a few more airfields/cities seen in the
 # corpus). Coordinates approximate (city/airfield centroid, few km). Sites I am not sure of are left out, not guessed.
 EXTRA_SITES = {
@@ -144,6 +158,17 @@ EXTRA_SITES = {
     "akhtubinsk": {"name": "Akhtubinsk (Astrakhan)", "lat": 48.27, "lon": 46.18, "kind": "range", "patterns": ["Ахтубінськ", "Ахтубинск"]},
     "tambov": {"name": "Tambov", "lat": 52.73, "lon": 41.45, "kind": "city", "patterns": ["Тамбов"]},
 }
+
+# Home oblast of each regional channel (taxonomy.yaml channel_groups.regional); fallback when oblast_raw is empty
+# or unparseable. VA_Kyiv is the Kyiv City Military Administration: city (UA-30), never the oblast.
+CHANNEL_HOME_OBLAST = {"VA_Kyiv": "UA-30", "dnipropetrovskaODA": "UA-12", "kozytskyy_maksym_official": "UA-46",
+                       "odeskaODA": "UA-51", "synegubov": "UA-63", "zoda_gov_ua": "UA-23"}
+# Frontline weapon classes seen in regional impact posts (impacts.parquet only). Order relative to the taxonomy
+# classes matters: fpv before shahed, artillery and missile after it.
+EXTRA_WEAPON_BEFORE_SHAHED = [("fpv", r"FPV|фпв|fpv-?дрон|ФПВ")]
+EXTRA_WEAPON_AFTER = [("artillery", r"артилер|артобстріл|артудар|РСЗВ|реактивн\w* систем|Град|Ураган|Смерч|Торнадо|міномет|танков|ствольн|обстріл з (артилерії|танк)"),
+                      ("missile", r"ракет")]
+
 
 class Gaz:
     def __init__(self, tax: dict):
@@ -169,6 +194,10 @@ class Gaz:
         self.weapon_pats = [(c, re.compile("|".join(tax["weapon_classes"][c]), re.I))
                             for c in ["kinzhal", "kab", "ballistic", "cruise", "jet_uav", "recon_uav", "shahed"]]
         self.weapon_classes = set(tax["weapon_classes"])
+        tp = {c: p for c, p in self.weapon_pats}
+        self.impact_weapon_pats = [(c, tp[c]) for c in ["kinzhal", "kab", "ballistic", "cruise", "jet_uav", "recon_uav"]] \
+            + [(c, re.compile(p, re.I)) for c, p in EXTRA_WEAPON_BEFORE_SHAHED] + [("shahed", tp["shahed"])] \
+            + [(c, re.compile(p, re.I)) for c, p in EXTRA_WEAPON_AFTER]
         self._cache: dict = {}
 
     def _add(self, src, gid, name, alts, lat, lon, iso, pop, code):
@@ -343,11 +372,14 @@ class Gaz:
         if _OBLAST_FORM.search(s) and self.oblast_all(s)[0]:
             return self._res("none_oblast_name")
         raion_pt = self._raion_point(raion_raw, cset)
-        # "<Adj> району": seat of the raion
-        seat = False
+        # "<Adj> району": seat of the raion; "<Adj> громада": seat of the hromada (same mechanism, own level)
+        seat = False; seat_level = "raion_seat"
         if _RAION_WORD.search(s):
             seat = True
             s = _RAION_WORD.sub(" ", s)
+        elif _HROMADA_WORD.search(s):
+            seat = True; seat_level = "hromada_seat"
+            s = _HROMADA_WORD.sub(" ", s)
         ws = norm(s).split()
         if not ws:
             return self._res("none_empty")
@@ -359,7 +391,7 @@ class Gaz:
             if not bs:
                 return self._res("none_unparsed")
             for b in bs:
-                queries.append(("stem", stem_word(b), 0.6, "raion_seat"))
+                queries.append(("stem", stem_word(b), 0.6, seat_level))
         else:
             full = " ".join(ws)
             if len(full.replace(" ", "")) < 3:
@@ -470,11 +502,11 @@ class Gaz:
         return out
 
     # ------------------------------------------------------------------ weapon
-    def weapon(self, cls, raw):
+    def weapon(self, cls, raw, impact=False):
         if isinstance(cls, str) and cls in self.weapon_classes and cls != "unknown":
             return cls, "extract"
         if isinstance(raw, str):
-            for c, p in self.weapon_pats:
+            for c, p in (self.impact_weapon_pats if impact else self.weapon_pats):
                 if p.search(raw):
                     return c, "taxonomy_raw"
         if isinstance(cls, str) and cls == "unknown":
@@ -490,6 +522,7 @@ ADDED = {
     "tracks": ["weapon_class_canon", "weapon_canon_src", "oblast_iso_canon", "oblast_canon_src"] + GEO_COLS,
     "launches": ["weapon_class_canon", "weapon_canon_src", "target_oblast_iso", "target_oblast_iso_all"] + GEO_COLS + SITE_COLS,
     "launch_intel": ["weapon_class_canon", "weapon_canon_src"] + ["loc_" + c for c in SITE_COLS],
+    "impacts": ["weapon_class_canon", "weapon_canon_src", "oblast_iso_canon", "oblast_canon_src"] + GEO_COLS,
 }
 
 
@@ -587,6 +620,53 @@ def main():
     stats["launch_intel"] = dict(rows=len(i), location_raw=int(i.location_raw.notna().sum()),
                                  location_resolved_coords=int(i.loc_site_lat.notna().sum()),
                                  location_oblast_only=int((i.loc_site_geo_method == "oblast_only").sum()))
+
+    # ---- impacts (LLM extraction; absent until 23_extract_impacts.py has run)
+    if (EXTRACT / "impacts.parquet").exists():
+        p, m = load_base("impacts")
+        inputs["impacts_base"] = base_hash(m)
+        wc = [G.weapon(None, r, impact=True) for r in m.weapon_raw]
+        m["weapon_class_canon"], m["weapon_canon_src"] = [w[0] for w in wc], [w[1] for w in wc]
+        oc, osrc = [], []
+        for ch, raw in zip(m.channel, m.oblast_raw):
+            isos, fl = G.oblast_all(raw)
+            if isos:
+                oc.append(isos[0]); osrc.append("taxonomy_raw")
+            elif ch in CHANNEL_HOME_OBLAST:
+                oc.append(CHANNEL_HOME_OBLAST[ch]); osrc.append("channel_home")
+            else:
+                oc.append(None); osrc.append("none")
+        m["oblast_iso_canon"], m["oblast_canon_src"] = oc, osrc
+        apply_geo(m, G, "settlement_raw", "oblast_iso_canon", "raion_raw")
+        # Kyiv city rows with no settlement/raion match: the city itself is the settlement (flagged, low conf)
+        kyiv = (m.oblast_iso_canon == "UA-30") & m.lat.isna() & m.settlement_raw.isna()
+        if kyiv.any():
+            kg = G.geocode("Київ", "UA-30", None, None)
+            if kg["lat"] is not None:
+                for col in GEO_COLS:
+                    m.loc[kyiv, col] = kg[col]
+                m.loc[kyiv, "geo_method"] = "kyiv_city_default"; m.loc[kyiv, "geo_level"] = "city"; m.loc[kyiv, "geo_conf"] = 0.3
+        write_pq(m, p)
+        has_place = m.settlement_raw.notna() | m.raion_raw.notna()
+        stats["impacts"] = dict(rows=len(m), with_settlement_raw=int(m.settlement_raw.notna().sum()),
+                                with_settlement_or_raion=int(has_place.sum()),
+                                geocoded_settlement=int(((m.geo_level == "settlement") & m.lat.notna()).sum()),
+                                geocoded_raion_level=int(m.geo_level.isin(["raion", "raion_seat", "hromada_seat"]).sum()),
+                                geocoded_kyiv_city_default=int(kyiv.sum()),
+                                geocoded_any=int(m.lat.notna().sum()),
+                                geocode_rate_of_settlement_raw=round(float(((m.geo_level == "settlement") & m.lat.notna() & m.settlement_raw.notna()).sum() / max(m.settlement_raw.notna().sum(), 1)), 4),
+                                geocode_rate_any_of_rows=round(float(m.lat.notna().mean()), 4),
+                                oblast_canon_src=m.oblast_canon_src.value_counts().to_dict(),
+                                oblast_iso_canon=m.oblast_iso_canon.value_counts().to_dict(),
+                                weapon_class_canon=m.weapon_class_canon.fillna("<none>").value_counts().to_dict(),
+                                geo_method=m.geo_method.fillna("none").value_counts().to_dict())
+        log(f"impacts {stats['impacts']['geocoded_settlement']}/{stats['impacts']['with_settlement_raw']} settlements geocoded; "
+            f"{stats['impacts']['geocoded_any']}/{len(m)} rows with coordinates")
+        um = m[m.settlement_raw.notna() & m.lat.isna()].groupby(["settlement_raw", "oblast_iso_canon", "geo_method"], dropna=False).size() \
+            .reset_index(name="n").sort_values("n", ascending=False).head(300)
+        um.to_csv(EXTRACT / "resolve_unmatched_impacts_top300.csv", index=False)
+    else:
+        log("impacts.parquet absent: skipped")
 
     # ---- unmatched report (interim only)
     um = t[t.settlement_raw.notna() & t.lat.isna()].groupby(["settlement_raw", "oblast_iso_canon", "geo_method"], dropna=False).size() \

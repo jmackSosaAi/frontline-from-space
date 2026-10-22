@@ -1,0 +1,47 @@
+{
+  "output": "data/derived/telegram/kyiv_strikes_week.csv",
+  "written_utc": "2026-10-22T21:03:02+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "strike_events": {
+      "path": "data/derived/telegram/strike_events.parquet",
+      "sha256": "3812d55ea6acb25f164784bfc3fe8aba4c2c3c7c485595ed2877431c602f56b2"
+    },
+    "kyiv_tracks_week": {
+      "path": "data/derived/telegram/kyiv_tracks_week.csv",
+      "sha256": "bac7aa7624c3b0c1ba9a83f604dc17ecd042e2dbe94d7a3e46250ea63d1ba0de"
+    },
+    "posts_typed_final": {
+      "path": "data/interim/telegram/posts_typed_final.parquet",
+      "sha256": "d1edae825dfdc0b8e383ad8d704afad92c47c52f12c694328b4c693368b95c0f"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 214,
+    "kyiv_city_events": 408,
+    "kyiv_oblast_events": 76,
+    "kyiv_city_events_by_year": {
+      "2022": 22,
+      "2023": 46,
+      "2024": 67,
+      "2025": 115,
+      "2026": 158
+    },
+    "alerts": {
+      "episodes": 1577,
+      "repeat_alert_posts_ignored": 2669,
+      "all_clear_without_alert": 4,
+      "episodes_capped": 34,
+      "median_hours": 0.58,
+      "first_alert": "2022-03-15 10:15:39+00:00"
+    }
+  },
+  "lag_days": 7,
+  "cutoff": "2026-10-15",
+  "alert_cap_hours": 12.0,
+  "notes": [
+    "UA-30 = Kyiv city (H12 unit); UA-32 = Kyiv oblast, separate columns, never merged",
+    "n_alert_hours from VA_Kyiv alert/all_clear posts only (not the official siren API)"
+  ]
+}
