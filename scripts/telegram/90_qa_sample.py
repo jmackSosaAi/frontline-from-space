@@ -106,7 +106,9 @@ def impacts_sample():
                   "killed", "wounded", "is_debris_only", "is_update", "damage_text_short", "confidence"]
     cols = ["channel", "msg_id", "url"] + model_cols + ["text"]
     out = s[cols].reset_index(drop=True)
-    write_sheet(out, "qa_impacts_sample", IMP_BLANK, ["channel", "msg_id", "url"] + [c for c in model_cols if c != "damage_text_short"],
+    # derived key: identifiers only. Per-incident fields (place, date, casualties) are finer than PREREG §7 allows in
+    # the public set; they stay on the interim sheet, and only the hand-check verdicts get copied back later.
+    write_sheet(out, "qa_impacts_sample", IMP_BLANK, ["channel", "msg_id", "url", "incident_idx"],
                 {"impacts": IMPACTS}, {"rows": len(out), "by_channel": out.channel.value_counts().to_dict()})
 
     posts = pd.read_parquet(IMPACTS_POSTS)

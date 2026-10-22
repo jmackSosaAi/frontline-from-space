@@ -11,7 +11,8 @@
                           city, UA-30), n_impacts_kyiv_oblast (UA-32, separate column), n_tracks_toward_kyiv,
                           n_alert_hours (VA_Kyiv alert -> next all_clear, state machine, capped at ALERT_CAP_H, week of
                           the alert start), killed/wounded in the city. H12 input.
-  firms_match.csv         one row per tier-A strike event with coordinates: nearest FIRMS VIIRS detection (SNPP, NOAA-20,
+  firms_match_cellweek.csv  (published) h3_r5 x ISO week x weapon_class: events, FIRMS matches, placebo matches.
+  link/firms_match_events.csv (INTERIM ONLY, event-level, finer than PREREG §7) one row per tier-A strike event with coordinates: nearest FIRMS VIIRS detection (SNPP, NOAA-20,
                           NOAA-21; SP + NRT from data/raw/firms_api/ukraine) within FIRMS_RADIUS_M in
                           [event_ts - 1 h, event_ts + 12 h] (date-only events: the whole Kyiv date - 1 h .. + 12 h,
                           window_kind='date'), plus a placebo column for the same place and window 7 days earlier.
@@ -47,7 +48,8 @@ FIRMS_DIR = ROOT / "data" / "raw" / "firms_api" / "ukraine"
 OUT_CELLWEEK = DERIVED / "impacts_cellweek.csv"
 OUT_OBLWEEK = DERIVED / "impacts_oblastweek.csv"
 OUT_KYIV_STRIKES = DERIVED / "kyiv_strikes_week.csv"
-OUT_FIRMS = DERIVED / "firms_match.csv"
+OUT_FIRMS = INTERIM / "link" / "firms_match_events.csv"      # event-level: interim only (finer than PREREG §7)
+OUT_FIRMS_CW = DERIVED / "firms_match_cellweek.csv"           # published: h3_r5 x ISO week x weapon_class
 FIRMS_RADIUS_M = 1000.0
 FIRMS_RADIUS_WIDE_M = 3000.0   # diagnostic only: settlement centroids sit km from the actual hit in towns
 FIRMS_BEFORE_H, FIRMS_AFTER_H = 1.0, 12.0
@@ -455,7 +457,16 @@ def firms_match(cutoff: dt.date) -> None:
     out.loc[hit, "daynight"] = f.daynight.values; out.loc[hit, "confidence"] = f.confidence.values
     out["lag_h"] = ((pd.to_datetime(out.firms_ts, utc=True) - e.event_ts).dt.total_seconds() / 3600).round(2)
     out = out.sort_values("event_ts").reset_index(drop=True)
+    OUT_FIRMS.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(OUT_FIRMS, index=False)
+    # published aggregate: cell-week x weapon_class (PREREG §7: nothing finer than cell-week leaves data/interim)
+    cw = pd.concat([out, iso_week(pd.to_datetime(out.event_ts, utc=True))], axis=1)
+    cw = (cw.groupby(["h3_r5", "iso_year", "iso_week", "week_start", "weapon_class"])
+            .agg(n_events=("event_id", "size"), n_matched_1km=("matched", "sum"), n_matched_placebo_1km=("matched_placebo_m7d", "sum"),
+                 n_matched_3km=("matched_3km", "sum"), n_matched_placebo_3km=("matched_placebo_m7d_3km", "sum"),
+                 n_settlement_geocode=("geo_level", lambda x: int((x == "settlement").sum())))
+            .reset_index().sort_values(["iso_year", "iso_week", "h3_r5"]))
+    cw.to_csv(OUT_FIRMS_CW, index=False)
     def rate(d):
         return {"n": int(len(d)), "match": round(float(d.matched.mean()), 4) if len(d) else None,
                 "placebo": round(float(d.matched_placebo_m7d.mean()), 4) if len(d) else None,
@@ -475,14 +486,16 @@ def firms_match(cutoff: dt.date) -> None:
              "median_lag_h_matched": round(float(out.lag_h[out.matched].median()), 2) if out.matched.any() else None,
              "median_dist_m_matched": round(float(out.dist_m[out.matched].median()), 0) if out.matched.any() else None,
              "firms_detections": int(len(fi))}
-    write_meta(OUT_FIRMS, inputs={"strike_events": STRIKES}, counts=stats,
-               extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff), "radius_m": FIRMS_RADIUS_M, "window_h": [-FIRMS_BEFORE_H, FIRMS_AFTER_H],
-                      "placebo_shift_days": PLACEBO_DAYS, "wide_radius_m_diagnostic": FIRMS_RADIUS_WIDE_M, "firms_dir": str(FIRMS_DIR.relative_to(ROOT)),
-                      "firms_sources": sorted(fi.source.unique().tolist()),
-                      "observability_covariates": "not attached yet (ERA5 cloud cover / snow to be joined later)",
-                      "notes": ["date-only events use the whole Kyiv date -1 h .. +12 h (window_kind='date')",
-                                "placebo = same place, same window shifted 7 days earlier; match - placebo is the excess detection rate",
-                                "a non-match is not evidence of no fire: cloud, overpass timing, small or short fires"]})
+    stats["cellweek_rows"] = int(len(cw))
+    for _p in (OUT_FIRMS, OUT_FIRMS_CW):
+      write_meta(_p, inputs={"strike_events": STRIKES}, counts=stats,
+                 extra={"lag_days": LAG_DAYS, "cutoff": str(cutoff), "radius_m": FIRMS_RADIUS_M, "window_h": [-FIRMS_BEFORE_H, FIRMS_AFTER_H],
+                        "placebo_shift_days": PLACEBO_DAYS, "wide_radius_m_diagnostic": FIRMS_RADIUS_WIDE_M, "firms_dir": str(FIRMS_DIR.relative_to(ROOT)),
+                        "firms_sources": sorted(fi.source.unique().tolist()),
+                        "observability_covariates": "not attached yet (ERA5 cloud cover / snow to be joined later)",
+                        "notes": ["date-only events use the whole Kyiv date -1 h .. +12 h (window_kind='date')",
+                                  "placebo = same place, same window shifted 7 days earlier; match - placebo is the excess detection rate",
+                                  "a non-match is not evidence of no fire: cloud, overpass timing, small or short fires"]})
     log(f"firms_match: {len(out)} events, match {stats['overall']['match']}, placebo {stats['overall']['placebo']}; "
         f"by class {json.dumps({k: v['match'] for k, v in stats['by_weapon_class'].items()})}")
 

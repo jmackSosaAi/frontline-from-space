@@ -1,6 +1,6 @@
 {
   "output": "data/derived/telegram/qa/qa_typing_sample_key.csv",
-  "written_utc": "2026-10-22T21:03:07+00:00",
+  "written_utc": "2026-10-22T21:06:21+00:00",
   "script": "90_qa_sample.py",
   "inputs": {
     "typed": {

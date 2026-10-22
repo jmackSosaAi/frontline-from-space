@@ -1,6 +1,6 @@
 {
   "output": "data/derived/telegram/kyiv_strikes_week.csv",
-  "written_utc": "2026-10-22T21:03:02+00:00",
+  "written_utc": "2026-10-22T21:05:33+00:00",
   "script": "50_aggregate.py",
   "inputs": {
     "strike_events": {

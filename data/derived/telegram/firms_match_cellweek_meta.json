@@ -1,6 +1,6 @@
 {
-  "output": "data/derived/telegram/firms_match.csv",
-  "written_utc": "2026-10-22T21:03:06+00:00",
+  "output": "data/derived/telegram/firms_match_cellweek.csv",
+  "written_utc": "2026-10-22T21:05:37+00:00",
   "script": "50_aggregate.py",
   "inputs": {
     "strike_events": {
@@ -256,7 +256,8 @@
     },
     "median_lag_h_matched": 3.87,
     "median_dist_m_matched": 555.0,
-    "firms_detections": 1527468
+    "firms_detections": 1527468,
+    "cellweek_rows": 10136
   },
   "lag_days": 7,
   "cutoff": "2026-10-15",
