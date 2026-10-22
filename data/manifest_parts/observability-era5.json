@@ -126,5 +126,101 @@
   "variables": [
    "sde"
   ]
+ },
+ {
+  "file": "era5_tcc_karabakh_2020.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/6a9639bc-5ec9-4504-afe0-10142497ebf1 (reanalysis-era5-single-levels)",
+  "bytes": 440993,
+  "sha256": "04478dedb14acbfad44b6988669168b9275ba0c5cf5dce1ef0141dd3e3e525bd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:18:13+00:00",
+  "dims": {
+   "valid_time": 910,
+   "latitude": 13,
+   "longitude": 17
+  },
+  "variables": [
+   "tcc"
+  ]
+ },
+ {
+  "file": "era5land_snowdepth_karabakh_2020.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/227f26cc-4076-4529-8bb2-99798dcebe31 (reanalysis-era5-land)",
+  "bytes": 58937,
+  "sha256": "03d852069793b86b43e03b42dd0d13616f175a5ebdfcd2eef49f0631c0ee2df2",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:18:16+00:00",
+  "dims": {
+   "valid_time": 91,
+   "latitude": 31,
+   "longitude": 41
+  },
+  "variables": [
+   "sde"
+  ]
+ },
+ {
+  "file": "era5_tcc_sudan_2023.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/e910f6dc-98f1-478c-8b42-3731ced5605d (reanalysis-era5-single-levels)",
+  "bytes": 12098935,
+  "sha256": "ef2616d0b8dcfe8383d54f2b308dc85735dc6bd0921487d7cc5d3bf949c2e3c9",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:22:39+00:00",
+  "dims": {
+   "valid_time": 2750,
+   "latitude": 55,
+   "longitude": 47
+  },
+  "variables": [
+   "tcc"
+  ]
+ },
+ {
+  "file": "era5land_snowdepth_sudan_2023.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/f75138dd-5f01-489a-910b-db54f919cb95 (reanalysis-era5-land)",
+  "bytes": 115926,
+  "sha256": "bb2ba1355a0396c35e3194fa00b6d37cd80403544b25721426370034004fb81c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:24:50+00:00",
+  "dims": {
+   "valid_time": 275,
+   "latitude": 136,
+   "longitude": 116
+  },
+  "variables": [
+   "sde"
+  ]
+ },
+ {
+  "file": "era5_tcc_sudan_2024.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/7eb18d03-254d-4413-aa61-45d57450d9cc (reanalysis-era5-single-levels)",
+  "bytes": 15372069,
+  "sha256": "d90dbed9ae17c4ef75c33ae423b9ae12edd44204e8fffb550e2be6774db83b1a",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:29:10+00:00",
+  "dims": {
+   "valid_time": 3660,
+   "latitude": 55,
+   "longitude": 47
+  },
+  "variables": [
+   "tcc"
+  ]
+ },
+ {
+  "file": "era5land_snowdepth_sudan_2024.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/79b9648b-b90f-405b-9075-b81a2fc00844 (reanalysis-era5-land)",
+  "bytes": 151026,
+  "sha256": "3daf6ae4a111f799103caefb4caab166c4e0adc498f05bcafc5b40f0ef053de9",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:31:17+00:00",
+  "dims": {
+   "valid_time": 366,
+   "latitude": 136,
+   "longitude": 116
+  },
+  "variables": [
+   "sde"
+  ]
  }
 ]

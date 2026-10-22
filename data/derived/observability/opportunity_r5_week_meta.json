@@ -1,0 +1,20 @@
+{
+  "output": "data/derived/observability/opportunity_r5_week.csv",
+  "written_utc": "2026-10-22T22:29:13+00:00",
+  "script": "03_opportunity.py",
+  "seed": 20261014,
+  "inputs": {
+    "opportunity_r6_day_meta": {
+      "path": "data/interim/analysis/opportunity_r6_day_meta.json",
+      "bytes": 2293,
+      "sha256": "2e4a2a4803ebbaf21e26799fb6429684a41ec272dd651a5a6904b85b50e5d8a0"
+    }
+  },
+  "counts": {
+    "rows": 640920,
+    "cells_r5": 3052,
+    "weeks": 210
+  },
+  "definition": "sum over res-6 children (centroid in Ukraine or ≤50 km into Russia) and the 7 UTC days of the ISO week; opportunity per PREREG §3",
+  "publication_unit": "res-5 × ISO week (DESIGN D16 compliant)"
+}

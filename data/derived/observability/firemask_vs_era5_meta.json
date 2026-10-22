@@ -1,0 +1,125 @@
+{
+  "output": "data/derived/observability/firemask_vs_era5.csv",
+  "written_utc": "2026-10-22T22:35:34+00:00",
+  "script": "04_firemask_sample.py",
+  "seed": 20261014,
+  "inputs": {
+    "firemask_granule_cloud_meta": {
+      "path": "data/interim/analysis/firemask_granule_cloud_meta.json",
+      "bytes": 3329,
+      "sha256": "7313e5b51fe387d38b45ba5278cdd3f90a55f2cc422b63fc539f1576f1264db0"
+    }
+  },
+  "counts": {
+    "rows": 194,
+    "month_daynight_rows": 134,
+    "curve_rows": 60,
+    "granules_used": 4340
+  },
+  "tier": "exploratory tier 3 (DESIGN D9)",
+  "summary": {
+    "overall_block_agreement": 0.7423,
+    "overall_sensor_cloud_share": 0.4545,
+    "overall_era5_mean_tcc": 0.5995,
+    "overall_era5_share_tcc_ge_05": 0.6013,
+    "by_day_night": {
+      "sensor_cloud_share": {
+        "Both": 0.2181,
+        "Day": 0.5086,
+        "Night": 0.4316
+      },
+      "era5_mean_tcc": {
+        "Both": 0.395,
+        "Day": 0.6342,
+        "Night": 0.5948
+      },
+      "block_agreement": {
+        "Both": 0.773,
+        "Day": 0.7605,
+        "Night": 0.7159
+      },
+      "n_granules": {
+        "Both": 373.0,
+        "Day": 2179.0,
+        "Night": 1788.0
+      }
+    },
+    "curve": {
+      "('Both', 'summer')": {
+        "0.0": 0.015,
+        "0.1": 0.067,
+        "0.2": 0.108,
+        "0.3": 0.149,
+        "0.4": 0.21,
+        "0.5": 0.239,
+        "0.6": 0.268,
+        "0.7": 0.295,
+        "0.8": 0.356,
+        "0.9": 0.607
+      },
+      "('Both', 'winter')": {
+        "0.0": 0.07,
+        "0.1": 0.146,
+        "0.2": 0.15,
+        "0.3": 0.184,
+        "0.4": 0.356,
+        "0.5": 0.371,
+        "0.6": 0.455,
+        "0.7": 0.49,
+        "0.8": 0.55,
+        "0.9": 0.773
+      },
+      "('Day', 'summer')": {
+        "0.0": 0.034,
+        "0.1": 0.133,
+        "0.2": 0.199,
+        "0.3": 0.258,
+        "0.4": 0.316,
+        "0.5": 0.363,
+        "0.6": 0.392,
+        "0.7": 0.437,
+        "0.8": 0.469,
+        "0.9": 0.668
+      },
+      "('Day', 'winter')": {
+        "0.0": 0.169,
+        "0.1": 0.257,
+        "0.2": 0.315,
+        "0.3": 0.365,
+        "0.4": 0.431,
+        "0.5": 0.5,
+        "0.6": 0.536,
+        "0.7": 0.569,
+        "0.8": 0.633,
+        "0.9": 0.864
+      },
+      "('Night', 'summer')": {
+        "0.0": 0.012,
+        "0.1": 0.049,
+        "0.2": 0.078,
+        "0.3": 0.119,
+        "0.4": 0.154,
+        "0.5": 0.194,
+        "0.6": 0.22,
+        "0.7": 0.266,
+        "0.8": 0.323,
+        "0.9": 0.57
+      },
+      "('Night', 'winter')": {
+        "0.0": 0.31,
+        "0.1": 0.356,
+        "0.2": 0.396,
+        "0.3": 0.42,
+        "0.4": 0.445,
+        "0.5": 0.482,
+        "0.6": 0.519,
+        "0.7": 0.544,
+        "0.8": 0.592,
+        "0.9": 0.75
+      }
+    },
+    "granule_level_pearson_r": 0.7778,
+    "granule_level_n": 4337
+  },
+  "geolocation_caveat": "pixel geolocation is approximated from GRing corners (see firemask_granule_cloud_meta.json); corridor-level shares only"
+}

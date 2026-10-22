@@ -87,3 +87,87 @@ events* and for H3 paired looks; no fires-vs-control join is made here.
 - Distances in EPSG:3035 or haversine; 1 km means ≤ 1,000 m.
 - Season: summer May–Oct, winter Nov–Apr. H1 "best" = tcc<0.5 & no snow & night & Jun–Sep; "worst" = (tcc≥0.5 or snow) & day & Nov–Feb.
 - Write what was done and any ambiguity resolved into the meta JSON and a dated paragraph at the bottom of this file.
+
+## Builder A log
+
+**2026-10-22.** Built `scripts/analysis/_common.py` (ROOT/RAW/INTERIM paths, `write_meta` with per-file sha256 or
+name+size for large file lists, `h3_cells`/`h3_parent` on the h3 v4 API, `season`, `ukraine_adm0`, `worldcover_at`),
+`01_events.py` and `02_fires.py`; ran both from the repo root with the project venv (`-I`). Outputs and metas are in
+`data/interim/analysis/` (events_v, fires, fires_baseline, plus `events_v_summary.csv` and
+`fires_summary_by_sat_year.csv`). Runtime: events 8 s, fires + baseline 42 s.
+*Events:* GeoConfirmed 60,805 placemarks (60,744 with date and coordinates) and Bellingcat 2,517; in the V window
+50,889 + 2,517; 255 GeoConfirmed exact (date, lat, lon) duplicates collapsed; 683 Bellingcat–GeoConfirmed pairs within
+100 m (EPSG:3035) on the same date merged into 683 Bellingcat events (651 GeoConfirmed ids moved to `dup_ids`); 6,624
+events outside geoBoundaries ADM0 dropped (Belgorod/Kursk, Black Sea, Transnistria etc.); **45,876 events** kept
+(bellingcat 2,396; geoconfirmed 43,480), all with an oblast (ADM1 `shapeISO`, no seam fills needed). Coarse types:
+strike 16,633, other 11,629, vehicle_loss 8,468, infrastructure 8,235, aircraft_loss 709, shelling 202. Land cover:
+built-up 36 %, tree cover 26 %, cropland 22 %, grassland 14 %, water 1 %. Split: 47 months, 14 test months drawn by
+`default_rng(20261014).choice` over the sorted month list (test = 2022-06, 2022-08, 2023-05, 2023-07, 2023-08,
+2023-11, 2023-12, 2024-01, 2024-03, 2024-04, 2024-05, 2025-01, 2025-04, 2025-12) → train 31,140 / test 14,736.
+*Ambiguities resolved:* (1) the GeoConfirmed API returns `name: null` for every icon, so the type is the template
+PNG basename (numeric codes 01…203, `moto`, flags, and 21 custom UUID icons). No legend exists on disk; I viewed the
+public icon templates and read the scheme off them (category = leading digits, last digit 1 intact / 2 damaged / 3
+destroyed) and fixed the full code → (raw label, coarse type) table in the script and in `events_v_meta.json`
+(`event_type_mapping`). Judgement calls: intact artillery/MLRS positions → shelling; damaged/destroyed vehicles,
+ships, trains, SAMs, radars → vehicle_loss; damaged/destroyed helicopters, jets, UAVs (fixed-wing, quadcopter,
+loitering munitions) → aircraft_loss; explosions, munition impacts and all missile icons (incl. intercepts) →
+strike; bridges, buildings, industrial sites, fortifications → infrastructure; intact equipment, photo/video
+markers, persons, casualties, camps, flags → other. (2) Bellingcat coarse type: infrastructure when any `impact[]`
+item names a civilian object class, otherwise strike (empty, Undefined, Military); raw = impact list joined by `|`.
+(3) Cross-source duplicates keep the Bellingcat row (dated, typed record); GeoConfirmed exact duplicates keep the
+first id by sort and join the raw types with `|`. (4) Inside-Ukraine test uses geoBoundaries ADM0 (includes Crimea).
+*Fires:* 16 country files + 1,544 API SP files (no NRT within 2022–2025; NRT only exists for 2026). Confidence n/h,
+clipped to the union pull box lon 22–60 E / lat 41–64 N (the Russian_Federation country file spans all of Russia;
+"western Russia" = the west_russia pull box). 4,810,304 rows → dedup on (satellite, acq_ts_utc, lat, lon rounded to
+5 dp), keep country > API SP > API NRT, removed 2,432,140 → **2,376,955 fires** (N 847,810; N20 886,546; N21 642,599;
+day 1,223,884 / night 1,153,071; type 0: 1,722,592, 2: 570,824, 3: 83,539). By year — N: 192,844 / 191,935 /
+236,381 / 226,650; N20: 211,762 / 188,292 / 257,749 / 228,743; N21: 0 / 182,520 / 244,816 / 215,263 (2022–2025).
+Inside Ukraine ADM0: 670,417 (N 49,398 / 40,962 / 82,468 / 62,362; N20 56,221 / 39,941 / 90,225 / 63,240; N21 0 /
+39,636 / 86,659 / 59,305). Dedup audit: 296,142 S-NPP/NOAA-20 rows survive only from the API pulls; none has a
+country-file row within 0.5 km at the same minute, 99 % lie outside Ukraine and Russia (Kazakhstan, Romania, sea,
+Turkey, Belarus … inside the boxes) and 2,918 lie inside Ukraine (genuine archive-vs-API differences, kept).
+`fire_id` is the row index after sorting by (acq_ts_utc, satellite, lat, lon); `type` is Int8. Baseline
+`fires_baseline.parquet`: S-NPP Ukraine 2012–2021, 951,774 rows (68,838 / 60,815 / 158,605 / 161,389 / 91,539 /
+110,918 / 69,053 / 95,263 / 90,393 / 44,961), no duplicates. Nothing under `data/derived/` or `data/raw/viina` was
+touched; nothing committed.
+
+## Builder B log
+
+**2026-10-22 — observability tiers 1–3 built (`scripts/analysis/03_opportunity.py`, `04_firemask_sample.py`).**
+*Cells:* h3 res-6 cells whose centroid is inside Ukraine ADM0 (geoBoundaries, incl. Crimea) **or** inside Russia
+(Natural Earth 10m) within a 50 km EPSG:3035 buffer of Ukraine → **20,327 cells** (18,302 Ukraine + 2,025 Russia;
+5,126 buffer cells in Belarus/Poland/Moldova/Romania/sea dropped). *Footprints:* 31,782 of 44,714 rows used
+(`is_latest==1`, VNP14IMG 11,538 / VJ114IMG 11,773 / VJ214IMG 8,471; VNP03IMG duplicates and 1,395 superseded rows
+dropped). Antimeridian guard (lon span > 180° → shift negative lons +360) found **0 crossing, 0 invalid, 0 dropped**
+— the pull was already regional. Coverage = centroid `within` the 5-vertex CMR polygon (STRtree, one tree per month).
+ERA5 `tcc`: nearest 0.25° point to the centroid, nearest available hour to granule start (median gap 0.3 h, none > 1 h;
+every cell inside the grid). ERA5-Land `sde`: nearest 0.1° point, same UTC date, ×100 → cm. `overpasses_r6.parquet`
+is hive-partitioned by year (**272.6 M cell-granule rows**, 401 MB zstd) with `hours_since_prev` (previous overpass of
+that cell by any satellite, carried across months). `opportunity_r6_day.parquet` is the **full 20,327 × 1,461-day grid
+(29.7 M rows, zeros filled)**: `opportunity = n_clear_overpasses` = overpasses with tcc < 0.5 and sde < 1 cm (PREREG §3,
+unknown → not clear), `n_day/n_night` from the granule flag with the 3,110 "Both" granules split by solar elevation at
+the centroid, `snow_day` from ERA5-Land directly, `min_tcc`, per-satellite `n_*`/`opp_*`. Mean overpasses per
+cell-day: 2022 **7.11** (N 3.51, N20 3.61), 2023 **10.45** (N 3.66, N20 3.59, N21 3.20 from its 2023-02 start), 2024
+10.60, 2025 10.85; mean opportunity 2.03 / 3.45 / 3.64 / 3.66. **Share of cell-days with opportunity 0: summer 21.3 %,
+winter 67.0 %** (2022 25.4/69.8, 2023 19.1/69.3, 2024 19.1/64.6, 2025 21.5/64.3); no cell-day lacks an overpass.
+Published `data/derived/observability/opportunity_r5_week.csv`: 3,052 res-5 cells × 210 ISO weeks = 640,920 rows
+(60 MB; the two boundary weeks 2021-W52 and 2026-W01 are partial — `n_cell_days` shows it), columns include
+`opportunity`, per-satellite `opp_*`, `snow_cell_days`, `cell_days_opportunity_0`, `share_in_ukraine`. Runtime 9.5 min,
+< 4 GB.
+*Fire-mask sample (tier 3):* all 4,365 granules on disk match `granules_full.csv`. **Ambiguity resolved:** the
+VNP14IMG/VJ114IMG files carry no per-pixel lat/lon (only the 4 GRing corners and the fire pixels' lat/lon) and VNP03IMG
+is not on disk, so pixel geolocation is **approximated** — GRing corners mapped to image corners (order
+`(2,3,0,1)` learned from the fire-pixel line/sample↔lat/lon pairs, 88 % of granules agree), along-track linear in line
+(6,464 or 6,496 lines), cross-track from the VIIRS I-band aggregation-zone scan geometry (±56.28°, 830 km), great-circle
+interpolation, evaluated at 16×16-pixel block centres, plus a per-granule constant offset from the fire pixels when
+≥ 5 exist (4,202 granules). Validation against fire-pixel positions: median error 10.9 km before / **5.5 km after**
+the offset (p90 9.1 km, max 24 km) — fine for corridor shares, not for anything finer; flagged in `geoloc_method`
+and both meta files. Plain lon/lat bilinear was rejected (median error 160 km). 4,340 granules have corridor pixels
+(25 do not). Over the corridor the **sensor flags 45.5 % of processed pixels as cloud vs ERA5 mean tcc 0.60**
+(share tcc ≥ 0.5: 0.60); block-level agreement of (sensor cloud share > 0.5) with (tcc ≥ 0.5) is **74.2 %** (day 76.1,
+night 71.6); granule-level Pearson r between sensor cloud share and mean tcc **0.78** (n 4,337). The tcc-bin curve is
+monotone in every season × day/night stratum (e.g. day-summer 0.03 → 0.67 from tcc 0–0.1 to 0.9–1), but the intercept
+is high in winter nights (31 % sensor-cloud at tcc < 0.1 — cold/snow surfaces flagged as cloud by the fire algorithm's
+night test), so ERA5 tcc < 0.5 overstates winter-night clear looks. Published `firemask_vs_era5.csv` (194 rows:
+month × day/night table + tcc-bin curve by season × day/night). Runtime 2 min on 6 workers. Nothing committed;
+`_common.py` (Builder A) was imported for meta/log only; 01/02 untouched.
