@@ -62,5 +62,69 @@
   "variables": [
    "sde"
   ]
+ },
+ {
+  "file": "era5_tcc_2024.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/1b421267-9bc4-459e-b944-174a1ba5c426 (reanalysis-era5-single-levels)",
+  "bytes": 17036121,
+  "sha256": "6a37f84d5f63a463bc50c4948620a26018793a43a35a86f18943ec6c7e34196c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T15:34:27+00:00",
+  "dims": {
+   "valid_time": 3660,
+   "latitude": 37,
+   "longitude": 77
+  },
+  "variables": [
+   "tcc"
+  ]
+ },
+ {
+  "file": "era5land_snowdepth_2024.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/21e9453a-469a-4a3c-b637-82a6dd605513 (reanalysis-era5-land)",
+  "bytes": 2042307,
+  "sha256": "b4967c1d1066f47f6a89aaa3b69772f163c4ccbd794fdb921d12e6e38d18882d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T15:34:30+00:00",
+  "dims": {
+   "valid_time": 366,
+   "latitude": 91,
+   "longitude": 191
+  },
+  "variables": [
+   "sde"
+  ]
+ },
+ {
+  "file": "era5_tcc_2025.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/d956fa48-a9a7-45ed-a883-ccc44a5d9ec2 (reanalysis-era5-single-levels)",
+  "bytes": 16629505,
+  "sha256": "db0295f90507f62d5d0c8c665c3c0dcedc95eefaded960ff4d25ce1d65d67593",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T15:34:36+00:00",
+  "dims": {
+   "valid_time": 3650,
+   "latitude": 37,
+   "longitude": 77
+  },
+  "variables": [
+   "tcc"
+  ]
+ },
+ {
+  "file": "era5land_snowdepth_2025.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/a66aea5d-2803-4fa1-90e9-965d98136ee4 (reanalysis-era5-land)",
+  "bytes": 1929087,
+  "sha256": "52dc57642305c744afe30ea3737220a4a4f4cbda7d6f1bebf64d9ccec035591d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T15:34:39+00:00",
+  "dims": {
+   "valid_time": 365,
+   "latitude": 91,
+   "longitude": 191
+  },
+  "variables": [
+   "sde"
+  ]
  }
 ]

@@ -39,7 +39,7 @@ async def pull(client, handle):
 
 async def main():
     async with TelegramClient(str(ROOT / "tg_frontline"), int(ENV["TG_API_ID"]), ENV["TG_API_HASH"]) as client:
-        for h in CHANNELS:
-            await pull(client, h)
+        # all channels concurrently over one connection (never two processes on one .session)
+        await asyncio.gather(*(pull(client, h) for h in CHANNELS))
 
 asyncio.run(main())

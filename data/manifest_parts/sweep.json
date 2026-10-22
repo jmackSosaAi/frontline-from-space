@@ -798,5 +798,14 @@
   "sha256": "85bc21fb2c00b2effb9202b2aa785934ce5a05df954e17cbd2a1f7c10c04c633",
   "set": "license",
   "retrieved_utc": "2026-10-22T04:52:36+00:00"
+ },
+ {
+  "file": "telegram/mod_russia_posts.jsonl",
+  "url": "https://t.me/s/mod_russia",
+  "bytes": 61541571,
+  "rows": 43521,
+  "sha256": "b8d3d2c4738bf64694f883fe148362cf74761da2cf56a8611b6f5bee6601c3c8",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T16:17:38+00:00"
  }
 ]
