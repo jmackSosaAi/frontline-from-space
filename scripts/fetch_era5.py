@@ -3,7 +3,8 @@
   * ERA5 single levels `total_cloud_cover` (tcc), hourly at VIIRS overpass hours
   * ERA5-Land `snow_depth` (m of snow), daily at 12 UTC
 
-Ukraine bbox N53 W22 S44 E41, 2022-01-01 -> 2025-12-31, one NetCDF per dataset-year.
+Ukraine bbox N53 W22 S44 E41, 2022-01-01 -> 2025-12-31, one NetCDF per dataset-year;
+plus the H7 transfer AOIs (Karabakh Sep-Nov 2020, Sudan Darfur/Kordofan 2023-04 -> 2025-12), added 2026-10-22.
 These are reanalysis fields (no fire detections, no control maps), so nothing here is gated.
 
 Overpass hours: S-NPP/NOAA-20/NOAA-21 cross at ~01:30 and ~13:30 local solar time.
@@ -32,6 +33,14 @@ HOURS_TCC = [f"{h:02d}:00" for h in (22, 23, 0, 1, 2, 9, 10, 11, 12, 13)]
 MONTHS = [f"{m:02d}" for m in range(1, 13)]
 DAYS = [f"{d:02d}" for d in range(1, 32)]
 
+# Transfer AOIs for H7 (PREREG §4): covariates only, so these are set O and allowed after the tag; the FIRMS/UCDP
+# data for T1/T2 stay untouched until predictions/transfer_v1.json is committed. Same overpass-hour set: both AOIs
+# sit at 21-49 E, so the 22-02 / 09-13 UTC windows still bracket the ~01:30 / ~13:30 local crossings.
+TRANSFER = {
+    "karabakh": {"area": [41.5, 44.5, 38.5, 48.5], "years": {2020: [f"{m:02d}" for m in (9, 10, 11)]}},
+    "sudan":    {"area": [22.0, 21.5, 8.5, 33.0],  "years": {2023: MONTHS[3:], 2024: MONTHS, 2025: MONTHS}},
+}
+
 def jobs():
     for y in YEARS:
         yield (f"era5_tcc_{y}.nc", "reanalysis-era5-single-levels",
@@ -41,6 +50,15 @@ def jobs():
         yield (f"era5land_snowdepth_{y}.nc", "reanalysis-era5-land",
                {"variable": ["snow_depth"], "year": [str(y)], "month": MONTHS, "day": DAYS,
                 "time": ["12:00"], "area": AREA, "data_format": "netcdf", "download_format": "unarchived"})
+    for name, t in TRANSFER.items():
+        for y, months in t["years"].items():
+            yield (f"era5_tcc_{name}_{y}.nc", "reanalysis-era5-single-levels",
+                   {"product_type": ["reanalysis"], "variable": ["total_cloud_cover"], "year": [str(y)],
+                    "month": months, "day": DAYS, "time": HOURS_TCC, "area": t["area"],
+                    "data_format": "netcdf", "download_format": "unarchived"})
+            yield (f"era5land_snowdepth_{name}_{y}.nc", "reanalysis-era5-land",
+                   {"variable": ["snow_depth"], "year": [str(y)], "month": months, "day": DAYS,
+                    "time": ["12:00"], "area": t["area"], "data_format": "netcdf", "download_format": "unarchived"})
 
 def valid(p):
     """NetCDF3 ('CDF') or NetCDF4/HDF5 signature, and opens with one time-like dim > 300."""
@@ -55,7 +73,7 @@ def valid(p):
     except Exception:
         return None
     t = max((n for k, n in dims.items() if "time" in k), default=0)
-    return {"dims": dims, "vars": vars_} if t > 300 and vars_ else None
+    return {"dims": dims, "vars": vars_} if t > 60 and vars_ else None
 
 def load(p, default): return json.loads(p.read_text()) if p.exists() else default
 def now(): return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
