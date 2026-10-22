@@ -1,0 +1,115 @@
+{
+  "output": "data/derived/telegram/national_night.csv",
+  "written_utc": "2026-10-22T18:05:07+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "summaries": {
+      "path": "data/interim/telegram/extract/summaries.parquet",
+      "sha256": "37742f99305e891361cd648990451cb7a444f7305122e406fcc1380041d4e5d3"
+    },
+    "ivaniuk": {
+      "path": "data/raw/ivaniuk_missile_attacks/extracted/missile_attacks_daily.csv",
+      "sha256": "0d2609cf5f65c40fb3b726b381a7c3d3d04f34406587e6f7d17020a60bb78c32"
+    },
+    "waves": {
+      "path": "data/derived/telegram/launch_waves.parquet",
+      "sha256": "20970218abb64076819690f5dfdaa7eb72e9616f35e4114609f5bb7835aecd35"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 1157,
+    "telegram_nights": 1060,
+    "ivaniuk_nights": 1135,
+    "nights_in_both": 1031,
+    "telegram_only": 29,
+    "ivaniuk_only": 104,
+    "launched": {
+      "n": 982,
+      "exact": 0.6853,
+      "within_5pct_or_2": 0.8931
+    },
+    "destroyed_vs_fire_only": {
+      "n": 1031,
+      "exact": 0.8177,
+      "within_5pct_or_2": 0.9059
+    },
+    "destroyed_vs_fire_plus_ew": {
+      "n": 1031,
+      "exact": 0.6314,
+      "within_5pct_or_2": 0.7313
+    },
+    "destroyed_exact_either": 0.8681,
+    "destroyed_exact_either_by_year": {
+      "2022": 0.8333,
+      "2023": 0.7597,
+      "2024": 0.8224,
+      "2025": 0.9486,
+      "2026": 0.8612
+    },
+    "hit_locations": {
+      "n": 490,
+      "exact": 0.9755,
+      "within_5pct_or_2": 0.9837
+    },
+    "launched_by_year": {
+      "2022": {
+        "n": 7,
+        "exact": 0.4286,
+        "within_5pct_or_2": 0.4286
+      },
+      "2023": {
+        "n": 107,
+        "exact": 0.6729,
+        "within_5pct_or_2": 0.8037
+      },
+      "2024": {
+        "n": 240,
+        "exact": 0.575,
+        "within_5pct_or_2": 0.8542
+      },
+      "2025": {
+        "n": 347,
+        "exact": 0.804,
+        "within_5pct_or_2": 0.9568
+      },
+      "2026": {
+        "n": 281,
+        "exact": 0.6441,
+        "within_5pct_or_2": 0.8932
+      }
+    },
+    "destroyed_by_year": {
+      "2022": {
+        "n": 12,
+        "exact": 0.8333,
+        "within_5pct_or_2": 0.9167
+      },
+      "2023": {
+        "n": 129,
+        "exact": 0.7597,
+        "within_5pct_or_2": 0.907
+      },
+      "2024": {
+        "n": 259,
+        "exact": 0.8224,
+        "within_5pct_or_2": 0.9498
+      },
+      "2025": {
+        "n": 350,
+        "exact": 0.8,
+        "within_5pct_or_2": 0.84
+      },
+      "2026": {
+        "n": 281,
+        "exact": 0.8612,
+        "within_5pct_or_2": 0.9466
+      }
+    },
+    "nights_with_wave": 1098,
+    "telegram_nights_with_wave": 998
+  },
+  "lag_days": 7,
+  "cutoff_night_date": "2026-10-15",
+  "category_break": "2026-08-10"
+}

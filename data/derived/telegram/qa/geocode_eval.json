@@ -1,0 +1,108 @@
+{
+  "settlement": {
+    "n": 157,
+    "n_place": 130,
+    "resolved": 127,
+    "correct": 123,
+    "precision": 0.969,
+    "recall": 0.946,
+    "false_positive_on_none_or_ambiguous": 2,
+    "wrong_place": 2,
+    "missed_place": 5
+  },
+  "settlement_declension_stress": {
+    "n": 20,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "settlement_launch_target": {
+    "n": 20,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "settlement_track": {
+    "n": 117,
+    "precision": 0.955,
+    "recall": 0.924
+  },
+  "precision_by_method": {
+    "geonames_exact": {
+      "n": 2,
+      "correct": 2
+    },
+    "geonames_exact_natl": {
+      "n": 1,
+      "correct": 1
+    },
+    "viina_exact": {
+      "n": 51,
+      "correct": 50
+    },
+    "viina_exact_dup": {
+      "n": 2,
+      "correct": 2
+    },
+    "viina_exact_natl": {
+      "n": 11,
+      "correct": 10
+    },
+    "viina_exact_popdom": {
+      "n": 5,
+      "correct": 5
+    },
+    "viina_exact_popdom_natl": {
+      "n": 6,
+      "correct": 5
+    },
+    "viina_exact_xoblast": {
+      "n": 1,
+      "correct": 1
+    },
+    "viina_fold_dup": {
+      "n": 1,
+      "correct": 1
+    },
+    "viina_stem": {
+      "n": 23,
+      "correct": 23
+    },
+    "viina_stem_dup": {
+      "n": 10,
+      "correct": 10
+    },
+    "viina_stem_natl": {
+      "n": 4,
+      "correct": 4
+    },
+    "viina_stem_popdom": {
+      "n": 2,
+      "correct": 2
+    },
+    "viina_stem_popdom_natl": {
+      "n": 3,
+      "correct": 2
+    },
+    "viina_stem_xoblast": {
+      "n": 3,
+      "correct": 3
+    },
+    "viina_stem_xoblast_popdom": {
+      "n": 2,
+      "correct": 2
+    }
+  },
+  "settlement_conf_ge_0.8": {
+    "resolved": 97,
+    "correct": 95
+  },
+  "launch_site": {
+    "n": 40,
+    "n_site": 37,
+    "resolved": 38,
+    "correct": 37,
+    "precision": 0.974,
+    "recall": 1.0,
+    "false_positive_on_none": 1
+  },
+  "skipped_unsure_labels": 3
+}

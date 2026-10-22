@@ -1,0 +1,24 @@
+{
+  "output": "data/derived/telegram/kyiv_tracks_week.csv",
+  "written_utc": "2026-10-22T18:05:08+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "tracks": {
+      "path": "data/interim/telegram/extract/tracks.parquet",
+      "sha256": "f05f4ce35ba78133044ae50679269cd4b97f90815ab7c4ccb2d1b03276a4eed7"
+    },
+    "links": {
+      "path": "data/interim/telegram/link/wave_links.parquet",
+      "sha256": "9f77b9261882f470107b37163bd2acd148a4b9a02fe16b9cda6280928861f82e"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 203,
+    "city_tracks": 5382,
+    "toward_only_tracks": 1493,
+    "oblast_only_tracks": 12172
+  },
+  "lag_days": 7,
+  "cutoff": "2026-10-15"
+}

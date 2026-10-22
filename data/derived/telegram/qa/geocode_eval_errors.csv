@@ -1,0 +1,11 @@
+id,kind,string,truth,got,ok,method,conf,resolved,scored,truth_name
+20,track,Конотоп,place,Konotop,False,viina_exact,0.95,True,True,Конотоп
+21,track,Новгород,place,Novhorod,False,viina_exact_natl,0.8,True,True,Новгород-Сіверський
+27,track,Южне,ambiguous,Yuzhne,False,viina_exact_popdom_natl,0.6,True,True,
+32,track,Буялика,place,,False,none_unmatched,,False,True,Буялик
+82,track,Козин,place,,False,none_ambiguous_viina,,False,True,Козин
+103,track,Теличку,place,,False,none_unmatched,,False,True,Теличка
+118,track,Буртшин,place,,False,none_unmatched,,False,True,Бурштин
+119,track,Южного,ambiguous,Yuzhne,False,viina_stem_popdom_natl,0.5,True,True,
+120,track,Новгород,place,,False,none_unmatched,,False,True,Новгород-Сіверський
+196,launch_site,Каспійсько-Волгодонському,none,caspian_sea,False,gazetteer_pattern,,True,True,

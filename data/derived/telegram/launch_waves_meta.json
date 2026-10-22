@@ -1,0 +1,90 @@
+{
+  "output": "data/derived/telegram/launch_waves.parquet",
+  "written_utc": "2026-10-22T18:05:05+00:00",
+  "script": "40_link_events.py",
+  "inputs": {
+    "tracks": {
+      "path": "data/interim/telegram/extract/tracks.parquet",
+      "sha256": "f05f4ce35ba78133044ae50679269cd4b97f90815ab7c4ccb2d1b03276a4eed7"
+    },
+    "launches": {
+      "path": "data/interim/telegram/extract/launches.parquet",
+      "sha256": "b1e99d6e54890d8a9c6f5377bdd0eb70b669f2ec0185c8a37840c8eb1e56bccb"
+    },
+    "launch_intel": {
+      "path": "data/interim/telegram/extract/launch_intel.parquet",
+      "sha256": "33feb2dcdca0c0e938b660c19cb7d39cf107aa80ea6a942117a6e23293f9ab2f"
+    },
+    "summaries": {
+      "path": "data/interim/telegram/extract/summaries.parquet",
+      "sha256": "37742f99305e891361cd648990451cb7a444f7305122e406fcc1380041d4e5d3"
+    },
+    "posts_typed": {
+      "path": "data/interim/telegram/posts_typed.parquet",
+      "sha256": "c4e952a223ad0302e8a6a5da666adba198a26b3a84e930e90e769fe8d7124563"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 3273,
+    "rows_before_lag_cut": 3281,
+    "linked_events": 134795,
+    "waves_by_year": {
+      "2022": 473,
+      "2023": 907,
+      "2024": 975,
+      "2025": 608,
+      "2026": 310
+    },
+    "start_kind": {
+      "launch": 2550,
+      "launch_intel": 723
+    },
+    "end_method": {
+      "all_clear": 2701,
+      "quiet_timeout": 572
+    },
+    "waves_split_at_noon": 905,
+    "raw_sessions": 2840,
+    "waves_multi_night": 1,
+    "zero_track_waves": 1476,
+    "median_duration_h": 2.0,
+    "median_duration_h_by_year": {
+      "2022": 2.0,
+      "2023": 1.69,
+      "2024": 1.96,
+      "2025": 2.96,
+      "2026": 12.12
+    },
+    "p90_duration_h_by_year": {
+      "2022": 3.8,
+      "2023": 5.1,
+      "2024": 9.9,
+      "2025": 13.4,
+      "2026": 20.3
+    },
+    "waves_with_summary": 1940,
+    "waves_reaching_kyiv_city": 470,
+    "lag_n": {
+      "cruise": 199,
+      "ballistic": 236,
+      "kinzhal": 42,
+      "shahed": 254
+    },
+    "lag_median_min": {
+      "cruise": 37.4,
+      "ballistic": 16.7,
+      "kinzhal": 2.5,
+      "shahed": 26.6
+    },
+    "takeoff_to_first_cruise_track_median_min": 178.4,
+    "share_tracks_linked": 0.6606
+  },
+  "link_version": "waves-1",
+  "quiet_hours": 2.0,
+  "lag_days": 7,
+  "cutoff_start_utc": "2026-10-15 00:00:00+00:00",
+  "links_table": "data/interim/telegram/link/wave_links.parquet",
+  "kab_excluded_from_activity": true,
+  "noon_cut_kyiv_hour": 12
+}

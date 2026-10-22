@@ -1,0 +1,25 @@
+{
+  "output": "data/derived/telegram/launch_waves_week.csv",
+  "written_utc": "2026-10-22T18:05:07+00:00",
+  "script": "50_aggregate.py",
+  "inputs": {
+    "waves": {
+      "path": "data/derived/telegram/launch_waves.parquet",
+      "sha256": "20970218abb64076819690f5dfdaa7eb72e9616f35e4114609f5bb7835aecd35"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 236,
+    "waves": 3273,
+    "waves_by_year": {
+      "2022": 473,
+      "2023": 907,
+      "2024": 970,
+      "2025": 609,
+      "2026": 314
+    }
+  },
+  "lag_days": 7,
+  "cutoff": "2026-10-15"
+}

@@ -1,0 +1,201 @@
+id,kind,string,oblast_iso,raion_raw,truth,truth_name_uk,truth_oblast_iso
+1,track,Гадяч,UA-53,,place,Гадяч,UA-53
+2,track,Києву,UA-30,,place,Київ,UA-30
+3,track,Київ,UA-30,Дарницького району,place,Київ,UA-30
+4,track,Овруча,,,place,Овруч,UA-18
+5,track,Борисполя,UA-32,,place,Бориспіль,UA-32
+6,track,Кривого Рогу,UA-12,,place,Кривий Ріг,UA-12
+7,track,Одеси,UA-48,,place,Одеса,UA-51
+8,track,Харків,UA-63,,place,Харків,UA-63
+9,track,Одеса,UA-51,,place,Одеса,UA-51
+10,track,Кременчук,UA-53,,place,Кременчук,UA-53
+11,track,Київ,UA-32,,place,Київ,UA-30
+12,track,Суми,UA-59,,place,Суми,UA-59
+13,track,Сікер,UA-32,,skip,,
+14,track,Глухів,,,place,Глухів,UA-59
+15,track,Т,,,none,,
+16,track,Самар,UA-12,,none,,
+17,track,Запоріжжя,UA-23,,place,Запоріжжя,UA-23
+18,track,Вінничині,,,none,,
+19,track,Чернігів,UA-74,,place,Чернігів,UA-74
+20,track,Конотоп,UA-74,,place,Конотоп,UA-59
+21,track,Новгород,,Новгород-Сіверський р-ни,place,Новгород-Сіверський,UA-74
+22,track,Заходу,,Бучанський район,none,,
+23,track,Сосницю,UA-74,,place,Сосниця,UA-74
+24,track,Білої Церкви,UA-32,,place,Біла Церква,UA-32
+25,track,Ємільчине,UA-18,,place,Ємільчине,UA-18
+26,track,Стрий,UA-46,,place,Стрий,UA-46
+27,track,Южне,,,ambiguous,,
+28,track,Теличка Мишоловка,,,none,,
+29,track,Ніжина,UA-32,,place,Ніжин,UA-74
+30,track,Воскресенка,UA-30,,place,Воскресенка,UA-30
+31,track,Києва,UA-32,,place,Київ,UA-30
+32,track,Буялика,UA-51,,place,Буялик,UA-51
+33,track,Дніпром,UA-12,,place,Дніпро,UA-12
+34,track,Дніпропетровщиною,UA-14,,none,,
+35,track,Полтава,UA-53,,place,Полтава,UA-53
+36,track,Київське,UA-74,,none,,
+37,track,Берковець,,,skip,,
+38,track,Оболонь,UA-30,,place,Оболонь,UA-30
+39,track,Срібне,UA-74,,place,Срібне,UA-74
+40,track,Дніпро,UA-12,,place,Дніпро,UA-12
+41,track,Херсон,UA-65,,place,Херсон,UA-65
+42,track,Гостомеля,,,place,Гостомель,UA-32
+43,track,Київського,,,none,,
+44,track,Запоріжжю,UA-23,,place,Запоріжжя,UA-23
+45,track,Хмельницький,UA-68,,place,Хмельницький,UA-68
+46,track,Солоне,UA-12,,place,Солоне,UA-12
+47,track,Ніжин,UA-74,,place,Ніжин,UA-74
+48,track,Харкова,UA-63,,place,Харків,UA-63
+49,track,Виноградар,UA-30,,place,Виноградар,UA-30
+50,track,Кропивницький,UA-35,,place,Кропивницький,UA-35
+51,track,Славутич,,,place,Славутич,UA-32|UA-74
+52,track,Київського,UA-32,,none,,
+53,track,Вільшани,UA-63,,place,Вільшани,UA-63
+54,track,Сум,,,place,Суми,UA-59
+55,track,Шептицький,,,place,Шептицький|Червоноград,UA-46
+56,track,Томаківку,UA-12,,place,Томаківка,UA-12
+57,track,Баштанка,UA-48,,place,Баштанка,UA-48
+58,track,Києва,UA-30,,place,Київ,UA-30
+59,track,Івано-Франківськ,,,place,Івано-Франківськ,UA-26
+60,track,Первомайськ,UA-48,,place,Первомайськ,UA-48
+61,track,Поділ,UA-30,,place,Поділ,UA-30
+62,track,Останні,UA-32,,none,,
+63,track,Терни,UA-59,,place,Терни,UA-59
+64,track,Брусилів,UA-18,,place,Брусилів,UA-18
+65,track,Пирятин,,,place,Пирятин,UA-53
+66,track,Пн-Зх,UA-53,,none,,
+67,track,Загальна,,,none,,
+68,track,Ромни,,,place,Ромни,UA-59
+69,track,Шостка,UA-59,,place,Шостка,UA-59
+70,track,Бахмач,UA-74,,place,Бахмач,UA-74
+71,track,Криворіжжі,,,none,,
+72,track,Загалом,UA-71,,none,,
+73,track,Великий Бурлук,UA-63,,place,Великий Бурлук,UA-63
+74,track,Близько,UA-65,,none,,
+75,track,Опішні,UA-53,,place,Опішня,UA-53
+76,track,Ізмаїл,UA-51,,place,Ізмаїл,UA-51
+77,track,Кіпті,UA-32,,skip,,
+78,track,Вектор,UA-05,,none,,
+79,track,Чайки,UA-32,,place,Чайки,UA-32
+80,track,Бориспіль,UA-32,,place,Бориспіль,UA-32
+81,track,Бровари,UA-32,,place,Бровари,UA-32
+82,track,Козин,UA-32,,place,Козин,UA-32
+83,track,Коростенем,UA-18,,place,Коростень,UA-18
+84,track,По,UA-63,,none,,
+85,track,Реакт,,,none,,
+86,track,Запоріжжі,UA-12,,place,Запоріжжя,UA-23
+87,track,Кривий Ріг,UA-12,,place,Кривий Ріг,UA-12
+88,track,Здолбунів,UA-56,,place,Здолбунів,UA-56
+89,track,Путивль,UA-59,,place,Путивль,UA-59
+90,track,Южне,UA-51,,place,Південне|Южне,UA-51
+91,track,Старий Салтів,,,place,Старий Салтів,UA-63
+92,track,Аеробалістичних,,,none,,
+93,track,Хмільник,UA-05,,place,Хмільник,UA-05
+94,track,Одещині,UA-51,Березівський район,none,,
+95,track,Боярку,,,place,Боярка,UA-32
+96,track,Чабани,UA-32,,place,Чабани,UA-32
+97,track,Вінниці,UA-05,,place,Вінниця,UA-05
+98,track,Теремки,,,place,Теремки,UA-30
+99,track,Чортків,UA-61,,place,Чортків,UA-61
+100,track,Остер,UA-74,,place,Остер,UA-74
+101,track,Житомир,UA-18,,place,Житомир,UA-18
+102,track,Пирятина,UA-71,,place,Пирятин,UA-53
+103,track,Теличку,,,place,Теличка,UA-30
+104,track,Бурині,UA-59,,place,Буринь,UA-59
+105,track,Погребище Козятин,,Уманського району,none,,
+106,track,Троєщина Київ,,,none,,
+107,track,Славутич,UA-74,,place,Славутич,UA-32|UA-74
+108,track,Ромни,UA-59,,place,Ромни,UA-59
+109,track,Коростень,UA-18,,place,Коростень,UA-18
+110,track,Миколаївка,UA-59,,ambiguous,,
+111,track,Миргород,UA-53,,place,Миргород,UA-53
+112,track,Царичанку,UA-12,,place,Царичанка,UA-12
+113,track,Кам'янця-Подільського,UA-61,,place,Кам'янець-Подільський,UA-68
+114,track,Львів,UA-46,,place,Львів,UA-46
+115,track,Макарів,,,place,Макарів,UA-32
+116,track,Кам'янець-Подільский,UA-68,,place,Кам'янець-Подільський,UA-68
+117,track,Звягель,UA-18,,place,Звягель|Новоград-Волинський,UA-18
+118,track,Буртшин,UA-26,,place,Бурштин,UA-26
+119,track,Южного,,,ambiguous,,
+120,track,Новгород,UA-74,Сіверський р-н,place,Новгород-Сіверський,UA-74
+121,launch_target,Кривого Рогу,,,place,Кривий Ріг,UA-12
+122,launch_target,Білопілля,,,place,Білопілля,UA-59
+123,launch_target,Слов'янськ,,,place,Слов'янськ,UA-14
+124,launch_target,Куп'янськ,UA-63,,place,Куп'янськ,UA-63
+125,launch_target,Краматорськ,,,place,Краматорськ,UA-14
+126,launch_target,Свеса,UA-59,,place,Свеса,UA-59
+127,launch_target,Золочів,UA-63,,place,Золочів,UA-63
+128,launch_target,Кароліна-Бугаз,UA-51,,place,Кароліна-Бугаз|Кароліно-Бугаз,UA-51
+129,launch_target,Сході,,,none,,
+130,launch_target,Кривий Ріг,,,place,Кривий Ріг,UA-12
+131,launch_target,Дніпро,,,place,Дніпро,UA-12
+132,launch_target,Покровське,UA-12,,place,Покровське,UA-12
+133,launch_target,Павлоград,,,place,Павлоград,UA-12
+134,launch_target,Рогань,UA-63,,place,Рогань,UA-63
+135,launch_target,Слов'янська,UA-14,,place,Слов'янськ,UA-14
+136,launch_target,Кушугум,UA-23,,place,Кушугум,UA-23
+137,launch_target,Чорноморськ,,,place,Чорноморськ,UA-51
+138,launch_target,Нікопольський,UA-12,,none,,
+139,launch_target,Сум,,,place,Суми,UA-59
+140,launch_target,Павлограду,UA-12,,place,Павлоград,UA-12
+141,declension_stress,Козелець,UA-74,,place,Козелець,UA-74
+142,declension_stress,Козельці,UA-74,,place,Козелець,UA-74
+143,declension_stress,Козелецького району,UA-74,,place,Козелець,UA-74
+144,declension_stress,Прилуках,UA-74,,place,Прилуки,UA-74
+145,declension_stress,Лубнах,UA-53,,place,Лубни,UA-53
+146,declension_stress,Ірпені,UA-32,,place,Ірпінь,UA-32
+147,declension_stress,Вишгородом,UA-32,,place,Вишгород,UA-32
+148,declension_stress,Борзні,UA-74,,place,Борзна,UA-74
+149,declension_stress,Яготині,UA-32,,place,Яготин,UA-32
+150,declension_stress,Фастові,UA-32,,place,Фастів,UA-32
+151,declension_stress,Умані,UA-71,,place,Умань,UA-71
+152,declension_stress,Тернополі,UA-61,,place,Тернопіль,UA-61
+153,declension_stress,Ужгороді,UA-21,,place,Ужгород,UA-21
+154,declension_stress,Луцьку,UA-07,,place,Луцьк,UA-07
+155,declension_stress,Рівному,UA-56,,place,Рівне,UA-56
+156,declension_stress,Миколаєва,UA-48,,place,Миколаїв,UA-48
+157,declension_stress,Ковелем,UA-07,,place,Ковель,UA-07
+158,declension_stress,Чернівцями,UA-77,,place,Чернівці,UA-77
+159,declension_stress,Бориспільського району,UA-32,,place,Бориспіль,UA-32
+160,declension_stress,Васильківського району,UA-32,,place,Васильків,UA-32
+161,launch_site,акваторії Чорного,,,black_sea,,
+162,launch_site,Каспійський,,,caspian_sea,,
+163,launch_site,Оленья,,,olenya,,
+164,launch_site,Чорному морі,,,black_sea,,
+165,launch_site,АЧМ,,,black_sea,,
+166,launch_site,Саваслейка,,,savasleyka,,
+167,launch_site,Брянщині,,,bryansk,,
+168,launch_site,Приморсько-Ахтарська,,,primorsko_akhtarsk,,
+169,launch_site,Енгельс-,,,engels,,
+170,launch_site,Донеччини,,,oblast:UA-14,,
+171,launch_site,"в/ае ""Саки",,,saky,,
+172,launch_site,Криму,,,oblast:UA-43,,
+173,launch_site,ЧМ,,,black_sea,,
+174,launch_site,Моздок,,,mozdok,,
+175,launch_site,Курська,,,kursk,,
+176,launch_site,Оленьї,,,olenya,,
+177,launch_site,Черного моря,,,black_sea,,
+178,launch_site,Таганрогу,,,taganrog,,
+179,launch_site,Енгельс,,,engels,,
+180,launch_site,Шайковка,,,shaykovka,,
+181,launch_site,Каспійського,,,caspian_sea,,
+182,launch_site,Таганрог,,,taganrog,,
+183,launch_site,Чорного моря,,,black_sea,,
+184,launch_site,Сольці,,,soltsy,,
+185,launch_site,Каспійську,,,caspian_sea,,
+186,launch_site,Курської,,,kursk,,
+187,launch_site,Азовського,,,sea_of_azov,,
+188,launch_site,Каспія,,,caspian_sea,,
+189,launch_site,таганрогу,,,taganrog,,
+190,launch_site,Каспійському,,,caspian_sea,,
+191,launch_site,Луганської області,,,oblast:UA-09,,
+192,launch_site,Брянщини,,,bryansk,,
+193,launch_site,Орел,,,oryol,,
+194,launch_site,"аеродрому ""Приволзький",,,none,,
+195,launch_site,воронежа,,,voronezh,,
+196,launch_site,Каспійсько-Волгодонському,,,none,,
+197,launch_site,Бельбек,,,belbek,,
+198,launch_site,"аеродрому ""Савалсейка",,,savasleyka,,
+199,launch_site,"ае ""Бєлая",,,none,,
+200,launch_site,"аеродрому ""Приморську-Ахтарську",,,primorsko_akhtarsk,,

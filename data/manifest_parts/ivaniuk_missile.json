@@ -1,0 +1,48 @@
+[
+ {
+  "file": "ivaniuk_missile_attacks/massive-missile-attacks-on-ukraine.zip",
+  "url": "https://www.kaggle.com/api/v1/datasets/download/piterfm/massive-missile-attacks-on-ukraine",
+  "bytes": 186251,
+  "sha256": "d05faabf043d2f479e31860fbf411a300ef339a169289e2be32f52d92bbc3eb0",
+  "set": "post_tag_telegram",
+  "serves": "TELEGRAM_PIPELINE L7 cross-source check of Air Force summaries (national_night.csv); exploratory, not a prereg outcome",
+  "retrieved_utc": "2026-10-22T17:52:41+00:00",
+  "licence": "CC BY-NC-SA 4.0",
+  "kaggle_version": 215
+ },
+ {
+  "file": "ivaniuk_missile_attacks/extracted/missile_attacks_daily.csv",
+  "url": "(inside the zip) extracted/missile_attacks_daily.csv",
+  "bytes": 910432,
+  "sha256": "0d2609cf5f65c40fb3b726b381a7c3d3d04f34406587e6f7d17020a60bb78c32",
+  "set": "post_tag_telegram",
+  "serves": "TELEGRAM_PIPELINE L7 cross-source check of Air Force summaries (national_night.csv); exploratory, not a prereg outcome",
+  "retrieved_utc": "2026-10-22T17:52:41+00:00",
+  "licence": "CC BY-NC-SA 4.0",
+  "kaggle_version": 215,
+  "rows": 4256
+ },
+ {
+  "file": "ivaniuk_missile_attacks/extracted/missiles_and_uavs.csv",
+  "url": "(inside the zip) extracted/missiles_and_uavs.csv",
+  "bytes": 5729,
+  "sha256": "5bfe01b3c0c62f1b45a5ad105d091bad5256ff32426e49503afd853c0a1ae34c",
+  "set": "post_tag_telegram",
+  "serves": "TELEGRAM_PIPELINE L7 cross-source check of Air Force summaries (national_night.csv); exploratory, not a prereg outcome",
+  "retrieved_utc": "2026-10-22T17:52:41+00:00",
+  "licence": "CC BY-NC-SA 4.0",
+  "kaggle_version": 215,
+  "rows": 69
+ },
+ {
+  "file": "ivaniuk_missile_attacks/kaggle_metadata.json",
+  "url": "https://www.kaggle.com/api/v1/datasets/view/piterfm/massive-missile-attacks-on-ukraine",
+  "bytes": 24510,
+  "sha256": "ca036ce4b81fdbdb6a21df021adcab6d2ccdc1079c0568c4b988f8342c0c4fd4",
+  "set": "post_tag_telegram",
+  "serves": "TELEGRAM_PIPELINE L7 cross-source check of Air Force summaries (national_night.csv); exploratory, not a prereg outcome",
+  "retrieved_utc": "2026-10-22T17:52:41+00:00",
+  "licence": "CC BY-NC-SA 4.0",
+  "kaggle_version": 215
+ }
+]

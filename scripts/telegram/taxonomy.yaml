@@ -1,0 +1,384 @@
+# Telegram pipeline vocabulary (planning/TELEGRAM_PIPELINE.md §1.7, §L2, §L4).
+# This file is the contract for L2 typing and L4 resolution. Changing it after QA
+# needs a dated note in planning/TELEGRAM_PIPELINE.md.
+version: "2026-10-22.13"
+
+# ---------------------------------------------------------------------------
+# post_type label set (fixed, 10 labels)
+# ---------------------------------------------------------------------------
+post_types:
+  track:             "Weapon(s) observed in flight: position / heading / target (drones, cruise, 'fast target')."
+  launch:            "Launch or launch-threat statement: missile/KAB launches, ballistic threat, 'пуски'."
+  launch_intel:      "Carrier / platform intel: Tu-95, MiG-31K, ships, airfields, take-offs, situation reports."
+  alert:             "Air-raid alert / generic warning ('Увага', 'тривога', 'в укриття', 'ракетна небезпека')."
+  all_clear:         "Threat lifted ('Відбій', 'чисто')."
+  aviation_activity: "Enemy tactical aviation active (no launch stated)."
+  daily_summary:     "Air Force nightly/daily totals; monitor daily 'Зведення'."
+  impact_report:     "Report of explosions, strikes, damage, casualties on UA territory. Tier A from officials; tier C (monitors) = 'explosion heard', timing only."
+  ua_strike_on_ru:   "Explosions / strikes on RU or occupied territory attributed to UA."
+  other:             "Everything else (politics, aid, news, GenStaff summaries)."
+
+# Interpretation decisions (so downstream agrees):
+#   - "Загроза балістики / балістичного озброєння" -> launch (ballistic launch warning; spec ☄ -> launch).
+#   - "Швидкісна ціль", "КР/ракета на <place>" -> track (weapon already in flight).
+#   - "Пуски", "Запуск", "КАБи на <oblast>", 🚀/💣 -> launch.
+#   - Monitor "📡 Обстановка станом на" -> launch_intel (carrier / airfield status snapshot).
+#   - Monitor "Дорозвідка" (re-scan, nothing new) -> other.
+#   - Regional-admin posts matching impact keywords are impact_report CANDIDATES:
+#     post_type=impact_report, type_method=null, type_conf=0.5 until the LLM typer confirms.
+
+# ---------------------------------------------------------------------------
+# Emoji type codes per channel group (lead grapheme). Used by 10_type_rules.py
+# together with the regex rules below; emoji alone is never enough for monitors.
+# ---------------------------------------------------------------------------
+emoji_codes:
+  kpszsu:
+    "🛵": {post_type: track, weapon_class: shahed}
+    "🏍": {post_type: track, weapon_class: jet_uav}
+    "🛸": {post_type: track, weapon_class: recon_uav}
+    "🚀": {post_type: launch, weapon_class: unknown}      # missiles or KAB; text decides
+    "💣": {post_type: launch, weapon_class: kab}
+    "☄": {post_type: launch, weapon_class: ballistic}
+    "⚠": {post_type: alert}
+    "🚨": {post_type: alert}
+    "📢": {post_type: all_clear}
+    "🛫": {post_type: aviation_activity}
+    "🛬": {post_type: aviation_activity}
+    "⚡": {post_type: daily_summary}                        # only with the summary regex; else other
+    "🇺": {post_type: other}                                # 🇺🇦 GenStaff reposts
+  war_monitor:
+    "❗": {post_type: track}      # region-prefixed track; text decides
+    "‼": {post_type: alert}      # urgent, usually Kyiv ballistic
+    "⚠": {post_type: alert}      # threat / activity; text decides
+    "🅿": {post_type: track, weapon_class: jet_uav}
+    "🟣": {post_type: launch, weapon_class: ballistic}
+    "📡": {post_type: launch_intel}
+    "💥": {post_type: impact_report}
+    "⚪": {post_type: all_clear}
+    "🟢": {post_type: all_clear}
+    "🔴": {post_type: alert}
+    "⚡": {post_type: other}      # AD working / news; text decides
+  monitoringwar:
+    "❗": {post_type: track}
+    "‼": {post_type: alert}
+    "⚠": {post_type: alert}
+    "📡": {post_type: launch_intel}
+    "💥": {post_type: impact_report}
+    "⚪": {post_type: all_clear}
+    "🟢": {post_type: all_clear}
+    "🔴": {post_type: alert}
+    "⚡": {post_type: other}
+  VA_Kyiv:
+    "🔴": {post_type: alert}
+    "🟡": {post_type: alert}
+    "🟢": {post_type: all_clear}
+    "🟩": {post_type: all_clear}
+    "📢": {post_type: alert}
+    "💣": {post_type: impact_report}
+  zoda_gov_ua:
+    "🚨": {post_type: alert}      # also "🚨 Відбій" -> all_clear by regex
+    "✅": {post_type: all_clear}
+  odeskaODA:
+    "🔴": {post_type: alert}
+    "🟢": {post_type: all_clear}
+  synegubov:
+    "📍": {post_type: impact_report}
+    "🔻": {post_type: impact_report}
+  dnipropetrovskaODA:
+    "❗": {post_type: impact_report}
+    "▪": {post_type: impact_report}
+
+# ---------------------------------------------------------------------------
+# post_type regex rules. Evaluated in order; first match wins. Flags: IGNORECASE.
+# `channels`: list or "monitor" / "official_af" / "regional" / "all".
+# `conf`: type_conf written when the rule fires.
+# Patterns are matched against text_norm (NFC, whitespace-collapsed).
+# ---------------------------------------------------------------------------
+channel_groups:
+  official_af: [kpszsu]
+  monitor: [war_monitor, monitoringwar]
+  regional: [VA_Kyiv, dnipropetrovskaODA, kozytskyy_maksym_official, odeskaODA, synegubov, zoda_gov_ua]
+
+type_rules:
+  # ---- Air Force single-intercept news (not a nightly summary) ------------------
+  - {name: af_intercept_news, channels: official_af, post_type: other, conf: 0.85,
+     pattern: '^\s*(⚡️?\s*)?(ЗНИЩЕНО|МІНУС|ЗБИТО) (ШТУРМОВИК|ЛІТАК|ВЕРТОЛІТ|ГЕЛІКОПТЕР|ВОРОЖИЙ|РОСІЙСЬК|Су-|КРИЛАТА РАКЕТА|ВИНИЩУВАЧ)'}
+  # ---- daily summaries -----------------------------------------------------
+  - {name: af_day_summary, channels: official_af, post_type: daily_summary, conf: 0.9,
+     pattern: '^\s*❗?️?\s*(Протягом (дня|доби)|Удень|Вдень) .{0,100}(противник|ворог) атакував'}
+  - {name: af_night_summary, channels: official_af, post_type: daily_summary, conf: 0.98,
+     pattern: '^\s*⚡?️?\s*[^\n]{0,80}(ЗБИТО|ЗНИЩЕНО|ПОДАВЛЕНО|ЗНЕШКОДЖЕНО|У ніч на)', min_chars: 250}
+  - {name: af_night_summary_body, channels: official_af, post_type: daily_summary, conf: 0.95,
+     pattern: 'У ніч на .{0,120}(противник|ворог|окупант)[^.]{0,40}(атакував|завда[вл]|застосував)', min_chars: 400}
+  - {name: af_2022_daily_kills, channels: official_af, post_type: daily_summary, conf: 0.9,
+     pattern: '^\s*❗?️?\s*\d{1,2} \S+ 2022 року[^.]{0,120}(знищ|уражен|збит)'}
+  - {name: mon_daily_zvedennia, channels: monitor, post_type: daily_summary, conf: 0.95,
+     pattern: '^\s*(📡\s*)?Зведення про діяльність|^\s*🔱\s*(В ніч на|У період (із|з)|У ніч на|Вночі|Вдень|Протягом|ПС ЗСУ|Повітряні [Сс]или)|^\s*\S{0,4}\s*Підсумок (поточної )?доби|^\s*\S{0,4}\s*(Уночі|У ніч на|Вночі) \d{1,2} \S+ 20\d\d року|^\s*\S{0,4}\s*У ніч на \d{2}\.\d{2}\.\d{2}|^\s*Ракетна атака \d{2}\.\d{2}|^\s*Тут оновлюватиму підсумки|^\s*\S{0,4}\s*(Ворогом|Противником) було застосовано|^\s*Станом на \d{1,2}:\d{2} збито'}
+  # ---- obvious noise first (so keyword rules below don't grab it) ----------
+  - {name: genstaff_repost, channels: all, post_type: other, conf: 0.95,
+     pattern: 'Генеральний штаб ЗС України|щодо російського вторгнення|Загальні бойові втрати противника'}
+  - {name: presidential_address, channels: regional, post_type: other, conf: 0.95,
+     pattern: '^\s*‼️?\s*Київ, Банкова'}
+  - {name: daily_briefing_promo, channels: regional, post_type: other, conf: 0.9,
+     pattern: '^\s*(🕯\s*)?(Щоденно|Щодня|Щоранку) о'}
+  - {name: website_link_only, channels: all, post_type: other, conf: 0.95,
+     pattern: '^\s*(https?://|🇺🇦 Сайт|The situation (in|regarding)|Новини /|#stoprussia)'}
+  - {name: meetings, channels: regional, post_type: other, conf: 0.9,
+     pattern: '^\s*(Зустрівся|Провів сьогодні|Говорив із|Взяв участь|Під час (наради|зустрічі|робочої)|Провів Ставку|Зустріч із)'}
+  - {name: af_pilot_loss, channels: official_af, post_type: other, conf: 0.9,
+     pattern: 'На жаль, сумна новина|загинув .{0,40}(пілот|льотчик)|^\s*Відео |^\s*🎥'}
+  - {name: intercept_note, channels: [kpszsu, war_monitor, monitoringwar], post_type: other, conf: 0.8,
+     pattern: '^\s*\S{0,4}\s*((КР|БР|Ціль|ціль|БпЛА|Ракета|ракета) )?(Мінус|МІНУС|Плюс|Припинил[аи] (своє )?існування|Знищення ворож|Збиття|Знищен[оаі]|Збито|Х-\d+ знищено|Ціл[ьі] (знищен|збит)|Бойова робота)\b|^\s*⚡️?\s*(Збиття|Знищен|Збито|В районі м\.\S+ збито)', max_chars: 200}
+  - {name: mon_dorozvidka, channels: monitor, post_type: other, conf: 0.85,
+     pattern: '^(?![^\n]{0,30}Обстановка)(?![\s\S]{0,80}виявлено)(?![\s\S]{0,200}\d\s*[хx×] ?[А-ЯІЇЄҐрБК])(?:[\s\S]*?)(дорозвідк|локаційн(о|а) (втрат|втрачен)|зникл[аио] (з|із) радар|без локаційного|локаційно втрачен|без подальшого фіксування|без подальшої фіксації|без фіксації)', max_chars: 220}
+  # ---- Air Force emoji tracks (highest-volume, cleanest signal) ------------
+  - {name: track_af_emoji, channels: official_af, post_type: track, conf: 0.97,
+     pattern: '^.{0,40}(🛵|🏍|🛸)(?![^\n]{0,60}загроза (застосування|ударних|ворожих))'}
+  # ---- all clear -----------------------------------------------------------
+  - {name: all_clear, channels: all, post_type: all_clear, conf: 0.97,
+     pattern: '^[^\n]{0,70}(?<![а-яіїєґa-z])(відбій|отбой)(?![а-яіїєґa-z])'}
+  - {name: all_clear_green_uvaga, channels: regional, post_type: all_clear, conf: 0.95,
+     pattern: '^\s*🟢\s*УВАГА!?[^\n]{0,90}Відбій'}
+  - {name: sonic_boom_note, channels: monitor, post_type: other, conf: 0.85,
+     pattern: '[Кк]онус [Мм]аха|погодними умовами|\bгрім\b|\bгроза\b|Почему тревогу'}
+  - {name: all_clear_chisto, channels: monitor, post_type: all_clear, conf: 0.9,
+     pattern: '^[^!?\n]{0,70}(?<![а-яіїєґ])(чисто|загроза минула|цілей немає)(?![а-яіїєґ])', max_chars: 220}
+  # ---- siren alerts (template posts; before launch so reason-clauses don't steal them) ----
+  - {name: launch_pusk_lead, channels: [kpszsu, war_monitor, monitoringwar], post_type: launch, conf: 0.9,
+     pattern: '^\s*\S{0,4}\s*(Ще |Повторн[іи]й? |Нові )?(Пуск[иу]?|Запуск[иу]?|Вихід|Виходи|Авіабомби)\b'}
+  - {name: track_missile_lead, channels: [kpszsu, war_monitor, monitoringwar], post_type: track, conf: 0.9,
+     pattern: '^\s*\S{0,4}\s*(Ще одна |Ще )?(Крилат[аі] ракет[аи]|КР|Ракет[аи]|Швидкісн[аі] ціл[ьі]) (курсом|повз|на|у напрямку|в напрямку|через)\b'}
+  - {name: launch_ballistic_lead, channels: [kpszsu, war_monitor, monitoringwar], post_type: launch, conf: 0.9,
+     pattern: '^\s*\S{0,4}\s*(Ще |Повторн[аі] )?(Балістик[аи] (на|з|із|курсом|у|в|по)\b|Балістичн[аі] ракет[аи] (повз|курсом|на|у напрямку|в напрямку))'}
+  - {name: alert_siren, channels: all, post_type: alert, conf: 0.96,
+     pattern: '^[^\n]{0,80}(повітряна тривога|повітряну тривогу|повітряної тривоги|оголошен[ао] тривог|air raid|ракетна небезпека|ракетну небезпеку|ракетної небезпеки|жовтий рівень|червоний рівень|негайно прямуйте|терміново в укриття|в укриття[!.]|до укриття|в укритті|в укриттях|укриття!|УВАГА🚨|Початок тривоги|угроз[аы] (обстрела|ракетн|удар|применения)|опасность|підвищеної небезпеки|сигнал [^\n]{0,20}небезпеки|загроза обстрілу|укрыти[яе]|воздушная тревога)|^\s*В укриття'}
+  # ---- UA strikes on RU / occupied territory -------------------------------
+  - {name: alert_uav_threat_lead, channels: monitor, post_type: alert, conf: 0.85,
+     pattern: '^\s*(\d{1,2}:\d{2}\s*)?Загроза (ударних )?БпЛА (лишається|триває|для|зберігається)'}
+  - {name: mon_politics_news, channels: monitor, post_type: other, conf: 0.8,
+     pattern: '^\s*⚡️?\s*За інформацією (Західних )?ЗМІ|Байден|Трамп|Пентагон|Конгрес|Білий дім|дозволено використання|Іл-76ТД|Pouya|іранськ(ий|ого|ій) (вантажн|борт)|Рік тому'}
+  - {name: ua_strike_ru, channels: monitor, post_type: ua_strike_on_ru, conf: 0.85,
+     pattern: '^\s*(🦫|🦉)|ураження (БДК|корабл|фрегат|МРК|підводн|крейсер)|(Таганроз|Таганрог|Ростов|Енгельс|Бєлгород|Белгород|Білгород|Брянськ|Курськ|Воронеж|Севастопол|Крим|Джанко|Саки|Сімферопол|Євпаторі|Феодосі|Керч|Гвардійськ|Бельбек|Новоросійськ|Міллерово|Морозовськ|Смоленськ|московськ|Москв|Капотн|Шатур|Електростал|ГРЕС|ГЕС|Кахов|Краснодар|Клинц|Ярослав|Новошахтинськ|Туапсе|Волгоград|Саратов|Самар|Липецьк|Тул[аи]\b|Калу[гз]|Пенз|Тамбов|Твер|Псков|Петербур|Ленінград|Татарстан|Єлабуг|Ульянов|Рязан|Орл(а|і|ов)\b|Орел\b|Донецьк\b|Луганськ\b|Мелітопол|Бердянськ|Маріупол|Горлівк|Макіївк|Енергодар|Токмак|Скадовськ|НПЗ|нафтобаз|на рф|по рф|територі[яї] рф|ТОТ|Т\.О\.?|т\.о\.?|окупован|патрульн|корабел|корабль|танкер|суд(ен|на|но)\b|Азовськ(ому|е) мор|Чорноморськ(ий|ого) флот|ЧФ рф)[^.]{0,120}(вибух|прильот|приліт|бавовн|ураж|влучан|під обстрілом|під атакою|атакован|атак(а|и|у|ою) (невстановлен|БпЛА|дрон|ударних)|палає|пожеж|знищен|детонац|HIMARS|ATACMS|Storm Shadow|Нептун)|(вибух|прильот|бавовн|уражен|атакован|влучан)[^.]{0,80}\b(у|в|на|та|і) (районі |місті |м\.\s?|Нов(ій|ой|а) )?(Таганроз|Таганрог|Ростов|Енгельс|Бєлгород|Белгород|Білгород|Брянськ|Курськ|Воронеж|Севастопол|Крим|Джанко|Саки|Сімферопол|Євпаторі|Феодосі|Керч|Гвардійськ|Бельбек|Новоросійськ|Міллерово|Морозовськ|Смоленськ|московськ|Москв|Капотн|Шатур|Електростал|ГРЕС|ГЕС|Кахов|Краснодар|Клинц|Ярослав|Новошахтинськ|Туапсе|Волгоград|Саратов|Самар|Липецьк|Тул[аи]\b|Калу[гз]|Пенз|Тамбов|Твер|Псков|Петербур|Ленінград|Татарстан|Єлабуг|Ульянов|Рязан|Орл(а|і|ов)\b|Орел\b|Донецьк\b|Луганськ\b|Мелітопол|Бердянськ|Маріупол|Горлівк|Макіївк|Енергодар|Токмак|Скадовськ|НПЗ|нафтобаз|на рф|по рф|територі[яї] рф|ТОТ|Т\.О\.?|т\.о\.?|окупован|патрульн|корабел|корабль|танкер|суд(ен|на|но)\b|Азовськ(ому|е) мор|Чорноморськ(ий|ого) флот|ЧФ рф)|Результат точн|Работа HIMARS|Ураження (сил|позицій|скупчення) ворога|(HIMARS|ATACMS|Storm Shadow|SCALP|Нептун|Фламінго)[^\n]{0,40}(по |ураж|удар|влуч)', max_chars: 350}
+  - {name: ru_ad_working, channels: monitor, post_type: launch_intel, conf: 0.85,
+     pattern: '^(?![^\n]{0,40}(Загроза|загрозу) балістик)(?:[^\n]*?)((працює|робота|роботу|відмічено роботу) (ворожої |ворожих )?(ЗРК )?(С-300|С-400|ППО рф|ППО (противника|ворога))|Робот[ау] ворожої ППО)'}
+  - {name: mon_explosion_lead, channels: monitor, post_type: impact_report, conf: 0.85,
+     pattern: '^\s*💥[^\n]{0,100}(вибух|взрыв|влучан|прильот|приліт|удар(?!н)|падає|падають|атаку|гатять|обстріл)'}
+  # ---- ballistic threat + recon UAV before carrier intel (they share keywords) ----
+  - {name: launch_ballistic_threat, channels: all, post_type: launch, conf: 0.9,
+     pattern: 'Загроз[аиу] (застосування |використання |ударів )?(балістик|балістичн|ракет(ного|и)? (середньої|великої) дальн|Орєшнік|Кинджал|Кінджал|наземних пускових|ОТРК|ЗРК/ОТРК)|балістичн(ого|ої)? (озброєння|ракет)[^.]{0,40}(загроз|з |із )|^\s*(❗️?|⚠️?|🟣|☄️?|\+|🚀|‼️?)?\s*(Ще |Повторн[аі] )?Балістик[аи]\b|^\s*(❗️?|‼️?|🚀)?\s*Балістичн|^\s*(❗️?|‼️?)?\s*[А-ЯІЇЄҐ][^—–\n]{0,30}\s*[—–-]\s*(спуск |наближення )?балістик|Активність (наземних )?пускових|наземних пускових (комплексів|установок)|спуск балістики|^\s*☄'}
+  - {name: track_recon_uav, channels: all, post_type: track, conf: 0.9,
+     pattern: 'розвідувальн(ий|і|ого|их) БпЛА|розвідник (над|у|в)|Орлан|Zala|Supercam|Мохаджер|Форпост', max_chars: 300}
+  - {name: alert_uav_direction, channels: monitor, post_type: alert, conf: 0.85,
+     pattern: '^\s*⚠️?\s*Загроза ударних БпЛА (з|із) [^\n]{0,60}напрямку'}
+  - {name: launch_pusk, channels: all, post_type: launch, conf: 0.95,
+     pattern: '^\s*(❗️?|⚠️?|🚀|💣|☄️?|🟣|‼️?|\+|📡)?\s*(Повторн[іи]й? |Нові )?(Пуск[иу]?|Запуск[иу]?|Старт|Вихід (БР|Циркон|ракет|Кинджал|балістик|у напрямку|[А-ЯІЇЄҐ])|Виходи)\b|(Пуск[иу]?|Запуск) (КАБ|керован|ракет|крилат|балістичн|С-300|Іскандер|Калібр|Х-|УМПБ|авіаційн|дрон|БпЛА|фальш)|(відмічен[оі]|зафіксован[оі]|фіксу(ємо|ються|вали)|було) (пуск|запуск|старт)|пуски (БпЛА|дронів|шахед|ракет)|вих(ід|оди) балістик|(здійснено|здійснив|виконав|зафіксовано) (додатковий |повторний |масовані? )?(запуск|пуск)'}
+  - {name: launch_kab, channels: [kpszsu, war_monitor, monitoringwar, zoda_gov_ua, synegubov, dnipropetrovskaODA], post_type: launch, conf: 0.95,
+     pattern: '^\s*(🚀|💣|⚠️?|❗️?|\+|→|➡️?)?\s*(Повторні? |Ще )?(КАБ[иі]?|УМПБ|Керован(і|их) авіаційн(і|их) бомб|Авіабомб)\b|під ударами КАБ|КАБ[иі]? (на|у напрямку|в напрямку|по) [А-ЯІЇЄҐ]'}
+  - {name: mon_status_report, channels: monitor, post_type: launch_intel, conf: 0.85,
+     pattern: '^\s*📡\s*(Обстановка|Ситуація|Станом на|На даний момент)|^\s*Обстановка станом на'}
+  - {name: aviation_activity, channels: all, post_type: aviation_activity, conf: 0.95,
+     pattern: '^.{0,70}(Активність|активність|Спостерігається активність) (ворожої )?тактичн(ої|а) авіаці|^.{0,40}Тактична (ворожа )?авіація|тактичн(ої|а|у) авіаці[яї] (ворога |противника |рф )?(активна|над|вздовж|на (Півд|Півн|Схід|Захід))|^\s*(\+\s*)?(🛫|🛬)(?![^\n]{0,30}(Зліт|зліт|МіГ|Ту-|ТУ-|Іл-|сів|Іранськ|Посадка|літак|Повітряна|тривога))|^.{0,30}Активність (ворожої )?авіації|Активность авиации'}
+  - {name: track_count_place, channels: [kpszsu, war_monitor, monitoringwar], post_type: track, conf: 0.9,
+     pattern: '(?<![\d.,:])(до |близько |~)?\d+\s*[хx×⨯]\s*(?!МіГ|Ту-|ТУ-|Су-|борт|літак|ракетонос|носі)(БпЛА|УБпЛА|ІБпЛА|РБпЛА|реактив|КР\b|крилат|ракет|балістич|Шахед|Герань|Калібр|Іскандер|Бандерол|груп|звичайн|[А-ЯІЇЄҐ])|(?<![\d.,:])\d+ (КР|груп[аи] КР|одиниц)\b|\(\d+(-\d+)?\s*[х×]\)'}
+  # ---- launch intel (carriers / airfields / RU AD activity) ----------------
+  - {name: launch_intel_platforms, channels: [kpszsu, war_monitor, monitoringwar], post_type: launch_intel, conf: 0.95,
+     pattern: '^(?![\s\S]{0,150}(вибух|влучан|атакува|уражен|наніс|завда[вн]|Кадри|Відео))(?:[\s\S]*?)(Ту-?\s?(95|160|22)|МіГ-?\s?31|Миг-31|Су-?\s?(34|35|24|57)\b|носі[їй]|ракетоносі|\bзліт(?!но)|зльот|злетіл|вильот|\bвиліт(?![а-я])|\bвиліт [^\n]{0,20}(МіГ|Ту-|борт|авіац|стратег)|вылет|аеродром|в/ае\b|ае "|Енгельс|Оленья|Оленьї|Шайковк|Савасле|Моздок|Сольц|Каспі|підводн|фрегат|корвет|МРК\b|флоту рф|Обстановка станом на|Оцінка обстановки|Стратегічн(а|ої) авіаці|Робот[ау] ворожої ППО|ППО рф|ППО (противника|ворога)|Передислокац|Вероятность|Ймовірність (пуск|застосув)|^\s*📡\s*(Станом на|Ситуація|На даний момент|Обстановка)|Обстановка (всередині|у ПП|в ПП)|пускових (локацій|рубежів)|борти авіації)', max_chars: 500}
+  # ---- aviation activity ---------------------------------------------------
+  # ---- launch (incl. ballistic threat) --------------------------------------
+  # ---- tracks (weapons in flight) ------------------------------------------
+  - {name: alert_threat_early, channels: all, post_type: alert, conf: 0.9,
+     pattern: '(Є |існує )?загроза застосування (ворогом |ворожих )?(ворожих )?(крилатих|ракет|авіаційних|ударних|БпЛА|КАБ|КАР)'}
+  - {name: track_fast_target, channels: all, post_type: track, conf: 0.95,
+     pattern: 'Швидкісн(а|і) ціл|^\s*(🚀\s*)?Швидкісн[аі] на'}
+  - {name: track_list_header, channels: monitor, post_type: track, conf: 0.85,
+     pattern: '^\s*\S{0,4}\s*(\d{1,2}:\d{2}\s*)?(БпЛА|Ударні БпЛА|Дрони-Камікадзе|Крилаті ракети|КР|Повітряні цілі)\s*:'}
+  - {name: track_lead_motion, channels: [kpszsu, war_monitor, monitoringwar], post_type: track, conf: 0.85,
+     pattern: '^\s*(❗️?|📡|⚠️?|🔄|➡️?|→|🚀+|🅿️?|\+|↯)?\s*(\d{1,2}:\d{2}\s*)?(Курсом|Курс|Вектором|Вектор|Напрямок|Зміна (курсу|напрямку)|Змінив|Продовжу|Пролітає|Проходить|Пройш(ов|ла|ли)|Прямує|Прямують|Далі|Ще (одна|один|одне|ракет|ціл|група|\d|КР|БпЛА)|Нові? (ракет|ціл|груп|КР)|Ракет[аи]|Крилат[аі]|Балістичн[аі] ракет|Баражуюч|"?Бандероль|Ціл[ьі]|Група|Групи|Декілька груп|Рух|Оновлення|Останн(ій|я|і)|Перш(а|ий|і)|Друг(а|ий|і)|Трет(я|ій|і)|Над [А-ЯІЇЄҐ]|З [А-ЯІЇЄҐ][а-яіїєґ]+щини|Із [А-ЯІЇЄҐ][а-яіїєґ]+щини|На [А-ЯІЇЄҐ][а-яіїєґ]+щин[іу] \d|Повз|Через|Крізь|Входження|Транзитом|Тримають|Тримає|Доворот|Йде|Маневр|Зміщу|Один|Одна|Одиночн|Одинарн|Усі|Всі|В напрямку|У напрямку|На н\.п\.|На (північ|південь|схід|захід)|Рухається|Рухаються|Заходять|Заходить|Починає знижув|Зниження|мгКР|аКР)\b'}
+  - {name: track_movement, channels: [kpszsu, war_monitor, monitoringwar], post_type: track, conf: 0.9,
+     pattern: '(БпЛА|БПЛА|УБпЛА|дрон|шахед|шахід|Shahed|Герань|Герані|Гераням|реактив|\bКР\b|мгКР|аКР|крилат|ракет[аи]?\b|\bБР\b|Циркон|Кинджал|Іскандер|Калібр|Х-\d{2,3}|КАР\b|ціл[ьіей]\b|Баражуюч|Бандерол|одиниц)[^\n]{0,120}(курс|вектор|напрям|повз|через|у бік|в бік|на межі|рух|заход|зайш|залеті|проход|пройш|пролет|пролі|прямує|прямують|летить|летять|наближ|транзит|➡|→|над |у ваш|в ваш|сектор|помічен|фіксу|зафіксован|відмічен| на [А-ЯІЇЄҐ]| в район| з [А-ЯІЇЄҐ]| із [А-ЯІЇЄҐ]|очіку|маневру|продовжу|у межах|в межах|над Україною|перебува|залиша|біля |поблизу|знаходять|далі|присутн|зниж|тримають)|(курс|вектор|напрям|повз|через|➡|→|помічен|відмічен|зафіксован|очікуємо|рух|присутні|повітряна)[^\n]{0,80}(БпЛА|БПЛА|дрон|шахед|Shahed|Герань|реактив|\bКР\b|крилат|ракет|\bБР\b|Кинджал|Іскандер|Калібри|ціл[ьіей])|^[А-ЯІЇЄҐ][а-яіїєґ]+:\s*\S{0,4}\s*(\d+\s*[хx×]|Зниження|зниження|реактив|БпЛА|далі)'}
+  - {name: track_af_direction, channels: official_af, post_type: track, conf: 0.85,
+     pattern: '(в|у) напрямку [А-ЯІЇЄҐ]|➡️|курс(ом)? ?[-–—]? ?(на|захід|схід|півн|півд)|^\s*🚀+\s*(в|на|у) [А-ЯІЇЄҐ]|в районі (міста|н\.п\.)', max_chars: 220}
+  - {name: track_af_bare_place, channels: [kpszsu, war_monitor, monitoringwar], post_type: track, conf: 0.8,
+     pattern: '^\s*(❗️?\s*)?(На |Через |Повз |В напрямку |У напрямку )?[А-ЯІЇЄҐ][а-яіїєґ\x27’ʼ\-]+((\s*[/,➡️→]+\s*|\s)(на |н\.п\. )?[А-ЯІЇЄҐ][а-яіїєґ\x27’ʼ\-\.]+){0,3}\s*[!.]?$', max_chars: 45}
+  # ---- alerts --------------------------------------------------------------
+  - {name: planned_demolition, channels: regional, post_type: other, conf: 0.9,
+     pattern: '^[^\n]{0,120}(лунатимуть (звуки )?вибух|ліквідовуватимуть|планов(і|е|ий) (вибух|підрив)|навчання саперів|буде гучно|може бути гучно|сапери)', max_chars: 600}
+  - {name: regional_impact_wording, channels: regional, post_type: impact_report, conf: 0.5, method: null,
+     pattern: 'пролунав вибух|пролунали вибухи|чутно вибух|влучан|загину|поранен|пошкоджен|зруйнован|постраждал'}
+  - {name: alert_generic, channels: all, post_type: alert, conf: 0.9,
+     pattern: '^\s*(🔴|🚨|📢|⏺|💬|🟡|❗️?|⚠️?|‼️?|💣)*\s*(Увага|УВАГА)\b|Загроза використання|^[^\n]{0,60}[—–-]\s*(увага|уважно|уважніше|обережно|укриття|від вікон)|^[^\n]{0,50}\b(увага|уважно|уважніше|обережно)!|^[^\n]{0,60}укриття\b|не ігноруйте сигнал|прямуйте (в|до) укритт|перебувайте в укритт|залишайте(ся|сь) в укритт|залишається в укритт|^\s*(\d{1,2}:\d{2}\s*)?Загальна[. !]*$|атака[^.\n]{0,30}триває|^\s*(❗️?|‼️?)?\s*[А-ЯІЇЄҐ][^—\n]{0,20}\s*[—–-]\s*атака|^\s*(🛡️?\s*)?[А-ЯІЇЄҐ][а-яіїєґ]+ під (масованою )?атакою'}
+  - {name: alert_addendum, channels: [kpszsu, war_monitor, monitoringwar], post_type: alert, conf: 0.75,
+     pattern: '^\s*\+\s*[А-ЯІЇЄҐ]', max_chars: 90}
+  - {name: alert_threat_generic, channels: [kpszsu, war_monitor, monitoringwar, VA_Kyiv], post_type: alert, conf: 0.85,
+     pattern: 'загроза (застосування )?(ударних |ворожих )?(БпЛА|дрон|шахед|авіаційних засобів|ракет|обстріл|КАБ)|загроза (з|із) (півд|півн|сход|заход|Республіки)|загроза (триває|реальна|для|по)|у ваш(ому)? (напрямку|бік|сектор)|у вашу сторону|робот[аи] (сил |засобів )?(оборони|ППО|ЗРВ)|працю(є|ють) (сили |засоби )?(ППО|ЗРВ|оборони|над ліквідацією)|ППО працю|Буде гучно|гучно|можлива атака'}
+  # ---- monitor misc ----------------------------------------------------------
+  # ---- impact reports --------------------------------------------------------
+  - {name: mon_explosion, channels: monitor, post_type: impact_report, conf: 0.8,
+     pattern: '^\s*(💥|⚡️?|❗️?|‼️?|💬|🔻)*\s*[^\n]{0,80}(Вибух|вибух|Взрыв|взрыв|Прильот|прильот|Приліт|Прилет|Падають на|Влучання|влучання|під обстрілом|під ударом|під масованим обстрілом|було атаковано|Наслідки (ракетн|атак|удар)|обстрел|обстрілю|завда(но|в|є) [^.\n]{0,30}удар|атаку(ють|є) |відпрацював (комплекс|ОТРК|РСЗВ|ворог|противник)|гатять|уражен|постраждал|загину|Удар РСЗО|ракетн(ий|і) удар|ракетные удары)|^\s*💬\s*(Атака|«|")'}
+  # ---- Air Force residue: long press releases / news are never alerts -----------
+  - {name: af_long_other, channels: official_af, post_type: other, conf: 0.7,
+     pattern: '.', min_chars: 600}
+  - {name: af_news_flash, channels: official_af, post_type: other, conf: 0.7,
+     pattern: '^\s*(⚡️?|💯|🇺🇦|🎥|📹|📸|🙏|💪|❗️?\s*"|Командувач|Головнокомандувач|Вітаємо|Відео)', min_chars: 100}
+
+# Regional impact candidates (post_type=impact_report, type_method=null, conf 0.5).
+impact_candidate:
+  channels: regional
+  pattern: 'наслідк|обстріл|обстрел|удар(ів|у|и|ом|ила|ив|яє|яли)?\b|влучан|влучил|пошкоджен|повреждён|поврежден|зруйнован|разрушен|загину|загибл|погиб|поранен|ранен|постраждал|пострадал|атакува|атаковал|прильот|приліт|прилет|вибух|взрыв|уламк|обломк|падіння|ракетн(ий|ого|им) удар|ворог (вдарив|атакував|бив|завдав)|ворожі (дрони|БпЛА|ракети)|сил(ами|и) ППО (збито|знищено)|збито'
+  min_chars: 40
+
+# ---------------------------------------------------------------------------
+# weapon_class canon (L3/L4). Ukrainian, transliterations, Russian spellings.
+# Matched case-insensitively against text spans; first class whose pattern hits.
+# Note: decoys (Гербера, Пародія, імітатори) are counted under shahed =
+# "one-way-attack UAV incl. decoys"; keep weapon_raw to separate them later.
+# "Швидкісна ціль" is ambiguous (ballistic / supersonic cruise); mapped to ballistic, flagged by weapon_raw.
+# ---------------------------------------------------------------------------
+weapon_classes:
+  kinzhal:
+    - 'Кинджал|Кінджал|Kinzhal|Х-47|X-47|Х47'
+  kab:
+    - '\bКАБ[иіувами]*\b|керован(а|і|их|ими|ої) авіаційн(а|і|их|ими|ої) бомб|УМПБ|авіабомб|ФАБ|авиабомб|KAB\b|glide bomb'
+  ballistic:
+    - 'Іскандер-?\s?М\b|Искандер-?\s?М\b|Іскандер(?!-К)|Искандер(?!-К)|KN-?23|KN-?24|Кімскандер|Точка-У|Орєшнік|Орешник|Oreshnik|балістик|балістичн|баллистич|С-300|С-400|S-300|S-400|ОТРК|швидкісн(а|і) ціл'
+  cruise:
+    - 'Х-?101|X-?101|Х-?555|Х-?55\b|Х-?22|Х-?32|Х-?59|Х-?69|Х-?35|Х-?31|Х-?38|Калібр|Калибр|Kalibr|Іскандер-?К|Искандер-?К|Онікс|Оникс|Циркон|Бандероль|S8000|крилат|крылат|\bКР\b|КАР\b|cruise'
+  jet_uav:
+    - 'реактивн(ий|і|их|ого|им|ими|у) (БпЛА|БПЛА|дрон|безпілотник)|реактив[аи]?\b|РБпЛА|Герань-?\s?[34]\b|Shahed-?238|Гарпія-?3|jet.?drone'
+  recon_uav:
+    - 'розвідувальн|разведывательн|розвідник|Орлан|Zala|ZALA|Supercam|Мохаджер|Mohajer|Форпост|Ланцет|Lancet|Молнія|Молния'
+  shahed:
+    - 'Шахед|Шахід|Shahed|Герань|Герани|Geran|ударн(ий|і|их|ими|ого) (БпЛА|БПЛА|дрон|безпілотник)|дрон(и|ів)?-камікадзе|Гербер|Пародія|імітатор|безпілотник(и|ів)?-імітатор|УБпЛА|ІБпЛА|\bБпЛА\b|\bБПЛА\b|безпілотник|беспилотник|дрон'
+  unknown:
+    - 'авіаційн(их|і) засоб(ів|и) ураження|ракет'
+
+# ---------------------------------------------------------------------------
+# Oblast canon: ISO 3166-2:UA. Kyiv city (UA-30) is distinct from Kyiv oblast (UA-32).
+# Patterns are stems (match case-insensitively, on the raw place string).
+# Order matters: city-vs-oblast rules for Kyiv come before the oblast stem.
+# ---------------------------------------------------------------------------
+oblasts:
+  UA-30: {name_uk: "м. Київ",            name_en: "Kyiv (city)",   is_city: true,
+          patterns: ['^\s*(м\.?\s*)?Київ\b(?!щин|ськ)', 'Києв', '\bстолиц', 'Kyiv city', 'Киев\b']}
+  UA-32: {name_uk: "Київська область",   name_en: "Kyiv oblast",
+          patterns: ['Київщин', 'Київськ(а|ої|ій|у|ою) обл', 'Київська область', 'Киевск(ая|ой) обл', 'Kyiv (oblast|region)']}
+  UA-05: {name_uk: "Вінницька",          name_en: "Vinnytsia",      patterns: ['Вінни(ц|ч)', 'Винниц', 'Vinnyts']}
+  UA-07: {name_uk: "Волинська",          name_en: "Volyn",          patterns: ['Волин', 'Волын', 'Volyn']}
+  UA-09: {name_uk: "Луганська",          name_en: "Luhansk",        patterns: ['Луган', 'Luhansk', 'Lugansk']}
+  UA-12: {name_uk: "Дніпропетровська",   name_en: "Dnipropetrovsk", patterns: ['Дніпропетров', 'Днепропетров', 'Dnipropetrovsk']}
+  UA-14: {name_uk: "Донецька",           name_en: "Donetsk",        patterns: ['Донец', 'Донеч', 'Donetsk']}
+  UA-18: {name_uk: "Житомирська",        name_en: "Zhytomyr",       patterns: ['Житомир', 'Zhytomyr']}
+  UA-21: {name_uk: "Закарпатська",       name_en: "Zakarpattia",    patterns: ['Закарпат', 'Zakarpat']}
+  UA-23: {name_uk: "Запорізька",         name_en: "Zaporizhzhia",   patterns: ['Запорі[зж]', 'Запорож', 'Zaporizh']}
+  UA-26: {name_uk: "Івано-Франківська",  name_en: "Ivano-Frankivsk",patterns: ['Івано-?Франків', 'Ивано-?Франков', 'Прикарпат', 'Ivano-Frankivsk']}
+  UA-35: {name_uk: "Кіровоградська",     name_en: "Kirovohrad",     patterns: ['Кіровоград', 'Кировоград', 'Кропивниц', 'Kirovohrad', 'Kropyvnyts']}
+  UA-40: {name_uk: "м. Севастополь",     name_en: "Sevastopol",     is_city: true, patterns: ['Севастопол', 'Sevastopol']}
+  UA-43: {name_uk: "АР Крим",            name_en: "Crimea",         patterns: ['\bКрим', 'Крым', 'Crimea']}
+  UA-46: {name_uk: "Львівська",          name_en: "Lviv",           patterns: ['Львів', 'Львов', 'Lviv']}
+  UA-48: {name_uk: "Миколаївська",       name_en: "Mykolaiv",       patterns: ['Миколаїв', 'Николаев', 'Mykolaiv']}
+  UA-51: {name_uk: "Одеська",            name_en: "Odesa",          patterns: ['Оде(с|щ)', 'Odes']}
+  UA-53: {name_uk: "Полтавська",         name_en: "Poltava",        patterns: ['Полтав', 'Poltava']}
+  UA-56: {name_uk: "Рівненська",         name_en: "Rivne",          patterns: ['Рівн', 'Ровен', 'Rivne']}
+  UA-59: {name_uk: "Сумська",            name_en: "Sumy",           patterns: ['Сум(щин|ськ|и\b|ах\b)', 'Сумск', 'Sumy']}
+  UA-61: {name_uk: "Тернопільська",      name_en: "Ternopil",       patterns: ['Терноп', 'Ternopil']}
+  UA-63: {name_uk: "Харківська",         name_en: "Kharkiv",        patterns: ['Харків', 'Харков', 'Kharkiv']}
+  UA-65: {name_uk: "Херсонська",         name_en: "Kherson",        patterns: ['Херсон', 'Kherson']}
+  UA-68: {name_uk: "Хмельницька",        name_en: "Khmelnytskyi",   patterns: ['Хмельни', 'Khmelnyts']}
+  UA-71: {name_uk: "Черкаська",          name_en: "Cherkasy",       patterns: ['Черка(с|щ)', 'Cherkas']}
+  UA-74: {name_uk: "Чернігівська",       name_en: "Chernihiv",      patterns: ['Чернігів', 'Чернігівщ', 'Чернигов', 'Chernihiv']}
+  UA-77: {name_uk: "Чернівецька",        name_en: "Chernivtsi",     patterns: ['Чернівц', 'Чернівеч', 'Черновц', 'Буковин', 'Chernivtsi']}
+
+# ---------------------------------------------------------------------------
+# Launch-site gazetteer (L4). Coordinates are approximate centroids (WGS84),
+# good to a few km; sea areas are nominal launch-area centroids.
+# ---------------------------------------------------------------------------
+launch_sites:
+  engels:             {name: "Engels AB (Saratov)",          lat: 51.48, lon: 46.21, kind: airbase,
+                       patterns: ['Енгельс', 'Энгельс', 'Engels', 'Саратов']}
+  olenya:             {name: "Olenya AB (Murmansk)",         lat: 68.15, lon: 33.46, kind: airbase,
+                       patterns: ['Олен(ья|ьї|я|і)\b', 'Olenya', 'Оленегорськ']}
+  shaykovka:          {name: "Shaykovka AB (Kaluga)",        lat: 54.23, lon: 34.37, kind: airbase,
+                       patterns: ['Шайковк', 'Shaykovka', 'Shaikovka']}
+  soltsy:             {name: "Soltsy AB (Novgorod)",         lat: 58.14, lon: 30.33, kind: airbase,
+                       patterns: ['Сольц', 'Soltsy']}
+  millerovo:          {name: "Millerovo AB (Rostov)",        lat: 48.95, lon: 40.30, kind: airbase,
+                       patterns: ['Міллерово', 'Миллерово', 'Millerovo']}
+  shatalovo:          {name: "Shatalovo AB (Smolensk)",      lat: 54.37, lon: 32.48, kind: airbase,
+                       patterns: ['Шаталово', 'Shatalovo']}
+  kursk:              {name: "Kursk / Khalino AB",           lat: 51.75, lon: 36.30, kind: airbase,
+                       patterns: ['Курськ', 'Курск', 'Kursk', 'Халіно', 'Халино', 'Khalino']}
+  oryol:              {name: "Oryol",                        lat: 52.97, lon: 36.07, kind: city,
+                       patterns: ['Орл(а|ов|і)\b', 'Орел\b', 'Oryol', 'Orel\b']}
+  bryansk:            {name: "Bryansk",                      lat: 53.25, lon: 34.37, kind: city,
+                       patterns: ['Брянськ', 'Брянск', 'Брянщин', 'Bryansk', 'Навля', 'Navlya']}
+  belgorod:           {name: "Belgorod",                     lat: 50.60, lon: 36.59, kind: city,
+                       patterns: ['Бєлгород', 'Белгород', 'Belgorod']}
+  primorsko_akhtarsk: {name: "Primorsko-Akhtarsk AB",        lat: 46.05, lon: 38.18, kind: airbase,
+                       patterns: ['Приморськ(о|а)-?Ахтарськ', 'Приморско-?Ахтарск', 'Primorsko-?Akhtarsk']}
+  chauda:             {name: "Cape Chauda (Crimea)",         lat: 45.00, lon: 35.83, kind: launch_area,
+                       patterns: ['Чауд', 'Chauda']}
+  caspian_sea:        {name: "Caspian Sea (Tu-95 launch area)", lat: 44.00, lon: 48.50, kind: sea,
+                       patterns: ['Каспі', 'Каспий', 'Caspian']}
+  black_sea:          {name: "Black Sea (fleet launch area)", lat: 44.00, lon: 33.00, kind: sea,
+                       patterns: ['Чорн(е|ого|ому) мор', 'акваторі[яї] Чорного', 'АЧМ\b', 'Ч[ёе]рн(ое|ого) мор', 'Black Sea']}
+  sea_of_azov:        {name: "Sea of Azov",                  lat: 46.20, lon: 36.50, kind: sea,
+                       patterns: ['Азовськ', 'Азовск', 'Азов\b', 'Azov']}
+  voronezh:           {name: "Voronezh / Baltimor AB",       lat: 51.62, lon: 39.15, kind: airbase,
+                       patterns: ['Воронеж', 'Voronezh', 'Балтимор']}
+  # extra sites that appear in the corpus (monitor channels)
+  mozdok:             {name: "Mozdok AB (N. Ossetia)",       lat: 43.79, lon: 44.60, kind: airbase, patterns: ['Моздок', 'Mozdok']}
+  savasleyka:         {name: "Savasleyka AB (Nizhny Novgorod)", lat: 55.44, lon: 42.31, kind: airbase, patterns: ['Савасле', 'Savasleyka']}
+  taganrog:           {name: "Taganrog",                     lat: 47.20, lon: 38.85, kind: city, patterns: ['Таганро', 'Taganrog']}
+  rostov:             {name: "Rostov-on-Don",                lat: 47.26, lon: 39.72, kind: city, patterns: ['Ростов', 'Rostov']}
+  yeysk:              {name: "Yeysk AB",                     lat: 46.68, lon: 38.21, kind: airbase, patterns: ['Єйськ', 'Ейск', 'Yeysk']}
+  kapustin_yar:       {name: "Kapustin Yar (Astrakhan)",     lat: 48.57, lon: 45.73, kind: range, patterns: ['Капустин', 'Kapustin']}
+  dzhankoi:           {name: "Dzhankoi AB (Crimea)",         lat: 45.70, lon: 34.40, kind: airbase, patterns: ['Джанко', 'Dzhankoi']}
+  saky:               {name: "Saky AB (Crimea)",             lat: 45.09, lon: 33.60, kind: airbase, patterns: ['\bСаки\b', 'Saky', 'Новофедорівк']}
+  hvardiiske:         {name: "Hvardiiske AB (Crimea)",       lat: 45.11, lon: 33.98, kind: airbase, patterns: ['Гвардійськ', 'Гвардейск', 'Hvardiiske']}
+  belbek:             {name: "Belbek AB (Crimea)",           lat: 44.69, lon: 33.57, kind: airbase, patterns: ['Бельбек', 'Belbek']}
+
+# ---------------------------------------------------------------------------
+# Track extraction (20_extract_tracks.py). Pure regex. {PLACE} expands to a capitalised
+# place-name token (one or two words, hyphens/apostrophes allowed). Added 2026-10-22 without
+# touching the typing rules above (taxonomy `version` unchanged on purpose: 10_type_rules inputs same).
+# ---------------------------------------------------------------------------
+track_extraction:
+  version: "tracks-1"
+  place: "[А-ЯІЇЄҐ][а-яіїєґ'’ʼ\\-]+(?:-[А-ЯІЇЄҐ][а-яіїєґ'’ʼ]+)?(?:[ ][А-ЯІЇЄҐ][а-яіїєґ'’ʼ\\-]+)?"
+  # emoji fallback when no weapon keyword in the segment
+  emoji_weapon: {"🛵": shahed, "🏍": jet_uav, "🛸": recon_uav, "🅿": jet_uav}
+  # oblast surface forms: -щина family, "<adj> області/обл.", Crimea, Prykarpattia
+  oblast_form: "(?:[А-ЯІЇЄҐа-яіїєґ'’ʼ\\-]+(?:щин|ччин)[аиіуоюе]\\b|[А-ЯІЇЄҐа-яіїєґ]+(?:ськ|зьк|цьк)\\w*\\s+(?:областей|обл(?:асть|асті|\\.|ість)?)|\\bКрим\\w*|Прикарпатт\\w+|Закарпатт\\w+|Донбас\\w*|Полісс\\w+)"
+  raion: "[А-ЯІЇЄҐа-яіїєґ'’ʼ\\-]+(?:ськ|цьк|зьк)(?:ий|ого|ому|ім|ому|ому)\\s+(?:район\\w*|р-н\\w*)|[А-ЯІЇЄҐа-яіїєґ'’ʼ\\-]+(?:ськ|цьк|зьк)(?:ий|ого|ому|ім)\\s+р\\.?"
+  # counts: "13х", "3×", "1х", "2 групи", "дві групи"
+  count_x: "(\\d{1,3})\\s*[хxX×✖]"
+  count_word: "(\\d{1,3})\\s+(груп\\w*|ударн\\w*|нов\\w*|БпЛА|БПЛА|КР\\b|ракет\\w*|цілей|цілі|ціл\\w*|дрон\\w*|літак\\w*|\\w*Герань\\w*|Шахед\\w*)"
+  count_vague: "(декілька|кілька|низка|кілька|велик\\w+ груп\\w*|багато)"
+  # location-style markers (settlement is where the track IS)
+  loc_markers: "\\(|(?:в|у)\\s+р-ні\\.?|р-ні\\.?|(?:південн|північн|східн|західн)іше(?:\\s+від)?|узбережж\\w+|вздовж|повз|біля|поблизу|в\\s+районі|у\\s+районі|над|через|околиц\\w+|в\\s+околицях|навколо|довкола|в\\s+межах|у\\s+межах|в\\s+бік\\s+від|н\\.\\s?п\\.|м\\.\\s?|смт\\.?|с\\.\\s?|селищ\\w+|місто|міста|села|в|у|по"
+  # target-style markers (where it is heading)
+  tgt_markers: "→|вектор\\w*|курсом\\s+на|у\\s+напрямку|в\\s+напрямку|у\\s+напрямі|в\\s+напрямі|у\\s+бік|в\\s+бік|до|на|напрямок"
+  origin_markers: "від|з|із|зі"
+  heading: "(?<![\\p{L}])(?:курс\\w*[^.;\\n]{0,60}|\\b\\w+(?:им|ім)\\s+курсом[^.;\\n]{0,30}|(?<![\\p{L}])(?:у|в)\\s+(?:\\w+(?:ому|ій|ім)\\s+)?напрям\\w*[^.;\\n]{0,50}|(?<![\\p{L}])(?:у|в)\\s+бік[^.;\\n]{0,50}|(?<![\\p{L}])(?:з|із|від)\\s+(?:півдн\\w+|північ|півночі|схід|сходу|захід|заходу|південного|північного)[^.;\\n]{0,40}|вектор\\w*\\s+[^.;\\n]{0,40}|рухаються?\\s+[^.;\\n]{0,40}|рух\\s+[^.;\\n]{0,40})"
+  stop_place: "^(Захід\\w*|Схід\\w*|Сход\\w*|Північ\\w*|Півден(?:ь|ного|ному|ний|ною)(?![\\p{L}])|Півн\\w*|Півд(?:ні|ня|нів)(?![\\p{L}])|Лівого|Лівому|Правого|Правому|Центр|Правобереж|Лівобереж|Ліве|Праве|Лівий|Правий|Увага|Уважн|Курс|Груп|Ціл|Ракет|БпЛА|Шахед|Герань|Нові|Нове|Нових|Ворож|Російськ|Рух|ТОТ|Область|Район|Сторон|Загроз|Перебувайте|Не\\b|Повітряна|Тривога|Відбій|Висот|Зниж|Залишки|Окрем|Кілька|Декілька|Чорного|Чорне|Азовськ|Каспій|Балтій|Білорус|Біларус|Росі|Територі|Українськ|Укрит|Ударн|Імітац|Швидкіс|Крилат|Балістичн|Реактивн|Розвідув|Одинарн|Звичайн|Великі|Великих|Мала|Малих|Калібр|Калібри|Іскандер|Кінджал|Кинджал|Орлан|Герб|Парод|Мохаджер|Ту-|МіГ|Х-|Група|Пара|Нове|Реактив|Крилат|Бандероль|Остання|Останній|Ймовірно|Перша|Перший|Також|Власне|Можливо|Попередньо|Одна|Один|Ще|Далі|Х$|Х-?\\d)"
+  # city -> oblast ISO inference when no oblast form is present (only unambiguous regional centres)
+  city_iso:
+    UA-30: '^(м\.\s?)?Київ$|^Києв\w*$|^Киє\w*$'
+    UA-12: '^Дніпр(о|а|у|ом|і)$|^Кривий Ріг$|^Кривого Рогу$|^Павлоград\w*$|^Нікополь\w*$|^Самар\w*$'
+    UA-51: '^Оде(са|си|сі|су|сою)$|^Ізмаїл\w*$'
+    UA-63: '^Харків\w*$|^Харкова$'
+    UA-23: '^Запоріж\w*$'
+    UA-48: '^Миколаїв\w*$|^Миколаєва$|^Вознесенськ\w*$'
+    UA-65: '^Херсон\w*$'
+    UA-53: '^Полтав\w*$|^Кременчу\w*$|^Миргород\w*$'
+    UA-59: '^Сум(и|ах|ам|ами)$|^Конотоп\w*$|^Шостк\w*$|^Охтирк\w*$'
+    UA-74: '^Чернігів\w*$|^Ніжин\w*$|^Прилук\w*$'
+    UA-18: '^Житомир\w*$|^Коростен\w*$'
+    UA-71: '^Черкас\w*$|^Умань\w*$|^Умані$'
+    UA-05: '^Вінниц\w*$|^Жмеринк\w*$|^Гайсин\w*$'
+    UA-46: '^Львів\w*$|^Львова$'
+    UA-35: '^Кропивницьк\w*$|^Олександрі\w*$'
+    UA-14: '^Краматорськ\w*$|^Слов.янськ\w*$|^Донецьк\w*$'
+    UA-56: '^Рівн\w*$'
+    UA-68: '^Хмельницьк\w*$'
+    UA-32: '^Біла Церква$|^Білої Церкви$|^Бровар\w*$|^Борисп\w*$|^Фастів\w*$|^Васильк\w*$|^Бучу?$|^Ірпін\w*$'
