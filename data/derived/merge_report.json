@@ -1,14 +1,19 @@
 {
- "run_utc": "2026-10-22T16:08:51+00:00",
+ "run_utc": "2026-10-22T22:59:10+00:00",
  "dry_run": false,
- "manifest_before": 4803,
- "added": 2148,
- "manifest_after": 6951,
- "already_present": 4681,
+ "manifest_before": 6951,
+ "added": 79,
+ "manifest_after": 7030,
+ "already_present": 6829,
  "mismatches": [
   {
    "part": "post_tag.json",
    "file": "_gate/run_2026-10-22T14:55:39+00:00",
+   "problem": "0 files on disk match"
+  },
+  {
+   "part": "post_tag.json",
+   "file": "_gate/run_2026-10-22T22:56:34+00:00",
    "problem": "0 files on disk match"
   }
  ],
@@ -28,14 +33,17 @@
   "telegram/_state/kpszsu.json",
   "telegram/_state/zoda_gov_ua.json",
   "telegram/kpszsu.jsonl",
-  "telegram/mod_russia_posts.jsonl",
   "telegram/zoda_gov_ua.jsonl",
   "telegram_api/VA_Kyiv.jsonl",
+  "telegram_api/_logs/api_parallel.log",
   "telegram_api/_logs/api_rest.log",
   "telegram_api/dnipropetrovskaODA.jsonl",
+  "telegram_api/kozytskyy_maksym_official.jsonl",
   "telegram_api/kpszsu.jsonl",
+  "telegram_api/monitoringwar.jsonl",
   "telegram_api/odeskaODA.jsonl",
   "telegram_api/synegubov.jsonl",
+  "telegram_api/war_monitor.jsonl",
   "telegram_api/zoda_gov_ua.jsonl",
   "who_ssa/hdx_package_show.json"
  ],
@@ -45,6 +53,366 @@
    "rows": 310322,
    "min": "2022-02-21",
    "max": "2025-06-02"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-01_5d.csv",
+   "rows": 865,
+   "min": "2026-07-01",
+   "max": "2026-07-05"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-06_5d.csv",
+   "rows": 473,
+   "min": "2026-07-06",
+   "max": "2026-07-10"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-11_5d.csv",
+   "rows": 0,
+   "min": null,
+   "max": null
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-16_5d.csv",
+   "rows": 400,
+   "min": "2026-07-17",
+   "max": "2026-07-20"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-21_5d.csv",
+   "rows": 241,
+   "min": "2026-07-21",
+   "max": "2026-07-25"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-26_5d.csv",
+   "rows": 174,
+   "min": "2026-07-26",
+   "max": "2026-07-30"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-07-31_5d.csv",
+   "rows": 140,
+   "min": "2026-07-31",
+   "max": "2026-08-02"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-08-05_5d.csv",
+   "rows": 134,
+   "min": "2026-08-05",
+   "max": "2026-08-09"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-08-10_5d.csv",
+   "rows": 193,
+   "min": "2026-08-10",
+   "max": "2026-08-14"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-08-15_5d.csv",
+   "rows": 98,
+   "min": "2026-08-15",
+   "max": "2026-08-19"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-08-20_5d.csv",
+   "rows": 75,
+   "min": "2026-08-20",
+   "max": "2026-08-24"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-08-25_5d.csv",
+   "rows": 1037,
+   "min": "2026-08-25",
+   "max": "2026-08-29"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-08-30_5d.csv",
+   "rows": 652,
+   "min": "2026-08-30",
+   "max": "2026-09-03"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-09-04_5d.csv",
+   "rows": 519,
+   "min": "2026-09-04",
+   "max": "2026-09-08"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-09-09_5d.csv",
+   "rows": 606,
+   "min": "2026-09-09",
+   "max": "2026-09-13"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-09-14_5d.csv",
+   "rows": 475,
+   "min": "2026-09-14",
+   "max": "2026-09-18"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-09-19_5d.csv",
+   "rows": 353,
+   "min": "2026-09-19",
+   "max": "2026-09-23"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-09-24_5d.csv",
+   "rows": 286,
+   "min": "2026-09-24",
+   "max": "2026-09-28"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-09-29_5d.csv",
+   "rows": 770,
+   "min": "2026-09-29",
+   "max": "2026-10-03"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-10-04_5d.csv",
+   "rows": 1780,
+   "min": "2026-10-04",
+   "max": "2026-10-08"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-10-09_5d.csv",
+   "rows": 1277,
+   "min": "2026-10-09",
+   "max": "2026-10-13"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-10-14_5d.csv",
+   "rows": 9383,
+   "min": "2026-10-14",
+   "max": "2026-10-18"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_NRT/2026/2026-10-19_4d.csv",
+   "rows": 19394,
+   "min": "2026-10-19",
+   "max": "2026-10-22"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-01_5d.csv",
+   "rows": 25390,
+   "min": "2026-01-01",
+   "max": "2026-01-05"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-06_5d.csv",
+   "rows": 19039,
+   "min": "2026-01-06",
+   "max": "2026-01-10"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-11_5d.csv",
+   "rows": 17583,
+   "min": "2026-01-11",
+   "max": "2026-01-15"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-16_5d.csv",
+   "rows": 15422,
+   "min": "2026-01-16",
+   "max": "2026-01-20"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-21_5d.csv",
+   "rows": 13996,
+   "min": "2026-01-21",
+   "max": "2026-01-25"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-26_5d.csv",
+   "rows": 15609,
+   "min": "2026-01-26",
+   "max": "2026-01-30"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-01-31_5d.csv",
+   "rows": 12470,
+   "min": "2026-01-31",
+   "max": "2026-02-04"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-02-05_5d.csv",
+   "rows": 13566,
+   "min": "2026-02-05",
+   "max": "2026-02-09"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-02-10_5d.csv",
+   "rows": 14291,
+   "min": "2026-02-10",
+   "max": "2026-02-14"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-02-15_5d.csv",
+   "rows": 13651,
+   "min": "2026-02-15",
+   "max": "2026-02-19"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-02-20_5d.csv",
+   "rows": 14216,
+   "min": "2026-02-20",
+   "max": "2026-02-24"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-02-25_5d.csv",
+   "rows": 11979,
+   "min": "2026-02-25",
+   "max": "2026-03-01"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-03-02_5d.csv",
+   "rows": 15279,
+   "min": "2026-03-02",
+   "max": "2026-03-06"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-03-07_5d.csv",
+   "rows": 7858,
+   "min": "2026-03-07",
+   "max": "2026-03-09"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-03-12_5d.csv",
+   "rows": 5224,
+   "min": "2026-03-13",
+   "max": "2026-03-16"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-03-17_5d.csv",
+   "rows": 1790,
+   "min": "2026-03-17",
+   "max": "2026-03-21"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-03-22_5d.csv",
+   "rows": 3024,
+   "min": "2026-03-22",
+   "max": "2026-03-26"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-03-27_5d.csv",
+   "rows": 5022,
+   "min": "2026-03-27",
+   "max": "2026-03-31"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-04-01_5d.csv",
+   "rows": 2462,
+   "min": "2026-04-01",
+   "max": "2026-04-05"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-04-06_5d.csv",
+   "rows": 4320,
+   "min": "2026-04-06",
+   "max": "2026-04-10"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-04-11_5d.csv",
+   "rows": 12372,
+   "min": "2026-04-11",
+   "max": "2026-04-15"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-04-16_5d.csv",
+   "rows": 5954,
+   "min": "2026-04-16",
+   "max": "2026-04-20"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-04-21_5d.csv",
+   "rows": 3552,
+   "min": "2026-04-21",
+   "max": "2026-04-25"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-04-26_5d.csv",
+   "rows": 1510,
+   "min": "2026-04-26",
+   "max": "2026-04-27"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-01_5d.csv",
+   "rows": 6112,
+   "min": "2026-05-01",
+   "max": "2026-05-05"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-06_5d.csv",
+   "rows": 2397,
+   "min": "2026-05-06",
+   "max": "2026-05-10"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-11_5d.csv",
+   "rows": 1887,
+   "min": "2026-05-11",
+   "max": "2026-05-15"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-16_5d.csv",
+   "rows": 1052,
+   "min": "2026-05-16",
+   "max": "2026-05-20"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-21_5d.csv",
+   "rows": 1531,
+   "min": "2026-05-21",
+   "max": "2026-05-25"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-26_5d.csv",
+   "rows": 1315,
+   "min": "2026-05-26",
+   "max": "2026-05-30"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-05-31_5d.csv",
+   "rows": 836,
+   "min": "2026-05-31",
+   "max": "2026-06-04"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-06-05_5d.csv",
+   "rows": 832,
+   "min": "2026-06-05",
+   "max": "2026-06-09"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-06-10_5d.csv",
+   "rows": 1044,
+   "min": "2026-06-10",
+   "max": "2026-06-14"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-06-15_5d.csv",
+   "rows": 726,
+   "min": "2026-06-15",
+   "max": "2026-06-19"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-06-20_5d.csv",
+   "rows": 1189,
+   "min": "2026-06-20",
+   "max": "2026-06-24"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-06-25_5d.csv",
+   "rows": 1089,
+   "min": "2026-06-25",
+   "max": "2026-06-29"
+  },
+  {
+   "file": "firms_api/sudan/VIIRS_SNPP_SP/2026/2026-06-30_1d.csv",
+   "rows": 105,
+   "min": "2026-06-30",
+   "max": "2026-06-30"
   },
   {
    "file": "firms_api/ukraine/VIIRS_NOAA20_NRT/2026/2026-07-01_5d.csv",
@@ -11705,6 +12073,18 @@
    "max": "2025-12-30"
   },
   {
+   "file": "firms_country_post_tag/viirs-snpp_2020_Armenia.csv",
+   "rows": 703,
+   "min": "2020-01-06",
+   "max": "2020-11-30"
+  },
+  {
+   "file": "firms_country_post_tag/viirs-snpp_2020_Azerbaijan.csv",
+   "rows": 5196,
+   "min": "2020-01-01",
+   "max": "2020-12-31"
+  },
+  {
    "file": "firms_country_post_tag/viirs-snpp_2022_Russian_Federation.csv",
    "rows": 653775,
    "min": "2022-01-01",
@@ -11723,6 +12103,12 @@
    "max": "2023-12-31"
   },
   {
+   "file": "firms_country_post_tag/viirs-snpp_2023_Sudan.csv",
+   "rows": 215225,
+   "min": "2023-01-01",
+   "max": "2023-12-31"
+  },
+  {
    "file": "firms_country_post_tag/viirs-snpp_2023_Ukraine.csv",
    "rows": 43405,
    "min": "2023-01-01",
@@ -11731,6 +12117,12 @@
   {
    "file": "firms_country_post_tag/viirs-snpp_2024_Russian_Federation.csv",
    "rows": 961708,
+   "min": "2024-01-01",
+   "max": "2024-12-31"
+  },
+  {
+   "file": "firms_country_post_tag/viirs-snpp_2024_Sudan.csv",
+   "rows": 201621,
    "min": "2024-01-01",
    "max": "2024-12-31"
   },
@@ -11747,6 +12139,12 @@
    "max": "2025-12-31"
   },
   {
+   "file": "firms_country_post_tag/viirs-snpp_2025_Sudan.csv",
+   "rows": 282660,
+   "min": "2025-01-01",
+   "max": "2025-12-31"
+  },
+  {
    "file": "firms_country_post_tag/viirs-snpp_2025_Ukraine.csv",
    "rows": 67522,
    "min": "2025-01-01",
@@ -11755,10 +12153,24 @@
  ],
  "gate_hits": [
   {
+   "file": "firms_country_post_tag/viirs-snpp_2023_Sudan.csv",
+   "country": "Sudan",
+   "min": "2023-01-01",
+   "max": "2023-12-31",
+   "pre_2026_10_14": false
+  },
+  {
    "file": "firms_country_post_tag/viirs-snpp_2022_Ukraine.csv",
    "country": "Ukraine",
    "min": "2022-01-01",
    "max": "2022-12-31",
+   "pre_2026_10_14": false
+  },
+  {
+   "file": "firms_country_post_tag/viirs-snpp_2025_Sudan.csv",
+   "country": "Sudan",
+   "min": "2025-01-01",
+   "max": "2025-12-31",
    "pre_2026_10_14": false
   },
   {
@@ -11804,6 +12216,13 @@
    "pre_2026_10_14": false
   },
   {
+   "file": "firms_country_post_tag/viirs-snpp_2024_Sudan.csv",
+   "country": "Sudan",
+   "min": "2024-01-01",
+   "max": "2024-12-31",
+   "pre_2026_10_14": false
+  },
+  {
    "file": "firms_country_post_tag/viirs-jpss1_2025_Ukraine.csv",
    "country": "Ukraine",
    "min": "2025-01-01",
@@ -11846,10 +12265,24 @@
    "pre_2026_10_14": false
   },
   {
+   "file": "firms_country_post_tag/viirs-snpp_2020_Armenia.csv",
+   "country": "Armenia",
+   "min": "2020-01-06",
+   "max": "2020-11-30",
+   "pre_2026_10_14": false
+  },
+  {
    "file": "firms_country_post_tag/viirs-snpp_2022_Russian_Federation.csv",
    "country": "Russia",
    "min": "2022-01-01",
    "max": "2022-12-31",
+   "pre_2026_10_14": false
+  },
+  {
+   "file": "firms_country_post_tag/viirs-snpp_2020_Azerbaijan.csv",
+   "country": "Azerbaijan",
+   "min": "2020-01-01",
+   "max": "2020-12-31",
    "pre_2026_10_14": false
   },
   {
@@ -12126,16 +12559,24 @@
  ],
  "by_set": {
   "UNLISTED": [
-   25,
-   220749201
+   28,
+   220155655
   ],
   "E": [
    164,
    483096630
   ],
+  "T2": [
+   4,
+   93703341
+  ],
   "C1+E": [
    1919,
    1052410029
+  ],
+  "T1": [
+   2,
+   461515
   ],
   "static": [
    45,
@@ -12150,12 +12591,12 @@
    196500
   ],
   "validation": [
-   26,
-   61114687
+   27,
+   122656258
   ],
   "observability": [
-   189,
-   99344468
+   197,
+   140341058
   ],
   "economist": [
    83,
@@ -12169,6 +12610,10 @@
    5,
    179444
   ],
+  "T2-ext": [
+   60,
+   24577120
+  ],
   "baseline": [
    37,
    229076765
@@ -12176,6 +12621,10 @@
   "E-ext": [
    1,
    27262244
+  ],
+  "post_tag_telegram": [
+   4,
+   1126922
   ],
   "O": [
    4365,
