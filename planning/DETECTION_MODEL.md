@@ -232,3 +232,7 @@ only; the H7 test defines Karabakh realised recall at 5 km / ±2 days, a looser 
 `data/manifest_parts/observability-era5.json` shows modified in git from that poller, not from these scripts.
 *Not done / open:* no committing (lead's call); no DEVIATIONS entry written — the H8 "below the 25th percentile" wording and
 the H7 1 km-vs-5 km definition mismatch may deserve one, lead to decide.
+
+## Model v2 (exploratory, after the C1 tests) — noted 2026-10-22, Jackson's call
+
+The confirmatory H2 number stays 0.737. A v2 is allowed only as a labelled exploratory section, run after H4–H6 and H9–H14. Candidates, in order of expected gain: (1) replace ERA5 tcc with the sensor's own fire-mask cloud share where a sampled granule exists, or calibrate tcc through `firemask_vs_era5.csv` (ERA5 says clear on ~31% of winter nights the sensor calls cloud); (2) swath-edge position from the footprint geometry (edge pixels are 2–3× larger); (3) burnable fraction within 500 m from WorldCover instead of the point class; (4) cloud × day/night and cloud × season interactions. Ceiling is set by H3: ~54% paired-look concordance under clear sky is irreducible noise. Payoff is a sharper P(detect) for the corrected index (H6b), reported next to v1.
