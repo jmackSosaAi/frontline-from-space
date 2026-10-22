@@ -11,3 +11,7 @@
 __pycache__/
 data/interim/
 data/raw/
+
+# Telegram login session (full account access)
+*.session
+*.session-journal
