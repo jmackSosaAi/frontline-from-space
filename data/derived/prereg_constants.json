@@ -1,0 +1,277 @@
+{
+  "generated": "2026-10-22T05:06:24+00:00",
+  "script": "scripts/prereg_constants.py",
+  "grid": "h3_res5",
+  "grid_note": "H3 res 5",
+  "crs_for_area_and_distance": "EPSG:3035",
+  "viina_status_codes": [
+    "CONTESTED",
+    "RU",
+    "UA"
+  ],
+  "sesoi": {
+    "definition": "half the mean |RU-held km2(t+4) - RU-held km2(t)| over front cell-weeks (centroid <=15 km of the RU|UA Voronoi boundary at week t), VIINA 2025 majority `status`, weekly modal status",
+    "primary": {
+      "sesoi_km2": 1.7028637900108765,
+      "mean_abs_change_km2": 3.405727580021753,
+      "mean_signed_change_km2": 2.4510738272073396,
+      "median_abs_change_km2": 0.0,
+      "share_zero": 0.8558394160583942,
+      "n_cell_weeks": 6028,
+      "n_cells": 143,
+      "n_origin_weeks": 49
+    },
+    "alternatives": {
+      "band_10km": {
+        "sesoi_km2": 2.3097509461250874,
+        "mean_abs_change_km2": 4.619501892250175,
+        "mean_signed_change_km2": 3.3849457367450686,
+        "median_abs_change_km2": 0.0,
+        "share_zero": 0.8055278884462151,
+        "n_cell_weeks": 4016,
+        "n_cells": 103,
+        "n_origin_weeks": 49
+      },
+      "band_25km": {
+        "sesoi_km2": 1.0557890079022731,
+        "mean_abs_change_km2": 2.1115780158045463,
+        "mean_signed_change_km2": 1.5279418269642535,
+        "median_abs_change_km2": 0.0,
+        "share_zero": 0.9102434077079108,
+        "n_cell_weeks": 9860,
+        "n_cells": 221,
+        "n_origin_weeks": 49
+      },
+      "contested_as_half_15km": {
+        "sesoi_km2": 1.7306938734251318,
+        "mean_abs_change_km2": 3.4613877468502636,
+        "mean_signed_change_km2": 2.5512323894623026,
+        "median_abs_change_km2": 0.0,
+        "share_zero": 0.8397478433974784,
+        "n_cell_weeks": 6028,
+        "n_cells": 143,
+        "n_origin_weeks": 49
+      },
+      "horizon_1wk_15km": {
+        "sesoi_km2": 0.6470077060425372,
+        "mean_abs_change_km2": 1.2940154120850744,
+        "mean_signed_change_km2": 0.6449173283396032,
+        "median_abs_change_km2": 0.0,
+        "share_zero": 0.9264590830855891,
+        "n_cell_weeks": 6391,
+        "n_cells": 150,
+        "n_origin_weeks": 52
+      },
+      "cells_ge50pct_in_ukraine_15km": {
+        "sesoi_km2": 1.7626525846836365,
+        "mean_abs_change_km2": 3.525305169367273,
+        "mean_signed_change_km2": 2.536669415971262,
+        "median_abs_change_km2": 0.0,
+        "share_zero": 0.8544795442775763,
+        "n_cell_weeks": 5793,
+        "n_cells": 138,
+        "n_origin_weeks": 49
+      },
+      "full_iso_weeks_only_15km": {
+        "sesoi_km2": 1.6240922864336822,
+        "mean_abs_change_km2": 3.2481845728673644,
+        "mean_signed_change_km2": 2.3109175181724684,
+        "median_abs_change_km2": 0.0,
+        "share_zero": 0.8612407119405564,
+        "n_cell_weeks": 5787,
+        "n_cells": 139,
+        "n_origin_weeks": 49
+      }
+    },
+    "old_deepstate_value_km2": 2.9,
+    "per_doubling_km2": 1.18,
+    "weeks": [
+      "2024-12-30",
+      "2025-01-06",
+      "2025-01-13",
+      "2025-01-20",
+      "2025-01-27",
+      "2025-02-03",
+      "2025-02-10",
+      "2025-02-17",
+      "2025-02-24",
+      "2025-03-03",
+      "2025-03-10",
+      "2025-03-17",
+      "2025-03-24",
+      "2025-03-31",
+      "2025-04-07",
+      "2025-04-14",
+      "2025-04-21",
+      "2025-04-28",
+      "2025-05-05",
+      "2025-05-12",
+      "2025-05-19",
+      "2025-05-26",
+      "2025-06-02",
+      "2025-06-09",
+      "2025-06-16",
+      "2025-06-23",
+      "2025-06-30",
+      "2025-07-07",
+      "2025-07-14",
+      "2025-07-21",
+      "2025-07-28",
+      "2025-08-04",
+      "2025-08-11",
+      "2025-08-18",
+      "2025-08-25",
+      "2025-09-01",
+      "2025-09-08",
+      "2025-09-15",
+      "2025-09-22",
+      "2025-09-29",
+      "2025-10-06",
+      "2025-10-13",
+      "2025-10-20",
+      "2025-10-27",
+      "2025-11-03",
+      "2025-11-10",
+      "2025-11-17",
+      "2025-11-24",
+      "2025-12-01",
+      "2025-12-08",
+      "2025-12-15",
+      "2025-12-22",
+      "2025-12-29"
+    ],
+    "ties_broken_by_latest_day": 12,
+    "control_line_km_median": 1184.6602013122304
+  },
+  "frp_p75_big_small": {
+    "primary_full_E_hybrid_line": {
+      "summer_day": {
+        "value_MW": 11.2,
+        "n": 22638
+      },
+      "summer_night": {
+        "value_MW": 1.72,
+        "n": 9140
+      },
+      "winter_day": {
+        "value_MW": 10.598,
+        "n": 1346
+      },
+      "winter_night": {
+        "value_MW": 2.025,
+        "n": 334
+      },
+      "pooled_p75": {
+        "value_MW": 8.84,
+        "n": 33458
+      },
+      "pooled_p90": {
+        "value_MW": 16.33,
+        "n": 33458
+      }
+    },
+    "viina_2025_only": {
+      "summer_day": {
+        "value_MW": 11.45,
+        "n": 12153
+      },
+      "summer_night": {
+        "value_MW": 1.73,
+        "n": 4569
+      },
+      "winter_day": {
+        "value_MW": 10.607,
+        "n": 1340
+      },
+      "winter_night": {
+        "value_MW": 2.04,
+        "n": 316
+      },
+      "pooled_p75": {
+        "value_MW": 9.13,
+        "n": 18378
+      },
+      "pooled_p90": {
+        "value_MW": 16.823,
+        "n": 18378
+      }
+    },
+    "deepstate_line_full_E": {
+      "summer_day": {
+        "value_MW": 11.18,
+        "n": 22780
+      },
+      "summer_night": {
+        "value_MW": 1.72,
+        "n": 9541
+      },
+      "winter_day": {
+        "value_MW": 10.54,
+        "n": 1325
+      },
+      "winter_night": {
+        "value_MW": 2.03,
+        "n": 324
+      },
+      "pooled_p75": {
+        "value_MW": 8.73,
+        "n": 33970
+      },
+      "pooled_p90": {
+        "value_MW": 16.171,
+        "n": 33970
+      }
+    }
+  },
+  "h13_p90": {
+    "primary_front_cell_p90_full_E": {
+      "value_MW": 16.33,
+      "n": 33458
+    },
+    "ref_all_E_fires_p90": {
+      "value_MW": 17.29,
+      "n": 115958
+    },
+    "ref_russian_held_rear_gt30km_p90": {
+      "value_MW": 21.42,
+      "n": 16515
+    }
+  },
+  "h14": "not computed (hypothesis; computing baseline FRP floors would be looking at the test)",
+  "filters": {
+    "firms": "S-NPP yearly country files, 2024-07-08..2025-12-31, confidence in {n,h}, any type; C1 rows dropped on read",
+    "season": "summer May-Oct, winter Nov-Apr (by acq_date month)",
+    "week": "ISO week (Mon-Sun)"
+  },
+  "log": [
+    "Ukraine polygon (NE 10m admin-0 Ukraine + NE admin-1 Crimea/Sevastopol): 599,094 km2",
+    "Grid h3_res5: 2674 cells touching Ukraine; full-cell area 244.6 km2",
+    "Settlements 33141; unique generator points 33141 (0 share coordinates with another settlement -> merged)",
+    "Voronoi clipped to Ukraine: total 599,094 km2; 24 empty after clip",
+    "Voronoi neighbour pairs sharing an edge: 98,068",
+    "VIINA 2025 rows 12,096,465; settlements 33,141; dates 2025-01-01..2025-12-31; status codes {'UA': np.int64(10109128), 'RU': np.int64(1980348), 'CONTESTED': np.int64(6989)}",
+    "Weekly modal status: 53 ISO weeks (2024-12-30..2025-12-29, days/week first 5 last 3); settlement-weeks 1,756,473; ties 12 (broken by status on the latest day); missing 0; merged generators with conflicting status in some week: 0",
+    "Settlement-weeks RU 287,649, UA 1,467,796, CONTESTED 1,028",
+    "Control line length km: median 1185 (min 1087, max 1248); front cells/week at 15 km: median 123",
+    "SESOI (VIINA 2025, 15 km): 1.703 km2 (mean |4-wk change| 3.406; n = 6028 cell-weeks, 143 cells)",
+    "  band_10km: 2.310 (n 4016)",
+    "  band_25km: 1.056 (n 9860)",
+    "  contested_as_half_15km: 1.731 (n 6028)",
+    "  horizon_1wk_15km: 0.647 (n 6391)",
+    "  cells_ge50pct_in_ukraine_15km: 1.763 (n 5793)",
+    "  full_iso_weeks_only_15km: 1.624 (n 5787)",
+    "National RU-held area (Voronoi, km2): 113,135 -> 117,312 (net +4,176)",
+    "DeepState weekly snapshots in E: 78 (2024-07-08..2025-12-29)",
+    "FIRMS E rows 125,931; confidence n/h 115,958; satellites ['N']; dates 2024-07-08..2025-12-31",
+    "FRP p75 (MW) front-cell fires, primary (full E; DeepState line 2024 weeks, VIINA line 2025 weeks):",
+    "  summer_day: 11.2 (n 22638)",
+    "  summer_night: 1.72 (n 9140)",
+    "  winter_day: 10.598 (n 1346)",
+    "  winter_night: 2.025 (n 334)",
+    "  pooled_p75: 8.84 (n 33458)",
+    "  pooled_p90: 16.33 (n 33458)",
+    "  [viina_2025_only] summer_day=11.45 (n 12153); summer_night=1.73 (n 4569); winter_day=10.607 (n 1340); winter_night=2.04 (n 316); pooled_p75=9.13 (n 18378); pooled_p90=16.823 (n 18378)",
+    "  [deepstate_line_full_E] summer_day=11.18 (n 22780); summer_night=1.72 (n 9541); winter_day=10.54 (n 1325); winter_night=2.03 (n 324); pooled_p75=8.73 (n 33970); pooled_p90=16.171 (n 33970)",
+    "H13 p90: primary_front_cell_p90_full_E=16.33 (n 33458); ref_all_E_fires_p90=17.29 (n 115958); ref_russian_held_rear_gt30km_p90=21.42 (n 16515)"
+  ]
+}

@@ -1,0 +1,331 @@
+{
+ "run_utc": "2026-10-22T05:28:41+00:00",
+ "dry_run": false,
+ "manifest_before": 122,
+ "added": 4681,
+ "manifest_after": 4803,
+ "already_present": 0,
+ "mismatches": [],
+ "unlisted_on_disk": [
+  "aqlity_frontline_monitoring/hdx_package_show.json",
+  "boundaries/cod_ab_ukr/hdx_package_show.json",
+  "era5/requests.json",
+  "firemask/granules_full.csv",
+  "firemask/sample_plan_full.csv",
+  "insecurity_insight/hdx_package_show.json",
+  "nrc_frontline_buffer/hdx_package_show.json",
+  "nrc_proximity/hdx_package_show.json",
+  "ocha_security_incidents_2017_2021/hdx_package_show.json",
+  "telegram/mod_russia_posts.jsonl",
+  "who_ssa/hdx_package_show.json"
+ ],
+ "firms_csvs": [
+  {
+   "file": "firms_country/viirs-snpp_2012_Armenia.csv",
+   "rows": 1342,
+   "min": "2012-01-21",
+   "max": "2012-12-10"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2012_Azerbaijan.csv",
+   "rows": 4822,
+   "min": "2012-02-03",
+   "max": "2012-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2012_Sudan.csv",
+   "rows": 170651,
+   "min": "2012-01-20",
+   "max": "2012-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2012_Ukraine.csv",
+   "rows": 72361,
+   "min": "2012-01-23",
+   "max": "2012-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2013_Armenia.csv",
+   "rows": 1759,
+   "min": "2013-01-01",
+   "max": "2013-12-06"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2013_Azerbaijan.csv",
+   "rows": 5647,
+   "min": "2013-01-01",
+   "max": "2013-12-30"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2013_Sudan.csv",
+   "rows": 179600,
+   "min": "2013-01-01",
+   "max": "2013-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2013_Ukraine.csv",
+   "rows": 64125,
+   "min": "2013-01-01",
+   "max": "2013-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2014_Armenia.csv",
+   "rows": 1058,
+   "min": "2014-01-06",
+   "max": "2014-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2014_Azerbaijan.csv",
+   "rows": 4068,
+   "min": "2014-01-04",
+   "max": "2014-12-30"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2014_Sudan.csv",
+   "rows": 159864,
+   "min": "2014-01-01",
+   "max": "2014-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2014_Ukraine.csv",
+   "rows": 166968,
+   "min": "2014-01-03",
+   "max": "2014-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2015_Armenia.csv",
+   "rows": 1138,
+   "min": "2015-01-06",
+   "max": "2015-12-28"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2015_Azerbaijan.csv",
+   "rows": 9693,
+   "min": "2015-01-04",
+   "max": "2015-12-29"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2015_Sudan.csv",
+   "rows": 159637,
+   "min": "2015-01-01",
+   "max": "2015-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2015_Ukraine.csv",
+   "rows": 171492,
+   "min": "2015-01-01",
+   "max": "2015-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2016_Armenia.csv",
+   "rows": 1413,
+   "min": "2016-01-22",
+   "max": "2016-12-30"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2016_Azerbaijan.csv",
+   "rows": 6849,
+   "min": "2016-01-05",
+   "max": "2016-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2016_Sudan.csv",
+   "rows": 161059,
+   "min": "2016-01-01",
+   "max": "2016-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2016_Ukraine.csv",
+   "rows": 98643,
+   "min": "2016-01-01",
+   "max": "2016-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2017_Armenia.csv",
+   "rows": 1807,
+   "min": "2017-01-01",
+   "max": "2017-12-29"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2017_Azerbaijan.csv",
+   "rows": 7104,
+   "min": "2017-01-01",
+   "max": "2017-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2017_Sudan.csv",
+   "rows": 159770,
+   "min": "2017-01-01",
+   "max": "2017-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2017_Ukraine.csv",
+   "rows": 119312,
+   "min": "2017-01-01",
+   "max": "2017-12-30"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2018_Armenia.csv",
+   "rows": 1710,
+   "min": "2018-01-07",
+   "max": "2018-12-08"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2018_Azerbaijan.csv",
+   "rows": 5927,
+   "min": "2018-01-08",
+   "max": "2018-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2018_Sudan.csv",
+   "rows": 162303,
+   "min": "2018-01-01",
+   "max": "2018-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2018_Ukraine.csv",
+   "rows": 72621,
+   "min": "2018-01-01",
+   "max": "2018-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2019_Armenia.csv",
+   "rows": 1745,
+   "min": "2019-01-05",
+   "max": "2019-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2019_Azerbaijan.csv",
+   "rows": 9355,
+   "min": "2019-01-01",
+   "max": "2019-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2019_Sudan.csv",
+   "rows": 166634,
+   "min": "2019-01-01",
+   "max": "2019-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2019_Ukraine.csv",
+   "rows": 99652,
+   "min": "2019-01-02",
+   "max": "2019-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2020_Sudan.csv",
+   "rows": 199285,
+   "min": "2020-01-01",
+   "max": "2020-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2020_Ukraine.csv",
+   "rows": 94158,
+   "min": "2020-01-01",
+   "max": "2020-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2021_Sudan.csv",
+   "rows": 189728,
+   "min": "2021-01-01",
+   "max": "2021-12-31"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2021_Ukraine.csv",
+   "rows": 46926,
+   "min": "2021-01-01",
+   "max": "2021-12-29"
+  },
+  {
+   "file": "firms_country/viirs-snpp_2022_Sudan.csv",
+   "rows": 153327,
+   "min": "2022-01-01",
+   "max": "2022-12-31"
+  }
+ ],
+ "gate_hits": [],
+ "new_control_files": [
+  "aqlity_frontline_monitoring/AQLITY_dataset_082024_022025.xlsx",
+  "aqlity_frontline_monitoring/hdx_package_show.json",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_Apr_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_August_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_December_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_Nov_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_September_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Aug_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Dec_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Oct_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_October_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Sept_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_Feb_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_July_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_Mar_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_November_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_05_June_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_05_May_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_07_Jan_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_Jan_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_May_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_Nov_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_October_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_Aug_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_July_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_June_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_November_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_Oct_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_Sept_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_Apr_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_Dec_2024.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_Feb_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_September_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_18_Mar_2025.xlsx",
+  "nrc_frontline_buffer/NRC_Frontline_Buffer_data_20_August_2025.xlsx",
+  "nrc_frontline_buffer/hdx_package_show.json",
+  "sydorenko2025_wildfires_of_war/Stable_frontline_for_AOI.rar",
+  "viina/README.md",
+  "viina/control_latest_2025.zip",
+  "viina/gn_UA_tess.geojson"
+ ],
+ "by_set": {
+  "UNLISTED": [
+   11,
+   14699025
+  ],
+  "E": [
+   44,
+   35482177
+  ],
+  "static": [
+   45,
+   1886146830
+  ],
+  "covariate": [
+   5,
+   1063131
+  ],
+  "license": [
+   13,
+   196500
+  ],
+  "validation": [
+   26,
+   61114687
+  ],
+  "observability": [
+   185,
+   61707448
+  ],
+  "economist": [
+   83,
+   419690717
+  ],
+  "baseline": [
+   37,
+   229076765
+  ],
+  "O": [
+   4365,
+   7887980416
+  ]
+ }
+}

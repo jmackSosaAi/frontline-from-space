@@ -1,0 +1,1631 @@
+[
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-01-01T00%3A00%3A00Z%2C2022-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17689,
+  "rows": 254,
+  "sha256": "683bc1fd084f66ddd3f652193c85da4a431ffa0059941121f606e8d69bc0d6cd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:12:51+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-02-01T00%3A00%3A00Z%2C2022-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 15883,
+  "rows": 228,
+  "sha256": "6580b9acfd58b826390afc886a3366d23354095b0f142685307ef51b4b41173d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:12:53+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-03-01T00%3A00%3A00Z%2C2022-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17373,
+  "rows": 251,
+  "sha256": "957c1bf0adc49ab7eb47f2072b47afba44e6b5f9b7ec1add01611253d67ea35d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:12:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-04-01T00%3A00%3A00Z%2C2022-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17010,
+  "rows": 245,
+  "sha256": "21756d4e0cf3fa6ce51e2db86a39a23fc17245e8957127fa81fd55775041f3c2",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:01+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-05-01T00%3A00%3A00Z%2C2022-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17513,
+  "rows": 251,
+  "sha256": "4971d19bcdc93a6b1d527b9c568e4fa0fc4d7b2caef0a76a4739417956212651",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:07+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-06-01T00%3A00%3A00Z%2C2022-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16866,
+  "rows": 242,
+  "sha256": "d8474c8e69c0e6983def5aff14a2b6b66c412a229ee73664fdbf1b64dc4691b6",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:13+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-07-01T00%3A00%3A00Z%2C2022-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 14800,
+  "rows": 212,
+  "sha256": "f6963ee790b2385b0a9ec56d6ed7cc4195b0bdda8ec009225050a0e0bd88ea0e",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:17+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-08-01T00%3A00%3A00Z%2C2022-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 12199,
+  "rows": 174,
+  "sha256": "57148c188440379c20f12b82dde9098579e6311faef52b146e0e95f511225848",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:21+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-09-01T00%3A00%3A00Z%2C2022-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17199,
+  "rows": 247,
+  "sha256": "02f776d02c94dffb4ee5b7f3baaf6d5c856a6b2bd465c920c56851f858164cfd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:25+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-10-01T00%3A00%3A00Z%2C2022-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17575,
+  "rows": 253,
+  "sha256": "e6945ffc911a7fab3fb1573aabe85aa455281c87b3e7eb1a776faf1ab800fef9",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:33+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-11-01T00%3A00%3A00Z%2C2022-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16962,
+  "rows": 245,
+  "sha256": "312442fff7eb9d6b105a725c4334cd13e87800540ded9052c92bf82d687d35e8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:37+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2022-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2022-12-01T00%3A00%3A00Z%2C2023-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17889,
+  "rows": 257,
+  "sha256": "0884cc8f64b6e83dd79c3df7de5b842a02153ee07a09bd0aa5b2aba87df24acb",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:43+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-01-01T00%3A00%3A00Z%2C2023-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17869,
+  "rows": 255,
+  "sha256": "3970cd52d507defc5d6737a77a2373e3ad28683bf79956897b0c24f6b39bb766",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:49+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-02-01T00%3A00%3A00Z%2C2023-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 15909,
+  "rows": 226,
+  "sha256": "28ae8de2a30903f4b7e6a3aeadb295749902f3fcc951438dd0df98d2e172878d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:56+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-03-01T00%3A00%3A00Z%2C2023-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17283,
+  "rows": 250,
+  "sha256": "428733234875f18bca36ab1e80ee303b043adb2b797df0666061b075e31e8c38",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:13:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-04-01T00%3A00%3A00Z%2C2023-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16369,
+  "rows": 233,
+  "sha256": "5ad39cd419419b12e3275b05cb0a2d80456cd87b602cdca095855064272c4485",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:01+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-05-01T00%3A00%3A00Z%2C2023-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17322,
+  "rows": 249,
+  "sha256": "44f2f9964b013b4cd3ae51e46f187dac791ffc916f82b279d81f31dc57585d8e",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:03+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-06-01T00%3A00%3A00Z%2C2023-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17630,
+  "rows": 251,
+  "sha256": "0bd79b93599964dfcbeeca6568a7f89e24d566249bfaba9333a9717711cc0735",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:05+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-07-01T00%3A00%3A00Z%2C2023-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16756,
+  "rows": 240,
+  "sha256": "bd9247f9980ed6931e07bd4d3156d53ec474ff93e4af618429388ba43cb55365",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:06+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-08-01T00%3A00%3A00Z%2C2023-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17643,
+  "rows": 255,
+  "sha256": "34bd7b9cfd05172c13064ad77783d42d72215392a451bb81ce8d13d52427ef1f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:09+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-09-01T00%3A00%3A00Z%2C2023-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17119,
+  "rows": 247,
+  "sha256": "9f7f7b719b5176c6adb45c3e66261a6e34bd57e2865adf341ade96280bd21660",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:11+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-10-01T00%3A00%3A00Z%2C2023-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17698,
+  "rows": 256,
+  "sha256": "3f1c3dd0046b05d23c3396548d3e6a551a1c0560e61209782bcf4508c669c88c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:12+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-11-01T00%3A00%3A00Z%2C2023-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16292,
+  "rows": 235,
+  "sha256": "e9d2e5f35b54b5f684be8e4b8eb911643d33dac0f268cade8da503e591fe4aca",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:14+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2023-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2023-12-01T00%3A00%3A00Z%2C2024-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17470,
+  "rows": 252,
+  "sha256": "8c1ee43cecd3364b6b89a3327b0406748f2fe3c6ed87c91f81392d6565aef891",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:16+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-01-01T00%3A00%3A00Z%2C2024-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17163,
+  "rows": 245,
+  "sha256": "728484257a4d51817552a9e73020c8d1c48afbe4f21fc524ea95506c7ab428f5",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:18+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-02-01T00%3A00%3A00Z%2C2024-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16815,
+  "rows": 240,
+  "sha256": "256740e0851deafd46818db57498953f36c3601e4b11fed592f692e8d5330ed8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:21+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-03-01T00%3A00%3A00Z%2C2024-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17420,
+  "rows": 251,
+  "sha256": "0198f908199bd672ece1ec4861a0da56fe3e1d54e6f6954e2572a40b624a9132",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:24+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-04-01T00%3A00%3A00Z%2C2024-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17341,
+  "rows": 248,
+  "sha256": "930e2962fd246f43dc809a0403219a6277b7eec5da43a55fd252fdf66038e1ea",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:26+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-05-01T00%3A00%3A00Z%2C2024-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16516,
+  "rows": 235,
+  "sha256": "79760e347498a9250566cd212ddce8804182365a6524da40d638b3787ac74ea8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:29+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-06-01T00%3A00%3A00Z%2C2024-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 15525,
+  "rows": 222,
+  "sha256": "96dbefe875e7096c196124f96f38ed0d70c4afb4d14261690f30fb0122ef2d6f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:31+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-07-01T00%3A00%3A00Z%2C2024-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 10682,
+  "rows": 151,
+  "sha256": "8c7bfba82b4377e03f969f671ac7990731fb879f6d3f3b04cae215807142d8db",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:33+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-08-01T00%3A00%3A00Z%2C2024-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17684,
+  "rows": 252,
+  "sha256": "d0d0f2d5a87d03ce5f68816761aaf3c9150140708f902b94bfb69b31d4c9c8d1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:35+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-09-01T00%3A00%3A00Z%2C2024-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 15857,
+  "rows": 228,
+  "sha256": "5b3a2cfa879699cdfdda751b8bf992e4364104daf6f8177b106c24b1e21a66a2",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:37+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-10-01T00%3A00%3A00Z%2C2024-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17708,
+  "rows": 255,
+  "sha256": "06344dbd33437911b85de1966ed4baa8e129b18930feb5b49005442267db5914",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:45+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-11-01T00%3A00%3A00Z%2C2024-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 14855,
+  "rows": 213,
+  "sha256": "b90f75cbf60bffc5632364c4269cee7438c19c191fa939287cbabc07b5c9acef",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:47+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2024-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2024-12-01T00%3A00%3A00Z%2C2025-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17311,
+  "rows": 250,
+  "sha256": "343ec2eb3b78b32839e12383f1ff6cbd8467214329625c1896124fe0e773e96b",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:49+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-01-01T00%3A00%3A00Z%2C2025-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17900,
+  "rows": 256,
+  "sha256": "3ef9b785d0f3dc02d293fa85bc650f8b27ce5afa4f7bc8d7b54bb52e853a22b8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:51+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-02-01T00%3A00%3A00Z%2C2025-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 15984,
+  "rows": 228,
+  "sha256": "3f09474b2cc5592dbcf5ead028315be48e72efe26bd438a3a5acb08970a59423",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:54+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-03-01T00%3A00%3A00Z%2C2025-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17734,
+  "rows": 254,
+  "sha256": "01f9102ad36df8847c9658f8b33dfc722751ab2fefed6e4738f160fb3bad8c8d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:14:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-04-01T00%3A00%3A00Z%2C2025-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17314,
+  "rows": 248,
+  "sha256": "2be687f22b535f2fcd4a62445ec4eff1d80db2dd425333962e6e298d6d6ffd00",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:01+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-05-01T00%3A00%3A00Z%2C2025-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17564,
+  "rows": 251,
+  "sha256": "8e734a206c4df454c825baaae96941ae0e04e9446f523415ca692eda5f60d2ba",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:04+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-06-01T00%3A00%3A00Z%2C2025-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17159,
+  "rows": 245,
+  "sha256": "7123316fa641a8bac07c91f7ca32b01db6da86da31de07c9b8e660cd497a1781",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:07+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-07-01T00%3A00%3A00Z%2C2025-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 15985,
+  "rows": 227,
+  "sha256": "45dcd6a4db041d34246c523c2d62cad9f4ca650656048d5b069dcdcc785b84fa",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:09+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-08-01T00%3A00%3A00Z%2C2025-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17095,
+  "rows": 243,
+  "sha256": "e4ab8142645f0cc32d9b4f3bb06624605d0e378c3a7fe5cf6122c10c80d1eb43",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:15+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-09-01T00%3A00%3A00Z%2C2025-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16700,
+  "rows": 239,
+  "sha256": "03586d972461c6186178f3ad838711f5a83ad81cf303e4eb8a942a9269688a6f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:21+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-10-01T00%3A00%3A00Z%2C2025-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17764,
+  "rows": 254,
+  "sha256": "0c27abd9400a9c573337dc12930bc218c99b492d3707668a877a59b4f15c715e",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:24+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-11-01T00%3A00%3A00Z%2C2025-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16707,
+  "rows": 237,
+  "sha256": "4fb35ca33b1aceb96a0fd772eaa9f2fa7675dd80277289dbd64c41682e6f03fe",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:27+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP03IMG/2025-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2105092163-LAADS&bounding_box=22%2C44%2C41%2C53&temporal=2025-12-01T00%3A00%3A00Z%2C2026-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17864,
+  "rows": 257,
+  "sha256": "fa56980ef128ce4391cd5e0653a3ced118b710908fe783f905dc312edc28f054",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:31+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-01-01T00%3A00%3A00Z%2C2022-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25136,
+  "rows": 254,
+  "sha256": "26c0c2af085a9236abca993cf71ebd30000c8d8224ea6886cb0bc01f79652bdd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:39+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-02-01T00%3A00%3A00Z%2C2022-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22582,
+  "rows": 228,
+  "sha256": "1014b2e2e0bee70ffe6f799fbc53d212c21db97da7bbb8d159242f7e1f002630",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:46+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-03-01T00%3A00%3A00Z%2C2022-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24859,
+  "rows": 251,
+  "sha256": "7d36c47c5abf7e48b21040c2c5dc9e7bc6583cc80144024f74b2629a8824b544",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:49+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-04-01T00%3A00%3A00Z%2C2022-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24229,
+  "rows": 245,
+  "sha256": "ef92bb54c7f7818f894aa82f106536ac7fe05f18ba7d814cec1bd2b5582dc754",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:15:52+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-05-01T00%3A00%3A00Z%2C2022-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25028,
+  "rows": 251,
+  "sha256": "5b1f4b16b5186976e3d03864d01973e5d2c4c43c4ef3371cbdc2bd2fae3548c0",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:02+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-06-01T00%3A00%3A00Z%2C2022-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24070,
+  "rows": 242,
+  "sha256": "b74a2c64195dfb83b83e2fa4705f898dd336ceb5018c7841c9332d1843049255",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:05+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-07-01T00%3A00%3A00Z%2C2022-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 21130,
+  "rows": 212,
+  "sha256": "2b9637870e8c243cbb26525368ad0463ebc2e7170d005c72ea8097b6e3b352bd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:08+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-08-01T00%3A00%3A00Z%2C2022-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 17426,
+  "rows": 174,
+  "sha256": "62a26a919accac851191417462f63552e47b1f844f322721c43698fec856aa57",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:10+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-09-01T00%3A00%3A00Z%2C2022-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24265,
+  "rows": 246,
+  "sha256": "1a846d825fd3c2db9bb28b5d50f3cfb56b60369d065ef8576c82010b7afab1be",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:13+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-10-01T00%3A00%3A00Z%2C2022-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24918,
+  "rows": 253,
+  "sha256": "cf839243f31b39700bd56adb48a61d6c3a7afd8a46be55549838dff1931e05a8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:17+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-11-01T00%3A00%3A00Z%2C2022-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24178,
+  "rows": 245,
+  "sha256": "ccd736507db7a7bad8b59ddd9fee5e3d9fc79edf38b488c34b27eba3f99cadb1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:22+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2022-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-12-01T00%3A00%3A00Z%2C2023-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25374,
+  "rows": 257,
+  "sha256": "1bafbbd8737863b1e057a5274fdbe8fe72099357f191e866f3c3f365b549fa33",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:39+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-01-01T00%3A00%3A00Z%2C2023-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25294,
+  "rows": 255,
+  "sha256": "8c8f3e5a526ab6b79d88d67ade5d64fc884a0d2a5bb8bb7260a925564575030b",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:45+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-02-01T00%3A00%3A00Z%2C2023-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22426,
+  "rows": 226,
+  "sha256": "0675b67f027f1962d7b476fa71b212529febb7d1a4ae5f9abfc17db4c3152ad8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:53+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-03-01T00%3A00%3A00Z%2C2023-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24647,
+  "rows": 250,
+  "sha256": "169007eafb5115ae4aa0814b38f002d5affb089ec6d0f571fd1f17c769969413",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:16:59+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-04-01T00%3A00%3A00Z%2C2023-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23124,
+  "rows": 233,
+  "sha256": "d00116b36ffb778681e9bf0930cde4cc81a7311b850f18aff8e90657fd4be005",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:02+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-05-01T00%3A00%3A00Z%2C2023-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24624,
+  "rows": 249,
+  "sha256": "9e108c6d436785e10702d0fbc9f885c19722f019414ef24d8d4b401499a304fd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:05+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-06-01T00%3A00%3A00Z%2C2023-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24860,
+  "rows": 251,
+  "sha256": "091122e68db92de2f9b09f402229062b453f1e11418cb99ba4b0fbc96ac35601",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:07+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-07-01T00%3A00%3A00Z%2C2023-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23906,
+  "rows": 240,
+  "sha256": "1d78037be118f9e7e70e379772d0338ff37719ad40d4bd7a01c316fbf74a92a1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:10+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-08-01T00%3A00%3A00Z%2C2023-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25235,
+  "rows": 255,
+  "sha256": "ff7e61292347e27e7595a2f91362866134c094261af5d2f80875389bc0c5b98f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:12+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-09-01T00%3A00%3A00Z%2C2023-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24212,
+  "rows": 245,
+  "sha256": "6e241660b83860a46e75de89e0e3b472396753b5d4e2586604773d765058c15d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:14+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-10-01T00%3A00%3A00Z%2C2023-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25207,
+  "rows": 256,
+  "sha256": "b16e33c448a22aea70e706f50c226344c768a62d70c8ef1f6984c3bcfc771526",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:16+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-11-01T00%3A00%3A00Z%2C2023-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23318,
+  "rows": 235,
+  "sha256": "ab8ae924c81f6a63d51cbcf9f68f1a5f893deab626f3d30a5bbb097e6b5e3b8a",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:17+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2023-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-12-01T00%3A00%3A00Z%2C2024-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25449,
+  "rows": 252,
+  "sha256": "76c42c19195f452c786a21864878768708015d9cd7ead1ed225ae65461693c66",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:20+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-01-01T00%3A00%3A00Z%2C2024-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24801,
+  "rows": 245,
+  "sha256": "956d6eab8f371a36a8143d1562475a2d940694e08568dbc9056495ff29aa34c2",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:22+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-02-01T00%3A00%3A00Z%2C2024-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24220,
+  "rows": 240,
+  "sha256": "df353e5e16503f16fd1e7c904ea98d741ea3e7d1eb6af7f25b4c62b5f1926fdd",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:24+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-03-01T00%3A00%3A00Z%2C2024-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25436,
+  "rows": 251,
+  "sha256": "243a30bd468a42d329f7ae30b4412af80d67295626d49d363ec1d408911fb407",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:26+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-04-01T00%3A00%3A00Z%2C2024-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25110,
+  "rows": 247,
+  "sha256": "40b8b5508b8017c02416ff57b624142d4899035fa156b2a79ec4ff8a1acad237",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:29+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-05-01T00%3A00%3A00Z%2C2024-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24015,
+  "rows": 235,
+  "sha256": "16e092d0fe2cb246a7520aed448c155798e61e668e6eddf471b6030fbb187029",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:30+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-06-01T00%3A00%3A00Z%2C2024-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22716,
+  "rows": 222,
+  "sha256": "79b6aca67c49616c3b162d7122f4e3def2e73c280c3fb8a9195a7428e17a0cfa",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:32+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-07-01T00%3A00%3A00Z%2C2024-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16031,
+  "rows": 155,
+  "sha256": "eb1e86c9af14706a7128a35b1e9a056c6418a3f8ffc8bb613b6192b6efa420c8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:34+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-08-01T00%3A00%3A00Z%2C2024-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25535,
+  "rows": 253,
+  "sha256": "f6b4e0b95f04bd89ebf0f4341e38659b277fac7d77c92b1bafb585a63a6eda09",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:36+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-09-01T00%3A00%3A00Z%2C2024-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23130,
+  "rows": 228,
+  "sha256": "158bf8487bfef6cfc58e6c8932e716fe8cd454620a83c46a4ff50b613a757834",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:37+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-10-01T00%3A00%3A00Z%2C2024-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25704,
+  "rows": 255,
+  "sha256": "7ba15b899dd09bef1d9ca74179eeb9f257f5f2f3fa53628fcd3de3f6cfbcda98",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:39+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-11-01T00%3A00%3A00Z%2C2024-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22296,
+  "rows": 220,
+  "sha256": "083d994814adf81bcb62bfe519991160a0c6d896068573f5b74532ef0670050d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:42+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2024-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-12-01T00%3A00%3A00Z%2C2025-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25293,
+  "rows": 250,
+  "sha256": "2eaa1f514b128799482f84b24502db69adbff817cea99dc42039a07e8b0bee1a",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:44+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-01-01T00%3A00%3A00Z%2C2025-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 26065,
+  "rows": 256,
+  "sha256": "7185bbf19d443091d429dd7e5254d4eb86277b74a6bfd10a4b8c886bef3ace8a",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:45+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-02-01T00%3A00%3A00Z%2C2025-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23236,
+  "rows": 228,
+  "sha256": "03498497449f215370c3a84e9cfc85ba1c5b850a5c1e180f0aab8bd5dd3e24be",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:47+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-03-01T00%3A00%3A00Z%2C2025-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25703,
+  "rows": 254,
+  "sha256": "66f01a6c2a49014351d74b264bf7d2dc3f35efc7ca2bfaaa3f48c40125952cb6",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:49+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-04-01T00%3A00%3A00Z%2C2025-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25227,
+  "rows": 248,
+  "sha256": "4b7d550553524adcce92772227781885abc0d43e1f3b95061dcfc5b169245089",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:53+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-05-01T00%3A00%3A00Z%2C2025-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25564,
+  "rows": 251,
+  "sha256": "43271fe3a5cc70925693473bebfc83cb3e4ca26ca00ee0e428f5ba0c396f45e4",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:56+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-06-01T00%3A00%3A00Z%2C2025-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25003,
+  "rows": 245,
+  "sha256": "dfcd94e6753c46e14758d2b347daf22aea1aa17e6d7eac8c5a992425ee8cfbe3",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:17:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-07-01T00%3A00%3A00Z%2C2025-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23140,
+  "rows": 227,
+  "sha256": "3fe04dfd40083ffed7debfe6e7856de27d1ec1030b107a8b41b6de2f968e8d45",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:00+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-08-01T00%3A00%3A00Z%2C2025-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24816,
+  "rows": 243,
+  "sha256": "0dc4240798c84ad4a70073fa0d299064228a492bcfea90ba3a361335152abb5e",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:03+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-09-01T00%3A00%3A00Z%2C2025-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24550,
+  "rows": 239,
+  "sha256": "ec4faa7534d6c712aedbfce1bbecfefa218bb5ab826365b7bcbf43cd0835e580",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:04+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-10-01T00%3A00%3A00Z%2C2025-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25988,
+  "rows": 254,
+  "sha256": "f256970736b37e34f4548197b4702860dc2b497bf75136cda8774524439529e4",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:06+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-11-01T00%3A00%3A00Z%2C2025-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24209,
+  "rows": 236,
+  "sha256": "3941a7ca7b52501be4931d3d52096c4b123f934dd7cb37d7bdba4a2e0f7cda30",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:08+00:00"
+ },
+ {
+  "file": "cmr_footprints/VNP14IMG/2025-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734202914-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-12-01T00%3A00%3A00Z%2C2026-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25646,
+  "rows": 252,
+  "sha256": "aa70d2bb936f08a8b42649137a0082a6312acf18cd102b0fb051d730ef59a6bf",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:11+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-01-01T00%3A00%3A00Z%2C2022-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24605,
+  "rows": 247,
+  "sha256": "ae316828b1c0280f74e618d0bf885831516de34b49fe90a3e7fac270aeff410d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:12+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-02-01T00%3A00%3A00Z%2C2022-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22566,
+  "rows": 226,
+  "sha256": "9d8869b2c7531c03f43dea53b1bb0d462c73dadc38f6e70a8aea1473165f89f0",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:16+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-03-01T00%3A00%3A00Z%2C2022-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24716,
+  "rows": 249,
+  "sha256": "87af2add12b7ec5b05a5fd727c5b43480005378f683828bc6447ab52473a6e03",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:18+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-04-01T00%3A00%3A00Z%2C2022-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24087,
+  "rows": 243,
+  "sha256": "c51994dac17fc62a3dfe5ceb8334e9f718727e237a4fb7bb2d5555779b408daf",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:21+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-05-01T00%3A00%3A00Z%2C2022-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25151,
+  "rows": 252,
+  "sha256": "719cc299f1e92348dc13ea4c26bc0773285ed3e920df938d5f1b4909f2627c5f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:23+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-06-01T00%3A00%3A00Z%2C2022-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24157,
+  "rows": 242,
+  "sha256": "0afe15a67f25fbeb52ecb2223e449068ab730fcfbde8f163f5dbe5bb89f15fe0",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:25+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-07-01T00%3A00%3A00Z%2C2022-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24679,
+  "rows": 248,
+  "sha256": "08b9710f4281f6e94a84009d981777f55ab2fb8a314af5321e94b488da2fe448",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:26+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-08-01T00%3A00%3A00Z%2C2022-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25318,
+  "rows": 254,
+  "sha256": "cf36720b8009d8806e1b3c8325b3a8eb972658e7c18ddc05943e6c63a9083cb7",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:28+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-09-01T00%3A00%3A00Z%2C2022-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24215,
+  "rows": 243,
+  "sha256": "393764e77ef37052d9000a05e7c91f4b44d89beffa7742d8afec1754fe2b4bf2",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:30+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-10-01T00%3A00%3A00Z%2C2022-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24668,
+  "rows": 248,
+  "sha256": "d20b3c91507ba4ca97980a6c549d70fc87ae4733cda74a4375dafbc6837f097f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:31+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-11-01T00%3A00%3A00Z%2C2022-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24002,
+  "rows": 242,
+  "sha256": "27e5f437ee1434e938fd5e73154a32506e8ffadd1f9dba28daa862d0dc3331c5",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:33+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2022-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2022-12-01T00%3A00%3A00Z%2C2023-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24690,
+  "rows": 249,
+  "sha256": "14dd8fb359a104207df11a6a6cc90baef2318fa3011903dd8b496fd4a43fba4d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:35+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-01-01T00%3A00%3A00Z%2C2023-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24844,
+  "rows": 250,
+  "sha256": "b343fdf2e5b5378b92660622b5b8f3e8da6cf3a9f13334c14ce9191a9f03f4a9",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:37+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-02-01T00%3A00%3A00Z%2C2023-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22593,
+  "rows": 225,
+  "sha256": "7cc22e201c07b9e5fcf281a190af52b2d93dc4efd80f4dd0b30150b0b315cce8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:38+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-03-01T00%3A00%3A00Z%2C2023-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24932,
+  "rows": 251,
+  "sha256": "3f9a2349519eb4f8b2f9a310be06ad8aa99ded6956a42229dfcc61caef3ec10f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:40+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-04-01T00%3A00%3A00Z%2C2023-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24154,
+  "rows": 243,
+  "sha256": "8dbeeaae26e93b430757a7deec6d8b7f639385628e814fd026779180251d639c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:42+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-05-01T00%3A00%3A00Z%2C2023-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25309,
+  "rows": 255,
+  "sha256": "ebf0a0257bd5c3c826202eb956b4eeb1a53a85cecf29060435db7e00b2e25aa1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:45+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-06-01T00%3A00%3A00Z%2C2023-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24268,
+  "rows": 244,
+  "sha256": "45ff72725f806f12b524fdbc37521556e62dbe5716d590169c7ca17da92c4e77",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:52+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-07-01T00%3A00%3A00Z%2C2023-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25073,
+  "rows": 251,
+  "sha256": "44df89fa99543bea95e420d3907dace4c82968ce31225c91f64a76f85fdecbe1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:18:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-08-01T00%3A00%3A00Z%2C2023-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25393,
+  "rows": 256,
+  "sha256": "b1b16e95802a21a13cdb11347f94a9ff0154cd88aaeb2ece70193a33f1f00646",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:00+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-09-01T00%3A00%3A00Z%2C2023-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23194,
+  "rows": 233,
+  "sha256": "6228dbe0615c16fd961138a520708cee054648442c3546005066d67fad5a2ff1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:17+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-10-01T00%3A00%3A00Z%2C2023-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24084,
+  "rows": 242,
+  "sha256": "5fb68a2a5cf9761afe4738b0ec0905b9c0deb69d61c609696088e521696e7e2d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:21+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-11-01T00%3A00%3A00Z%2C2023-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24373,
+  "rows": 244,
+  "sha256": "15176a201f865e947c9b807950b220d40600836d435b7bce0c6b519a9848c565",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:23+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2023-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-12-01T00%3A00%3A00Z%2C2024-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25287,
+  "rows": 250,
+  "sha256": "eaeb3a9e1198e397b4e7ee39ff84a5705ce710fd5e01f541f434d8a2f3ee2402",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:25+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-01-01T00%3A00%3A00Z%2C2024-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25362,
+  "rows": 251,
+  "sha256": "2f01d15f7af6ce30949de7a8aaf35028721d046a9e8296aa8d220c1b4bce8f24",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:38+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-02-01T00%3A00%3A00Z%2C2024-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 21722,
+  "rows": 214,
+  "sha256": "cbd99d4f8cbf8ed466ea20aa037a07f50e8e3f8c4e89b5673fcdbbd94206ecd1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:40+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-03-01T00%3A00%3A00Z%2C2024-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24952,
+  "rows": 249,
+  "sha256": "0daf660a44536f5e093a0390b6ff77d68892455bad6a3fabd24ace7546b3d234",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:43+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-04-01T00%3A00%3A00Z%2C2024-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24361,
+  "rows": 242,
+  "sha256": "937d5e843d11ebf6f82ae2c7cad178917a7c767429d21e70a24106fae76a1bda",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:49+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-05-01T00%3A00%3A00Z%2C2024-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25518,
+  "rows": 250,
+  "sha256": "0f71816f5b44a3b170419ea703013e39948d5cf09d1f9fedd185d25bdf91ce10",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:55+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-06-01T00%3A00%3A00Z%2C2024-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24895,
+  "rows": 243,
+  "sha256": "7a3e3b9b183ae8318e5eca830e221f862a4f3b33706bfc8a2b7f6085cba43efa",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:19:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-07-01T00%3A00%3A00Z%2C2024-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25975,
+  "rows": 253,
+  "sha256": "fc3fe1d8505a56dbd6706d765ab1e9334824c022797781d7c962b10035bef772",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:07+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-08-01T00%3A00%3A00Z%2C2024-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25474,
+  "rows": 249,
+  "sha256": "6484c2c58faba768a0d62f896a6b4be4c3c9947210d42411e0d6bf23cefa88f5",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:16+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-09-01T00%3A00%3A00Z%2C2024-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24571,
+  "rows": 240,
+  "sha256": "a230a7e10555cfb9a9ecd246bfcc66e0a6b54865abf8c04d1db18f122ff48c96",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:22+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-10-01T00%3A00%3A00Z%2C2024-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25818,
+  "rows": 256,
+  "sha256": "3b4758ccc0dfc4b31f58facd53fb8c8f27dc44d2b4a9b009e16302ccd16fc703",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:24+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-11-01T00%3A00%3A00Z%2C2024-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24849,
+  "rows": 244,
+  "sha256": "27687428a95f4511779dad2bf797f2af9c6d0a119f08bab3e321bbefb82edb92",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:33+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2024-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-12-01T00%3A00%3A00Z%2C2025-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25114,
+  "rows": 246,
+  "sha256": "5da4725d1e686ec09c26bd4d590daec7ca47b56e3550cee6197d32a2db0c1319",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:38+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-01-01T00%3A00%3A00Z%2C2025-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25488,
+  "rows": 249,
+  "sha256": "8ced1b9f9c1cbaec79a8365503bff781192d5d1cfa51235abbb114fb87cc988f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:42+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-02-01T00%3A00%3A00Z%2C2025-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23340,
+  "rows": 228,
+  "sha256": "8df8cbfde68f650640be54810cec68f83f0dbe2ce4ef57e30967e91015525b67",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:45+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-03-01T00%3A00%3A00Z%2C2025-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25270,
+  "rows": 248,
+  "sha256": "f0f04bd8402b33014f8eef55d6613451cae3892d6f658363ab19d45f9511f875",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:20:57+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-04-01T00%3A00%3A00Z%2C2025-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24903,
+  "rows": 242,
+  "sha256": "5657fa2d67b2e23c57af12e0cf05b557d2c9a1b6fcf3989dc495affebd844644",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:00+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-05-01T00%3A00%3A00Z%2C2025-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25866,
+  "rows": 253,
+  "sha256": "89184a7fdd15b00e7cad2f5526e96f32df7f5b16fd2cd18d1590a8a5314aae6b",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:04+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-06-01T00%3A00%3A00Z%2C2025-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24460,
+  "rows": 239,
+  "sha256": "96a650073eca9447c91d1efb68f8bc86335ef7063a27c1d3f1ab6e13f730f8a1",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:12+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-07-01T00%3A00%3A00Z%2C2025-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25449,
+  "rows": 252,
+  "sha256": "ee98b06a92191ef8392e978ed120a4420c3268e3d5d869bbdc9de4c0f7d3987d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:17+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-08-01T00%3A00%3A00Z%2C2025-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25314,
+  "rows": 250,
+  "sha256": "6466fc69e4573a997f9996b3b49477a17774a1be3812dd766f362026548e90e4",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:22+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-09-01T00%3A00%3A00Z%2C2025-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24510,
+  "rows": 242,
+  "sha256": "28b34c5588826444cfc48d74f226c729f451f987611a2ae6747c45b4339ad7e4",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:25+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-10-01T00%3A00%3A00Z%2C2025-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25389,
+  "rows": 251,
+  "sha256": "ffa5aae32367b395124af14a2300d0d7b326052a8660f6f92ae8bf83f2394ae5",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:26+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-11-01T00%3A00%3A00Z%2C2025-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24626,
+  "rows": 245,
+  "sha256": "b5e1fe6e2c698046b5bfe37cb3b81d53edb96d655c80e810212d2ea199d84210",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:28+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ114IMG/2025-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2734197957-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-12-01T00%3A00%3A00Z%2C2026-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25305,
+  "rows": 250,
+  "sha256": "ed47e134213bf49d08af127e2c775e28e6de5c21e10bab774d96b96aef837991",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:33+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-02-01T00%3A00%3A00Z%2C2023-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 16759,
+  "rows": 281,
+  "sha256": "f13c5fbba34659290168fdb100507750535a02929f25c927b8307baa778d73d4",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:36+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-03-01T00%3A00%3A00Z%2C2023-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 33670,
+  "rows": 751,
+  "sha256": "e9d06c38e256e22bc700a189ab22e5041a267c6c055ec7385e5de7d5c6369ad9",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:41+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-04-01T00%3A00%3A00Z%2C2023-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 31450,
+  "rows": 677,
+  "sha256": "66b712689abc60dfaa6d2c150d87d20a0d58b02c8edf3dab7ea9fae92250a144",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:45+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-05-01T00%3A00%3A00Z%2C2023-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 29437,
+  "rows": 498,
+  "sha256": "e89dbfa478c0c0b482ec982aab9af343189c7b92a400778de30dd4448debe359",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:49+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-06-01T00%3A00%3A00Z%2C2023-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24442,
+  "rows": 245,
+  "sha256": "3740cedefe6d466b33191023bcfcd65d3051b3f0fcd8c796ff54078d88fc93a0",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:50+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-07-01T00%3A00%3A00Z%2C2023-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25248,
+  "rows": 252,
+  "sha256": "9c84a066f34e37f3f93553cc04c1d35879bfb2fb45771e6623b1a0fa59f9136b",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:52+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-08-01T00%3A00%3A00Z%2C2023-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24312,
+  "rows": 244,
+  "sha256": "3294f80662e36960f3c462280ce15e75f681cb25fa1c8d0bc2c688a3ca476741",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:53+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-09-01T00%3A00%3A00Z%2C2023-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24055,
+  "rows": 242,
+  "sha256": "dd579ef0741ac85ac499fbd4189d21a1baa94637b0827cb3af5a3f42ffbc91aa",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:55+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-10-01T00%3A00%3A00Z%2C2023-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25135,
+  "rows": 253,
+  "sha256": "c609cd13ae19c8db77f2aeb38f55261d551eef7a3b49735b62504f02bed0a751",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:57+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-11-01T00%3A00%3A00Z%2C2023-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23689,
+  "rows": 238,
+  "sha256": "3029a56ff1509136bd42ed3f2ebbddc4f84b24fe4732347840f58ec770dd91fb",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:58+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2023-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2023-12-01T00%3A00%3A00Z%2C2024-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24680,
+  "rows": 249,
+  "sha256": "2d57d23aa6206e65d7638de5baee35f875db9b7dd5dd046ff070994f3904c20c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:21:59+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-01-01T00%3A00%3A00Z%2C2024-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25626,
+  "rows": 292,
+  "sha256": "f77052d2a6722c06c824dffc45c25c2167de155241c30e3d3135d900ae52f982",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:01+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-02-01T00%3A00%3A00Z%2C2024-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 21912,
+  "rows": 220,
+  "sha256": "eada54a19f69c7e2a71b4efca914e45b5434f7859ad6a647946aa6258fbbe519",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:02+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-03-01T00%3A00%3A00Z%2C2024-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24495,
+  "rows": 247,
+  "sha256": "3179f1a20a63573feaf92e82f9bc10dfa58a66852e2898b5fad88745fed3124c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:04+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-04-01T00%3A00%3A00Z%2C2024-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24233,
+  "rows": 244,
+  "sha256": "198426e55d41c2c8cf4c58d025ae18b95de90708a6f73819edd0fa48c93fce04",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:05+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-05-01T00%3A00%3A00Z%2C2024-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25141,
+  "rows": 252,
+  "sha256": "eee6410d23f5321ce814e3612ab743f1979bc22a753c212a515a78bf625f400b",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:08+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-06-01T00%3A00%3A00Z%2C2024-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23668,
+  "rows": 238,
+  "sha256": "db9083e301864984dd293a4976c2bd35c2b47a52e72eddab001b3e464f0d1e41",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:10+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-07-01T00%3A00%3A00Z%2C2024-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24555,
+  "rows": 247,
+  "sha256": "d5e55a412728e9b79dad048d8a250ac31af216d8bd0f40c1fb7a31714528783c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:11+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-08-01T00%3A00%3A00Z%2C2024-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24798,
+  "rows": 250,
+  "sha256": "7aa9f48f861023a807338054ba2b6758f2e7977af51280c46205481158dffbff",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:13+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-09-01T00%3A00%3A00Z%2C2024-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23753,
+  "rows": 240,
+  "sha256": "f28b973490fc709e16980366b1a14d1b3e59aaa17670b4822f835c38e40731b8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:14+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-10-01T00%3A00%3A00Z%2C2024-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24873,
+  "rows": 253,
+  "sha256": "3b52caf948b2220ee640a02c94a0ab5818bcc699049754124b1f31fcfd01785a",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:16+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-11-01T00%3A00%3A00Z%2C2024-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22956,
+  "rows": 232,
+  "sha256": "ba31ee6148fa82e13b323b3924b75d8a61bdb75a1c22cd96d901aea2a7a7d4cf",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:19+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2024-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2024-12-01T00%3A00%3A00Z%2C2025-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24514,
+  "rows": 248,
+  "sha256": "784d5985a398ad8ca379657974469ae435ce2a6355550b86ec32da7ed68b0f07",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:20+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-01.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-01-01T00%3A00%3A00Z%2C2025-02-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25027,
+  "rows": 253,
+  "sha256": "3e933339851701fcdbef8e02428aaa274d4249898e758373c3d5bb09b0bdce8f",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:22+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-02.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-02-01T00%3A00%3A00Z%2C2025-03-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 22360,
+  "rows": 226,
+  "sha256": "d3c5a6224d2891fb2d261767ef910861f86ccb470e031bbe8c934b13522e3a08",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:23+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-03.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-03-01T00%3A00%3A00Z%2C2025-04-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24564,
+  "rows": 249,
+  "sha256": "435ad2334f6b749f0765f276c82724ca02fc9d22ce091a2a9b8973616b3187e6",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:24+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-04.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-04-01T00%3A00%3A00Z%2C2025-05-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24014,
+  "rows": 242,
+  "sha256": "91430299c5c4753fcdc015c5091280e445b428253d388ffa522e3a9d3662a196",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:26+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-05.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-05-01T00%3A00%3A00Z%2C2025-06-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25034,
+  "rows": 252,
+  "sha256": "e4545bd98fc98fc531877e5cde8900adf54c450cb4dbf9df750ec9fb2bd37702",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:27+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-06.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-06-01T00%3A00%3A00Z%2C2025-07-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23828,
+  "rows": 240,
+  "sha256": "39bf2a1091ce1a03e944b120340aaee1c85f1a8acc775fee733bd9d9baa509a8",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:29+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-07.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-07-01T00%3A00%3A00Z%2C2025-08-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24964,
+  "rows": 251,
+  "sha256": "9c3ddee600646693d1e3d6730c3efee8a660695dec3d0f921075895bb08eaf8e",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:31+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-08.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-08-01T00%3A00%3A00Z%2C2025-09-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24837,
+  "rows": 252,
+  "sha256": "1f0c61c6f9d7d62e93ac5b1d76bd34a7f7e1b8631ebf845834bbca7718063d37",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:32+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-09.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-09-01T00%3A00%3A00Z%2C2025-10-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 23432,
+  "rows": 237,
+  "sha256": "43a0fd5cc42be4f496520c8daee2e794a79eb8c3bb24e78faddaba9ce7b5a0fe",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:34+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-10.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-10-01T00%3A00%3A00Z%2C2025-11-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 25381,
+  "rows": 277,
+  "sha256": "70150347f55af3a4dc9360cbbbac28ff3c0c8737464e49f4a4c7f3d2909aa659",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:37+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-11.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-11-01T00%3A00%3A00Z%2C2025-12-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24208,
+  "rows": 242,
+  "sha256": "718e3c62bd7586298ee7e988c10fc419bfd25c3ce37895b97fbffd6f043a8da9",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:39+00:00"
+ },
+ {
+  "file": "cmr_footprints/VJ214IMG/2025-12.jsonl.gz",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2831626262-LPCLOUD&bounding_box=22%2C44%2C41%2C53&temporal=2025-12-01T00%3A00%3A00Z%2C2026-01-01T00%3A00%3A00Z&page_size=2000&sort_key=start_date",
+  "bytes": 24933,
+  "rows": 251,
+  "sha256": "18dfd0c54a7ada3093c65cfb2e78226f922966b68c6f558510889fb21277196d",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:22:41+00:00"
+ },
+ {
+  "file": "cmr_footprints/viirs_granule_footprints_2022_2025.csv",
+  "url": "derived from https://cmr.earthdata.nasa.gov/search/granules.umm_json (bbox 22,44,41,53); see per-month files",
+  "bytes": 13261552,
+  "rows": 44714,
+  "sha256": "f5d3d7cc04f56c05ac2328176d1180eef6760cc373b4f14e911a5d3a1687886c",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:23:09+00:00"
+ },
+ {
+  "file": "cmr_footprints/viirs_granule_footprints_2022_2025.parquet",
+  "url": "derived from https://cmr.earthdata.nasa.gov/search/granules.umm_json (bbox 22,44,41,53); see per-month files",
+  "bytes": 6200130,
+  "rows": 44714,
+  "sha256": "3d00da83742402b67b23513db367ed6f0810876e4f7f7451ef73f4b37d34515e",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T04:23:10+00:00"
+ }
+]

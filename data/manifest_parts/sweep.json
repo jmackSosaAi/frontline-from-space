@@ -1,0 +1,802 @@
+[
+ {
+  "file": "licenses/cc-by-4.0_legalcode.txt",
+  "url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+  "bytes": 18657,
+  "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:46:52+00:00"
+ },
+ {
+  "file": "licenses/cc-by-sa-4.0_legalcode.txt",
+  "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+  "bytes": 20138,
+  "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:46:53+00:00"
+ },
+ {
+  "file": "militarnyi/strikes_en.json",
+  "url": "https://map.militarnyi.com/api/strikes/?lang=en",
+  "bytes": 578740,
+  "rows": 775,
+  "sha256": "ebb480a9caf6850aa70b1845f8d1e7fa325072f7329fc2961bff1999c5800621",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:46:56+00:00"
+ },
+ {
+  "file": "militarnyi/strikes_uk.json",
+  "url": "https://map.militarnyi.com/api/strikes/?lang=uk",
+  "bytes": 1369337,
+  "rows": 775,
+  "sha256": "3f148e8811fc2d81470019d2ccbf7b51918af55b93d4c646976cb3c74ebb3224",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:46:58+00:00"
+ },
+ {
+  "file": "militarnyi/taxonomy.json",
+  "url": "https://map.militarnyi.com/api/taxonomy/",
+  "bytes": 3777,
+  "sha256": "7e844b1bb83c89a89020f3c2623ede5c68e5ae4e79173bb649b944420a873791",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:00+00:00"
+ },
+ {
+  "file": "saltan2026_deepstrikes/Russia_Ukraine_Deep_Strikes_Zenodo_v1.0.1.zip",
+  "url": "https://zenodo.org/api/records/22377030/files/Russia_Ukraine_Deep_Strikes_Zenodo_v1.0.1.zip/content",
+  "bytes": 6396733,
+  "rows": 2823,
+  "sha256": "dc41228ffe37df71b45297d54db4873d9d46c7a3bd9a1cee5632cdb18ab0f7f9",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:09+00:00"
+ },
+ {
+  "file": "kyiv_air_alerts/kyiv_digital_air_alert_history.xml",
+  "url": "https://kyiv.digital/open-api/air-alert/history",
+  "bytes": 456992,
+  "rows": 5467,
+  "sha256": "4de4eb507ce5febee48fdaaafc04a4618a1511dad14d5a453fdc2d9f0e650d31",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:12+00:00"
+ },
+ {
+  "file": "kyiv_air_alerts/kyivcity_airalerts.json",
+  "url": "https://data.kyivcity.gov.ua/dataset/bb0f27d3-00e2-414a-9d6e-a8b6633f8a2a/resource/5e4fb8a8-f0c8-4a12-885f-192d1f0dba75/download/airalerts.json",
+  "bytes": 830484,
+  "rows": 2688,
+  "sha256": "cc9e91004c8f9b6560832752c37ba396c9f14fffbb48a73b20fef5560f5a59a0",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:25+00:00"
+ },
+ {
+  "file": "insecurity_insight/1997-2026_UKR_Aid_Worker_KIKA_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/3dc6c3f9-55ca-400c-b4fd-c82a3676df8e/download/1997-2026-ukr-aid-worker-kika-incident-data.xlsx",
+  "bytes": 24183,
+  "rows": 139,
+  "sha256": "fc6c1a313a5134ecb102e454cc4b759fe2c368dd837c4a9d60f79f6d853fe326",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:37+00:00"
+ },
+ {
+  "file": "insecurity_insight/2016-2026_UKR_Attacks_on_Health_Care_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/03db9083-4f16-4337-b20b-26aae4fe59dc/download/2016-2026-ukr-attacks-on-health-care-incident-data.xlsx",
+  "bytes": 399394,
+  "rows": 3146,
+  "sha256": "30806eaf3faf1d62dbfa99e68c0732deb527d1e6c8347610ba28b37f2d4df79a",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:40+00:00"
+ },
+ {
+  "file": "insecurity_insight/2020-2026_UKR_Overview_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/816f803f-e834-44e7-952e-1cc5354c6e13/download/2020-2026-ukr-overview-data.xlsx",
+  "bytes": 6228,
+  "rows": 7,
+  "sha256": "0ca1154a8cf7039185290a795ae3b79f9d7a0d52abf9099ed109ec1f544f0bfb",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:42+00:00"
+ },
+ {
+  "file": "insecurity_insight/2024-2026_UKR_Conflict-Related_Incidents_Affecting_Food_Systems_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/a3944708-d5d6-4e1d-a4f3-386be6318bee/download/2024-2026-ukr-conflict-related-incidents-affecting-food-systems-incident-data.xlsx",
+  "bytes": 59710,
+  "rows": 1057,
+  "sha256": "b9ecaf6db564c6c34b9cb4e77e49728e3bb47cbe8416b55010f3dc4f94d081b9",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:45+00:00"
+ },
+ {
+  "file": "insecurity_insight/2020-2024_UKR_Conflict-Related_Sexual_Violence_CRSV_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/48499cb3-76c5-417b-9427-6e274596ed65/download/2020-2024-ukr-conflict-related-sexual-violence-crsv-incident-data.xlsx",
+  "bytes": 11692,
+  "rows": 72,
+  "sha256": "844f0fb33711110722a747461c4aed6034c05666e7a0d2b52e0bc0a502dc2cea",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:47+00:00"
+ },
+ {
+  "file": "insecurity_insight/2017-2026_UKR_Education_in_Danger_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/7d44694a-8716-43e9-991b-94fe3da02d65/download/2017-2026-ukr-education-in-danger-incident-data.xlsx",
+  "bytes": 155708,
+  "rows": 1554,
+  "sha256": "ae4d106a2df92a8445d8338176aad9a4a98a9d3954387f6f5ac4e6a456908c6d",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:50+00:00"
+ },
+ {
+  "file": "insecurity_insight/2020-2026_UKR_Explosive_Weapons_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/22b007ec-7996-4ae5-99eb-aace8dda3da1/download/2020-2026-ukr-explosive-weapons-incident-data.xlsx",
+  "bytes": 414034,
+  "rows": 5704,
+  "sha256": "7249c45f558230dd187f2c089f1722bc8235c8931057053bc337f57f2281581f",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:52+00:00"
+ },
+ {
+  "file": "insecurity_insight/2025-2026_UKR_Conflict-Related_Incidents_Affecting_Water_Systems_Incident_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/6c0cc778-4000-4d66-b64d-f712b04a0fb6/download/2025-2026-ukr-conflict-related-incidents-affecting-water-systems-incident-data.xlsx",
+  "bytes": 16495,
+  "rows": 178,
+  "sha256": "f5c87e4dfc307718e196e80214d2e1bf7b92de2b908ca9dfa9769d0c99355d34",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:55+00:00"
+ },
+ {
+  "file": "insecurity_insight/2022-2025_UKR_SHCC_Health_Care_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/845ff66c-9371-492e-8b68-c8e9305a8087/download/2022-2025-ukr-shcc-health-care-data.xlsx",
+  "bytes": 254829,
+  "rows": 2441,
+  "sha256": "11b229da24ffd3de55e3bbb55f88f305df5bcfd21335db60df59b08b4ddc5dda",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:47:57+00:00"
+ },
+ {
+  "file": "insecurity_insight/2022-2024_UKR_SHCC_Health_Care_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/df070087-61ef-4095-82a5-5d28f7fc1214/download/2022-2024-ukr-shcc-health-care-data.xlsx",
+  "bytes": 267140,
+  "rows": 1978,
+  "sha256": "12d8a8993f4764bd88518b5ede986f53feb3b530d380f492bc781f5c36df4e65",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:48:00+00:00"
+ },
+ {
+  "file": "insecurity_insight/2023_UKR_SHCC_Health_Care_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/2589fcb8-bdac-4822-92e1-c5e8c559ef22/download/2023-ukr-shcc-health-care-data.xlsx",
+  "bytes": 46949,
+  "rows": 409,
+  "sha256": "a50b29c02a42f288b3330d6395e43b968b7ea20a3a75ec9239d57c0e3619ba61",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:48:02+00:00"
+ },
+ {
+  "file": "insecurity_insight/2022_UKR_SHCC_Health_Care_Data.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/6f52a8c9-d210-4585-892b-2b7c31896014/download/2022-ukr-shcc-health-care-data.xlsx",
+  "bytes": 186264,
+  "rows": 800,
+  "sha256": "83c5950481c4ca39b9099e4218ae84c34f4983baebe7bebf60da2cbd340f05ad",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:48:05+00:00"
+ },
+ {
+  "file": "insecurity_insight/UKR_2022_Destruction_and_Devastation_2022_Attacks_on_Health_Care.xlsx",
+  "url": "https://data.humdata.org/dataset/f21002e5-4e00-4c95-bff1-ecd698bf9ff4/resource/fda60192-af59-4bc6-873b-b5311fb8caf9/download/ukr-2022-destruction-and-devastation-2022-attacks-on-health-care.xlsx",
+  "bytes": 161559,
+  "rows": 726,
+  "sha256": "56593f6b9586cc3839cd104e7611f296787bca614c0f6d8aa990a630ad285777",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:48:08+00:00"
+ },
+ {
+  "file": "sydorenko2025_wildfires_of_war/Stable_frontline_for_AOI.rar",
+  "url": "https://zenodo.org/api/records/16156197/files/Stable_frontline_for_AOI.rar/content",
+  "bytes": 3923,
+  "sha256": "008ac9cca7de3e21871191a1380fb5d0fda78f783a48589c04f7eed67565f740",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:48:09+00:00"
+ },
+ {
+  "file": "sydorenko2025_wildfires_of_war/Files_descriptions.docx",
+  "url": "https://zenodo.org/api/records/16156197/files/Files%20descriptions.docx/content",
+  "bytes": 17658,
+  "sha256": "873054510ba7db75ac61702fabfa432496805459f8088a0ea5eaaeb7b87872dd",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:48:11+00:00"
+ },
+ {
+  "file": "sydorenko2025_wildfires_of_war/Landscape_level_Fuel_complexes_change_2016_2024.rar",
+  "url": "https://zenodo.org/api/records/16156197/files/Landscape_level_Fuel_complexes_change_2016_2024.rar/content",
+  "bytes": 1297356,
+  "sha256": "0e563353f97e25aff0fb55d74ddb47e593a122a08b6b1b8d82c0c8283fac9c53",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:48:15+00:00"
+ },
+ {
+  "file": "sydorenko2025_wildfires_of_war/LULC_Raster_datasets.rar",
+  "url": "https://zenodo.org/api/records/16156197/files/LULC_Raster_datasets.rar/content",
+  "bytes": 4528003,
+  "sha256": "80b07ab4fee0ad2b6c620a5758746bb36e900591429030384b314e7705a57e9b",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:48:23+00:00"
+ },
+ {
+  "file": "icesat2_building_damage/Figs_and_Data.zip",
+  "url": "https://ndownloader.figshare.com/files/68249965",
+  "bytes": 33764929,
+  "sha256": "239bc079417ab6cfdcabe8482ef91e967a52baa3236aa3e3513f9056fe3901b1",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:48:34+00:00"
+ },
+ {
+  "file": "icesat2_building_damage/Code.zip",
+  "url": "https://ndownloader.figshare.com/files/68249962",
+  "bytes": 9845045,
+  "sha256": "09725fc65205d0a96454e8574fa96003e35c6dd9863d1d0d3be0ac1cbcfbf133",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:48:48+00:00"
+ },
+ {
+  "file": "russian_fuel_crisis/brawlerleg_dataset.csv",
+  "url": "https://raw.githubusercontent.com/brawlerleg/Russian-Fuel-Crisis-2026/main/dataset.csv",
+  "bytes": 2795,
+  "rows": 71,
+  "sha256": "83e783c5d790fc44ded6a2e1843de209a079f94c1b9d79e3d28e6eaa069e9e55",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:48:49+00:00"
+ },
+ {
+  "file": "russian_fuel_crisis/brawlerleg_getStrikes.py",
+  "url": "https://raw.githubusercontent.com/brawlerleg/Russian-Fuel-Crisis-2026/main/getStrikes.py",
+  "bytes": 2861,
+  "sha256": "4bf9541d1b5dac76e8f67883b6ac0e2c6e5b221873b26f653b9fe55e88fd2167",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:48:51+00:00"
+ },
+ {
+  "file": "russian_fuel_crisis/brawlerleg_LICENSE.txt",
+  "url": "https://raw.githubusercontent.com/brawlerleg/Russian-Fuel-Crisis-2026/main/LICENSE",
+  "bytes": 1056,
+  "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:48:52+00:00"
+ },
+ {
+  "file": "russian_fuel_crisis/wikipedia_2025-2026_Russian_fuel_crisis_parse.json",
+  "url": "https://en.wikipedia.org/w/api.php?action=parse&page=2025%E2%80%932026_Russian_fuel_crisis&prop=text|wikitext|revid&format=json&formatversion=2",
+  "bytes": 226344,
+  "sha256": "d5598470b57eaf91904122c74be5d212539fde839bf96354c4e7800933262e6b",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:48:54+00:00"
+ },
+ {
+  "file": "air_raid_sirens_vadimkin/official_data_en.csv",
+  "url": "https://raw.githubusercontent.com/Vadimkin/ukrainian-air-raid-sirens-dataset/main/datasets/official_data_en.csv",
+  "bytes": 31025633,
+  "rows": 299275,
+  "sha256": "b396f87696243069eec0219880e87dcd642b20beb0a7bae0d0e1f61e1ed20ec4",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:49:01+00:00"
+ },
+ {
+  "file": "air_raid_sirens_vadimkin/volunteer_data_en.csv",
+  "url": "https://raw.githubusercontent.com/Vadimkin/ukrainian-air-raid-sirens-dataset/main/datasets/volunteer_data_en.csv",
+  "bytes": 9073020,
+  "rows": 118151,
+  "sha256": "fb95fca8da0920bb4d8d0b1f531e2a1c0221d68fbdf85517a92b98215da4f2d4",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:49:04+00:00"
+ },
+ {
+  "file": "air_raid_sirens_vadimkin/datasets_README.md",
+  "url": "https://raw.githubusercontent.com/Vadimkin/ukrainian-air-raid-sirens-dataset/main/datasets/README.md",
+  "bytes": 1739,
+  "sha256": "e1ae2125a5c383bce434fc84913563a24c41ce14a362e8dac815fd3b368a0849",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:49:05+00:00"
+ },
+ {
+  "file": "air_raid_sirens_vadimkin/LICENSE.txt",
+  "url": "https://raw.githubusercontent.com/Vadimkin/ukrainian-air-raid-sirens-dataset/main/LICENSE",
+  "bytes": 1071,
+  "sha256": "d2f09e2b07899fa8663f32848afce0ecacf3f38f3e656156b6d447aad0c6afed",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:49:06+00:00"
+ },
+ {
+  "file": "who_ssa/Ukraine_Attacks_on_Health_Care.csv",
+  "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTDw_w3n9b0_frBtvJWtZTJGb5Bn72sZsjJSRXLhIxMa6I1ZECFjb1LTsTZ0PmIHiQOw4SEPCO4uIFv/pub?gid=1932484940&single=true&output=csv",
+  "bytes": 962864,
+  "rows": 3373,
+  "sha256": "dd701d446cb7511896e5115e3f8f9f60aa563e9764a1d79845de8f1447818f86",
+  "set": "validation",
+  "retrieved_utc": "2026-10-22T04:49:10+00:00"
+ },
+ {
+  "file": "ivaniuk_losses/russia_losses_equipment.json",
+  "url": "https://raw.githubusercontent.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_equipment.json",
+  "bytes": 741667,
+  "rows": 1700,
+  "sha256": "68e16acd4b652d72d82f169f8b0bf54ee60a6af8b72fd4006dc24f8cc38c1174",
+  "set": "covariate",
+  "retrieved_utc": "2026-10-22T04:49:16+00:00"
+ },
+ {
+  "file": "ivaniuk_losses/russia_losses_equipment_correction.json",
+  "url": "https://raw.githubusercontent.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_equipment_correction.json",
+  "bytes": 11967,
+  "rows": 28,
+  "sha256": "39159a4e38bd774e6ec94a25df9434e9046e910c1d36539a29dafe429b9aad50",
+  "set": "covariate",
+  "retrieved_utc": "2026-10-22T04:49:17+00:00"
+ },
+ {
+  "file": "ivaniuk_losses/russia_losses_equipment_oryx.json",
+  "url": "https://raw.githubusercontent.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_equipment_oryx.json",
+  "bytes": 76715,
+  "rows": 338,
+  "sha256": "def28ab88ed20904b5280a148c56612f85b750005dcbe6c710d3509f4c65d333",
+  "set": "covariate",
+  "retrieved_utc": "2026-10-22T04:49:19+00:00"
+ },
+ {
+  "file": "ivaniuk_losses/russia_losses_personnel.json",
+  "url": "https://raw.githubusercontent.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_personnel.json",
+  "bytes": 209413,
+  "rows": 1700,
+  "sha256": "98b108fa11bbe1e91f42e32af6c548dbd47bac7b4583c4e6f0713795bc52d60f",
+  "set": "covariate",
+  "retrieved_utc": "2026-10-22T04:49:20+00:00"
+ },
+ {
+  "file": "ivaniuk_losses/README.md",
+  "url": "https://raw.githubusercontent.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset/main/README.md",
+  "bytes": 7732,
+  "sha256": "738d3c7cad51eb9cf650b72c05d7e4343af36edb7638340680d2e960e8ecc373",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:49:21+00:00"
+ },
+ {
+  "file": "ivaniuk_losses/LICENSE.txt",
+  "url": "https://raw.githubusercontent.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset/main/LICENSE",
+  "bytes": 1070,
+  "sha256": "5fc3528ebf7980c32660093ba3a36b9bf8bf5425bba17ddd2773fba630032264",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:49:22+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_December_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/72628b2e-4629-43ec-821a-c9a47415eaf4/download/nrc_frontline_buffer_data_01_december_2025.xlsx",
+  "bytes": 39908,
+  "rows": 301,
+  "sha256": "e46c39cb5b57578ac3c70cffd35f57aa95cc31f34ddc67dd3a93668831064f4f",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:26+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_November_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/072c107f-b06d-4e72-a735-13b3009d7bd3/download/nrc_frontline_buffer_data_16_november_2025.xlsx",
+  "bytes": 42932,
+  "rows": 302,
+  "sha256": "840aa0a3b30869aac2c6d7494e860a7b5c8fd2bf1a187bcb7043550c7e6bb533",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:29+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_November_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/2127e310-5762-4ffc-9baa-dad52764b175/download/nrc_frontline_buffer_data_03_november_2025.xlsx",
+  "bytes": 39972,
+  "rows": 302,
+  "sha256": "684813140693dbf4e77bd7e593821131b381b1d335b27df52800e36753a72049",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:31+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_October_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/e72892b5-8aad-473a-ab49-2f1c1a17c697/download/nrc_frontline_buffer_data_15_october_2025.xlsx",
+  "bytes": 37610,
+  "rows": 301,
+  "sha256": "25e03dad45402bf530e0fc1ef81ea09eb828f348e8807f4cc8a9c71e42aaf904",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:35+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_October_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/f866ea58-4972-46a8-8fea-3ffbd3241e43/download/nrc_frontline_buffer_data_02_october_2025.xlsx",
+  "bytes": 37658,
+  "rows": 301,
+  "sha256": "40f5334388bc3d7f28f613f1c055caa1f124ce6f0a3dab94c4c9e731577eee26",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:38+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_September_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/9c905403-d4a0-4e2d-972f-cd4a6b40e0e0/download/nrc_frontline_buffer_data_17_september_2025.xlsx",
+  "bytes": 37634,
+  "rows": 301,
+  "sha256": "eb388068906044b70d14bf9cbb25ff4712dbb99c92662b30f8b2a95884f14f50",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:42+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_September_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/bc19cffc-deb3-4e5e-8af1-96879c5b9128/download/nrc_frontline_buffer_data_01_september_2025.xlsx",
+  "bytes": 37712,
+  "rows": 301,
+  "sha256": "1ecb815cbbb0a6288f8946d6ee57de555526543c2004034333aa8ef18d6dfa25",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:45+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_20_August_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/7ed1895b-7927-4ee7-99a9-fcc56c57a357/download/nrc_frontline_buffer_data_20_august_2025.xlsx",
+  "bytes": 37704,
+  "rows": 302,
+  "sha256": "188fa2445b69ebd6a1d6b5640d1248ded0f9069553bd7d2a99de017eafa7a3e8",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:47+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_August_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/20ffb02f-4416-4a08-a312-d9e2373b9efb/download/nrc_frontline_buffer_data_01_august_2025.xlsx",
+  "bytes": 37639,
+  "rows": 302,
+  "sha256": "0ab08f227ba71abdb216b1b55c43b200c64ce14002b0147c6d3e6389cf32f22a",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:50+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_July_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/4cd8db0d-fcb7-473e-bc59-7052e8ca3dfc/download/nrc_frontline_buffer_data_16_july_2025.xlsx",
+  "bytes": 37773,
+  "rows": 303,
+  "sha256": "86848c5352f4698f3b2619466fa9a6edab62e8b57dc0c85f4e741a9afd841146",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:53+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_July_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/ea32ff36-14b5-455a-ae9c-cc0fed12da97/download/nrc_frontline_buffer_data_03_july_2025.xlsx",
+  "bytes": 37697,
+  "rows": 302,
+  "sha256": "35c8dc1ec5edcd387d918e04a4a553a3ddc4db4ed1b8c7c9a21e3fcb6cadd14b",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:56+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_June_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/99a2ca19-4402-4b8c-a2a6-8a9d228dda3f/download/nrc_frontline_buffer_data_16_june_2025.xlsx",
+  "bytes": 37653,
+  "rows": 302,
+  "sha256": "6b9846908967fb1ef66f47d872e32ac61b0e4e4c6ba6b472aff39684558de17f",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:49:59+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_05_June_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/cd6201c8-8f90-4259-b7f1-66d6232d0462/download/nrc_frontline_buffer_data_05_june_2025.xlsx",
+  "bytes": 37662,
+  "rows": 302,
+  "sha256": "1b57cc6677273f76fb538c6146bc36b3dbb89e4d25d69524b34b92942a0506c2",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:02+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_May_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/e35c0bcb-7749-4df0-b9b8-0c35563939bb/download/nrc_frontline_buffer_data_15_may_2025.xlsx",
+  "bytes": 37555,
+  "rows": 299,
+  "sha256": "b022a8bebf67b55319e7b701eb3a80b320048ac26a0cf2b2d4c137654968ce8d",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:06+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_05_May_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/bfe3b574-efcd-4645-8932-2e0de87553f9/download/nrc_frontline_buffer_data_05_may_2025.xlsx",
+  "bytes": 37451,
+  "rows": 299,
+  "sha256": "d711e7ad4158d91fc3d7a00a29186a8c895cd768c5ebfd2f2d3b829d3b021906",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:08+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_Apr_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/585229ec-6707-41c6-8507-6c6c7d3ee43f/download/nrc_frontline_buffer_data_17_apr_2025.xlsx",
+  "bytes": 36153,
+  "rows": 280,
+  "sha256": "2e0c9146a6280d14d031b51bdf1b8d229d2b2378137745e6bba74709836cd257",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:11+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_Apr_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/e7bdcecd-a1c5-4d8e-8076-b56c8d0627b3/download/nrc_frontline_buffer_data_01_apr_2025.xlsx",
+  "bytes": 36243,
+  "rows": 281,
+  "sha256": "3331751c40a82ad212242d4b7339ab3a3c75ca0439dc99bd08317c3733525143",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:14+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_18_Mar_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/1d9abe2f-f2a0-4b0f-aa16-2b2ad89986ff/download/nrc_frontline_buffer_data_18_mar_2025.xlsx",
+  "bytes": 36257,
+  "rows": 281,
+  "sha256": "b1bc737e0d1de72f1567900334a3592d63e0861f6eef4b07643e5b617f13327e",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:17+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_Mar_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/d21b26b0-c753-4902-8e83-9693031b3a93/download/nrc_frontline_buffer_data_03_mar_2025.xlsx",
+  "bytes": 36331,
+  "rows": 281,
+  "sha256": "758fc6aaf7123b38dbaabc2b7ef6f1f7a44a490791ace6507389faaf9b1291a8",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:20+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_Feb_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/42be59e7-22a5-47a2-8e83-64fdfbb8d543/download/nrc_frontline_buffer_data_17_feb_2025.xlsx",
+  "bytes": 36164,
+  "rows": 281,
+  "sha256": "8feb45bce9e1627ea23b6ed9e440f4934493c8b85f94d66058edc99486ddc467",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:23+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_03_Feb_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/35df0cea-fe63-4e1c-b05b-f7938a7e2a3c/download/nrc_frontline_buffer_data_03_feb_2025.xlsx",
+  "bytes": 36269,
+  "rows": 282,
+  "sha256": "834dd96655168152a297f75edb7e053a1006f902d336e21d0774e65bca5cfe40",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:26+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_Jan_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/6c6349cd-9b77-42f0-a0ea-88304bfc017a/download/nrc_frontline_buffer_data_15_jan_2025.xlsx",
+  "bytes": 36295,
+  "rows": 283,
+  "sha256": "6596d076c067dbc449a633b1bba83836d556d0f84261453d022f2f05a9adffd9",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:29+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_07_Jan_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/0f59a941-17c7-43eb-91c8-b0e01003a55a/download/nrc_frontline_buffer_data_07_jan_2025.xlsx",
+  "bytes": 36235,
+  "rows": 283,
+  "sha256": "cc2b66c77398076c8b9520723b14b4c60253be57540baa6deb327fe72a1d078e",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:32+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_17_Dec_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/23713add-d807-4a5d-88b3-0e19af01ca15/download/nrc_frontline_buffer_data_17_dec_2024.xlsx",
+  "bytes": 36245,
+  "rows": 283,
+  "sha256": "18c4440dd543fe325b24bfad73df08d210f954f306986728487196e3e82e6088",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:35+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Dec_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/ff17a0df-82e6-49fe-a84c-bde414b042e7/download/nrc_frontline_buffer_data_02_dec_2024.xlsx",
+  "bytes": 36127,
+  "rows": 281,
+  "sha256": "2ffa931dc97f157dffd8a1c65177aae24e506062ad54db7ada3e63d933cf6d81",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:38+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_15_Nov_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/3647674e-8919-4bc1-b671-8a8726d07a93/download/nrc_frontline_buffer_data_15_nov_2024.xlsx",
+  "bytes": 36864,
+  "rows": 290,
+  "sha256": "20c808b55afff8ea2a202c5e1ed538222edb0d8c0310401573bf3ceadc1acaa9",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:41+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_01_Nov_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/1af2bab4-8c3e-4258-9b0b-d686856ce37f/download/nrc_frontline_buffer_data_01_nov_2024.xlsx",
+  "bytes": 36795,
+  "rows": 290,
+  "sha256": "82ad47432f8018219bbc87d3858d1a1d247eb40115e091d9df0895de07c47db8",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:44+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_Oct_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/f15a420c-2dc0-4470-90b1-e162f235e853/download/nrc_frontline_buffer_data_16_oct_2024.xlsx",
+  "bytes": 36710,
+  "rows": 289,
+  "sha256": "faffeb324fecf0779f81fb7f3b447fe334ee1b7077cb1a69901b24cf19ff1496",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:47+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Oct_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/4480b999-b7e7-4ea7-a91a-263c46a755d1/download/nrc_frontline_buffer_data_02_oct_2024.xlsx",
+  "bytes": 36819,
+  "rows": 289,
+  "sha256": "612f8569c48f6e88193ffea90f66032da9f26fb1e51b638de2a61557c3a5f1d2",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:50+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_Sept_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/0646034d-60c8-408f-87be-e53de5580e9e/download/nrc_frontline_buffer_data_16_sept_2024.xlsx",
+  "bytes": 36840,
+  "rows": 289,
+  "sha256": "81173e1cfe6eaf8d48b9123d0a2787900d767f5a13df22de24ef1364328b2d0f",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:53+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Sept_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/2a0671bf-b2d8-417e-9116-70074931bfe1/download/nrc_frontline_buffer_data_02_sept_2024.xlsx",
+  "bytes": 36813,
+  "rows": 289,
+  "sha256": "92a838b2c2e69ce93cb2da07be260161207f0af03b91da7e3bf1c11c0fca3a28",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:50:57+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_16_Aug_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/3f79ed0e-b8d1-4ed0-84ef-ab9e23de889b/download/nrc_frontline_buffer_data_16_aug_2024.xlsx",
+  "bytes": 36871,
+  "rows": 289,
+  "sha256": "0a5d3611647b7fa0202551c6fe913c5049e2bad3bdd0039d38a4a242cd6038d9",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:00+00:00"
+ },
+ {
+  "file": "nrc_frontline_buffer/NRC_Frontline_Buffer_data_02_Aug_2024.xlsx",
+  "url": "https://data.humdata.org/dataset/00ae3b62-9174-4c7e-9899-51ce611c0b74/resource/071c56b1-94ab-4abc-92f5-6f1d77021c48/download/nrc_frontline_buffer_data_02_aug_2024.xlsx",
+  "bytes": 36154,
+  "rows": 281,
+  "sha256": "064f8c8d9c617506cd5601a834bb2cf1d5a5de35fd15087f22a6d4e0f148618b",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:03+00:00"
+ },
+ {
+  "file": "nrc_proximity/NRC_Humanitarian_Proximity_Analysis_data_01_December_2025_Ukraine.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/673fe3cc-6a61-4810-a36e-373727fcb0ba/download/nrc_humanitarian_proximity_analysis_data_01_december_2025_ukraine.xlsx",
+  "bytes": 192587,
+  "rows": 1980,
+  "sha256": "0e625f4b06206bea62e02c1f8d7f6225c5ad6c6c5ac1f5c36bcf8d49555bf521",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:06+00:00"
+ },
+ {
+  "file": "nrc_proximity/NRC_Humanitarian_Proximity_Analysis_data_03_November_2025_Ukraine.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/1906a67f-12e6-4de6-b126-0f4a84e70bfd/download/nrc_humanitarian_proximity_analysis_data_03_november_2025_ukraine.xlsx",
+  "bytes": 192022,
+  "rows": 1974,
+  "sha256": "34a79fcd185350d75efa227685872648fbad1c6a893c717fe24acc92ab903bb6",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:08+00:00"
+ },
+ {
+  "file": "nrc_proximity/NRC_Humanitarian_Proximity_Analysis_data_02_October_2025_Ukraine.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/cac2ff50-b75b-44b2-947c-5c02834eab31/download/nrc_humanitarian_proximity_analysis_data_02_october_2025_ukraine.xlsx",
+  "bytes": 192189,
+  "rows": 1974,
+  "sha256": "201e8c2cf1f0ac3d0eab65b4f2ad41ef0750e3acc9c5cbff16a07447c5d0a203",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:11+00:00"
+ },
+ {
+  "file": "nrc_proximity/NRC_Humanitarian_Proximity_Analysis_data_01_September_2025_Ukraine.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/72825f96-0865-4f09-a5e1-e8eab1d901df/download/nrc_humanitarian_proximity_analysis_data_01_september_2025_ukraine.xlsx",
+  "bytes": 191764,
+  "rows": 1974,
+  "sha256": "18c9447c90e16d866a378beed634dc0386510be9c21e6a21d519f1a71738646d",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:14+00:00"
+ },
+ {
+  "file": "nrc_proximity/nrc_humanitarian_proximity_analysis_data_01_august_2025_ukraine.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/2330ea1c-e772-424d-94a0-c6b4e64769a5/download/nrc_humanitarian_proximity_analysis_data_01_august_2025_ukraine.xlsx",
+  "bytes": 191868,
+  "rows": 1974,
+  "sha256": "3eca700ba0a913c059cea575c9c9cdc0b7893833bfb69cc06a3f5c6e0da7d899",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:16+00:00"
+ },
+ {
+  "file": "nrc_proximity/nrc_humanitarian_proximity_analysis_data_01_july_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/6b8884ee-08c9-4415-8e50-adb36a7b3f6b/download/nrc_humanitarian_proximity_analysis_data_01_july_2025.xlsx",
+  "bytes": 191548,
+  "rows": 1974,
+  "sha256": "149ba4217f715daab5139016aca76fce7619d2bcdb15728caf8dfe41c4e618db",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:18+00:00"
+ },
+ {
+  "file": "nrc_proximity/nrc_humanitarian_proximity_analysis_data_05_june_2025_ukraine.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/91ae84d3-ee15-47c7-bc3a-0f8fe8590910/download/nrc_humanitarian_proximity_analysis_data_05_june_2025_ukraine.xlsx",
+  "bytes": 205499,
+  "rows": 1974,
+  "sha256": "c06a352eaddd171a915efad79dfc40c9f5820c8a1c443df28cd646c36cff47e0",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:20+00:00"
+ },
+ {
+  "file": "nrc_proximity/nrc_humanitarian_proximity_analysis_data_06_may_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/c1df2d10-f5a5-4c8b-a6bd-2736c9717969/download/nrc_humanitarian_proximity_analysis_data_06_may_2025.xlsx",
+  "bytes": 215769,
+  "rows": 1979,
+  "sha256": "3ab0a4e80661e22eff5a49f4b612d7385d9db03cd979036e9a311c600a4ab9ad",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:23+00:00"
+ },
+ {
+  "file": "nrc_proximity/nrc_humanitarian_proximity_analysis_data_01_apr_2025.xlsx",
+  "url": "https://data.humdata.org/dataset/3fbee54e-ced1-431b-97c9-9cbd20a8206a/resource/efa96dc6-f2e5-40b7-8c93-9937cb203c81/download/nrc_humanitarian_proximity_analysis_data_01_apr_2025.xlsx",
+  "bytes": 220738,
+  "rows": 1979,
+  "sha256": "0ba06e0d2c9196325e7ed9709c272bf9a3ed7f6b958f04875276c1f139794c8e",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:26+00:00"
+ },
+ {
+  "file": "aqlity_frontline_monitoring/AQLITY_dataset_082024_022025.xlsx",
+  "url": "https://data.humdata.org/dataset/0b24b3cf-6463-48c7-8201-7e6d87f629d6/resource/ed35c7f7-ec33-4ead-b3c1-e58632032262/download/aqlity_dataset-082024_022025.xlsx",
+  "bytes": 282455,
+  "rows": 677,
+  "sha256": "23ab297aa7dfe033d80e1e7e0ce472d43c9d3ff113ab546db4675e1166c61f29",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:28+00:00"
+ },
+ {
+  "file": "ocha_security_incidents_2017_2021/2021-11-08_-_Ukraine_Security_incidents_2017-2021.xlsx",
+  "url": "https://data.humdata.org/dataset/4cddc2f4-b2dc-4a29-83cd-2750a8c776aa/resource/a3950327-3445-4e6c-9a94-f6ec752cefa9/download/2021-11-08-ukraine_security-incidents_2017-2021.xlsx",
+  "bytes": 23369,
+  "rows": 59,
+  "sha256": "95578dcfd8591a46587aada81156071f5c84a239dbca044cfca64f41a1ac0979",
+  "set": "covariate",
+  "retrieved_utc": "2026-10-22T04:51:31+00:00"
+ },
+ {
+  "file": "viina/control_latest_2025.zip",
+  "url": "https://media.githubusercontent.com/media/zhukovyuri/VIINA/main/Data/control_latest_2025.zip",
+  "bytes": 32174993,
+  "rows": 12096465,
+  "sha256": "b7459d3fb5dcd64fa66a9e79f3d95088ba56fc60831658ed1ad1d2c99a847ef3",
+  "set": "E",
+  "retrieved_utc": "2026-10-22T04:51:41+00:00"
+ },
+ {
+  "file": "viina/README.md",
+  "url": "https://raw.githubusercontent.com/zhukovyuri/VIINA/main/README.md",
+  "bytes": 35427,
+  "sha256": "4c629d4164e0757c513026b2964588e6343c4a4378d60c4a70f3cfdaf66a20f6",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:51:43+00:00"
+ },
+ {
+  "file": "viina/gn_UA_tess.geojson",
+  "url": "https://raw.githubusercontent.com/zhukovyuri/VIINA/main/Data/gn_UA_tess.geojson",
+  "bytes": 31671493,
+  "rows": 33141,
+  "sha256": "bc194dd11074225aaa97440de9f451644eced0e9456105480d914b8b6f29f74f",
+  "set": "static",
+  "retrieved_utc": "2026-10-22T04:51:50+00:00"
+ },
+ {
+  "file": "licenses/cc-by-igo-3.0_legalcode.html",
+  "url": "https://creativecommons.org/licenses/by/3.0/igo/legalcode",
+  "bytes": 41971,
+  "sha256": "93ddf7e4b9e665bedbb185db6f888126ceadb1f4661917ee8f868aef8e48786a",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:52:21+00:00"
+ },
+ {
+  "file": "licenses/odc-odbl-1.0.html",
+  "url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "bytes": 51543,
+  "sha256": "85bc21fb2c00b2effb9202b2aa785934ce5a05df954e17cbd2a1f7c10c04c633",
+  "set": "license",
+  "retrieved_utc": "2026-10-22T04:52:36+00:00"
+ }
+]
