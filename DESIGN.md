@@ -87,3 +87,14 @@ Hard gate: **no C1/T1/T2 wartime download before `prereg-v1` is tagged.** Downlo
 ## 6. Attribution block (every figure, README, brief)
 
 Fire detections: NASA FIRMS / LANCE, VIIRS 375 m (S-NPP, NOAA-20, NOAA-21). Cloud and snow: ERA5 / ERA5-Land, Copernicus Climate Change Service (contains modified C3S information). Territorial control: DeepStateMap.live (DEEPSTATEUATECH LLC), derived aggregates only; Institute for the Study of War and AEI's Critical Threats Project (if permitted); The Economist war-fire model (CC BY 4.0). Events: GeoConfirmed; Bellingcat. Land cover: ESA WorldCover 2021 (CC BY 4.0). Contact: jmackney@uchicago.edu.
+
+## 7. Out of scope, noted for project two (added 2026-10-22)
+
+Decision: this paper answers one question, what a free daily thermal sensor (VIIRS) sees of a war and when it is blind. Other instruments are not built here. Jackson's rule: no scope creep; the other sources grade the satellite, they do not replace it.
+
+The natural next instrument is image change detection, consumed as an existing product rather than a model we train:
+- **UNOSAT damage assessments** (UN Satellite Centre): human-annotated building damage for selected Ukrainian cities and dates from commercial imagery; downloadable layers.
+- **Sentinel-1 radar coherence change**: free, 6–12 day revisit, sees through cloud; published Ukraine studies estimate building-level "hidden" damage in Kyiv and Kharkiv. Some released their grids.
+- **Optical building-damage classifiers** (xView2 / xBD lineage; Microsoft AI for Good + Planet counts over Ukrainian cities): need high-resolution pre/post pairs, so commercial imagery.
+
+A follow-on paper with the same design would take one of these as a third witness and ask, in both directions, how much of the damage record the fire record saw. First measured gap this would address: FIRMS matched 1.26% of 18,404 geocoded oblast-reported strikes within 1 km / 12 h (placebo 0.65%), see `planning/TELEGRAM_PIPELINE.md` §L6.
