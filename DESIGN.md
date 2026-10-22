@@ -98,3 +98,4 @@ The natural next instrument is image change detection, consumed as an existing p
 - **Optical building-damage classifiers** (xView2 / xBD lineage; Microsoft AI for Good + Planet counts over Ukrainian cities): need high-resolution pre/post pairs, so commercial imagery.
 
 A follow-on paper with the same design would take one of these as a third witness and ask, in both directions, how much of the damage record the fire record saw. First measured gap this would address: FIRMS matched 1.26% of 18,404 geocoded oblast-reported strikes within 1 km / 12 h (placebo 0.65%), see `planning/TELEGRAM_PIPELINE.md` §L6.
+- Jackson's project-two idea (2026-10-22): pick a place with an existing trained damage-assessment model and a public benchmark (xView2 / xBD has a leaderboard) and try to match or beat it with new methods. The benchmark supplies the ground truth we lack here.
