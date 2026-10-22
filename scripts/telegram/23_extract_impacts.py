@@ -19,6 +19,7 @@ Time: the model returns event_date / event_time (Kyiv local). Script builds even
 Casualties are "as last edited" (edit_ts_utc kept, `edited` flag). No casualty names exist in the schema.
 
   python -I scripts/telegram/23_extract_impacts.py --dry-run     # 5 exact requests + cost estimate, no network
+  python -I scripts/telegram/23_extract_impacts.py --batch       # Message Batches API, half price (preferred)
   python -I scripts/telegram/23_extract_impacts.py [--limit N] [--workers 6]
 """
 from __future__ import annotations
@@ -112,6 +113,8 @@ def main() -> None:
     ap.add_argument("--candidates-only", action="store_true", help="use raw regional candidates (skip LLM typing)")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--batch", action="store_true",
+                    help="use the Message Batches API (-50%% on every token; async, usually <1 h per chunk)")
     ap.add_argument("--chars-per-token", type=float, default=2.4, help="Ukrainian text estimate for dry-run costs")
     ap.add_argument("--out-tokens", type=int, default=400, help="assumed output+thinking tokens per call (dry-run)")
     ap.add_argument("--expected-posts", type=int, default=20000, help="expected confirmed posts for the headline estimate")
@@ -146,7 +149,11 @@ def main() -> None:
 
     items = [((r.channel, int(r.msg_id)), row_user(r), {"channel": r.channel, "msg_id": int(r.msg_id)})
              for r in df.itertuples()]
-    res = run_calls(items, one, model=MODEL, workers=a.workers, prompt_version=PROMPT_VERSION)
+    if a.batch:
+        res = llm.call_batch(PROMPT_VERSION, system, items, SCHEMA, MODEL, max_tokens=MAX_TOKENS, effort=EFFORT,
+                             log=log, batch_ids_file=OUT_DIR / "batch_ids.tsv")
+    else:
+        res = run_calls(items, one, model=MODEL, workers=a.workers, prompt_version=PROMPT_VERSION)
 
     inc_rows, post_rows, bad_date, bad_time = [], [], 0, 0
     for r in df.itertuples():
@@ -185,7 +192,7 @@ def main() -> None:
               "llm_stats_this_run": dict(llm.STATS)}
     inputs = {"posts_typed": IN_FINAL if IN_FINAL.exists() and not a.candidates_only else IN_RULES,
               "prompt": PROMPTS / f"{PROMPT_VERSION}.md"}
-    extra = {"model": MODEL, "effort": EFFORT, "candidates_only": a.candidates_only}
+    extra = {"model": MODEL, "effort": EFFORT, "candidates_only": a.candidates_only, "batch_api": a.batch}
     write_meta(OUT, inputs=inputs, counts=counts, extra=extra, prompt_version=PROMPT_VERSION)
     write_meta(OUT_POSTS, inputs=inputs, counts=counts, extra=extra, prompt_version=PROMPT_VERSION)
     log(f"done: {counts['incidents']:,} incidents from {counts['posts']:,} posts "

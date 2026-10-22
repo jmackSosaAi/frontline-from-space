@@ -198,3 +198,102 @@ if __name__ == "__main__":
         print("ANTHROPIC_API_KEY: missing ->", str(e).split(":")[0], file=sys.stderr)
     print("cache_key demo:", cache_key("type_v1", MODEL_TYPING, "🛵 БпЛА на Київ")[:16])
     print("cache root:", CACHE_ROOT.relative_to(ROOT))
+
+
+# ---------------------------------------------------------------- Message Batches API (50% price)
+def _cache_write(cp: Path, rec: dict) -> None:
+    cp.parent.mkdir(parents=True, exist_ok=True)
+    tmp = cp.with_suffix(".tmp")
+    tmp.write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")
+    os.replace(tmp, cp)
+
+
+def call_batch(prompt_version: str, system: str, items: list, schema: dict, model: str, *,
+               max_tokens: int = 1024, effort: str = "low", chunk: int = 10_000,
+               poll_s: int = 60, log=print, batch_ids_file: Path | None = None) -> dict:
+    """items: list of (ident, user, meta). Uncached items go through the Message Batches API
+    (async, -50% on every token). Results land in the same on-disk cache as call(), so a later
+    call()/run_calls() for the same (prompt_version, model, user) is a free hit.
+    Returns {ident: output | None} for ALL items (cached + new). Failures (refusal, max_tokens,
+    errored/expired) are None and logged by ident.
+    Batch ids are appended to batch_ids_file (if given) so a killed run can be re-attached by hand:
+      client.messages.batches.results(<id>). Prompt caching works inside a batch but is not
+      guaranteed; the batch discount applies regardless."""
+    import anthropic
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    from anthropic.types.messages.batch_create_params import Request
+
+    out, todo, by_key = {}, [], {}
+    for ident, user, meta in items:
+        key = cache_key(prompt_version, model, user)
+        cp = cache_path(prompt_version, key)
+        if cp.exists():
+            out[ident] = json.loads(cp.read_text(encoding="utf-8"))["output"]
+        else:
+            if key in by_key:                       # duplicate text: one request, fan out below
+                by_key[key]["idents"].append(ident); continue
+            by_key[key] = {"idents": [ident], "user": user, "meta": meta, "cp": cp}
+            todo.append(key)
+    log(f"{prompt_version} [batch]: {len(out):,} cached, {len(todo):,} unique requests to submit")
+    if not todo:
+        return out
+    client = _get_client()
+    sys_sha = hashlib.sha256(system.encode("utf-8")).hexdigest()
+
+    for c0 in range(0, len(todo), chunk):
+        keys = todo[c0:c0 + chunk]
+        reqs = [Request(custom_id=k, params=MessageCreateParamsNonStreaming(
+                    **build_request(system, by_key[k]["user"], schema, model, max_tokens=max_tokens,
+                                    effort=effort, cache_system=True))) for k in keys]
+        b = client.messages.batches.create(requests=reqs)
+        log(f"  submitted batch {b.id}: {len(keys):,} requests ({c0 + len(keys):,}/{len(todo):,})")
+        if batch_ids_file:
+            with open(batch_ids_file, "a", encoding="utf-8") as f:
+                f.write(f"{time.time():.0f}\t{prompt_version}\t{b.id}\t{len(keys)}\n")
+        while True:
+            b = client.messages.batches.retrieve(b.id)
+            if b.processing_status == "ended":
+                break
+            rc = b.request_counts
+            log(f"  {b.id}: processing {rc.processing:,}  ok {rc.succeeded:,}  err {rc.errored:,}")
+            time.sleep(poll_s)
+        n_ok = n_bad = 0
+        for r in client.messages.batches.results(b.id):
+            k = r.custom_id; info = by_key[k]
+            res = None
+            if r.result.type == "succeeded":
+                m = r.result.message
+                if m.stop_reason == "refusal":
+                    STATS["refusals"] += 1; log(f"FAILED {info['idents'][0]}: refusal")
+                elif m.stop_reason == "max_tokens":
+                    log(f"FAILED {info['idents'][0]}: max_tokens")
+                else:
+                    try:
+                        res = json.loads(next(x.text for x in m.content if x.type == "text"))
+                        _validate(res, schema)
+                    except Exception as e:
+                        res = None; log(f"FAILED {info['idents'][0]}: {type(e).__name__}: {str(e)[:120]}")
+                if res is not None:
+                    u = m.usage
+                    STATS["calls"] += 1
+                    STATS["input_tokens"] += getattr(u, "input_tokens", 0) or 0
+                    STATS["output_tokens"] += getattr(u, "output_tokens", 0) or 0
+                    STATS["cache_read_tokens"] += getattr(u, "cache_read_input_tokens", 0) or 0
+                    STATS["cache_write_tokens"] += getattr(u, "cache_creation_input_tokens", 0) or 0
+                    _cache_write(info["cp"], {
+                        "key": k, "prompt_version": prompt_version, "model": model, "system_sha256": sys_sha,
+                        "user_sha256": hashlib.sha256(info["user"].encode("utf-8")).hexdigest(),
+                        "meta": info["meta"], "output": res,
+                        "usage": {"input_tokens": getattr(u, "input_tokens", None),
+                                  "output_tokens": getattr(u, "output_tokens", None),
+                                  "cache_read": getattr(u, "cache_read_input_tokens", None),
+                                  "cache_write": getattr(u, "cache_creation_input_tokens", None)},
+                        "response_id": getattr(m, "id", None), "batch_id": b.id, "ts": time.time()})
+            else:
+                err = getattr(getattr(r.result, "error", None), "type", r.result.type)
+                log(f"FAILED {info['idents'][0]}: batch {r.result.type} ({err})")
+            for ident in info["idents"]:
+                out[ident] = res
+            n_ok += res is not None; n_bad += res is None
+        log(f"  {b.id} done: {n_ok:,} ok, {n_bad:,} failed  {STATS}")
+    return out

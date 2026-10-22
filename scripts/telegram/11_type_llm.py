@@ -76,6 +76,7 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true", help="print 5 exact requests + cost estimate; no network, no key")
     ap.add_argument("--limit", type=int, help="only the first N residual posts (smoke test)")
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--batch", action="store_true", help="use the Message Batches API (-50%%, async)")
     ap.add_argument("--include-low-conf-launch-intel", action="store_true")
     ap.add_argument("--include-regional-untyped", action="store_true")
     ap.add_argument("--chars-per-token", type=float, default=2.4, help="Ukrainian text estimate for dry-run costs")
@@ -113,7 +114,11 @@ def main() -> None:
 
     items = [((r.channel, int(r.msg_id)), u, {"channel": r.channel, "msg_id": int(r.msg_id)})
              for r, u in zip(sel.itertuples(), users)]
-    res = run_calls(items, one, model=MODEL, workers=a.workers, prompt_version=PROMPT_VERSION)
+    if a.batch:
+        res = llm.call_batch(PROMPT_VERSION, system, items, schema, MODEL, max_tokens=MAX_TOKENS, effort=EFFORT,
+                             log=log, batch_ids_file=INTERIM / "type_llm_batch_ids.tsv")
+    else:
+        res = run_calls(items, one, model=MODEL, workers=a.workers, prompt_version=PROMPT_VERSION)
 
     rows = []
     for r in sel.itertuples():
