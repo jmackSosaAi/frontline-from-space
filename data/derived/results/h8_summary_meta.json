@@ -1,0 +1,37 @@
+{
+  "output": "data/derived/results/h8_summary.json",
+  "written_utc": "2026-10-22T22:48:51+00:00",
+  "script": "08_constellation_h8.py",
+  "seed": 20261014,
+  "inputs": {
+    "events_detect": {
+      "path": "data/interim/analysis/events_detect.parquet",
+      "bytes": 3252035,
+      "sha256": "fe1d54321f625285b84236cf29a91e3ac4aeb2d1e95aa3e8a800a120eeaef721"
+    },
+    "fires": {
+      "path": "data/interim/analysis/fires.parquet",
+      "bytes": 70540158,
+      "sha256": "fbdb213619dd6afb4ee411f03d2c0f8c53938bcf05f6d24726a4fcd59473bfca"
+    },
+    "opportunity_day": {
+      "path": "data/interim/analysis/opportunity_r6_day.parquet",
+      "bytes": 112828616,
+      "sha256": "40f9fae0714fdffd829ecc272a3e6eb18de667db5aef2184ce1c1c9b03fe3974"
+    },
+    "overpasses_meta": {
+      "path": "data/interim/analysis/overpasses_r6_meta.json",
+      "bytes": 4596,
+      "sha256": "ed5c8e4375a4df7d95025db6a1ae5fa40f689f5454b73d598c5e76b16c065321"
+    }
+  },
+  "counts": {
+    "events": 45876,
+    "cells_ukraine": 18302,
+    "cells_ne": 3261,
+    "c1_cell_days": 15135754
+  },
+  "runtime_s": 50.6,
+  "q25": 0.0,
+  "blind_rule": "median_daily_opportunity <= q25 (q25 == 0, so strict 'below' is empty)"
+}

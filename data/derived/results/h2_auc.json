@@ -1,0 +1,106 @@
+{
+  "results": {
+    "primary_all_types": {
+      "run": "primary_all_types",
+      "n_train": 31124,
+      "n_test": 14728,
+      "base_rate_train": 0.07325536563423725,
+      "base_rate_test": 0.04976914720260728,
+      "logit": {
+        "auc_test": 0.7365813263068519,
+        "auc_ci": [
+          0.7237759486056615,
+          0.7491158873277028
+        ],
+        "auc_train": 0.7904398616149304,
+        "logloss_test": 0.18734497960468569,
+        "brier_test": 0.049151719488676214,
+        "pseudo_r2": 0.15206040562157885,
+        "converged": true,
+        "n_params": 27
+      },
+      "lgbm": {
+        "auc_test": 0.727236973641434,
+        "auc_ci": [
+          0.7113114532986587,
+          0.7427274670020645
+        ],
+        "auc_train": 0.9029349729458161,
+        "logloss_test": 0.18807012121609354,
+        "brier_test": 0.048200020477099606
+      }
+    },
+    "secondary_restricted": {
+      "run": "secondary_restricted",
+      "n_train": 22387,
+      "n_test": 11135,
+      "base_rate_train": 0.06878992272300889,
+      "base_rate_test": 0.04535249214189493,
+      "logit": {
+        "auc_test": 0.7476081145273512,
+        "auc_ci": [
+          0.7315497599011047,
+          0.7632757028539187
+        ],
+        "auc_train": 0.8013140886072243,
+        "logloss_test": 0.17219416256649558,
+        "brier_test": 0.044251544738052116,
+        "pseudo_r2": 0.162326830142828,
+        "converged": true,
+        "n_params": 25
+      },
+      "lgbm": {
+        "auc_test": 0.734091539915986,
+        "auc_ci": [
+          0.714544387609879,
+          0.7531342079524829
+        ],
+        "auc_train": 0.9130408062700479,
+        "logloss_test": 0.1738764685582699,
+        "brier_test": 0.043760464367640715
+      }
+    }
+  },
+  "verdict": {
+    "auc_logit_ge_0.75": false,
+    "auc_logit_ci_lo_ge_0.75": false,
+    "auc_logit_lt_0.65_bounds_only_for_H6b": false,
+    "H2_supported": false,
+    "prereg_prediction": "supported, AUC 0.75\u20130.85",
+    "note": "primary = logistic, all event types, V-test; LightGBM secondary"
+  },
+  "features": {
+    "numeric": [
+      "min_tcc",
+      "any_snow",
+      "hours_since_prev",
+      "share_night"
+    ],
+    "categorical": [
+      "landcover_class",
+      "event_type",
+      "month"
+    ]
+  },
+  "definitions": {
+    "min_tcc": "tcc at overpass = minimum ERA5 tcc over the event window's overpasses",
+    "any_snow": "any overpass in window with ERA5-Land sde \u2265 1 cm",
+    "hours_since_prev": "window mean of hours since the cell's previous overpass (any satellite)",
+    "share_night": "day/night = share of the window's overpasses flagged Night",
+    "dropped_no_overpass_rows": 24
+  },
+  "model_files": {
+    "logit_primary": {
+      "path": "data/interim/analysis/models/h2_logit_primary_all_types.pickle",
+      "sha256": "4094506dc9d30135d1e7dc83b6d246629be94a0f3532f1528536d4dfdbc8a2b0"
+    },
+    "logit_primary_spec": {
+      "path": "data/interim/analysis/models/h2_logit_primary_all_types_spec.json",
+      "sha256": "1352cfcd63beca928e79e423d57d062446c859598c4456bcd07c5e20c829e7a0"
+    },
+    "lgbm_primary": {
+      "path": "data/interim/analysis/models/h2_lgbm_primary_all_types.txt",
+      "sha256": "cce6ba28d962e6ae7506003b8e840419e42ae6004170b9b0b8e7f0af997a1c42"
+    }
+  }
+}

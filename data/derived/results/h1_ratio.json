@@ -1,0 +1,252 @@
+{
+  "primary": {
+    "overall_n": 14736,
+    "overall_recall": 0.05001357220412595,
+    "overall_ci": [
+      0.04661001388005422,
+      0.05365167909703287
+    ],
+    "n_best": 3389,
+    "n_worst": 3147,
+    "recall_best": 0.07435821776335202,
+    "recall_worst": 0.0006355258976803305,
+    "ratio": 117.0026556506344,
+    "ratio_ci_lo": 44.20100324579522,
+    "ratio_ci_hi": null,
+    "share_draws_ratio_inf": 0.135,
+    "share_draws_ratio_ge_3": 1.0,
+    "draws": 1000
+  },
+  "all_runs": {
+    "test|all_types|stratum": {
+      "overall_n": 14736,
+      "overall_recall": 0.05001357220412595,
+      "overall_ci": [
+        0.04661001388005422,
+        0.05365167909703287
+      ],
+      "n_best": 3389,
+      "n_worst": 3147,
+      "recall_best": 0.07435821776335202,
+      "recall_worst": 0.0006355258976803305,
+      "ratio": 117.0026556506344,
+      "ratio_ci_lo": 44.20100324579522,
+      "ratio_ci_hi": null,
+      "share_draws_ratio_inf": 0.135,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "test|all_types|stratum_alt": {
+      "overall_n": 14736,
+      "overall_recall": 0.05001357220412595,
+      "overall_ci": [
+        0.04661001388005422,
+        0.05365167909703287
+      ],
+      "n_best": 2582,
+      "n_worst": 1225,
+      "recall_best": 0.08055770720371805,
+      "recall_worst": 0.0008163265306122449,
+      "ratio": 98.6831913245546,
+      "ratio_ci_lo": 29.41518202943455,
+      "ratio_ci_hi": null,
+      "share_draws_ratio_inf": 0.355,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "test|restricted|stratum": {
+      "overall_n": 11141,
+      "overall_recall": 0.04559734314693475,
+      "overall_ci": [
+        0.04187780996426881,
+        0.04963012782416756
+      ],
+      "n_best": 2519,
+      "n_worst": 2359,
+      "recall_best": 0.07264787614132592,
+      "recall_worst": 0.000847816871555744,
+      "ratio": 85.68816990869392,
+      "ratio_ci_lo": 32.02770940849543,
+      "ratio_ci_hi": null,
+      "share_draws_ratio_inf": 0.127,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "test|restricted|stratum_alt": {
+      "overall_n": 11141,
+      "overall_recall": 0.04559734314693475,
+      "overall_ci": [
+        0.04187780996426881,
+        0.04963012782416756
+      ],
+      "n_best": 1900,
+      "n_worst": 956,
+      "recall_best": 0.08,
+      "recall_worst": 0.0010460251046025104,
+      "ratio": 76.48,
+      "ratio_ci_lo": 24.151578947368424,
+      "ratio_ci_hi": null,
+      "share_draws_ratio_inf": 0.362,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "all|all_types|stratum": {
+      "overall_n": 45876,
+      "overall_recall": 0.06589502136193216,
+      "overall_ci": [
+        0.06366089226650393,
+        0.06820184453705111
+      ],
+      "n_best": 12726,
+      "n_worst": 8342,
+      "recall_best": 0.12462674838912463,
+      "recall_worst": 0.00731239510908655,
+      "ratio": 17.043218607575046,
+      "ratio_ci_lo": 13.416639623145988,
+      "ratio_ci_hi": 22.767992037298967,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "all|all_types|stratum_alt": {
+      "overall_n": 45876,
+      "overall_recall": 0.06589502136193216,
+      "overall_ci": [
+        0.06366089226650393,
+        0.06820184453705111
+      ],
+      "n_best": 9801,
+      "n_worst": 3185,
+      "recall_best": 0.1235588205285175,
+      "recall_worst": 0.010361067503924647,
+      "ratio": 11.92529828434328,
+      "ratio_ci_lo": 8.851814144963026,
+      "ratio_ci_hi": 17.87317620650954,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "all|restricted|stratum": {
+      "overall_n": 33538,
+      "overall_recall": 0.06118432822470034,
+      "overall_ci": [
+        0.05866922497407506,
+        0.06379994428477644
+      ],
+      "n_best": 9316,
+      "n_worst": 6032,
+      "recall_best": 0.12247745813653929,
+      "recall_worst": 0.006631299734748011,
+      "ratio": 18.469600686990123,
+      "ratio_ci_lo": 13.956967701922618,
+      "ratio_ci_hi": 25.877200515242592,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "all|restricted|stratum_alt": {
+      "overall_n": 33538,
+      "overall_recall": 0.06118432822470034,
+      "overall_ci": [
+        0.05866922497407506,
+        0.06379994428477644
+      ],
+      "n_best": 7151,
+      "n_worst": 2350,
+      "recall_best": 0.12096210320234932,
+      "recall_worst": 0.007659574468085106,
+      "ratio": 15.792274584751162,
+      "ratio_ci_lo": 10.792057054957349,
+      "ratio_ci_hi": 26.409529500006354,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "train|all_types|stratum": {
+      "overall_n": 31140,
+      "overall_recall": 0.07341040462427746,
+      "overall_ci": [
+        0.07056597143733509,
+        0.07636007379451934
+      ],
+      "n_best": 9337,
+      "n_worst": 5195,
+      "recall_best": 0.14287244296883367,
+      "recall_worst": 0.011357074109720885,
+      "ratio": 12.580039681747303,
+      "ratio_ci_lo": 9.751837357331627,
+      "ratio_ci_hi": 16.55860741044279,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "train|all_types|stratum_alt": {
+      "overall_n": 31140,
+      "overall_recall": 0.07341040462427746,
+      "overall_ci": [
+        0.07056597143733509,
+        0.07636007379451934
+      ],
+      "n_best": 7219,
+      "n_worst": 1960,
+      "recall_best": 0.1389389112065383,
+      "recall_worst": 0.0163265306122449,
+      "ratio": 8.51000831140047,
+      "ratio_ci_lo": 6.288830830785685,
+      "ratio_ci_hi": 12.625017315417649,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "train|restricted|stratum": {
+      "overall_n": 22397,
+      "overall_recall": 0.06893780417020137,
+      "overall_ci": [
+        0.06569322621161876,
+        0.07233022547686545
+      ],
+      "n_best": 6797,
+      "n_worst": 3673,
+      "recall_best": 0.14094453435339122,
+      "recall_worst": 0.010345766403484889,
+      "ratio": 13.623401965263316,
+      "ratio_ci_lo": 10.27791961274726,
+      "ratio_ci_hi": 19.338079825132937,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    },
+    "train|restricted|stratum_alt": {
+      "overall_n": 22397,
+      "overall_recall": 0.06893780417020137,
+      "overall_ci": [
+        0.06569322621161876,
+        0.07233022547686545
+      ],
+      "n_best": 5251,
+      "n_worst": 1394,
+      "recall_best": 0.13578366025518948,
+      "recall_worst": 0.012195121951219513,
+      "ratio": 11.134260140925537,
+      "ratio_ci_lo": 7.2596721503596395,
+      "ratio_ci_hi": 19.379546752999428,
+      "share_draws_ratio_inf": 0.0,
+      "share_draws_ratio_ge_3": 1.0,
+      "draws": 1000
+    }
+  },
+  "verdict": {
+    "overall_recall_below_50pct": true,
+    "ratio_at_least_3": true,
+    "ratio_ci_excludes_3_from_below": true,
+    "H1_supported": true,
+    "note": "Primary = V-test, all event types, day/night = clear-night-overpass definition. Supported requires both criteria."
+  },
+  "definitions": {
+    "detected": "\u22651 fire (N/N20/N21, conf n/h, any type) within 1,000 m (EPSG:3035) and acq_ts_utc in [date 00:00Z\u221212h, date 24:00Z+12h]",
+    "covariates": "overpasses_r6 rows for the event h3_r6 in the same window; min/mean tcc, any snow (sde\u22651 cm), n overpasses, n clear (tcc<0.5 & sde<1), share night ('Both' granules by UTC hour 20\u201304), mean hours_since_prev (sentinels \u22640/>1000 dropped)",
+    "stratum": "best = min_tcc<0.5 & no snow & \u22651 clear night overpass & Jun\u2013Sep; worst = (min_tcc\u22650.5 or snow) & no clear night overpass & Nov\u2013Feb",
+    "stratum_alt": "same but night/day = flag of the lowest-tcc overpass in the window (sensitivity)",
+    "n_events_without_overpass_rows": 24
+  }
+}

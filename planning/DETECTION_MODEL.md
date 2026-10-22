@@ -171,3 +171,64 @@ is high in winter nights (31 % sensor-cloud at tcc < 0.1 — cold/snow surfaces 
 night test), so ERA5 tcc < 0.5 overstates winter-night clear looks. Published `firemask_vs_era5.csv` (194 rows:
 month × day/night table + tcc-bin curve by season × day/night). Runtime 2 min on 6 workers. Nothing committed;
 `_common.py` (Builder A) was imported for meta/log only; 01/02 untouched.
+
+## Builder C log
+
+**2026-10-22 — tests H1, H2, H3, H8, H7 run (`scripts/analysis/05_recall_h1.py` … `09_transfer_h7.py`, shared helpers in
+`_detect.py`).** Results in `data/derived/results/h{1,2,3,7,8}_*` (strata / oblast-year / month level only; no coordinates, no
+event ids), figures in `figures/` with `figures/CAPTIONS.md` (all **confirmatory**), models in `data/interim/analysis/models/`,
+event-level tables `events_detect.parquet` and `events_detect_noSNPP.parquet` in `data/interim/analysis/` (gitignored).
+Total runtime ≈ 2.5 min (05: 6 s, 06: 16 s, 07: 9 s, 08: 52 s, 09: 68 s); seed 20261014 throughout. Nothing committed.
+*Operationalisation (stated in every meta):* detected = ≥1 fire (N/N20/N21, conf n/h, any type) within 1,000 m (EPSG:3035,
+cKDTree) and `acq_ts_utc` in [date 00:00Z − 12 h, date 24:00Z + 12 h]. Covariates = `overpasses_r6` rows of the event's
+h3_r6 in that window: min/mean tcc, any snow (sde ≥ 1 cm), n overpasses (mean 19.6), n clear, share night ("Both" granules
+by UTC hour 20–04), mean `hours_since_prev` with the sentinel values (≤ 0 or > 1000 h; the first overpass of a cell carries
+−2.6e15) dropped. H1 day/night: night = ≥ 1 clear *night* overpass in the window, day = none; under this definition the worst
+stratum's "day" is automatic (no clear look at all), so a sensitivity `stratum_alt` uses the day/night flag of the
+lowest-tcc overpass. 24 events (8 test) sit in border cells with no overpass rows (cell centroid outside Ukraine and the
+Russia buffer): kept in H1 as stratum `no_overpass`, dropped from H2. `event_id` is not unique (two Bellingcat ids, CIV1151
+and CIV1553, appear twice with different coordinates) — all joins key on the row index `uid`. Primary H1/H2 = V-test, all
+event types (PREREG); all-V, train and a restricted set (strike+shelling+infrastructure+vehicle_loss) reported alongside.
+*H1 — supported.* V-test overall recall **5.0 %** (737/14,736; Wilson 4.7–5.4 %). best 7.4 % (252/3,389; 6.6–8.4), worst
+**0.06 %** (2/3,147; 0.02–0.23), other 5.8 %. Ratio **117** (bootstrap 2.5th pct 44; upper bound unbounded because 13.5 % of
+draws have zero worst-stratum detections; 100 % of draws ≥ 3). stratum_alt: best 8.1 %, worst 0.08 %, ratio 99 (lower 29).
+Restricted set: 4.6 %, ratio 86 (lower 32). All V: 6.6 %, best 12.5 % / worst 0.73 %, ratio 17 (13.4–22.8). By type (test):
+other 6.5, strike 5.5, vehicle_loss 3.8, aircraft_loss 3.3, infrastructure 3.3, shelling 1.9 %. Season × day/night (test):
+summer-night 7.9, summer-day 4.6, winter-night 5.6, winter-day 0.4 %. Both PREREG criteria hold; the headline is that FIRMS
+sees one event in twenty, and essentially none under winter cloud.
+*H2 — not supported (AUC 0.737 < 0.75), above the 0.65 bounds-only trigger.* Logistic on train 31,124 / test 14,728: AUC
+**0.737** (bootstrap 0.724–0.749), train 0.790, pseudo-R² 0.15, Brier 0.049 (base rate test 5.0 %, train 7.3 %). LightGBM
+0.727 (0.711–0.743), train 0.903 (overfits). Restricted set: logit 0.748 (0.732–0.763), LGBM 0.734. Largest coefficients
+(odds ratios): month=1 0.03, month=12 0.20, month=11 0.21, month=2 0.39, month=10 0.42, month=7 1.84 (all vs the modal month, March); landcover water 0.19, cropland 0.24, grassland 0.40, tree_cover 0.61 (vs built_up); **min_tcc 0.42 per
+SD** (z = −18, the strongest single term); hours_since_prev and share_night small. LightGBM gain: min_tcc 28 %, hours_since_
+prev 26 %, month 25 %, land cover 9 %. Calibration is good to the 8th decile and over-predicts in the top decile (mean 0.25
+predicted vs 0.07 observed) — month effects learned on train months extrapolate poorly to the held-out months. Since AUC is
+in [0.65, 0.75), H6b proceeds with the corrected index as a point product, flagged as below the pre-stated bar.
+*H3 — supported.* S-NPP → NOAA-20: 259,247 S-NPP detections in overpass cells, 200,000 sampled, 125,731 with a NOAA-20 pass
+of the same cell 30–70 min away, **82,247** with tcc < 0.3 on that pass; concordance **53.6 %** (53.3–54.0). Strata:
+summer-night 65.1, winter-night 62.0, summer-day 49.2, winter-day 46.9 % — all four inside 40–70. Reverse NOAA-20 → S-NPP
+52.4 % (52.0–52.7), same ordering. Concordance falls with tcc even below 0.3 (55.7 → 43.1 %) and rises with FRP ≥ 10 MW (59 %).
+Pair = nearest qualifying pass per direction; concordant = target detection within 1 km with acq_ts in [pass start − 10 min,
+start + 16 min].
+*H8 — descriptive.* Without S-NPP (N20+N21 only in fires and overpasses): V-test recall 5.00 → **4.32 %**, Δ −0.69 pp (cell
+block-bootstrap −0.92 to −0.48), i.e. −14 % relative; winter Nov–Feb Δ −0.09 pp (0.52 → 0.43 %), winter Nov–Apr −0.41 pp,
+summer −1.00 pp, north-east −0.58 pp. The PREREG "10–25 pp in winter" cannot be met at a 0.5 % winter baseline; relative
+drop 14–17 %. Best/worst ratio under the reduced constellation 202. Blind season: C1 cell-day 25th percentile of
+opportunity is **0** (44 % of cell-days have no clear overpass), so "below" is empty and blind = median daily opportunity
+≤ 0; blind ISO weeks per cell-year: Ukraine 20.9 → **22.2 (+1.23, CI 1.22–1.24)**, north-east 20.8 → 21.9 (+1.09, 1.07–1.11);
+by year, +2.37 (2022, NOAA-20 alone left), +1.45 (2023), +0.57 (2024), +0.53 (2025); NE +2.34 / +1.20 / +0.46 / +0.36.
+The "≥ 2 weeks in the NE" prediction holds only for the two-satellite 2022 configuration, not pooled. Published tables:
+oblast × year (`h8_blind_season_oblast_year.csv`), national/NE weekly blind share, recall deltas.
+*H7 — filed.* `predictions/transfer_v1.json` (written 2026-10-22T22:52Z, model sha256 4094506d…): Karabakh 2020
+predicted recall **3.0 %** (90 % 2.3–3.9; local land-cover sensitivity 2.2 %), Sudan 2023–25 **11.3 %** (10.6–12.2;
+grass/bare sensitivity 8.1 %). Method: 20,000 synthetic strike events per case = (ERA5 grid point in AOI, day in window) with
+the overpass pattern of a random Ukraine event window (S-NPP rows only for Karabakh; all three satellites and same calendar
+year for Sudan), UTC times shifted by the longitude difference, ERA5 tcc at the nearest hour, ERA5-Land snow that day,
+Ukraine strike land-cover mix, month = synthetic date. Karabakh: mean min tcc 0.15, 7.1 overpasses/48 h, mean gap 5.8 h,
+Oct/Nov month effects pull it down; Sudan: min tcc 0.06, 20.9 overpasses, Jul peak 24 %, Nov–Jan 4–6 %. Sudan 2025 ERA5
+had arrived, so all three years were used (no fallback). Caveats in the JSON: the interval covers coefficient uncertainty
+only; the H7 test defines Karabakh realised recall at 5 km / ±2 days, a looser rule than the 1 km / 48 h used here, so the
+±15 pp comparison should be read with that in mind. ERA5 for the AOIs was fetched by the lead's poller (not by me);
+`data/manifest_parts/observability-era5.json` shows modified in git from that poller, not from these scripts.
+*Not done / open:* no committing (lead's call); no DEVIATIONS entry written — the H8 "below the 25th percentile" wording and
+the H7 1 km-vs-5 km definition mismatch may deserve one, lead to decide.

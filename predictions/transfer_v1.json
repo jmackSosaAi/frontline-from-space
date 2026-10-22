@@ -1,0 +1,258 @@
+{
+  "schema": "transfer_v1",
+  "written_utc": "2026-10-22T22:52:03+00:00",
+  "model": {
+    "name": "H2 primary logistic (statsmodels), fit on Ukraine V-train, all event types",
+    "pickle": "data/interim/analysis/models/h2_logit_primary_all_types.pickle",
+    "pickle_sha256": "4094506dc9d30135d1e7dc83b6d246629be94a0f3532f1528536d4dfdbc8a2b0",
+    "spec": "data/interim/analysis/models/h2_logit_primary_all_types_spec.json",
+    "spec_sha256": "1352cfcd63beca928e79e423d57d062446c859598c4456bcd07c5e20c829e7a0",
+    "auc_test": 0.7365813263068519
+  },
+  "ukraine_reference": {
+    "observed_recall_test_all_types": 0.05001357220412595,
+    "note": "Ukraine V-test observed recall under the same detection definition, for scale"
+  },
+  "sudan_2025_era5": "present (era5_tcc_sudan_2025.nc, era5land_snowdepth_sudan_2025.nc) \u2014 all three years used",
+  "prereg_predictions": "PREREG H7: Sudan within band (predicted high recall); Karabakh within band but lower",
+  "cases": {
+    "karabakh_2020": {
+      "predicted_recall": 0.029603219028183195,
+      "interval_90": [
+        0.022782500329940458,
+        0.03894698075947952
+      ],
+      "sensitivity_local_landcover": {
+        "landcover": {
+          "tree_cover": 0.5,
+          "grassland": 0.5
+        },
+        "predicted_recall": 0.022110415527122736,
+        "interval_90": [
+          0.016919900007061554,
+          0.029373245178351062
+        ]
+      },
+      "aoi": {
+        "lat0": 38.5,
+        "lat1": 41.5,
+        "lon0": 44.5,
+        "lon1": 48.5
+      },
+      "window": [
+        "2020-09-27",
+        "2020-11-10"
+      ],
+      "description": "Nagorno-Karabakh war, mountain, autumn; S-NPP only (NOAA-20 country files not used; T1 defined on S-NPP)",
+      "covariate_summary": {
+        "mean_min_tcc": 0.14566124725341797,
+        "share_min_tcc_lt_0_5": 0.87855,
+        "mean_mean_tcc": 0.3998419513906083,
+        "share_any_snow": 0.00935,
+        "mean_hours_since_prev": 5.833278751984127,
+        "mean_share_night": 0.503983253968254,
+        "mean_n_overpasses_48h": 7.1165,
+        "lon_shift_h": 0.9666666666666667,
+        "landcover_mix": {
+          "built_up": 0.3871,
+          "tree_cover": 0.3476,
+          "grassland": 0.12975,
+          "cropland": 0.12545,
+          "water": 0.0043,
+          "bare_sparse": 0.0035,
+          "herbaceous_wetland": 0.0023
+        }
+      },
+      "by_month": [
+        {
+          "month": 9,
+          "n": 1766,
+          "predicted_recall": 0.0489744419826926,
+          "min_tcc": 0.21107818154219457,
+          "any_snow": 0.0
+        },
+        {
+          "month": 10,
+          "n": 13662,
+          "predicted_recall": 0.03263227441149676,
+          "min_tcc": 0.10697586982111651,
+          "any_snow": 0.010979358805445762
+        },
+        {
+          "month": 11,
+          "n": 4572,
+          "predicted_recall": 0.013069418856596689,
+          "min_tcc": 0.23599224474382108,
+          "any_snow": 0.008092738407699038
+        }
+      ],
+      "assumptions": [
+        "Overpass cadence = Ukraine event-window templates (satellites ['N'], Ukraine years [2022, 2023, 2024, 2025]), UTC times shifted by the AOI\u2013Ukraine longitude difference",
+        "Synthetic events uniform over ERA5 0.25\u00b0 grid points in the AOI and days in the window (not weighted by where fighting occurred)",
+        "tcc at overpass = ERA5 tcc at the nearest grid point and nearest available hour (hour set 22\u201302, 09\u201313 UTC; \u22641 h off after the longitude shift)",
+        "snow = ERA5-Land sde \u2265 1 cm at the nearest 0.1\u00b0 point on the event date (NaN over water/outside mask \u2192 no snow)",
+        "event_type = strike; land cover = Ukraine strike-event mix (primary) \u2014 see sensitivity for local land cover",
+        "Detection definition as in H1: \u22651 fire within 1 km and within [date\u221212 h, date+36 h]; realised recall for the test must use the same window and radius (PREREG H7 says 5 km / \u00b12 days for Karabakh settlement captures, which is a looser definition and would be expected to give higher realised recall)",
+        "Interval = 90% from 1,000 multivariate-normal draws of the logistic coefficients; does not include template/ERA5 sampling noise or the unmodelled gap between Ukraine and the target theatre"
+      ],
+      "prereg_test": "realised recall within \u00b115 pp of predicted_recall (PREREG H7)"
+    },
+    "sudan_2023_2025": {
+      "predicted_recall": 0.11290172816561926,
+      "interval_90": [
+        0.10586708458165514,
+        0.12185214897738886
+      ],
+      "sensitivity_local_landcover": {
+        "landcover": {
+          "grassland": 0.5,
+          "bare_sparse": 0.5
+        },
+        "predicted_recall": 0.08083255764437855,
+        "interval_90": [
+          0.06093043482334933,
+          0.11313476124936013
+        ]
+      },
+      "aoi": {
+        "lat0": 8.5,
+        "lat1": 22.0,
+        "lon0": 21.5,
+        "lon1": 33.0
+      },
+      "window": [
+        "2023-04-15",
+        "2025-12-31"
+      ],
+      "description": "Darfur + Kordofan, arid; S-NPP + NOAA-20 + NOAA-21 (same cadence as Ukraine in the same calendar year)",
+      "covariate_summary": {
+        "mean_min_tcc": 0.0636572509765625,
+        "share_min_tcc_lt_0_5": 0.96775,
+        "mean_mean_tcc": 0.29875454608037666,
+        "share_any_snow": 0.0,
+        "mean_hours_since_prev": 1.8764535058997487,
+        "mean_share_night": 0.5015488364873075,
+        "mean_n_overpasses_48h": 20.94345,
+        "lon_shift_h": -0.31666666666666665,
+        "landcover_mix": {
+          "built_up": 0.38145,
+          "tree_cover": 0.3488,
+          "grassland": 0.13415,
+          "cropland": 0.1249,
+          "water": 0.0055,
+          "bare_sparse": 0.0027,
+          "herbaceous_wetland": 0.0025
+        }
+      },
+      "by_month": [
+        {
+          "month": 1,
+          "n": 1311,
+          "predicted_recall": 0.005802930309104467,
+          "min_tcc": 0.03652914528806731,
+          "any_snow": 0.0
+        },
+        {
+          "month": 2,
+          "n": 1091,
+          "predicted_recall": 0.07952202661925291,
+          "min_tcc": 0.03422522610420486,
+          "any_snow": 0.0
+        },
+        {
+          "month": 3,
+          "n": 1274,
+          "predicted_recall": 0.17679241185294825,
+          "min_tcc": 0.041944925975949274,
+          "any_snow": 0.0
+        },
+        {
+          "month": 4,
+          "n": 1558,
+          "predicted_recall": 0.13607750772170082,
+          "min_tcc": 0.041630246672918,
+          "any_snow": 0.0
+        },
+        {
+          "month": 5,
+          "n": 1831,
+          "predicted_recall": 0.10078266038356398,
+          "min_tcc": 0.026505774972479176,
+          "any_snow": 0.0
+        },
+        {
+          "month": 6,
+          "n": 1832,
+          "predicted_recall": 0.11127480357862207,
+          "min_tcc": 0.07545889308879469,
+          "any_snow": 0.0
+        },
+        {
+          "month": 7,
+          "n": 1892,
+          "predicted_recall": 0.24308371850552424,
+          "min_tcc": 0.12425780346731302,
+          "any_snow": 0.0
+        },
+        {
+          "month": 8,
+          "n": 1823,
+          "predicted_recall": 0.16249788680992086,
+          "min_tcc": 0.17164905608779313,
+          "any_snow": 0.0
+        },
+        {
+          "month": 9,
+          "n": 1824,
+          "predicted_recall": 0.14501725965905124,
+          "min_tcc": 0.07499331758733381,
+          "any_snow": 0.0
+        },
+        {
+          "month": 10,
+          "n": 1893,
+          "predicted_recall": 0.08210500065203004,
+          "min_tcc": 0.05386824892490425,
+          "any_snow": 0.0
+        },
+        {
+          "month": 11,
+          "n": 1868,
+          "predicted_recall": 0.044929415620454535,
+          "min_tcc": 0.03531351028213665,
+          "any_snow": 0.0
+        },
+        {
+          "month": 12,
+          "n": 1803,
+          "predicted_recall": 0.04327519150736997,
+          "min_tcc": 0.016698294590396213,
+          "any_snow": 0.0
+        }
+      ],
+      "assumptions": [
+        "Overpass cadence = Ukraine event-window templates (satellites ['N', 'N20', 'N21'], same calendar year as the synthetic date), UTC times shifted by the AOI\u2013Ukraine longitude difference",
+        "Synthetic events uniform over ERA5 0.25\u00b0 grid points in the AOI and days in the window (not weighted by where fighting occurred)",
+        "tcc at overpass = ERA5 tcc at the nearest grid point and nearest available hour (hour set 22\u201302, 09\u201313 UTC; \u22641 h off after the longitude shift)",
+        "snow = ERA5-Land sde \u2265 1 cm at the nearest 0.1\u00b0 point on the event date (NaN over water/outside mask \u2192 no snow)",
+        "event_type = strike; land cover = Ukraine strike-event mix (primary) \u2014 see sensitivity for local land cover",
+        "Detection definition as in H1: \u22651 fire within 1 km and within [date\u221212 h, date+36 h]; realised recall for the test must use the same window and radius (PREREG H7 says 5 km / \u00b12 days for Karabakh settlement captures, which is a looser definition and would be expected to give higher realised recall)",
+        "Interval = 90% from 1,000 multivariate-normal draws of the logistic coefficients; does not include template/ERA5 sampling noise or the unmodelled gap between Ukraine and the target theatre"
+      ],
+      "prereg_test": "realised recall within \u00b115 pp of predicted_recall (PREREG H7)"
+    }
+  },
+  "seed": 20261014,
+  "n_sim_per_case": 20000,
+  "n_coef_draws": 1000,
+  "inputs": {
+    "era5_tcc_karabakh_2020.nc": "04478dedb14acbfad44b6988669168b9275ba0c5cf5dce1ef0141dd3e3e525bd",
+    "era5land_snowdepth_karabakh_2020.nc": "03d852069793b86b43e03b42dd0d13616f175a5ebdfcd2eef49f0631c0ee2df2",
+    "era5_tcc_sudan_2023.nc": "ef2616d0b8dcfe8383d54f2b308dc85735dc6bd0921487d7cc5d3bf949c2e3c9",
+    "era5_tcc_sudan_2024.nc": "d90dbed9ae17c4ef75c33ae423b9ae12edd44204e8fffb550e2be6774db83b1a",
+    "era5_tcc_sudan_2025.nc": "9f38331f1c9519b306bb4c771d39460ea327b2a28b1be5088ceed42dc16399df",
+    "era5land_snowdepth_sudan_2023.nc": "bb2ba1355a0396c35e3194fa00b6d37cd80403544b25721426370034004fb81c",
+    "era5land_snowdepth_sudan_2024.nc": "3daf6ae4a111f799103caefb4caab166c4e0adc498f05bcafc5b40f0ef053de9",
+    "era5land_snowdepth_sudan_2025.nc": "91b480b6cc0813429c932ef44758a1d749203be7fa66b1cdfc1f52a29e6fcb72"
+  }
+}

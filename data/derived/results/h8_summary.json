@@ -1,0 +1,327 @@
+{
+  "recall_test_overall": {
+    "split": "test",
+    "group": "overall",
+    "n": 14736,
+    "detected_full": 737,
+    "recall_full": 0.05001357220412595,
+    "recall_full_ci": [
+      0.04661001388005422,
+      0.05365167909703287
+    ],
+    "detected_noSNPP": 636,
+    "recall_noSNPP": 0.04315960912052117,
+    "recall_noSNPP_ci": [
+      0.039995857730778045,
+      0.046561481602919785
+    ],
+    "delta_pp": -0.685396308360478,
+    "delta_pp_ci": [
+      -0.9244629703094083,
+      -0.4820839080475468
+    ],
+    "relative_change": -0.1370420624151968
+  },
+  "recall_test_winter_Nov_Feb": {
+    "split": "test",
+    "group": "winter_Nov_Feb",
+    "n": 4606,
+    "detected_full": 24,
+    "recall_full": 0.005210594876248371,
+    "recall_full_ci": [
+      0.003504077413551228,
+      0.007741745104144802
+    ],
+    "detected_noSNPP": 20,
+    "recall_noSNPP": 0.004342162396873643,
+    "recall_noSNPP_ci": [
+      0.002812707204419851,
+      0.006697697713482754
+    ],
+    "delta_pp": -0.0868432479374728,
+    "delta_pp_ci": [
+      -0.18968366863103708,
+      -0.020079717184018825
+    ],
+    "relative_change": -0.16666666666666655
+  },
+  "recall_test_winter_Nov_Apr": {
+    "split": "test",
+    "group": "winter_Nov_Apr",
+    "n": 7827,
+    "detected_full": 218,
+    "recall_full": 0.027852306119841574,
+    "recall_full_ci": [
+      0.024432046201722478,
+      0.03173579491609926
+    ],
+    "detected_noSNPP": 186,
+    "recall_noSNPP": 0.023763894212341895,
+    "recall_noSNPP_ci": [
+      0.020615939277115206,
+      0.02737908920798303
+    ],
+    "delta_pp": -0.40884119074996794,
+    "delta_pp_ci": [
+      -0.6793837724554054,
+      -0.2167276650219185
+    ],
+    "relative_change": -0.14678899082568803
+  },
+  "recall_test_north_east": {
+    "split": "test",
+    "group": "north_east",
+    "n": 10486,
+    "detected_full": 558,
+    "recall_full": 0.0532138088880412,
+    "recall_full_ci": [
+      0.0490789286046356,
+      0.05767592210220465
+    ],
+    "detected_noSNPP": 497,
+    "recall_noSNPP": 0.04739652870493992,
+    "recall_noSNPP_ci": [
+      0.0434926591108235,
+      0.05163189189337369
+    ],
+    "delta_pp": -0.5817280183101279,
+    "delta_pp_ci": [
+      -0.8318645012806212,
+      -0.3496612848588177
+    ],
+    "relative_change": -0.10931899641577061
+  },
+  "ratio_best_worst_noSNPP_test": 201.64315476190475,
+  "blind_season": {
+    "ukraine|all_years_mean": {
+      "region": "ukraine",
+      "year": "all_years_mean",
+      "n_cells": 18302,
+      "n_cell_years": 73208,
+      "blind_weeks_full": 20.928177248388156,
+      "blind_weeks_full_ci": [
+        20.81035849907114,
+        21.041552835755656
+      ],
+      "blind_weeks_noSNPP": 22.159641022839033,
+      "blind_weeks_noSNPP_ci": [
+        22.044942492623758,
+        22.269401226641897
+      ],
+      "delta_weeks": 1.2314637744508765,
+      "delta_weeks_ci": [
+        1.2229244071686145,
+        1.240233990820674
+      ]
+    },
+    "ukraine|2022": {
+      "region": "ukraine",
+      "year": "2022",
+      "n_cells": 18302,
+      "n_cell_years": 18302,
+      "blind_weeks_full": 22.53955851819473,
+      "blind_weeks_full_ci": [
+        22.413659709321387,
+        22.65967107419954
+      ],
+      "blind_weeks_noSNPP": 24.91126652824828,
+      "blind_weeks_noSNPP_ci": [
+        24.79067451644629,
+        25.02576767566386
+      ],
+      "delta_weeks": 2.371708010053549,
+      "delta_weeks_ci": [
+        2.347880013113321,
+        2.3955332750519056
+      ]
+    },
+    "ukraine|2023": {
+      "region": "ukraine",
+      "year": "2023",
+      "n_cells": 18302,
+      "n_cell_years": 18302,
+      "blind_weeks_full": 20.58791388919244,
+      "blind_weeks_full_ci": [
+        20.481685061741885,
+        20.699926237569667
+      ],
+      "blind_weeks_noSNPP": 22.035624521910172,
+      "blind_weeks_noSNPP_ci": [
+        21.93701917823189,
+        22.141245492295923
+      ],
+      "delta_weeks": 1.4477106327177331,
+      "delta_weeks_ci": [
+        1.4314788001311352,
+        1.4637211780133343
+      ]
+    },
+    "ukraine|2024": {
+      "region": "ukraine",
+      "year": "2024",
+      "n_cells": 18302,
+      "n_cell_years": 18302,
+      "blind_weeks_full": 19.61501475248607,
+      "blind_weeks_full_ci": [
+        19.49349797836302,
+        19.733537318325865
+      ],
+      "blind_weeks_noSNPP": 20.188558627472407,
+      "blind_weeks_noSNPP_ci": [
+        20.068006228827453,
+        20.304921593268492
+      ],
+      "delta_weeks": 0.5735438749863384,
+      "delta_weeks_ci": [
+        0.5627240192328731,
+        0.5860028958583758
+      ]
+    },
+    "ukraine|2025": {
+      "region": "ukraine",
+      "year": "2025",
+      "n_cells": 18302,
+      "n_cell_years": 18302,
+      "blind_weeks_full": 20.97022183367938,
+      "blind_weeks_full_ci": [
+        20.853479127964157,
+        21.090652660911378
+      ],
+      "blind_weeks_noSNPP": 21.503114413725275,
+      "blind_weeks_noSNPP_ci": [
+        21.38958310567151,
+        21.624382581138676
+      ],
+      "delta_weeks": 0.5328925800458961,
+      "delta_weeks_ci": [
+        0.5215809747568574,
+        0.5434406075838702
+      ]
+    },
+    "north_east|all_years_mean": {
+      "region": "north_east",
+      "year": "all_years_mean",
+      "n_cells": 3261,
+      "n_cell_years": 13044,
+      "blind_weeks_full": 20.82513032812021,
+      "blind_weeks_full_ci": [
+        20.731439742410302,
+        20.9188132474701
+      ],
+      "blind_weeks_noSNPP": 21.91796994786875,
+      "blind_weeks_noSNPP_ci": [
+        21.82838853112542,
+        22.00508854645814
+      ],
+      "delta_weeks": 1.092839619748542,
+      "delta_weeks_ci": [
+        1.073980374118367,
+        1.1113979607482365
+      ]
+    },
+    "north_east|2022": {
+      "region": "north_east",
+      "year": "2022",
+      "n_cells": 3261,
+      "n_cell_years": 3261,
+      "blind_weeks_full": 22.81171419809874,
+      "blind_weeks_full_ci": [
+        22.660502913216803,
+        22.95188592456302
+      ],
+      "blind_weeks_noSNPP": 25.156087089849738,
+      "blind_weeks_noSNPP_ci": [
+        25.039228764182766,
+        25.266490340386383
+      ],
+      "delta_weeks": 2.3443728917509965,
+      "delta_weeks_ci": [
+        2.294694878871514,
+        2.3962051517939282
+      ]
+    },
+    "north_east|2023": {
+      "region": "north_east",
+      "year": "2023",
+      "n_cells": 3261,
+      "n_cell_years": 3261,
+      "blind_weeks_full": 20.643360932229378,
+      "blind_weeks_full_ci": [
+        20.545223857712358,
+        20.736928856179087
+      ],
+      "blind_weeks_noSNPP": 21.845752836553203,
+      "blind_weeks_noSNPP_ci": [
+        21.75801901257283,
+        21.928265869365227
+      ],
+      "delta_weeks": 1.2023919043238251,
+      "delta_weeks_ci": [
+        1.164658080343451,
+        1.237664826740264
+      ]
+    },
+    "north_east|2024": {
+      "region": "north_east",
+      "year": "2024",
+      "n_cells": 3261,
+      "n_cell_years": 3261,
+      "blind_weeks_full": 19.24287028518859,
+      "blind_weeks_full_ci": [
+        19.158846979454154,
+        19.33095676172953
+      ],
+      "blind_weeks_noSNPP": 19.703465194725545,
+      "blind_weeks_noSNPP_ci": [
+        19.615455381784727,
+        19.79363692118982
+      ],
+      "delta_weeks": 0.4605949095369546,
+      "delta_weeks_ci": [
+        0.43697485433915906,
+        0.48298068077276923
+      ]
+    },
+    "north_east|2025": {
+      "region": "north_east",
+      "year": "2025",
+      "n_cells": 3261,
+      "n_cell_years": 3261,
+      "blind_weeks_full": 20.602575896964122,
+      "blind_weeks_full_ci": [
+        20.49736277215578,
+        20.716720331186753
+      ],
+      "blind_weeks_noSNPP": 20.96657467034652,
+      "blind_weeks_noSNPP_ci": [
+        20.85985127261576,
+        21.080964428089544
+      ],
+      "delta_weeks": 0.3639987733823986,
+      "delta_weeks_ci": [
+        0.344066237350507,
+        0.3860932229377482
+      ]
+    }
+  },
+  "q25_C1_daily_opportunity": 0.0,
+  "blind_rule": "median_daily_opportunity <= q25 (q25 == 0, so strict 'below' is empty)",
+  "C1_window": [
+    "2022-04-03",
+    "2024-07-07"
+  ],
+  "prereg_prediction": {
+    "recall_falls_10_25pp_in_winter": false,
+    "blind_season_lengthens_ge_2_weeks_in_NE": false
+  },
+  "n_cells_ukraine": 18302,
+  "n_cells_ne": 3261,
+  "definitions": {
+    "fires": "satellites N20, N21 only",
+    "overpasses": "satellites N20, N21 only (strata, clear_night recomputed)",
+    "bootstrap": "cell block bootstrap over h3_r6, 1000 draws, seed 20261014",
+    "blind_week": "median_daily_opportunity <= q25 (q25 == 0, so strict 'below' is empty)",
+    "weeks": "ISO weeks with \u22654 days in the data (two boundary weeks dropped), assigned to ISO year"
+  },
+  "verdict": "descriptive; no success criterion. See prereg_prediction flags."
+}

@@ -1,0 +1,50 @@
+{
+  "primary": {
+    "snpp_to_noaa20": {
+      "n": 82247,
+      "concordant": 44109,
+      "share": 0.5362991963232702,
+      "ci": [
+        0.5328894940567805,
+        0.5397055079406765
+      ],
+      "n_detections": 259247,
+      "n_used": 200000,
+      "n_pairs_30_70": 125731,
+      "n_pairs_tcc_lt_0_3": 82247
+    },
+    "noaa20_to_snpp": {
+      "n": 83285,
+      "concordant": 43602,
+      "share": 0.5235276460347001,
+      "ci": [
+        0.5201346583127986,
+        0.5269184634662427
+      ],
+      "n_detections": 275307,
+      "n_used": 200000,
+      "n_pairs_30_70": 126745,
+      "n_pairs_tcc_lt_0_3": 83285
+    }
+  },
+  "verdict": {
+    "overall_share": 0.5362991963232702,
+    "overall_in_40_70": true,
+    "overall_ci_within_40_70": true,
+    "strata_in_band": {
+      "summer | day": true,
+      "summer | night": true,
+      "winter | day": true,
+      "winter | night": true
+    },
+    "H3_supported": true,
+    "prereg_prediction": "inside 40\u201370% band",
+    "note": "primary = S-NPP\u2192NOAA-20 pooled; strata reported"
+  },
+  "definitions": {
+    "pair": "S-NPP detection with a NOAA-20 granule covering its h3_r6 cell starting 30\u201370 min after (or before), nearest per direction, ERA5 tcc<0.3 on that pass",
+    "concordant": "\u22651 NOAA-20 detection (conf n/h) within 1,000 m with acq_ts in [pass start \u221210 min, pass start +16 min]",
+    "strata": "season of the detection (summer May\u2013Oct) \u00d7 its own daynight flag",
+    "sampling": "source detections sampled to \u2264200,000 with default_rng(20261014) when more"
+  }
+}

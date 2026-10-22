@@ -1,0 +1,64 @@
+{
+  "output": "predictions/transfer_v1.json",
+  "written_utc": "2026-10-22T22:52:04+00:00",
+  "script": "09_transfer_h7.py",
+  "seed": 20261014,
+  "inputs": {
+    "logit_spec": {
+      "path": "data/interim/analysis/models/h2_logit_primary_all_types_spec.json",
+      "bytes": 22185,
+      "sha256": "1352cfcd63beca928e79e423d57d062446c859598c4456bcd07c5e20c829e7a0"
+    },
+    "logit_pickle": {
+      "path": "data/interim/analysis/models/h2_logit_primary_all_types.pickle",
+      "bytes": 14210753,
+      "sha256": "4094506dc9d30135d1e7dc83b6d246629be94a0f3532f1528536d4dfdbc8a2b0"
+    },
+    "era5_tcc_karabakh_2020.nc": {
+      "path": "data/raw/era5/era5_tcc_karabakh_2020.nc",
+      "bytes": 440993,
+      "sha256": "04478dedb14acbfad44b6988669168b9275ba0c5cf5dce1ef0141dd3e3e525bd"
+    },
+    "era5land_snowdepth_karabakh_2020.nc": {
+      "path": "data/raw/era5/era5land_snowdepth_karabakh_2020.nc",
+      "bytes": 58937,
+      "sha256": "03d852069793b86b43e03b42dd0d13616f175a5ebdfcd2eef49f0631c0ee2df2"
+    },
+    "era5_tcc_sudan_2023.nc": {
+      "path": "data/raw/era5/era5_tcc_sudan_2023.nc",
+      "bytes": 12098935,
+      "sha256": "ef2616d0b8dcfe8383d54f2b308dc85735dc6bd0921487d7cc5d3bf949c2e3c9"
+    },
+    "era5_tcc_sudan_2024.nc": {
+      "path": "data/raw/era5/era5_tcc_sudan_2024.nc",
+      "bytes": 15372069,
+      "sha256": "d90dbed9ae17c4ef75c33ae423b9ae12edd44204e8fffb550e2be6774db83b1a"
+    },
+    "era5_tcc_sudan_2025.nc": {
+      "path": "data/raw/era5/era5_tcc_sudan_2025.nc",
+      "bytes": 12607602,
+      "sha256": "9f38331f1c9519b306bb4c771d39460ea327b2a28b1be5088ceed42dc16399df"
+    },
+    "era5land_snowdepth_sudan_2023.nc": {
+      "path": "data/raw/era5/era5land_snowdepth_sudan_2023.nc",
+      "bytes": 115926,
+      "sha256": "bb2ba1355a0396c35e3194fa00b6d37cd80403544b25721426370034004fb81c"
+    },
+    "era5land_snowdepth_sudan_2024.nc": {
+      "path": "data/raw/era5/era5land_snowdepth_sudan_2024.nc",
+      "bytes": 151026,
+      "sha256": "3daf6ae4a111f799103caefb4caab166c4e0adc498f05bcafc5b40f0ef053de9"
+    },
+    "era5land_snowdepth_sudan_2025.nc": {
+      "path": "data/raw/era5/era5land_snowdepth_sudan_2025.nc",
+      "bytes": 151102,
+      "sha256": "91b480b6cc0813429c932ef44758a1d749203be7fa66b1cdfc1f52a29e6fcb72"
+    }
+  },
+  "counts": {
+    "n_sim_per_case": 20000,
+    "n_coef_draws": 1000,
+    "template_rows": 900413
+  },
+  "runtime_s": 65.4
+}

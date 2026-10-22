@@ -222,5 +222,37 @@
   "variables": [
    "sde"
   ]
+ },
+ {
+  "file": "era5_tcc_sudan_2025.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/881ddf52-7fbc-4e10-8304-bd29f45a7848 (reanalysis-era5-single-levels)",
+  "bytes": 12607602,
+  "sha256": "9f38331f1c9519b306bb4c771d39460ea327b2a28b1be5088ceed42dc16399df",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:41:43+00:00",
+  "dims": {
+   "valid_time": 3650,
+   "latitude": 55,
+   "longitude": 47
+  },
+  "variables": [
+   "tcc"
+  ]
+ },
+ {
+  "file": "era5land_snowdepth_sudan_2025.nc",
+  "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/c53eee0e-60a2-4b0b-8c7d-4d799a75990b (reanalysis-era5-land)",
+  "bytes": 151102,
+  "sha256": "91b480b6cc0813429c932ef44758a1d749203be7fa66b1cdfc1f52a29e6fcb72",
+  "set": "observability",
+  "retrieved_utc": "2026-10-22T22:43:49+00:00",
+  "dims": {
+   "valid_time": 365,
+   "latitude": 136,
+   "longitude": 116
+  },
+  "variables": [
+   "sde"
+  ]
  }
 ]

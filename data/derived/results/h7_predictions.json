@@ -1,0 +1,79 @@
+{
+  "cases": {
+    "karabakh_2020": {
+      "predicted_recall": 0.029603219028183195,
+      "interval_90": [
+        0.022782500329940458,
+        0.03894698075947952
+      ],
+      "sensitivity_local_landcover": {
+        "landcover": {
+          "tree_cover": 0.5,
+          "grassland": 0.5
+        },
+        "predicted_recall": 0.022110415527122736,
+        "interval_90": [
+          0.016919900007061554,
+          0.029373245178351062
+        ]
+      },
+      "covariate_summary": {
+        "mean_min_tcc": 0.14566124725341797,
+        "share_min_tcc_lt_0_5": 0.87855,
+        "mean_mean_tcc": 0.3998419513906083,
+        "share_any_snow": 0.00935,
+        "mean_hours_since_prev": 5.833278751984127,
+        "mean_share_night": 0.503983253968254,
+        "mean_n_overpasses_48h": 7.1165,
+        "lon_shift_h": 0.9666666666666667,
+        "landcover_mix": {
+          "built_up": 0.3871,
+          "tree_cover": 0.3476,
+          "grassland": 0.12975,
+          "cropland": 0.12545,
+          "water": 0.0043,
+          "bare_sparse": 0.0035,
+          "herbaceous_wetland": 0.0023
+        }
+      }
+    },
+    "sudan_2023_2025": {
+      "predicted_recall": 0.11290172816561926,
+      "interval_90": [
+        0.10586708458165514,
+        0.12185214897738886
+      ],
+      "sensitivity_local_landcover": {
+        "landcover": {
+          "grassland": 0.5,
+          "bare_sparse": 0.5
+        },
+        "predicted_recall": 0.08083255764437855,
+        "interval_90": [
+          0.06093043482334933,
+          0.11313476124936013
+        ]
+      },
+      "covariate_summary": {
+        "mean_min_tcc": 0.0636572509765625,
+        "share_min_tcc_lt_0_5": 0.96775,
+        "mean_mean_tcc": 0.29875454608037666,
+        "share_any_snow": 0.0,
+        "mean_hours_since_prev": 1.8764535058997487,
+        "mean_share_night": 0.5015488364873075,
+        "mean_n_overpasses_48h": 20.94345,
+        "lon_shift_h": -0.31666666666666665,
+        "landcover_mix": {
+          "built_up": 0.38145,
+          "tree_cover": 0.3488,
+          "grassland": 0.13415,
+          "cropland": 0.1249,
+          "water": 0.0055,
+          "bare_sparse": 0.0027,
+          "herbaceous_wetland": 0.0025
+        }
+      }
+    }
+  },
+  "written_utc": "2026-10-22T22:52:03+00:00"
+}

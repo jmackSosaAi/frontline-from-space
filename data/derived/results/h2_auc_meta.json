@@ -1,0 +1,57 @@
+{
+  "output": "data/derived/results/h2_auc.json",
+  "written_utc": "2026-10-22T22:44:50+00:00",
+  "script": "06_model_h2.py",
+  "seed": 20261014,
+  "inputs": {
+    "events_detect": {
+      "path": "data/interim/analysis/events_detect.parquet",
+      "bytes": 3252035,
+      "sha256": "fe1d54321f625285b84236cf29a91e3ac4aeb2d1e95aa3e8a800a120eeaef721"
+    }
+  },
+  "counts": {
+    "events": 45852,
+    "train": 31124,
+    "test": 14728
+  },
+  "primary": {
+    "run": "primary_all_types",
+    "n_train": 31124,
+    "n_test": 14728,
+    "base_rate_train": 0.07325536563423725,
+    "base_rate_test": 0.04976914720260728,
+    "logit": {
+      "auc_test": 0.7365813263068519,
+      "auc_ci": [
+        0.7237759486056615,
+        0.7491158873277028
+      ],
+      "auc_train": 0.7904398616149304,
+      "logloss_test": 0.18734497960468569,
+      "brier_test": 0.049151719488676214,
+      "pseudo_r2": 0.15206040562157885,
+      "converged": true,
+      "n_params": 27
+    },
+    "lgbm": {
+      "auc_test": 0.727236973641434,
+      "auc_ci": [
+        0.7113114532986587,
+        0.7427274670020645
+      ],
+      "auc_train": 0.9029349729458161,
+      "logloss_test": 0.18807012121609354,
+      "brier_test": 0.048200020477099606
+    }
+  },
+  "verdict": {
+    "auc_logit_ge_0.75": false,
+    "auc_logit_ci_lo_ge_0.75": false,
+    "auc_logit_lt_0.65_bounds_only_for_H6b": false,
+    "H2_supported": false,
+    "prereg_prediction": "supported, AUC 0.75–0.85",
+    "note": "primary = logistic, all event types, V-test; LightGBM secondary"
+  },
+  "runtime_s": 16.2
+}

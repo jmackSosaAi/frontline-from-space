@@ -1,0 +1,57 @@
+{
+  "output": "data/derived/results/h1_recall.csv",
+  "written_utc": "2026-10-22T22:52:47+00:00",
+  "script": "05_recall_h1.py",
+  "seed": 20261014,
+  "inputs": {
+    "events_v": {
+      "path": "data/interim/analysis/events_v.parquet",
+      "bytes": 2373761,
+      "sha256": "2ea312e3e0928083456e1187f693d283fd26959e1d1d50818191201085c2e19c"
+    },
+    "fires": {
+      "path": "data/interim/analysis/fires.parquet",
+      "bytes": 70540158,
+      "sha256": "fbdb213619dd6afb4ee411f03d2c0f8c53938bcf05f6d24726a4fcd59473bfca"
+    },
+    "overpasses_meta": {
+      "path": "data/interim/analysis/overpasses_r6_meta.json",
+      "bytes": 4596,
+      "sha256": "ed5c8e4375a4df7d95025db6a1ae5fa40f689f5454b73d598c5e76b16c065321"
+    }
+  },
+  "counts": {
+    "events": 45876,
+    "test": 14736,
+    "detected_all": 3023,
+    "fires_in_box": 1115942,
+    "no_overpass_rows": 24
+  },
+  "primary": {
+    "overall_n": 14736,
+    "overall_recall": 0.05001357220412595,
+    "overall_ci": [
+      0.04661001388005422,
+      0.05365167909703287
+    ],
+    "n_best": 3389,
+    "n_worst": 3147,
+    "recall_best": 0.07435821776335202,
+    "recall_worst": 0.0006355258976803305,
+    "ratio": 117.0026556506344,
+    "ratio_ci_lo": 44.20100324579522,
+    "ratio_ci_hi": null,
+    "share_draws_ratio_inf": 0.135,
+    "share_draws_ratio_ge_3": 1.0,
+    "draws": 1000
+  },
+  "verdict": {
+    "overall_recall_below_50pct": true,
+    "ratio_at_least_3": true,
+    "ratio_ci_excludes_3_from_below": true,
+    "H1_supported": true,
+    "note": "Primary = V-test, all event types, day/night = clear-night-overpass definition. Supported requires both criteria."
+  },
+  "runtime_s": 5.6,
+  "event_level_table": "data/interim/analysis/events_detect.parquet"
+}

@@ -1,0 +1,75 @@
+{
+  "output": "data/derived/results/h3_concordance.csv",
+  "written_utc": "2026-10-22T22:46:18+00:00",
+  "script": "07_paired_h3.py",
+  "seed": 20261014,
+  "inputs": {
+    "fires": {
+      "path": "data/interim/analysis/fires.parquet",
+      "bytes": 70540158,
+      "sha256": "fbdb213619dd6afb4ee411f03d2c0f8c53938bcf05f6d24726a4fcd59473bfca"
+    },
+    "overpasses_meta": {
+      "path": "data/interim/analysis/overpasses_r6_meta.json",
+      "bytes": 4596,
+      "sha256": "ed5c8e4375a4df7d95025db6a1ae5fa40f689f5454b73d598c5e76b16c065321"
+    }
+  },
+  "counts": {
+    "snpp_to_noaa20": {
+      "n_detections": 259247,
+      "n_used": 200000,
+      "n_pairs_30_70": 125731,
+      "n_pairs_tcc_lt_0_3": 82247
+    },
+    "noaa20_to_snpp": {
+      "n_detections": 275307,
+      "n_used": 200000,
+      "n_pairs_30_70": 126745,
+      "n_pairs_tcc_lt_0_3": 83285
+    }
+  },
+  "primary": {
+    "snpp_to_noaa20": {
+      "n": 82247,
+      "concordant": 44109,
+      "share": 0.5362991963232702,
+      "ci": [
+        0.5328894940567805,
+        0.5397055079406765
+      ],
+      "n_detections": 259247,
+      "n_used": 200000,
+      "n_pairs_30_70": 125731,
+      "n_pairs_tcc_lt_0_3": 82247
+    },
+    "noaa20_to_snpp": {
+      "n": 83285,
+      "concordant": 43602,
+      "share": 0.5235276460347001,
+      "ci": [
+        0.5201346583127986,
+        0.5269184634662427
+      ],
+      "n_detections": 275307,
+      "n_used": 200000,
+      "n_pairs_30_70": 126745,
+      "n_pairs_tcc_lt_0_3": 83285
+    }
+  },
+  "verdict": {
+    "overall_share": 0.5362991963232702,
+    "overall_in_40_70": true,
+    "overall_ci_within_40_70": true,
+    "strata_in_band": {
+      "summer | day": true,
+      "summer | night": true,
+      "winter | day": true,
+      "winter | night": true
+    },
+    "H3_supported": true,
+    "prereg_prediction": "inside 40–70% band",
+    "note": "primary = S-NPP→NOAA-20 pooled; strata reported"
+  },
+  "runtime_s": 8.5
+}

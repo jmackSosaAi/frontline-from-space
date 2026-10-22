@@ -1,0 +1,15 @@
+term,gain,gain_share,model,run
+min_tcc,22210.513034701347,0.28441115315568793,lgbm,primary_all_types
+any_snow,1097.7176489830017,0.014056547991432033,lgbm,primary_all_types
+hours_since_prev,20310.833791077137,0.26008528713625173,lgbm,primary_all_types
+share_night,5536.0231647491455,0.07089015592404019,lgbm,primary_all_types
+landcover_class,6884.26689261198,0.08815475277406737,lgbm,primary_all_types
+event_type,2792.0712928175926,0.03575316854871659,lgbm,primary_all_types
+month,19261.549040019512,0.24664893446980415,lgbm,primary_all_types
+min_tcc,16861.69407981634,0.28901304643795295,lgbm,secondary_restricted
+any_snow,760.1008723974228,0.013028291682428486,lgbm,secondary_restricted
+hours_since_prev,14711.988953351974,0.2521666403412816,lgbm,secondary_restricted
+share_night,4414.601976752281,0.07566722300100481,lgbm,secondary_restricted
+landcover_class,4664.839817583561,0.07995635316612115,lgbm,secondary_restricted
+event_type,2722.6354814767838,0.04666655503989779,lgbm,secondary_restricted
+month,14206.467262387276,0.2435018903313132,lgbm,secondary_restricted
