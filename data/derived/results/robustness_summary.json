@@ -1,0 +1,57 @@
+{
+  "rows": 135,
+  "n_flips": 7,
+  "flips": [
+    {
+      "hypothesis": "H6",
+      "item": "1 band",
+      "variant": "10 km",
+      "verdict": "equivalence",
+      "primary_verdict": "inconclusive"
+    },
+    {
+      "hypothesis": "H12",
+      "item": "3 night",
+      "variant": "kyiv_fires_night",
+      "verdict": "inconclusive",
+      "primary_verdict": "supported"
+    },
+    {
+      "hypothesis": "H6",
+      "item": "4 jackknife",
+      "variant": "drop UA-09",
+      "verdict": "equivalence",
+      "primary_verdict": "inconclusive"
+    },
+    {
+      "hypothesis": "H6",
+      "item": "4 jackknife",
+      "variant": "drop UA-14",
+      "verdict": "equivalence",
+      "primary_verdict": "inconclusive"
+    },
+    {
+      "hypothesis": "H6",
+      "item": "4 jackknife",
+      "variant": "SUMMARY over drops",
+      "verdict": "flips",
+      "primary_verdict": "inconclusive"
+    },
+    {
+      "hypothesis": "H6",
+      "item": "5 source",
+      "variant": "status_dsm outcome",
+      "verdict": "equivalence",
+      "primary_verdict": "inconclusive"
+    },
+    {
+      "hypothesis": "H12",
+      "item": "5 source",
+      "variant": "status_dsm national outcome",
+      "verdict": "inconclusive",
+      "primary_verdict": "supported"
+    }
+  ],
+  "res6": "not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23",
+  "written_utc": "2026-10-23T22:07:15+00:00"
+}

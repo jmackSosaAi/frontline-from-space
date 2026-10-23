@@ -1,0 +1,64 @@
+{
+  "output": "data/derived/results/h14_frp_floor.csv",
+  "written_utc": "2026-10-23T00:14:33+00:00",
+  "script": "13_h5_h14_descriptive.py",
+  "seed": 20261014,
+  "inputs": {
+    "fires_baseline": {
+      "path": "data/interim/analysis/fires_baseline.parquet",
+      "bytes": 27082524,
+      "sha256": "c2fd8e69ca64d06bc6afd1d2387e2dbd323ad8140f62ca5cc5256797139e21ce"
+    },
+    "events_detect": {
+      "path": "data/interim/analysis/events_detect.parquet",
+      "bytes": 3252047,
+      "sha256": "9ac41c364335a96dc16585b109f5c49e3a313aa0fad4ab0b164b9b5c4a6cb13a"
+    },
+    "fires": {
+      "path": "data/interim/analysis/fires.parquet",
+      "bytes": 70540158,
+      "sha256": "fbdb213619dd6afb4ee411f03d2c0f8c53938bcf05f6d24726a4fcd59473bfca"
+    }
+  },
+  "counts": {
+    "baseline_fires": 951762,
+    "v_detected": 3023,
+    "v_missed": 42853,
+    "v_missed_with_nearby_fire": 8504
+  },
+  "definition": "p5 of FRP (MW) by month × day/night on baseline B (S-NPP 2012–2021, conf n/h, FRP > 0); bootstrap 1,000 draws. Summer = May–Oct, winter = Nov–Apr. Ratio CI from independent stratum resamples.",
+  "summary": {
+    "summer_day_p5_MW": 2.2200000286102295,
+    "summer_day_ci": [
+      2.2100000381469727,
+      2.2200000286102295
+    ],
+    "n_summer_day": 360635,
+    "winter_night_p5_MW": 0.5799999833106995,
+    "winter_night_ci": [
+      0.5799999833106995,
+      0.5899999737739563
+    ],
+    "n_winter_night": 63717,
+    "ratio": 3.827586366362015,
+    "ratio_ci95": [
+      3.745762825012207,
+      3.8275864124298096
+    ],
+    "criterion": "summer-day p5 FRP >= 1.5 x winter-night p5 FRP (baseline B)",
+    "supported": true,
+    "also_summer_night_p5": 0.46000000834465027,
+    "also_winter_day_p5": 1.8799999952316284,
+    "v_recheck": {
+      "detected_summer_day_p5": 1.9700000286102295,
+      "detected_winter_night_p5": 0.6499999761581421,
+      "detected_ratio": 3.030769385952927,
+      "missed_nearby_summer_day_p5": 1.8580000162124635,
+      "missed_nearby_winter_night_p5": 0.41999998688697815,
+      "n_missed_with_fire_1_5km": 8504,
+      "n_missed": 42853,
+      "n_detected": 3023,
+      "note": "V events (train+test pooled; descriptive re-check). Detected: max FRP among fires within 1 km/window. Missed-nearby: FRP of the nearest fire 1–5 km away inside the window; day/night = that fire's flag."
+    }
+  }
+}

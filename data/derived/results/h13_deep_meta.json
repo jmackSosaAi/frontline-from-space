@@ -1,0 +1,25 @@
+{
+  "output": "data/derived/results/h13_deep.csv",
+  "written_utc": "2026-10-23T00:37:04+00:00",
+  "script": "18_h13_deep.py",
+  "seed": 20261014,
+  "inputs": {
+    "panel": {
+      "path": "data/interim/analysis/panel_r5_week.parquet",
+      "bytes": 17439998,
+      "sha256": "d1e5161ca2973185995ad7e882dce5138a9f7b568af04d2494af2b47a06e1ef2"
+    },
+    "national_week": {
+      "path": "data/derived/panel/national_week.csv",
+      "bytes": 78078,
+      "sha256": "0785b72329129af0b71bb1368b7a9eec47dbc167aff1c2ed083e7530b95117bc"
+    }
+  },
+  "counts": {
+    "cell_weeks": 9722,
+    "cells": 163,
+    "national_weeks": 74
+  },
+  "definitions": "H13 Deep strikes (PREREG §4; EXPLORATORY throughout — the campaign is mostly 2025, after C1; E period 2024-07-08 ..\n2025-12-31). Prediction: equivalence (90% CI within ±SESOI 1.70).\n\nDeep RU fire (panel column fires_deep_ru) = FRP ≥ 16.33 MW, > 30 km from the RU|UA line, in RU-held Ukrainian territory\nor inside Russia. These fires are by construction NOT in front cells, so the literal cell-level reading of\n\"net_fwd_4 on log1p(fires_deep_ru) with the H6 controls\" is degenerate (deep-fire cells have no line to move).\nAmbiguity resolved (stated here and in the meta/log): the deep-fire exposure is the NATIONAL weekly count, and the\noutcome is front-cell movement.\nSpec 1 (cell panel): E front_15 cell-weeks, net_fwd_4 ~ β·log1p(deep_ru_fires_national_t) + Σ net_lag_1..4 + opportunity\n| cell FE + week-of-year FE (a full week FE would absorb the national regressor); CRV1 + Webb wild bootstrap 9,999 and\nDriscoll–Kraay(4); equivalence = both 90% CIs within ±1.70.\nSpec 2 (national weekly): national Σ net_{t+1..t+4} ~ β·log1p(deep_ru_fires_national_t) + 4 outcome lags + week-of-year\nFE, Newey–West(4); equivalence = 90% CI within ±(1.70 × median E front_15 cells per week).\nCaveat: Russian agricultural burning dominates the ≥16.33 MW deep count (≈25k fires per year inside Russia); the\nregressor is a noisy proxy for strikes. Descriptive cross-check against Militarnyi / Saltan deep-strike counts is NOT\ndone here (left for the write-up).\n",
+  "licence": "Contains VIINA-derived control aggregates (ODbL); fires NASA FIRMS VIIRS 375 m"
+}

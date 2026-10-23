@@ -1,0 +1,11 @@
+{
+  "months_ratio_ge3_point": 2,
+  "months_ci_lo_ge3": 0,
+  "criterion": "ratio >= 3 in >= 9 of 12 months",
+  "supported": false,
+  "supported_strict_ci": false,
+  "overall_ratio": 2.118869505885798,
+  "n_cell_weeks": 14237,
+  "n_cells": 287,
+  "draws": 2000
+}

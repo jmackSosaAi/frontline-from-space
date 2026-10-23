@@ -1,0 +1,30 @@
+{
+  "output": "data/derived/results/h5_monthly_ratio.csv",
+  "written_utc": "2026-10-23T00:13:50+00:00",
+  "script": "13_h5_h14_descriptive.py",
+  "seed": 20261014,
+  "inputs": {
+    "panel": {
+      "path": "data/interim/analysis/panel_r5_week.parquet",
+      "bytes": 17439998,
+      "sha256": "d1e5161ca2973185995ad7e882dce5138a9f7b568af04d2494af2b47a06e1ef2"
+    }
+  },
+  "counts": {
+    "cell_weeks": 14237,
+    "cells": 287
+  },
+  "definition": "ratio_m = Σ fires_snpp / Σ base_fires_mean over C1 front_15 cell-weeks with ISO-week Monday in month m; cell block bootstrap 2,000 draws (seed 20261014), percentile 95% CI. Verdict on the point estimate (PREREG wording); the CI-lower-bound count is the strict reading.",
+  "summary": {
+    "months_ratio_ge3_point": 2,
+    "months_ci_lo_ge3": 0,
+    "criterion": "ratio >= 3 in >= 9 of 12 months",
+    "supported": false,
+    "supported_strict_ci": false,
+    "overall_ratio": 2.118869505885798,
+    "n_cell_weeks": 14237,
+    "n_cells": 287,
+    "draws": 2000
+  },
+  "licence": "Contains VIINA-derived front flags (ODbL); fires NASA FIRMS VIIRS 375 m"
+}

@@ -1,0 +1,26 @@
+{
+  "output": "data/derived/results/h11_phase.csv",
+  "written_utc": "2026-10-23T00:37:51+00:00",
+  "script": "16_h9_h11.py",
+  "seed": 20261014,
+  "inputs": {
+    "panel": {
+      "path": "data/interim/analysis/panel_r5_week.parquet",
+      "bytes": 17439998,
+      "sha256": "d1e5161ca2973185995ad7e882dce5138a9f7b568af04d2494af2b47a06e1ef2"
+    }
+  },
+  "counts": {
+    "cell_weeks": 14237,
+    "cells": 287,
+    "phase_A_cell_weeks": 4880,
+    "phase_B_cell_weeks": 9357
+  },
+  "definitions": "H9 lead time, H10 fire size × side, H11 phase flip, H11s season within phase (PREREG §4 \"Jackson's directional\npredictions\"; confirmatory). Sample, FE and inference as H6 (C1 front_15 cell-weeks; cell + week FE; CRV1 + Webb\nwild-cluster bootstrap 9,999 draws; Driscoll–Kraay(4)). Each hypothesis is run once, exactly as written below.\n\nH9. Primary = JOINT distributed-lead regression (PREREG: \"separate β for the same week and for leads of 1, 2, 3, 4, 6\nand 8 weeks\"): net_t ~ Σ_k β_k·log1p(fires_{t−k}) for k ∈ {0,1,2,3,4,6,8} + Σ_{j=1..4} γ_j net_{t−j} + δ·opportunity_t\n| cell + week. β_k = effect of fires k weeks earlier on this week's net gain (fires lead by k). Check = SEPARATE\nregressions net_{t+k} ~ β·log1p(fires_t) + same controls, one per k. SESOI for a 1-week outcome = 0.65 km²/log-unit\n(PREREG §3). Supported if the largest positive β_k is at k ∈ {0,1} and significant under both methods, and every\nβ_k for k ≥ 2 passes equivalence (both 90% CIs within ±0.65). The k = 0 term is descriptive co-movement.\nH10. net_{t+1..t+3} (PREREG wording \"over t+1…t+3\"; net_fwd_4 given as a labelled check because PANEL.md names\nnet_fwd_4 for H9–H11) ~ log1p of the four fire terms big/small × UA/RU side entered together + H6 controls | FE.\nSupported if β(big, UA side) > 0 and β(small, RU side) < 0, each significant under both methods.\nH11. net_fwd_4 ~ β_A·log1p(fires)·1[phase A] + β_B·log1p(fires)·1[phase B] + controls | FE (phase main effect is\nabsorbed by week FE); β_A − β_B from the re-parameterisation lf + lf·1[B]. Supported if β_A > 0, β_B < 0 and\nβ_A − β_B > 0, each p < 0.05 under both methods.\nH11s. Within each phase, lf·1[summer] and lf·1[winter] (summer May–Oct); interaction = lf·1[phase]·1[summer] on top of\nlf·1[phase]. Supported if in BOTH phases |β_summer| > |β_winter| and the interaction has p < 0.05 under both\nmethods (PREREG: \"within each phase\"). A phase-pooled season interaction is given as a labelled check.\n",
+  "sesoi": {
+    "4wk": 1.7028637900108765,
+    "1wk": 0.6470077060425372
+  },
+  "equivalence_rule": "both the CRV1 analytic and the DK 90% CI inside ±SESOI",
+  "licence": "Contains VIINA-derived control aggregates (ODbL); fires NASA FIRMS VIIRS 375 m"
+}

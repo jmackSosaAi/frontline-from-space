@@ -1,0 +1,84 @@
+{
+  "national_sesoi_km2_per_log_unit": 194.12647206123992,
+  "median_front15_cells_per_c1_week": 114.0,
+  "sesoi_cell": 1.7028637900108765,
+  "newey_west_lags": 4,
+  "kyiv_fires_in_c1_weeks": 29,
+  "kyiv_fires_full_span": 301,
+  "c1_weeks_with_kyiv_fire": 19,
+  "runs": {
+    "C1_primary": {
+      "n_weeks": 118,
+      "df_resid": 53,
+      "r2": 0.8819347034489443,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "kyiv_fires",
+      "kind": "confirmatory",
+      "answer": "opposite",
+      "season": false
+    },
+    "C1_season": {
+      "n_weeks": 118,
+      "df_resid": 44,
+      "r2": 0.9531566252575951,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "kyiv_fires",
+      "kind": "confirmatory",
+      "answer": "opposite",
+      "season": true
+    },
+    "full_span": {
+      "n_weeks": 192,
+      "df_resid": 127,
+      "r2": 0.5173791543725242,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "kyiv_fires",
+      "kind": "exploratory",
+      "answer": "inconclusive",
+      "season": false
+    },
+    "full_span_season": {
+      "n_weeks": 192,
+      "df_resid": 118,
+      "r2": 0.8272003663338741,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "kyiv_fires",
+      "kind": "exploratory",
+      "answer": "mixed",
+      "season": true
+    },
+    "full_span_night": {
+      "n_weeks": 192,
+      "df_resid": 127,
+      "r2": 0.48788235337636265,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "kyiv_fires_night",
+      "kind": "exploratory",
+      "answer": "inconclusive",
+      "season": false
+    },
+    "tg_impacts_kyiv_city": {
+      "n_weeks": 115,
+      "df_resid": 50,
+      "r2": 0.5503839361715819,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "tg_n_impact_incidents_kyiv_city",
+      "kind": "exploratory",
+      "answer": "no relationship",
+      "season": false
+    },
+    "af_total_launched": {
+      "n_weeks": 123,
+      "df_resid": 58,
+      "r2": 0.39000072468811653,
+      "outcome": "net_ru_gain_km2",
+      "regressor": "af_total_launched",
+      "kind": "exploratory",
+      "answer": "no relationship",
+      "season": false
+    }
+  },
+  "answer_primary": "opposite",
+  "verdict": "supported",
+  "runtime_s": 0.1
+}

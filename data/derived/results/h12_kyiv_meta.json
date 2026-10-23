@@ -1,0 +1,33 @@
+{
+  "output": "data/derived/results/h12_kyiv.csv",
+  "written_utc": "2026-10-23T00:40:08+00:00",
+  "script": "17_h12_kyiv.py",
+  "seed": 20261014,
+  "inputs": {
+    "national_week": {
+      "path": "data/derived/panel/national_week.csv",
+      "bytes": 78078,
+      "sha256": "0785b72329129af0b71bb1368b7a9eec47dbc167aff1c2ed083e7530b95117bc"
+    }
+  },
+  "counts": {
+    "c1_weeks": 118,
+    "full_span_weeks": 196,
+    "kyiv_fires_c1": 29,
+    "kyiv_fires_full": 301
+  },
+  "definitions": "H12 Kyiv strikes (PREREG §4, open question, no directional prediction; confirmatory on C1 weeks).\n\nnet_ru_gain_km2(national, week t) ~ Σ_{j=-4..+4} β_j·log1p(kyiv_fires_{t−j}) + Σ_{m=1..4} γ_m·net_{t−m} + week-of-year FE,\nOLS with Newey–West (Bartlett, 4 lags) standard errors; sample = C1 outcome weeks (ISO Mondays 2022-04-04 .. 2024-07-01,\nPREREG §2 assigns H12 to C1); regressors at t±j are taken from the full national series so the edges are not lost.\nj > 0: Kyiv fires j weeks BEFORE the gain (fires lead); j = 0 same week; j < 0: fires j weeks AFTER the gain (fires lag).\nlog1p keeps β in km² per log-unit so the SESOI applies: national SESOI = 1.70 km² × median number of front_15 res-5\ncells per C1 week (the number is computed from national_week.csv and stated in the meta/verdict).\nAnswer: \"no relationship\" if every 90% CI (NW) lies within ±national SESOI; otherwise \"coordinated\" if the significant\n(p < 0.05) coefficients are all positive, \"opposite\" if all negative, \"mixed\" if both signs, \"inconclusive\" if none is\nsignificant and the CIs are not all inside the band. Verdict field maps: no relationship → equivalence; coordinated /\nopposite / mixed → supported (a relationship); inconclusive → inconclusive.\nSeason interaction: every Kyiv term × 1[summer] added (reported; the C1 sample is thin for 18 fire terms + 52 WOY FE).\nExploratory (labelled): the same on the full span 2022-04-04 .. 2025-12-29 (C1 ∪ E; most Kyiv fires are in 2025),\nand cross-checks with Telegram-derived Kyiv-city impacts (tg_n_impact_incidents_kyiv_city) and Air Force national launched\ntotals (af_total_launched) in place of kyiv_fires (DEVIATIONS 2026-10-22: tg_*/af_* are exploratory).\n",
+  "summary": {
+    "national_sesoi_km2_per_log_unit": 194.12647206123992,
+    "median_front15_cells_per_c1_week": 114.0,
+    "sesoi_cell": 1.7028637900108765,
+    "newey_west_lags": 4,
+    "kyiv_fires_in_c1_weeks": 29,
+    "kyiv_fires_full_span": 301,
+    "c1_weeks_with_kyiv_fire": 19,
+    "answer_primary": "opposite",
+    "verdict": "supported",
+    "runtime_s": 0.1
+  },
+  "licence": "Contains VIINA-derived national control aggregates (ODbL); fires NASA FIRMS VIIRS 375 m; tg_*/af_* from public Telegram posts (exploratory)"
+}

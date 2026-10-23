@@ -1,0 +1,19 @@
+{
+  "output": "data/derived/results/h4_blindspot.json",
+  "written_utc": "2026-10-23T00:16:12+00:00",
+  "script": "14_h4_blindspot.py",
+  "seed": 20261014,
+  "inputs": {
+    "panel": {
+      "path": "data/interim/analysis/panel_r5_week.parquet",
+      "bytes": 17439998,
+      "sha256": "d1e5161ca2973185995ad7e882dce5138a9f7b568af04d2494af2b47a06e1ef2"
+    }
+  },
+  "counts": {
+    "cell_weeks": 14237,
+    "cells": 287
+  },
+  "definitions": "H4 Blind spot (PREREG §4, confirmatory). planning/PANEL.md Builder E.\n\nGate first: log1p(fires) ~ opportunity | cell FE + week-of-year FE on C1 front_15 cell-weeks; passes if the coefficient\nis > 0 with p < 0.01 (CRV1 by cell with the Webb wild-cluster bootstrap, 9,999 draws; Driscoll–Kraay(4) reported too;\nthe gate uses the wild-bootstrap p as the cluster-robust p). If it fails, H4 is \"not testable with this product\".\nTest: share of C1 Russian km² gained (Σ of positive weekly net_ru_gain_km2 over C1 front_15 cell-weeks) that falls in\ncell-weeks in the bottom quartile of `opportunity` (quartile cut fixed on the full sample, ties at the cut included\nin the bottom quartile, i.e. opportunity <= Q1). Cell block bootstrap 2,000 draws; supported if the 95% CI excludes\n30% from below (lower bound > 0.30).\n",
+  "licence": "Contains VIINA-derived control aggregates (ODbL); fires NASA FIRMS VIIRS 375 m"
+}

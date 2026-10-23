@@ -1,0 +1,51 @@
+{
+  "spec1_cell_panel": {
+    "_n": 9722,
+    "_n_cells": 163,
+    "_n_dropped_nan": 0,
+    "_formula": "net_fwd_4 ~ l_deep + net_lag_1 + net_lag_2 + net_lag_3 + net_lag_4 + opportunity | cell + woy",
+    "_label": "H13 cell panel, national deep-fire exposure",
+    "_reps": 9999,
+    "l_deep": {
+      "beta": 3.014915598105047,
+      "se_crv1": 0.6985275517549794,
+      "p_crv1": 2.7732561136861733e-05,
+      "ci90_crv1": [
+        1.8592486339084742,
+        4.17058256230162
+      ],
+      "se_dk": 0.30815462553034983,
+      "p_dk": 0.7681906433970629,
+      "ci90_dk": [
+        -0.5977472393861415,
+        0.41608958269739593
+      ],
+      "p_wild": 0.0,
+      "t_wild": 4.280215295603962,
+      "significant_both": false,
+      "sesoi": 1.7028637900108765,
+      "equivalence": false
+    },
+    "_runtime_s": 2.2
+  },
+  "spec1_category": "inconclusive",
+  "spec2_national": {
+    "beta": 565.5254026852884,
+    "se_nw": 177.16706924818996,
+    "p_nw": 0.001412689211468006,
+    "ci90": [
+      274.11150625604057,
+      856.9392991145363
+    ],
+    "n_weeks": 74,
+    "df_resid": 17,
+    "sesoi_national": 208.6008142763324,
+    "median_front15_cells_per_E_week": 122.5,
+    "equivalence": false
+  },
+  "spec2_category": "supported",
+  "sesoi": 1.7028637900108765,
+  "label": "exploratory",
+  "deep_fires_E_total": 50538,
+  "runtime_s": 2.8
+}

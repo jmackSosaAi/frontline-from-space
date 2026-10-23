@@ -1,0 +1,32 @@
+{
+  "gate": {
+    "beta_opportunity": 0.003676146324027033,
+    "se_crv1": 0.0001905588118514528,
+    "p_crv1": 0.0,
+    "p_wild": 0.0,
+    "p_dk": 8.236755810757573e-28,
+    "n": 14237,
+    "n_cells": 287,
+    "criterion": "beta > 0 and p < 0.01",
+    "pass": true,
+    "formula": "lf ~ opportunity | cell + woy"
+  },
+  "share_bottom_quartile": 0.2180788516998291,
+  "ci95": [
+    0.17629069946706294,
+    0.2624500751495361
+  ],
+  "draws": 2000,
+  "q1_opportunity_cut": 58.0,
+  "share_cell_weeks_bottom_q": 0.25040387722132473,
+  "total_ru_gain_km2_c1_front15": 29911.234375,
+  "ru_gain_km2_bottom_q": 6523.0078125,
+  "criterion": "95% CI lower bound > 0.30",
+  "supported": false,
+  "alt_source_shares_same_cut": {
+    "dsm": 0.12829197943210602,
+    "isw": 0.17688609659671783,
+    "wiki": 0.25510120391845703
+  },
+  "runtime_s": 51.7
+}

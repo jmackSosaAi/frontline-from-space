@@ -1,0 +1,33 @@
+{
+  "output": "data/derived/results/h6_lead.csv",
+  "written_utc": "2026-10-23T00:31:20+00:00",
+  "script": "15_h6_lead.py",
+  "seed": 20261014,
+  "inputs": {
+    "panel": {
+      "path": "data/interim/analysis/panel_r5_week.parquet",
+      "bytes": 17439998,
+      "sha256": "d1e5161ca2973185995ad7e882dce5138a9f7b568af04d2494af2b47a06e1ef2"
+    },
+    "h2_logit_spec": {
+      "path": "data/interim/analysis/models/h2_logit_primary_all_types_spec.json",
+      "bytes": 22185,
+      "sha256": "1352cfcd63beca928e79e423d57d062446c859598c4456bcd07c5e20c829e7a0"
+    }
+  },
+  "counts": {
+    "cell_weeks": 14237,
+    "cells": 287
+  },
+  "definitions": "H6 Lead (pre-registered null) and H6b corrected index (PREREG §4, DESIGN D12–D13; confirmatory).\n\nPrimary: net_fwd_4 ~ β·log1p(fires) + Σ_k γ_k net_lag_k + δ·opportunity | cell FE + week FE, C1 front_15 cell-weeks.\nInference per _panel.fe_fit (CRV1 + Webb wild-cluster bootstrap 9,999 draws; Driscoll–Kraay(4)). SESOI 1.70 km²/log-unit.\n(i) supported if significant under both and β ≥ SESOI; (ii) equivalence if both 90% CIs lie within ±SESOI; (iii) inconclusive.\nH6b: regressor log1p(fires / P̂(detect)), P̂ = H2 primary logit scored on the cell-week covariates (mapping in\n_panel.h2_pdetect; event_type fixed at the reference 'strike'), clipped at 0.02. Model uncertainty: 1,000 N(β̂, Cov)\ncoefficient draws → 1,000 corrected indices → 1,000 re-fits (point β and CRV1 90% CI each). Reported interval =\nunion (outer hull) of the main-fit 90% CIs and the 5th/95th percentiles of the per-draw 90% CI bounds. The H6b category\nis judged on that hull (conservative), with the main-fit category also given.\n",
+  "p_detect": {
+    "mean": 0.036036275470075596,
+    "median": 0.020100312873788988,
+    "min": 0.02,
+    "max": 0.31074311548682954,
+    "share_clipped_at_0.02": 0.49792793425581233,
+    "clip": 0.02
+  },
+  "equivalence_rule": "both the CRV1 analytic and the DK 90% CI inside ±SESOI (H6b: also the propagated hull)",
+  "licence": "Contains VIINA-derived control aggregates (ODbL); fires NASA FIRMS VIIRS 375 m"
+}

@@ -1,0 +1,136 @@
+hypothesis,item,variant,statistic,verdict,primary_verdict,flip,n,note
+H4,1 band,10 km,"gate β 0.0040 p_wild 0.000 pass; share 0.236 [0.191,0.285] (Q1 cut 60)",not supported,not supported,False,9991.0,
+H5,1 band,10 km,2/12 months ratio ≥3 (point); overall 2.18,not supported,not supported,False,9991.0,point estimates only
+H6,1 band,10 km,"β 1.090 p_wild 0.064 p_dk 0.141 CI90 crv1 [0.10,2.08] dk [-0.13,2.31]",equivalence,inconclusive,True,9991.0,
+H6b,1 band,10 km,"β 0.068 p_wild 0.807 p_dk 0.807 CI90 crv1 [-0.39,0.53] dk [-0.39,0.53]",equivalence,equivalence,False,9991.0,main fit only (no coefficient-draw propagation in robustness)
+H9,1 band,10 km,"peak lead 8 β 1.037 (p_wild 0.000, p_dk 0.010); equiv ≥2: 0/5; β 0:0.21 1:0.61 2:0.49 3:-0.44 4:-0.11 6:0.39 8:1.04",not supported,not supported,False,9738.0,
+H10,1 band,10 km,"big_ua_side -1.15 (pw 0.167, pdk 0.154); small_ua_side 4.69 (pw 0.000, pdk 0.000); big_ru_side 1.42 (pw 0.078, pdk 0.110); small_ru_side -2.81 (pw 0.000, pdk 0.016)",not supported,not supported,False,9991.0,
+H11,1 band,10 km,"β_A 1.591 (pw 0.300, pdk 0.323); β_B 0.806 (pw 0.024, pdk 0.053); A−B 0.785 (pw 0.615, pdk 0.602)",not supported,not supported,False,9991.0,
+H11s,1 band,10 km,A: summer 2.64 winter -6.51 int pw 0.038 pdk 0.006; B: summer 0.92 winter 0.56 int pw 0.640 pdk 0.514,not supported,not supported,False,9991.0,
+H13,1 band,10 km,"β 4.152 p_wild 0.000 p_dk 0.737 CI90 crv1 [2.54,5.77] dk [-0.85,0.56]",inconclusive,inconclusive,False,6499.0,
+H4,1 band,25 km,"gate β 0.0031 p_wild 0.000 pass; share 0.207 [0.167,0.247] (Q1 cut 56)",not supported,not supported,False,23496.0,
+H5,1 band,25 km,2/12 months ratio ≥3 (point); overall 1.55,not supported,not supported,False,23496.0,point estimates only
+H6,1 band,25 km,"β 0.846 p_wild 0.022 p_dk 0.150 CI90 crv1 [0.25,1.44] dk [-0.12,1.81]",inconclusive,inconclusive,False,23496.0,
+H6b,1 band,25 km,"β 0.160 p_wild 0.322 p_dk 0.512 CI90 crv1 [-0.10,0.42] dk [-0.24,0.56]",equivalence,equivalence,False,23496.0,main fit only (no coefficient-draw propagation in robustness)
+H9,1 band,25 km,"peak lead 8 β 0.692 (p_wild 0.000, p_dk 0.007); equiv ≥2: 2/5; β 0:0.17 1:0.14 2:0.30 3:-0.22 4:-0.12 6:0.22 8:0.69",not supported,not supported,False,22900.0,
+H10,1 band,25 km,"big_ua_side -1.22 (pw 0.024, pdk 0.043); small_ua_side 3.91 (pw 0.000, pdk 0.000); big_ru_side 1.47 (pw 0.006, pdk 0.072); small_ru_side -2.45 (pw 0.000, pdk 0.052)",not supported,not supported,False,23496.0,
+H11,1 band,25 km,"β_A 1.535 (pw 0.092, pdk 0.212); β_B 0.468 (pw 0.029, pdk 0.189); A−B 1.067 (pw 0.246, pdk 0.345)",not supported,not supported,False,23496.0,
+H11s,1 band,25 km,A: summer 1.96 winter -1.85 int pw 0.127 pdk 0.126; B: summer 0.50 winter 0.38 int pw 0.768 pdk 0.843,not supported,not supported,False,23496.0,
+H13,1 band,25 km,"β 1.837 p_wild 0.000 p_dk 0.894 CI90 crv1 [1.15,2.52] dk [-0.34,0.29]",inconclusive,inconclusive,False,16055.0,
+H5,2 rear strip,"front fires_snpp per cell-week / rear-strip (50–90 km) fires_snpp per cell-week, C1",4/12 months ≥3; monthly 1:1.70 2:1.45 3:1.65 4:4.16 5:7.45 6:8.70 7:5.22 8:1.71 9:2.81 10:1.59 11:1.16 12:1.00,not supported,not supported,False,14237.0,rear-strip cell-weeks 29017
+H4,3 night,fires_night,"gate β 0.0012 p_wild 0.000 pass; share 0.218 [0.176,0.262] (Q1 cut 58)",not supported,not supported,False,14237.0,
+H6,3 night,log1p(fires_night),"β 1.572 p_wild 0.023 p_dk 0.042 CI90 crv1 [0.42,2.72] dk [0.30,2.84]",inconclusive,inconclusive,False,14237.0,
+H9,3 night,log1p(fires_night) lags,"peak lead 8 β 0.880 (p_wild 0.000, p_dk 0.004); equiv ≥2: 1/5; β 0:0.71 1:0.61 2:0.15 3:-0.36 4:0.22 6:0.59 8:0.88",not supported,not supported,False,13867.0,
+H11,3 night,log1p(fires_night),"β_A 1.324 (pw 0.381, pdk 0.459); β_B 1.750 (pw 0.001, pdk 0.001); A−B -0.427 (pw 0.791, pdk 0.821)",not supported,not supported,False,14237.0,
+H11s,3 night,log1p(fires_night),A: summer 2.03 winter -5.22 int pw 0.104 pdk 0.020; B: summer 1.66 winter 2.23 int pw 0.675 pdk 0.364,not supported,not supported,False,14237.0,
+H12,3 night,kyiv_fires_night,answer inconclusive; β j-4:1133(p0.51) j-3:-458(p0.27) j-2:247(p0.56) j-1:800(p0.27) j+0:707(p0.36) j+1:-56(p0.96) j+2:-4914(p0.11) j+3:-3560(p0.14) j+4:-1366(p0.49),inconclusive,supported,True,118.0,primary answer opposite
+H10,3 night,,,,not supported,,,no night split of the size × side columns
+H13,3 night,,,,inconclusive,,,no night split of deep fires
+H5,3 night,,,,not supported,,,no S-NPP night column
+H4,4 jackknife,drop UA-09,"gate β 0.0037 p_wild 0.000 pass; share 0.244 [0.205,0.292] (Q1 cut 60)",not supported,not supported,False,12975.0,
+H5,4 jackknife,drop UA-09,2/12 months ratio ≥3 (point); overall 1.94,not supported,not supported,False,12975.0,point estimates only
+H6,4 jackknife,drop UA-09,"β 0.691 p_wild 0.188 p_dk 0.253 CI90 crv1 [-0.16,1.54] dk [-0.30,1.68]",equivalence,inconclusive,True,12975.0,
+H6b,4 jackknife,drop UA-09,"β 0.002 p_wild 0.994 p_dk 0.994 CI90 crv1 [-0.38,0.39] dk [-0.42,0.42]",equivalence,equivalence,False,12975.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-09,"peak lead 8 β 0.748 (p_wild 0.001, p_dk 0.012); equiv ≥2: 0/5; β 0:0.01 1:0.36 2:0.19 3:-0.32 4:-0.08 6:0.30 8:0.75",not supported,not supported,False,12665.0,
+H10,4 jackknife,drop UA-09,"big_ua_side -1.08 (pw 0.118, pdk 0.158); small_ua_side 3.84 (pw 0.000, pdk 0.000); big_ru_side 1.57 (pw 0.041, pdk 0.101); small_ru_side -2.92 (pw 0.000, pdk 0.022)",not supported,not supported,False,12975.0,
+H11,4 jackknife,drop UA-09,"β_A 0.392 (pw 0.772, pdk 0.787); β_B 0.859 (pw 0.001, pdk 0.019); A−B -0.467 (pw 0.734, pdk 0.742)",not supported,not supported,False,12975.0,
+H11s,4 jackknife,drop UA-09,A: summer 0.98 winter -5.22 int pw 0.131 pdk 0.014; B: summer 0.93 winter 0.69 int pw 0.738 pdk 0.696,not supported,not supported,False,12975.0,
+H4,4 jackknife,drop UA-12,"gate β 0.0037 p_wild 0.000 pass; share 0.213 [0.171,0.254] (Q1 cut 57)",not supported,not supported,False,13711.0,
+H5,4 jackknife,drop UA-12,2/12 months ratio ≥3 (point); overall 2.16,not supported,not supported,False,13711.0,point estimates only
+H6,4 jackknife,drop UA-12,"β 0.968 p_wild 0.069 p_dk 0.139 CI90 crv1 [0.10,1.83] dk [-0.11,2.04]",inconclusive,inconclusive,False,13711.0,
+H6b,4 jackknife,drop UA-12,"β 0.112 p_wild 0.646 p_dk 0.666 CI90 crv1 [-0.28,0.50] dk [-0.31,0.54]",equivalence,equivalence,False,13711.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-12,"peak lead 8 β 1.034 (p_wild 0.000, p_dk 0.002); equiv ≥2: 0/5; β 0:0.11 1:0.35 2:0.27 3:-0.27 4:-0.17 6:0.32 8:1.03",not supported,not supported,False,13356.0,
+H10,4 jackknife,drop UA-12,"big_ua_side -1.35 (pw 0.059, pdk 0.075); small_ua_side 4.45 (pw 0.000, pdk 0.000); big_ru_side 1.65 (pw 0.016, pdk 0.075); small_ru_side -2.82 (pw 0.000, pdk 0.035)",not supported,not supported,False,13711.0,
+H11,4 jackknife,drop UA-12,"β_A 1.036 (pw 0.450, pdk 0.507); β_B 0.929 (pw 0.001, pdk 0.009); A−B 0.107 (pw 0.940, pdk 0.944)",not supported,not supported,False,13711.0,
+H11s,4 jackknife,drop UA-12,A: summer 1.68 winter -4.02 int pw 0.127 pdk 0.046; B: summer 1.05 winter 0.67 int pw 0.558 pdk 0.518,not supported,not supported,False,13711.0,
+H4,4 jackknife,drop UA-14,"gate β 0.0036 p_wild 0.000 pass; share 0.176 [0.135,0.224] (Q1 cut 60)",not supported,not supported,False,10562.0,
+H5,4 jackknife,drop UA-14,4/12 months ratio ≥3 (point); overall 3.58,not supported,not supported,False,10562.0,point estimates only
+H6,4 jackknife,drop UA-14,"β 0.283 p_wild 0.618 p_dk 0.657 CI90 crv1 [-0.65,1.22] dk [-0.77,1.33]",equivalence,inconclusive,True,10562.0,
+H6b,4 jackknife,drop UA-14,"β -0.109 p_wild 0.688 p_dk 0.673 CI90 crv1 [-0.56,0.34] dk [-0.54,0.32]",equivalence,equivalence,False,10562.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-14,"peak lead 8 β 1.140 (p_wild 0.000, p_dk 0.010); equiv ≥2: 1/5; β 0:-0.02 1:0.17 2:0.14 3:-0.21 4:-0.18 6:0.29 8:1.14",not supported,not supported,False,10254.0,
+H10,4 jackknife,drop UA-14,"big_ua_side -2.66 (pw 0.001, pdk 0.013); small_ua_side 4.84 (pw 0.000, pdk 0.000); big_ru_side 1.41 (pw 0.117, pdk 0.111); small_ru_side -3.07 (pw 0.001, pdk 0.039)",not supported,not supported,False,10562.0,
+H11,4 jackknife,drop UA-14,"β_A -0.328 (pw 0.832, pdk 0.810); β_B 0.616 (pw 0.033, pdk 0.237); A−B -0.945 (pw 0.547, pdk 0.495)",not supported,not supported,False,10562.0,
+H11s,4 jackknife,drop UA-14,A: summer -0.20 winter -1.49 int pw 0.775 pdk 0.636; B: summer 0.84 winter -0.02 int pw 0.026 pdk 0.195,not supported,not supported,False,10562.0,
+H4,4 jackknife,drop UA-23,"gate β 0.0037 p_wild 0.000 pass; share 0.209 [0.169,0.255] (Q1 cut 56)",not supported,not supported,False,11306.0,
+H5,4 jackknife,drop UA-23,2/12 months ratio ≥3 (point); overall 2.10,not supported,not supported,False,11306.0,point estimates only
+H6,4 jackknife,drop UA-23,"β 1.063 p_wild 0.075 p_dk 0.132 CI90 crv1 [0.08,2.05] dk [-0.10,2.22]",inconclusive,inconclusive,False,11306.0,
+H6b,4 jackknife,drop UA-23,"β 0.114 p_wild 0.688 p_dk 0.701 CI90 crv1 [-0.34,0.57] dk [-0.37,0.60]",equivalence,equivalence,False,11306.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-23,"peak lead 8 β 1.155 (p_wild 0.000, p_dk 0.001); equiv ≥2: 0/5; β 0:0.17 1:0.29 2:0.34 3:-0.30 4:-0.15 6:0.37 8:1.15",not supported,not supported,False,10993.0,
+H10,4 jackknife,drop UA-23,"big_ua_side -1.51 (pw 0.060, pdk 0.055); small_ua_side 4.81 (pw 0.000, pdk 0.000); big_ru_side 2.39 (pw 0.003, pdk 0.041); small_ru_side -3.52 (pw 0.000, pdk 0.031)",not supported,not supported,False,11306.0,
+H11,4 jackknife,drop UA-23,"β_A 0.891 (pw 0.552, pdk 0.609); β_B 1.167 (pw 0.000, pdk 0.001); A−B -0.276 (pw 0.853, pdk 0.874)",not supported,not supported,False,11306.0,
+H11s,4 jackknife,drop UA-23,A: summer 1.49 winter -3.71 int pw 0.205 pdk 0.069; B: summer 1.31 winter 0.84 int pw 0.531 pdk 0.454,not supported,not supported,False,11306.0,
+H4,4 jackknife,drop UA-48,"gate β 0.0038 p_wild 0.000 pass; share 0.240 [0.194,0.286] (Q1 cut 62)",not supported,not supported,False,13524.0,
+H5,4 jackknife,drop UA-48,2/12 months ratio ≥3 (point); overall 2.08,not supported,not supported,False,13524.0,point estimates only
+H6,4 jackknife,drop UA-48,"β 1.148 p_wild 0.029 p_dk 0.117 CI90 crv1 [0.29,2.01] dk [-0.06,2.35]",inconclusive,inconclusive,False,13524.0,
+H6b,4 jackknife,drop UA-48,"β 0.207 p_wild 0.383 p_dk 0.452 CI90 crv1 [-0.18,0.59] dk [-0.25,0.66]",equivalence,equivalence,False,13524.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-48,"peak lead 8 β 0.932 (p_wild 0.000, p_dk 0.002); equiv ≥2: 1/5; β 0:0.15 1:0.28 2:0.32 3:-0.21 4:-0.05 6:0.29 8:0.93",not supported,not supported,False,13163.0,
+H10,4 jackknife,drop UA-48,"big_ua_side -1.21 (pw 0.086, pdk 0.076); small_ua_side 4.51 (pw 0.000, pdk 0.000); big_ru_side 1.56 (pw 0.022, pdk 0.088); small_ru_side -2.82 (pw 0.000, pdk 0.045)",not supported,not supported,False,13524.0,
+H11,4 jackknife,drop UA-48,"β_A 1.620 (pw 0.239, pdk 0.340); β_B 0.893 (pw 0.002, pdk 0.015); A−B 0.727 (pw 0.599, pdk 0.651)",not supported,not supported,False,13524.0,
+H11s,4 jackknife,drop UA-48,A: summer 2.27 winter -3.21 int pw 0.140 pdk 0.035; B: summer 0.99 winter 0.69 int pw 0.644 pdk 0.601,not supported,not supported,False,13524.0,
+H4,4 jackknife,drop UA-63,"gate β 0.0036 p_wild 0.000 pass; share 0.226 [0.179,0.271] (Q1 cut 56)",not supported,not supported,False,12197.0,
+H5,4 jackknife,drop UA-63,2/12 months ratio ≥3 (point); overall 1.92,not supported,not supported,False,12197.0,point estimates only
+H6,4 jackknife,drop UA-63,"β 1.437 p_wild 0.008 p_dk 0.033 CI90 crv1 [0.53,2.34] dk [0.33,2.54]",inconclusive,inconclusive,False,12197.0,
+H6b,4 jackknife,drop UA-63,"β 0.323 p_wild 0.179 p_dk 0.237 CI90 crv1 [-0.07,0.71] dk [-0.13,0.77]",equivalence,equivalence,False,12197.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-63,"peak lead 8 β 0.777 (p_wild 0.001, p_dk 0.008); equiv ≥2: 1/5; β 0:0.16 1:0.42 2:0.29 3:-0.09 4:-0.39 6:0.32 8:0.78",not supported,not supported,False,11932.0,
+H10,4 jackknife,drop UA-63,"big_ua_side -0.82 (pw 0.275, pdk 0.200); small_ua_side 3.90 (pw 0.000, pdk 0.000); big_ru_side 1.23 (pw 0.049, pdk 0.151); small_ru_side -1.56 (pw 0.010, pdk 0.132)",not supported,not supported,False,12197.0,
+H11,4 jackknife,drop UA-63,"β_A 2.705 (pw 0.074, pdk 0.058); β_B 0.818 (pw 0.005, pdk 0.029); A−B 1.887 (pw 0.211, pdk 0.170)",not supported,not supported,False,12197.0,
+H11s,4 jackknife,drop UA-63,A: summer 3.52 winter -3.86 int pw 0.062 pdk 0.066; B: summer 0.88 winter 0.70 int pw 0.803 pdk 0.770,not supported,not supported,False,12197.0,
+H4,4 jackknife,drop UA-65,"gate β 0.0036 p_wild 0.000 pass; share 0.207 [0.163,0.252] (Q1 cut 56)",not supported,not supported,False,11204.0,
+H5,4 jackknife,drop UA-65,2/12 months ratio ≥3 (point); overall 1.84,not supported,not supported,False,11204.0,point estimates only
+H6,4 jackknife,drop UA-65,"β 1.081 p_wild 0.089 p_dk 0.151 CI90 crv1 [0.06,2.10] dk [-0.16,2.32]",inconclusive,inconclusive,False,11204.0,
+H6b,4 jackknife,drop UA-65,"β 0.193 p_wild 0.475 p_dk 0.429 CI90 crv1 [-0.24,0.62] dk [-0.21,0.59]",equivalence,equivalence,False,11204.0,main fit only (no coefficient-draw propagation in robustness)
+H9,4 jackknife,drop UA-65,"peak lead 8 β 0.984 (p_wild 0.000, p_dk 0.005); equiv ≥2: 0/5; β 0:0.41 1:0.34 2:0.26 3:-0.25 4:-0.03 6:0.29 8:0.98",not supported,not supported,False,10893.0,
+H10,4 jackknife,drop UA-65,"big_ua_side -0.60 (pw 0.504, pdk 0.487); small_ua_side 4.62 (pw 0.000, pdk 0.000); big_ru_side 1.68 (pw 0.030, pdk 0.068); small_ru_side -3.35 (pw 0.000, pdk 0.030)",not supported,not supported,False,11204.0,
+H11,4 jackknife,drop UA-65,"β_A 1.459 (pw 0.297, pdk 0.300); β_B 0.802 (pw 0.032, pdk 0.080); A−B 0.657 (pw 0.641, pdk 0.615)",not supported,not supported,False,11204.0,
+H11s,4 jackknife,drop UA-65,A: summer 1.64 winter 0.15 int pw 0.679 pdk 0.538; B: summer 0.83 winter 0.76 int pw 0.931 pdk 0.924,not supported,not supported,False,11204.0,
+H10,4 jackknife,SUMMARY over drops,verdicts: {'not supported': 7},not supported,not supported,False,,any single-oblast drop changing the verdict counts as a flip
+H11,4 jackknife,SUMMARY over drops,verdicts: {'not supported': 7},not supported,not supported,False,,any single-oblast drop changing the verdict counts as a flip
+H11s,4 jackknife,SUMMARY over drops,verdicts: {'not supported': 7},not supported,not supported,False,,any single-oblast drop changing the verdict counts as a flip
+H4,4 jackknife,SUMMARY over drops,verdicts: {'not supported': 7},not supported,not supported,False,,any single-oblast drop changing the verdict counts as a flip
+H5,4 jackknife,SUMMARY over drops,verdicts: {'not supported': 7},not supported,not supported,False,,any single-oblast drop changing the verdict counts as a flip
+H6,4 jackknife,SUMMARY over drops,"verdicts: {'inconclusive': 5, 'equivalence': 2}",flips,inconclusive,True,,any single-oblast drop changing the verdict counts as a flip
+H6b,4 jackknife,SUMMARY over drops,verdicts: {'equivalence': 7},equivalence,equivalence,False,,any single-oblast drop changing the verdict counts as a flip
+H9,4 jackknife,SUMMARY over drops,verdicts: {'not supported': 7},not supported,not supported,False,,any single-oblast drop changing the verdict counts as a flip
+H12,4 jackknife,,,,supported,,,national / E-period spec; no oblast dimension
+H13,4 jackknife,,,,inconclusive,,,national / E-period spec; no oblast dimension
+H4,5 source,status_dsm,"share 0.128 [0.080,0.183] (Q1 cut 58)",not supported,not supported,False,14237.0,
+H6,5 source,status_dsm outcome,"β 0.600 p_wild 0.149 p_dk 0.091 CI90 crv1 [-0.08,1.28] dk [0.02,1.18]",equivalence,inconclusive,True,13532.0,
+H6b,5 source,status_dsm outcome,"β 0.041 p_wild 0.834 p_dk 0.816 CI90 crv1 [-0.27,0.35] dk [-0.25,0.33]",equivalence,equivalence,False,13532.0,main fit only (no coefficient-draw propagation in robustness)
+H9,5 source,status_dsm outcome,"peak lead 8 β 0.580 (p_wild 0.000, p_dk 0.062); equiv ≥2: 3/5; β 0:0.26 1:-0.11 2:0.08 3:-0.10 4:0.34 6:0.05 8:0.58",not supported,not supported,False,13532.0,
+H10,5 source,status_dsm outcome,"big_ua_side -0.16 (pw 0.736, pdk 0.723); small_ua_side 1.31 (pw 0.006, pdk 0.001); big_ru_side 0.60 (pw 0.334, pdk 0.186); small_ru_side -0.59 (pw 0.290, pdk 0.252)",not supported,not supported,False,13532.0,
+H11,5 source,status_dsm outcome,"β_A 0.803 (pw 0.480, pdk 0.441); β_B 0.500 (pw 0.003, pdk 0.024); A−B 0.302 (pw 0.781, pdk 0.785)",not supported,not supported,False,13532.0,
+H11s,5 source,status_dsm outcome,A: summer 0.81 winter 0.21 int pw 0.832 pdk 0.745; B: summer 0.40 winter 0.73 int pw 0.291 pdk 0.486,not supported,not supported,False,13532.0,
+H13,5 source,status_dsm outcome,"β 1.646 p_wild 0.000 p_dk 0.311 CI90 crv1 [0.97,2.32] dk [-0.45,0.11]",inconclusive,inconclusive,False,9231.0,
+H12,5 source,status_dsm national outcome,answer inconclusive; β j-4:-278(p0.48) j-3:117(p0.68) j-2:273(p0.31) j-1:31(p0.85) j+0:71(p0.69) j+1:-307(p0.40) j+2:121(p0.48) j+3:142(p0.36) j+4:257(p0.55),inconclusive,supported,True,114.0,primary answer opposite
+H4,5 source,status_isw,"share 0.177 [0.115,0.247] (Q1 cut 58)",not supported,not supported,False,14237.0,
+H6,5 source,status_isw outcome,"β 1.151 p_wild 0.066 p_dk 0.150 CI90 crv1 [0.14,2.16] dk [-0.16,2.46]",inconclusive,inconclusive,False,14237.0,
+H6b,5 source,status_isw outcome,"β 0.166 p_wild 0.533 p_dk 0.609 CI90 crv1 [-0.26,0.59] dk [-0.37,0.70]",equivalence,equivalence,False,14237.0,main fit only (no coefficient-draw propagation in robustness)
+H9,5 source,status_isw outcome,"peak lead 6 β 0.664 (p_wild 0.001, p_dk 0.027); equiv ≥2: 1/5; β 0:-0.09 1:0.27 2:0.09 3:0.20 4:-0.48 6:0.66 8:0.43",not supported,not supported,False,13867.0,
+H10,5 source,status_isw outcome,"big_ua_side -2.00 (pw 0.001, pdk 0.040); small_ua_side 2.78 (pw 0.000, pdk 0.002); big_ru_side 1.14 (pw 0.145, pdk 0.295); small_ru_side 0.22 (pw 0.795, pdk 0.864)",not supported,not supported,False,14237.0,
+H11,5 source,status_isw outcome,"β_A 1.881 (pw 0.228, pdk 0.370); β_B 0.732 (pw 0.002, pdk 0.021); A−B 1.149 (pw 0.451, pdk 0.597)",not supported,not supported,False,14237.0,
+H11s,5 source,status_isw outcome,A: summer 3.24 winter -8.85 int pw 0.004 pdk 0.014; B: summer 0.59 winter 1.12 int pw 0.375 pdk 0.469,not supported,not supported,False,14237.0,
+H13,5 source,status_isw outcome,"β 5.666 p_wild 0.000 p_dk 0.254 CI90 crv1 [3.69,7.64] dk [-0.29,1.60]",inconclusive,inconclusive,False,9231.0,
+H12,5 source,status_isw national outcome,answer opposite; β j-4:-1712(p0.03) j-3:-1249(p0.16) j-2:-2054(p0.02) j-1:-1045(p0.18) j+0:-1907(p0.01) j+1:-1392(p0.06) j+2:-2928(p0.01) j+3:-791(p0.21) j+4:-1371(p0.05),supported,supported,False,118.0,primary answer opposite
+H4,5 source,status_wiki,"share 0.255 [0.225,0.280] (Q1 cut 58)",not supported,not supported,False,14237.0,
+H6,5 source,status_wiki outcome,"β 1.213 p_wild 0.028 p_dk 0.064 CI90 crv1 [0.29,2.13] dk [0.14,2.29]",inconclusive,inconclusive,False,14237.0,
+H6b,5 source,status_wiki outcome,"β 0.157 p_wild 0.556 p_dk 0.591 CI90 crv1 [-0.27,0.58] dk [-0.32,0.64]",equivalence,equivalence,False,14237.0,main fit only (no coefficient-draw propagation in robustness)
+H9,5 source,status_wiki outcome,"peak lead 8 β 1.069 (p_wild 0.002, p_dk 0.023); equiv ≥2: 0/5; β 0:0.08 1:0.42 2:0.95 3:0.16 4:-0.32 6:0.00 8:1.07",not supported,not supported,False,13867.0,
+H10,5 source,status_wiki outcome,"big_ua_side 0.28 (pw 0.794, pdk 0.804); small_ua_side 4.72 (pw 0.000, pdk 0.000); big_ru_side 1.64 (pw 0.081, pdk 0.152); small_ru_side -3.54 (pw 0.000, pdk 0.028)",not supported,not supported,False,14237.0,
+H11,5 source,status_wiki outcome,"β_A 1.429 (pw 0.259, pdk 0.243); β_B 1.089 (pw 0.021, pdk 0.086); A−B 0.340 (pw 0.798, pdk 0.790)",not supported,not supported,False,14237.0,
+H11s,5 source,status_wiki outcome,A: summer 1.62 winter -0.06 int pw 0.668 pdk 0.418; B: summer 1.02 winter 1.25 int pw 0.838 pdk 0.820,not supported,not supported,False,14237.0,
+H13,5 source,status_wiki outcome,"β 4.061 p_wild 0.000 p_dk 0.595 CI90 crv1 [2.35,5.77] dk [-1.36,0.70]",inconclusive,inconclusive,False,9231.0,
+H12,5 source,status_wiki national outcome,answer opposite; β j-4:-1384(p0.14) j-3:-2458(p0.00) j-2:-2658(p0.00) j-1:-2160(p0.01) j+0:-2063(p0.01) j+1:-2720(p0.00) j+2:-3656(p0.00) j+3:-2389(p0.00) j+4:-1808(p0.01),supported,supported,False,118.0,primary answer opposite
+national series,5 source,Economist (ISW-based) national RU km² 2022-02..2023-10 vs VIINA majority,"corr levels 0.8983, corr weekly changes 0.7947, median diff VIINA−Economist 3319.0 km², weeks 89",sanity,,,,from panel_report.json (Builder D)
+H6,6 reverse,reverse: log1p(fires_t) on net_{t−1..t−4},"net_lag_1 0.0007 (pw 0.075, pdk 0.136); net_lag_2 0.0007 (pw 0.157, pdk 0.177); net_lag_3 0.0002 (pw 0.643, pdk 0.658); net_lag_4 0.0001 (pw 0.762, pdk 0.826)",no reverse effect,inconclusive,False,14237.0,β in log-units of fires per km² of prior-week RU gain
+H6,6 placebo,lead-2 placebo: fires at t+6 on net_{t+1..t+4},"β 0.484 pw 0.232 pdk 0.185 CI90 crv1 [-0.17,1.14]",placebo null,inconclusive,False,14237.0,
+H10,6 placebo,four terms at t+6 on net_fwd_3,"big_ua_side 0.53 (pw 0.382, pdk 0.535); small_ua_side -1.03 (pw 0.062, pdk 0.338); big_ru_side -0.58 (pw 0.270, pdk 0.226); small_ru_side 1.68 (pw 0.002, pdk 0.045)",not supported,not supported,False,14237.0,
+H11,6 placebo,lf_{t+6} by phase,"β_A 0.128 (pw 0.912, pdk 0.881); β_B 0.633 (pw 0.004, pdk 0.030); A−B -0.504 (pw 0.640, pdk 0.560)",not supported,not supported,False,14237.0,
+H9,6 reverse/placebo,,,,not supported,,,own lead structure (leads 0–8 are the test)
+H12,6 reverse/placebo,,,,supported,,,lags −4..−1 in the primary spec are the reverse direction
+H13,6 reverse/placebo,,,,inconclusive,,,exploratory; not run
+H6,7 res-6,res-6 cells,,not run,,False,,"not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23"
+H9,7 res-6,res-6 cells,,not run,,False,,"not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23"
+H10,7 res-6,res-6 cells,,not run,,False,,"not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23"
+H11,7 res-6,res-6 cells,,not run,,False,,"not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23"
+H11s,7 res-6,res-6 cells,,not run,,False,,"not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23"
+H13,7 res-6,res-6 cells,,not run,,False,,"not run: the res-6 panel (98,182 cell-weeks, 1,888 clusters) exhausted memory (>21 GB) in the wild bootstrap twice; deferred, see DEVIATIONS 2026-10-23"
