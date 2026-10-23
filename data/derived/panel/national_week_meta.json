@@ -1,0 +1,56 @@
+{
+  "output": "data/derived/panel/national_week.csv",
+  "written_utc": "2026-10-22T23:40:51+00:00",
+  "script": "12_national_kyiv_week.py",
+  "seed": 20261014,
+  "inputs": {
+    "control_line_week": {
+      "path": "data/interim/analysis/control/control_line_week.parquet",
+      "bytes": 56201,
+      "sha256": "2b24a32e205d99d525d127af98ecc80ff48b20746b3abda9408bf8ae8f67e9d3"
+    },
+    "fires": {
+      "path": "data/interim/analysis/fires.parquet",
+      "bytes": 70540158,
+      "sha256": "fbdb213619dd6afb4ee411f03d2c0f8c53938bcf05f6d24726a4fcd59473bfca"
+    },
+    "opportunity_r6_day": {
+      "path": "data/interim/analysis/opportunity_r6_day.parquet",
+      "bytes": 112828616,
+      "sha256": "40f9fae0714fdffd829ecc272a3e6eb18de667db5aef2184ce1c1c9b03fe3974"
+    },
+    "kyiv_strikes_week": {
+      "path": "data/derived/telegram/kyiv_strikes_week.csv",
+      "bytes": 16628,
+      "sha256": "5beea1f35d08504ed8d9e9a293dcd670bc5c5b2c587dea6443962a1a8e36220f"
+    },
+    "national_night": {
+      "path": "data/derived/telegram/national_night.csv",
+      "bytes": 342136,
+      "sha256": "cde93b3278865684add6cd48f490535b516f502f35d6c1eaaf80f0b3d0b7eb0b"
+    },
+    "adm1": {
+      "path": "data/raw/boundaries/geoboundaries/geoBoundaries-UKR-ADM1.geojson",
+      "bytes": 3919902,
+      "sha256": "b2f9f4ad2e9be5888523219c0bb46a24332ead16b46305409098048fd361a2d6"
+    }
+  },
+  "counts": {
+    "weeks": 202,
+    "kyiv_fires_total": 352,
+    "kyiv_fires_by_year": {
+      "2022": 60,
+      "2023": 11,
+      "2024": 31,
+      "2025": 250,
+      "2026": 0
+    },
+    "weeks_with_tg": 173,
+    "weeks_with_af_launched": 152,
+    "kyiv_res6_cells": 22,
+    "runtime_s": 0.7
+  },
+  "definitions": "Kyiv city = geoBoundaries ADM1 feature shapeName == \"Kyiv\" (UA-30). kyiv_fires = FIRMS detections\n(confidence n/h, any satellite) inside that polygon, by the UTC date's ISO week; kyiv_opportunity = sum of\ndetection opportunity over res-6 cells whose centroid is inside the polygon (and their 7 days). af_* = sums over\nnight_date of the numeric columns of data/derived/telegram/national_night.csv (ISO week of night_date);\naf_n_nights = nights with a parsed post. tg_* = kyiv_strikes_week.csv columns as published.",
+  "licence": "Contains VIINA data (Zhukov, Yuri. 'VIINA: Violent Incident Information from News Articles on the 2022 Russian Invasion of Ukraine'), ODbL 1.0; derived national aggregates. Fires: NASA FIRMS VIIRS 375 m.",
+  "h12_note": "tg_* and af_* are exploratory cross-checks (DEVIATIONS 2026-10-22)"
+}

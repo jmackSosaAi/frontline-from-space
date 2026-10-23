@@ -1,0 +1,44 @@
+{
+  "output": "data/derived/panel/panel_r5_week.csv.gz",
+  "written_utc": "2026-10-22T23:43:35+00:00",
+  "script": "11_panel_r5_week.py",
+  "seed": 20261014,
+  "inputs": {
+    "control_weekly": {
+      "path": "data/interim/analysis/control_weekly.parquet",
+      "bytes": 1716727
+    },
+    "fires": {
+      "path": "data/interim/analysis/fires.parquet",
+      "bytes": 70540158
+    },
+    "fires_baseline": {
+      "path": "data/interim/analysis/fires_baseline.parquet",
+      "bytes": 27082524
+    },
+    "opportunity_r6_day": {
+      "path": "data/interim/analysis/opportunity_r6_day.parquet",
+      "bytes": 112828616
+    },
+    "prereg_constants": {
+      "path": "data/derived/prereg_constants.json",
+      "bytes": 8758
+    },
+    "adm1": {
+      "path": "data/raw/boundaries/geoboundaries/geoBoundaries-UKR-ADM1.geojson",
+      "bytes": 3919902
+    }
+  },
+  "counts": {
+    "rows": 1597416,
+    "cells": 7908,
+    "weeks": 202,
+    "columns": 61,
+    "c1_cell_weeks": 933144,
+    "e_cell_weeks": 616824
+  },
+  "columns": "(stated here, repeated in the meta):\n  net_ru_gain_km2 = ru_km2(t) − ru_km2(t−1); net_fwd_k = Σ net(t+1..t+k); net_lag_k = net(t−k).\n  side = RU/UA if that status holds > 50% of the cell's Ukrainian area, else mixed; NaN outside Ukraine.\n  Fire side = majority `status` of the Voronoi polygon (nearest generator) containing the fire, in the fire's week.\n  Big/small = FRP ≥/< the season × day/night p75 in data/derived/prereg_constants.json. Deep RU fire (H13) =\n  FRP ≥ 16.33 MW and > 30 km from the RU|UA line, and either in RU-held Ukrainian territory or inside Russia.\n  Phase by the ISO week's Monday: A 2022-04-04..2022-11-28 weeks, B 2022-12-05..2024-07-01, E 2024-07-08..2025-12-29.\n  Baseline = mean/sd over 2012–2021 of same-ISO-week S-NPP counts in the cell (years lacking week 53 excluded).\n  Cell universe: res-5 cells touching Ukraine ∪ cells of the observability product (≤50 km into Russia) ∪ Russian\n  cells holding at least one deep RU fire.",
+  "licence": "Contains VIINA data (Zhukov, Yuri. 'VIINA: Violent Incident Information from News Articles on the 2022 Russian Invasion of Ukraine'), ODbL 1.0; derived settlement-control aggregates. Fires: NASA FIRMS VIIRS 375 m.",
+  "publication_unit": "res-5 cell × ISO week (PREREG §7, DESIGN D16)",
+  "report": "panel/panel_report.json"
+}

@@ -1,0 +1,251 @@
+{
+  "constants": {
+    "p75": {
+      "summer_day": 11.2,
+      "summer_night": 1.72,
+      "winter_day": 10.598,
+      "winter_night": 2.025,
+      "pooled_p75": 8.84,
+      "pooled_p90": 16.33
+    },
+    "h13_MW": 16.33
+  },
+  "fires": {
+    "rows_in_panel_weeks": 2371617,
+    "in_ukraine": 657852,
+    "in_russia": 1270089,
+    "elsewhere_dropped_from_side_and_deep": 443676,
+    "side_share_of_ukraine_fires": {
+      "UA": 0.5952,
+      "RU": 0.3958,
+      "CONTESTED": 0.009
+    },
+    "deep_ru_by_year": {
+      "2022": 15906,
+      "2023": 26414,
+      "2024": 31590,
+      "2025": 29448
+    },
+    "deep_ru_by_year_in_ukraine": {
+      "2022": 1557,
+      "2023": 3326,
+      "2024": 6661,
+      "2025": 3933
+    },
+    "deep_ru_by_year_in_russia": {
+      "2022": 14349,
+      "2023": 23088,
+      "2024": 24929,
+      "2025": 25515
+    }
+  },
+  "cells_r5": {
+    "touching_ukraine": 2674,
+    "total": 7908,
+    "added_from_observability_product": 412,
+    "added_russia_deep_fire_cells": 4822
+  },
+  "baseline": {
+    "cells_with_any_baseline_fire": 2628,
+    "iso_weeks": 53,
+    "years_per_week": {
+      "1": 9,
+      "2": 9,
+      "3": 9,
+      "51": 9,
+      "53": 2
+    }
+  },
+  "observability": {
+    "cell_weeks_with_observability": 616504,
+    "cell_weeks_without": 980912
+  },
+  "panel_r5": {
+    "rows": 1597416,
+    "cells": 7908,
+    "weeks": 202,
+    "columns": 61,
+    "c1_cell_weeks": 933144,
+    "e_cell_weeks": 616824
+  },
+  "panel_r6": {
+    "rows": 3601862,
+    "cells": 17831
+  },
+  "front15_cells_per_week_median_by_year": {
+    "2022": 145.0,
+    "2023": 108.0,
+    "2024": 123.0,
+    "2025": 125.0
+  },
+  "front_cells_per_week_median_by_band": {
+    "10": 82.0,
+    "15": 123.0,
+    "25": 202.0
+  },
+  "national_ru_km2": {
+    "2022-02-21": {
+      "week_start": "2022-02-21",
+      "ru_km2": 110919.0,
+      "ru_km2_dsm": 0.0,
+      "ru_km2_isw": 121628.0,
+      "ru_km2_wiki": 124582.0,
+      "contested_km2": 5605.0,
+      "missing_km2_isw": 0.0
+    },
+    "2022-03-21": {
+      "week_start": "2022-03-21",
+      "ru_km2": 160476.0,
+      "ru_km2_dsm": 0.0,
+      "ru_km2_isw": 139254.0,
+      "ru_km2_wiki": 158983.0,
+      "contested_km2": 11877.0,
+      "missing_km2_isw": 0.0
+    },
+    "2022-04-03": {
+      "week_start": "2022-03-28",
+      "ru_km2": 157961.0,
+      "ru_km2_dsm": 106349.0,
+      "ru_km2_isw": 128779.0,
+      "ru_km2_wiki": 158583.0,
+      "contested_km2": 8445.0,
+      "missing_km2_isw": 0.0
+    },
+    "2022-11-30": {
+      "week_start": "2022-11-28",
+      "ru_km2": 108096.0,
+      "ru_km2_dsm": 113477.0,
+      "ru_km2_isw": 107487.0,
+      "ru_km2_wiki": 108576.0,
+      "contested_km2": 350.0,
+      "missing_km2_isw": 0.0
+    },
+    "2024-07-07": {
+      "week_start": "2024-07-01",
+      "ru_km2": 110391.0,
+      "ru_km2_dsm": 114379.0,
+      "ru_km2_isw": 110334.0,
+      "ru_km2_wiki": 112832.0,
+      "contested_km2": 145.0,
+      "missing_km2_isw": 0.0
+    },
+    "2025-12-31": {
+      "week_start": "2025-12-29",
+      "ru_km2": 117286.0,
+      "ru_km2_dsm": 119277.0,
+      "ru_km2_isw": 115303.0,
+      "ru_km2_wiki": 121677.0,
+      "contested_km2": 381.0,
+      "missing_km2_isw": 0.0
+    },
+    "peak": {
+      "week_start": "2022-03-21",
+      "ru_km2": 160476.0
+    }
+  },
+  "economist_check_2022_23": {
+    "weeks_compared": 89,
+    "range": [
+      "2022-02-21",
+      "2023-10-30"
+    ],
+    "corr_levels": 0.8983,
+    "corr_weekly_changes": 0.7947,
+    "median_diff_km2_viina_minus_economist": 3319.0,
+    "mean_abs_diff_km2": 5131.0,
+    "at": {
+      "2022-02-21": {
+        "viina": 110919,
+        "economist": 103964
+      },
+      "2022-03-21": {
+        "viina": 160476,
+        "economist": 129892
+      },
+      "2022-04-18": {
+        "viina": 119867,
+        "economist": 109646
+      },
+      "2022-07-11": {
+        "viina": 124098,
+        "economist": 118624
+      },
+      "2022-11-28": {
+        "viina": 108096,
+        "economist": 104786
+      },
+      "2023-04-17": {
+        "viina": 108951,
+        "economist": 106199
+      },
+      "2023-09-04": {
+        "viina": 109552,
+        "economist": 106305
+      },
+      "2023-10-30": {
+        "viina": 108923,
+        "economist": 106318
+      }
+    }
+  },
+  "fires_per_front15_cell_week_by_phase": {
+    "A": {
+      "cell_weeks": 4880,
+      "fires_mean": 5.08,
+      "fires_median": 0.0,
+      "fires_total": 24779,
+      "share_cell_weeks_zero_fires": 0.5807
+    },
+    "B": {
+      "cell_weeks": 9357,
+      "fires_mean": 5.22,
+      "fires_median": 0.0,
+      "fires_total": 48838,
+      "share_cell_weeks_zero_fires": 0.6453
+    },
+    "E": {
+      "cell_weeks": 9722,
+      "fires_mean": 11.33,
+      "fires_median": 0.0,
+      "fires_total": 110197,
+      "share_cell_weeks_zero_fires": 0.5593
+    },
+    "none": {
+      "cell_weeks": 2055,
+      "fires_mean": 5.26,
+      "fires_median": 0.0,
+      "fires_total": 10804,
+      "share_cell_weeks_zero_fires": 0.7041
+    }
+  },
+  "c1_front15_net": {
+    "cell_weeks": 14237,
+    "share_net_nonzero": 0.1391,
+    "share_net_fwd4_nonzero": 0.2452,
+    "mean_abs_net_fwd_4_km2": 9.926,
+    "share_side": {
+      "RU": 0.5045,
+      "UA": 0.4896,
+      "mixed": 0.0059
+    }
+  },
+  "c1_front15_fire_side_shares": {
+    "fires_big_ua_side": 0.1076,
+    "fires_small_ua_side": 0.3365,
+    "fires_big_ru_side": 0.1337,
+    "fires_small_ru_side": 0.3986,
+    "fires_contested": 0.0134
+  },
+  "all_c1_fires_in_ukraine_by_side": {
+    "UA": 140165,
+    "RU": 121486,
+    "CONTESTED": 991
+  },
+  "missing_status_km2_max_by_source": {
+    "status": 0,
+    "status_dsm": 599094,
+    "status_isw": 599094,
+    "status_wiki": 0
+  },
+  "runtime_s": 141.9
+}
