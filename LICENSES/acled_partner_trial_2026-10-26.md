@@ -10,6 +10,6 @@ Conditions stated in the email (in addition to the 2026-10-23 permission, `acled
 - Violations can suspend access for the whole university.
 
 Rules this project follows as a result:
-- Export the full window 2022-02-24 → 2025-12-31 before 2026-11-23; keep it in `data/raw/acled/` (gitignored).
+- Exported 2026-10-26: Ukraine + Russia, 2022-02-24 → 2025-12-31, 277,536 events, `data/raw/acled/` (gitignored). Sudan, Armenia and Azerbaijan return no results on this account, so the trial appears scoped to Ukraine + Russia.
 - ACLED feeds only descriptive statistics and regressions as an external grading source. It is not used to train or tune any ML model (H2 logit/LightGBM, model v2), and no ACLED rows or notes are sent to an LLM (no Claude/Batch API processing, no pasting rows into a chat). Scripts read the CSV; only aggregate numbers are shown.
 - No ACLED layer on the public site/dashboard, and no ACLED-derived tables in the public repo. ACLED results appear in the paper as transformed aggregate statistics/figures with the attribution line.

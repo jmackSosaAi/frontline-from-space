@@ -1,10 +1,10 @@
 {
- "run_utc": "2026-10-22T22:59:10+00:00",
+ "run_utc": "2026-10-26T22:38:43+00:00",
  "dry_run": false,
- "manifest_before": 6951,
- "added": 79,
- "manifest_after": 7030,
- "already_present": 6829,
+ "manifest_before": 7030,
+ "added": 1,
+ "manifest_after": 7031,
+ "already_present": 6908,
  "mismatches": [
   {
    "part": "post_tag.json",
@@ -12594,6 +12594,10 @@
    27,
    122656258
   ],
+  "V/C1": [
+   6,
+   161943006
+  ],
   "observability": [
    197,
    140341058
@@ -12605,10 +12609,6 @@
   "C1": [
    99,
    435070527
-  ],
-  "V/C1": [
-   5,
-   179444
   ],
   "T2-ext": [
    60,

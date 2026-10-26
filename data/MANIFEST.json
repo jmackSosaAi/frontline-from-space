@@ -83750,5 +83750,15 @@
   "sha256": "b8d3d2c4738bf64694f883fe148362cf74761da2cf56a8611b6f5bee6601c3c8",
   "set": "validation",
   "retrieved_utc": "2026-10-22T16:17:38+00:00"
+ },
+ {
+  "file": "acled/acled_ukraine_russia_2022-02-24_2025-12-31.csv",
+  "url": "browser export: acleddata.com Data Export Tool (Jackson's session); Ukraine+Russia 2022-02-24..latest in tier",
+  "bytes": 161763562,
+  "rows": 277536,
+  "sha256": "43eff1066cf77a38b427e3ba172af3f04b69e9b06710396e37470a42eb1c6cb9",
+  "set": "V/C1",
+  "serves": "H1/H2 V extension; H12/H13 timing checks. Raw data NOT redistributable (ACLED terms).",
+  "retrieved_utc": "2026-10-26T22:38:17+00:00"
  }
 ]
