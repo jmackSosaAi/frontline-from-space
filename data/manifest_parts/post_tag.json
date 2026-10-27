@@ -31702,5 +31702,15 @@
   "set": "V/C1",
   "serves": "H1/H2 V extension; H12/H13 timing checks. Raw data NOT redistributable (ACLED terms).",
   "retrieved_utc": "2026-10-26T22:38:17+00:00"
+ },
+ {
+  "file": "acled/acled_ukraine_russia_popexp_2022-02-24_2026-10-26.csv",
+  "url": "browser export: acleddata.com Data Export Tool (Jackson's session); Ukraine+Russia 2022-02-24..latest in tier",
+  "bytes": 229394292,
+  "rows": 377119,
+  "sha256": "d94e53753821ce010f124996488bf4f28e7cec7ceaf6d972fe40dcfe1403de89",
+  "set": "V/C1",
+  "serves": "H1/H2 V extension; H12/H13 timing checks. Raw data NOT redistributable (ACLED terms).",
+  "retrieved_utc": "2026-10-27T00:51:40+00:00"
  }
 ]

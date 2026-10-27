@@ -1,10 +1,10 @@
 {
- "run_utc": "2026-10-26T22:38:43+00:00",
+ "run_utc": "2026-10-27T00:52:06+00:00",
  "dry_run": false,
- "manifest_before": 7030,
+ "manifest_before": 7031,
  "added": 1,
- "manifest_after": 7031,
- "already_present": 6908,
+ "manifest_after": 7032,
+ "already_present": 6909,
  "mismatches": [
   {
    "part": "post_tag.json",
@@ -18,6 +18,7 @@
   }
  ],
  "unlisted_on_disk": [
+  "acled/acled_methodology_2026-10-26.json",
   "aqlity_frontline_monitoring/hdx_package_show.json",
   "boundaries/cod_ab_ukr/hdx_package_show.json",
   "era5/_resume.log",
@@ -12559,8 +12560,8 @@
  ],
  "by_set": {
   "UNLISTED": [
-   28,
-   220155655
+   29,
+   220489753
   ],
   "E": [
    164,
@@ -12595,8 +12596,8 @@
    122656258
   ],
   "V/C1": [
-   6,
-   161943006
+   7,
+   391337298
   ],
   "observability": [
    197,
