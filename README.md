@@ -4,7 +4,7 @@
 
 Ukraine 2022–2025 is the test case; Nagorno-Karabakh 2020 and Sudan 2023– are out-of-sample checks. The project measures how often FIRMS catches a confirmed strike, models why it misses, corrects the fire series for what the sensor could not see, and only then re-asks whether fires lead territorial change.
 
-Status: pre-registered (`prereg-v1`, 2026-10-22; OSF https://osf.io/3whtz/); confirmatory tests scored; first paper draft in `paper/draft_v1.md`. Ship date: 2026-11-10.
+Status: pre-registered (`prereg-v1`, 2026-10-22; OSF registration https://osf.io/xd2zj/); confirmatory tests scored; first paper draft in `paper/draft_v1.md`. Ship date: 2026-11-10.
 
 ## Results (draft, 2026-10-27)
 

@@ -1,6 +1,6 @@
 # Front line from space: when a free fire satellite is blind to a war, and what it still shows
 
-**Draft v1, 2026-10-27.** Jackson Mackney, University of Chicago (jmackney@uchicago.edu). Pre-registered as `prereg-v1` (git tag, 2026-10-22) and on OSF (https://osf.io/3whtz/). Not peer reviewed.
+**Draft v1, 2026-10-27.** Jackson Mackney, University of Chicago (jmackney@uchicago.edu). Pre-registered as `prereg-v1` (git tag, 2026-10-22) and on OSF (registration https://osf.io/xd2zj/). Not peer reviewed.
 
 > Status of this draft: every number below comes from a file in `data/derived/results/`, `data/derived/telegram/` or `predictions/` (or, for ACLED, a private aggregate in `data/interim/acled/`). Results marked **exploratory** were not in the pre-registration or were built after seeing a confirmatory result. Everything else is **confirmatory** and is scored against the criterion written before the data were opened.
 
@@ -113,7 +113,9 @@ Before downloading the Karabakh and Sudan data, we used the Ukraine model to fil
 
 **Verdict: supported** (criterion: both cases within ±15 pp of the filed prediction). Figures: `figures/h7_transfer.png`, `figures/h7_transfer_predictions.png`.
 
-This pass is weak evidence and should be read that way. The band's floor is zero for both predictions, so the test could only fail from above. The two cases miss in opposite directions. Neither observed value falls inside its filed 90% interval. The pre-registration called Sudan recall "high"; it is 2.9%. The Karabakh prediction was filed at the model's 1 km / 48 h definition but is scored at the PREREG 5 km / ±2 d rule, so that comparison is not like for like; the 1 km row is (DEVIATIONS 2026-10-22). Part of the Sudan gap is mechanical: the prediction assumed three satellites, the T2 data are S-NPP only. And Karabakh is scored on UCDP battle and shelling locations, not the dated settlement captures PREREG named, because no capture list exists on disk (DEVIATIONS 2026-10-27). "Karabakh lower" holds when both cases use the same rule (0% vs 2.9% at 1 km; 12.5% vs 17.6% at 5 km), but not across the primary rules.
+This pass is weak evidence and should be read that way. The band's floor is zero for both predictions, so the test could only fail from above. The two cases miss in opposite directions. Neither observed value falls inside its filed 90% interval. The pre-registration called Sudan recall "high"; it is 2.9%. The Karabakh prediction was filed at the model's 1 km / 48 h definition but is scored at the PREREG 5 km / ±2 d rule, so that comparison is not like for like; at the prediction's own 1 km rule Karabakh caught 0 of 40 (DEVIATIONS 2026-10-22). Part of the Sudan gap is mechanical: the prediction assumed three satellites, the T2 data are S-NPP only. And Karabakh is scored on UCDP battle and shelling locations, not the dated settlement captures PREREG named, because no capture list exists on disk (DEVIATIONS 2026-10-27). We read "Karabakh lower" as a comparison under one common detection rule, the only like-for-like reading, and on that reading it holds (0% vs 2.9% at 1 km; 12.5% vs 17.6% at 5 km).[^karabakh]
+
+[^karabakh]: Across each case's primary rule (Karabakh at 5 km / ±2 d, Sudan at 1 km / ±12 h) Karabakh is higher, 12.5% vs 2.9%. Comparing across rules mixes sensor recall with window size, so we do not use it.
 
 The honest summary: the band passed, the model's calibration did not transfer. What did transfer is the main finding of part 1. In two very different wars, FIRMS sees a small minority of events.
 
@@ -123,7 +125,7 @@ The honest summary: the band passed, the model's calibration did not transfer. W
 
 It shows the same blindness map, built by different people from different sources. Recall rises steadily with the number of clear overpasses on the event day: 0.8%, 1.9%, 2.0% and 4.9% for 0, 1, 2 and 3+ overpasses (all 45,876 V events, train and test: 2.2%, 4.7%, 5.9%, 9.8%). The 3+ vs 0 ratio is 6.2 for ACLED and 4.5 for all V events (5.6 for V-test). In the H1 worst stratum ACLED recall is 0.17%, against 5.9% in the best (all V events: 0.73% vs 12.5%). Winter recall is 1.1% against 4.6% in summer.
 
-**Most raw matches are background fire.** We re-ran the match at the same place with the window shifted 7 days earlier and 7 days later. That placebo hits 2.3% of ACLED events, against 3.0% real recall. On V-test events, the placebo is **3.8%** against H1's 5.0%. Recall clearly beats chance only with 3+ clear overpasses or in the H1 best stratum, at about 1.4–1.5× chance for both sources. With zero clear overpasses, recall falls below the placebo. One likely reason is that the placebo is not matched on opportunity: a cloudy event day sits next to clearer placebo days. This does not change the H1 verdict (H1 had no chance-rate criterion), but it changes how H1 should be read: a match at the same spot on a nearby day (3.8%) is nearly as common as a match on the event day (5.0%), so most of the 5% match rate cannot be credited to the event itself.
+**Most raw matches are background fire (exploratory).** We re-ran the match at the same place with the window shifted 7 days earlier and 7 days later. That placebo hits 2.3% of ACLED events, against 3.0% real recall. On V-test events, the placebo is **3.8%** against H1's 5.0%. Recall clearly beats chance only with 3+ clear overpasses or in the H1 best stratum, at about 1.4–1.5× chance for both sources. With zero clear overpasses, recall falls below the placebo. One likely reason is that the placebo is not matched on opportunity: a cloudy event day sits next to clearer placebo days. This does not change the H1 verdict (H1 had no chance-rate criterion), but it changes how H1 should be read: a match at the same spot on a nearby day (3.8%) is nearly as common as a match on the event day (5.0%), so most of the 5% match rate cannot be credited to the event itself.
 
 Week to week, ACLED event counts and FIRMS counts on front cells barely agree (Pearson on log counts 0.21; 0.14 after removing cell and week means). ACLED records the war's tempo. Fires record that plus season and farming.
 
@@ -186,7 +188,7 @@ H13 used 2024-07 to 2025-12 data, which were not held out, so it was exploratory
 | H5 | Front fires ≥ 3× baseline in 9/12 months | not supported (2/12) | no |
 | H6 | Fires lead gains (raw) | inconclusive | yes |
 | H6b | Fires lead gains (corrected) | equivalence | yes |
-| H7 | Transfer within ±15 pp | supported (weak) | band yes; "Sudan high" no; "Karabakh lower" only under a common rule (4.7) |
+| H7 | Transfer within ±15 pp | supported (weak) | band yes; "Sudan high" no; "Karabakh lower" yes under a common rule (4.7) |
 | H8 | Constellation loss | descriptive | both directions missed |
 | H9 | Lead ≤ 1 week | not supported (peak 8 weeks) | Jackson no |
 | H10 | Fire size × side | not supported | Jackson no |
@@ -249,4 +251,4 @@ H4, H5, H9, H10, H11 and H11s kept their verdicts in every variant that was run 
 - Ke, G. et al. (2017). LightGBM. *NeurIPS*.
 - Uber H3 hierarchical hexagonal grid.
 - Prior FIRMS-in-war work named in §1: Bellingcat (2022); Tomchenko (2023); Dingemanse et al. (2026). [verify full citations]
-- Pre-registration: OSF project https://osf.io/3whtz/; git tag `prereg-v1`.
+- Pre-registration: OSF registration https://osf.io/xd2zj/ (project https://osf.io/3whtz/); git tag `prereg-v1`.
