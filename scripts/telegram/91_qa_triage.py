@@ -85,23 +85,43 @@ def rule_checks(r) -> dict:
     return c
 
 
-def same_incident(a: dict, r) -> bool:
-    return (stem_in(a.get("settlement_raw") or "", str(r.settlement_raw or "")) or
-            stem_in(r.settlement_raw or "", str(a.get("settlement_raw") or ""))) if (a.get("settlement_raw") or r.settlement_raw) else True
+def place_text(d) -> str:
+    return " ".join(str(d.get(k) or "") for k in ("settlement", "raion", "oblast"))
+
+
+def place_match(r, a: dict) -> bool:
+    """The first model's place (settlement, else raion) appears anywhere in the second model's place fields, or back."""
+    mine = r.settlement_raw if pd.notna(r.settlement_raw) and str(r.settlement_raw).strip() else r.raion_raw
+    theirs = a.get("settlement") or a.get("raion")
+    if pd.isna(mine) and not theirs:
+        return True
+    return stem_in(mine, place_text(a)) or stem_in(theirs, " ".join(str(x) for x in (r.settlement_raw, r.raion_raw, r.oblast_raw)))
+
+
+def pair(r, incs: list) -> dict | None:
+    """Second-model incident that corresponds to this row: place match first, else same position if counts agree."""
+    hits = [a for a in incs if place_match(r, a)]
+    if hits:
+        return hits[0]
+    if len(incs) == int(r.n_incidents_in_post) and int(r.incident_idx) < len(incs):
+        return incs[int(r.incident_idx)]
+    return None
 
 
 def model_checks(r, out: dict | None) -> dict:
     if out is None:
         return {f"m2_{f}": None for f in FIELDS} | {"m2_n_incidents_same": None}
     incs = out.get("incidents") or []
-    cand = [a for a in incs if same_incident(a, r)]
-    a = cand[0] if cand else None
+    a = pair(r, incs)
     eq = lambda x, y: (pd.isna(x) and y in (None, "")) or (pd.notna(x) and y is not None and str(x).strip().casefold() == str(y).strip().casefold())
+    num = lambda x: 0 if x is None or pd.isna(x) else int(x)
     return {
-        "m2_place": a is not None,
-        "m2_weapon": a is not None and (eq(r.weapon_raw, a.get("weapon_raw")) or stem_in(r.weapon_raw, str(a.get("weapon_raw") or ""), 4)),
+        "m2_place": a is not None and place_match(r, a),
+        "m2_weapon": a is not None and (eq(r.weapon_raw, a.get("weapon_raw")) or
+                                        (pd.notna(r.weapon_raw) and stem_in(r.weapon_raw, str(a.get("weapon_raw") or ""))) or
+                                        (bool(a.get("weapon_raw")) and stem_in(a.get("weapon_raw"), str(r.weapon_raw)))),
         "m2_target_type": a is not None and eq(r.target_type, a.get("target_type")),
-        "m2_casualties": a is not None and all((0 if pd.isna(getattr(r, k)) else int(getattr(r, k))) == (a.get(k) or 0) for k in ("killed", "wounded")),
+        "m2_casualties": a is not None and all(num(getattr(r, k)) == num(a.get(k)) for k in ("killed", "wounded")),
         "m2_time": a is not None and eq(r.event_date, a.get("event_date")),
         "m2_n_incidents_same": len(incs) == int(r.n_incidents_in_post),
     }
@@ -178,7 +198,7 @@ def main() -> None:
 
     emp = emp.copy()
     if a.run:
-        emp["m2_n"] = [len((out2.get((r.channel, int(r.msg_id))) or {}).get("incidents") or [None])
+        emp["m2_n"] = [len(out2[(r.channel, int(r.msg_id))].get("incidents") or [])
                        if out2.get((r.channel, int(r.msg_id))) is not None else None for r in emp.itertuples()]
         emp["bucket"] = np.where(emp.m2_n == 0, "agree", "iffy")
     else:
