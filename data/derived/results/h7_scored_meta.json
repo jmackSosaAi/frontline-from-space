@@ -1,0 +1,86 @@
+{
+  "output": "data/derived/results/h7_scored.json",
+  "written_utc": "2026-10-28T00:59:42+00:00",
+  "script": "20_score_h7.py",
+  "seed": 20261014,
+  "inputs": {
+    "predictions": {
+      "path": "predictions/transfer_v1.json",
+      "bytes": 10398,
+      "sha256": "9f34799c30d643dff3c4354ba7609f02191149faa3088732f455704210acbb14"
+    },
+    "ucdp_ged": {
+      "path": "data/raw/ucdp/ged261-csv.zip",
+      "bytes": 39122522,
+      "sha256": "8c941d84954e555ee2e54f40fa04d9203bf1e2f962203d0a9930966c4947c667"
+    },
+    "fires_karabakh_2020": {
+      "n_files": 2,
+      "files": [
+        {
+          "path": "data/raw/firms_country_post_tag/viirs-snpp_2020_Azerbaijan.csv",
+          "bytes": 406358,
+          "sha256": "7c75ca8114504a604248d6349ad05ddd6c83c7d967a89c37662d7215f9d9cd11"
+        },
+        {
+          "path": "data/raw/firms_country_post_tag/viirs-snpp_2020_Armenia.csv",
+          "bytes": 55157,
+          "sha256": "b44f615cd363c52e265ab594f8d4fc1799651f37c5dfde28bf8919500ad75e82"
+        }
+      ]
+    },
+    "fires_sudan_2023_2025": {
+      "n_files": 3,
+      "files": [
+        {
+          "path": "data/raw/firms_country_post_tag/viirs-snpp_2023_Sudan.csv",
+          "bytes": 16795236,
+          "sha256": "2d690b8d7bbfc78c98276f9977ba25829e1fbc1a9f16038c14d20daab3518c28"
+        },
+        {
+          "path": "data/raw/firms_country_post_tag/viirs-snpp_2024_Sudan.csv",
+          "bytes": 15729602,
+          "sha256": "b6ff92275c0575cf887a262b173e680ac34b17e3981f29f6d2304194de06eaa3"
+        },
+        {
+          "path": "data/raw/firms_country_post_tag/viirs-snpp_2025_Sudan.csv",
+          "bytes": 22055981,
+          "sha256": "2f355066d92b7fdc04fe3c095505b66031d1a2f4b24923662c130936e36c9698"
+        }
+      ]
+    }
+  },
+  "counts": {
+    "karabakh_2020": {
+      "fires_snpp_nh_in_aoi_window": 1152,
+      "events_precise": 40,
+      "events_loose_incl_precise": 48
+    },
+    "sudan_2023_2025": {
+      "fires_snpp_nh_in_aoi_window": 407858,
+      "events_precise": 680,
+      "events_loose_incl_precise": 1083
+    }
+  },
+  "rules": {
+    "1km_12h": {
+      "r": 1000.0,
+      "buf_h": 12
+    },
+    "5km_2d": {
+      "r": 5000.0,
+      "buf_h": 48
+    }
+  },
+  "primary_rule": {
+    "karabakh_2020": "5km_2d",
+    "sudan_2023_2025": "1km_12h"
+  },
+  "band_pp": 15,
+  "n_boot": 2000,
+  "cluster": "event-day (UCDP date_start)",
+  "projection": "local aeqd centred on AOI",
+  "fires": "VIIRS S-NPP country CSVs, confidence n/h, any type, dedup on lat/lon/time",
+  "events": "UCDP GED 26.1; precise = where_prec 1 & date_prec 1; loose = where_prec<=2 & date_prec<=2; Karabakh = country Azerbaijan|Armenia in AOI/window; Sudan = adm_1 ~ Darfur|Kordofan in AOI/window",
+  "prediction_file": "predictions/transfer_v1.json (tag transfer-v1)"
+}

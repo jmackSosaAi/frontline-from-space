@@ -1,0 +1,415 @@
+{
+  "label": "EXPLORATORY \u2014 not in PREREG; confirmatory H2 (0.737) and verdicts.json unchanged",
+  "spec": "planning/DETECTION_MODEL.md 'Model v2' note (2026-10-22)",
+  "n_train": 31124,
+  "n_test": 14728,
+  "base_rate_test": 0.04976914720260728,
+  "test_metrics": {
+    "v1_logit": {
+      "auc_test": 0.7365813263068519,
+      "auc_ci": [
+        0.7237759486056615,
+        0.7491158873277028
+      ],
+      "logloss_test": 0.18734497960468569,
+      "brier_test": 0.049151719488676214,
+      "calib_max_abs_gap": 0.17803866988156453,
+      "calib_ece": 0.024469155624748894
+    },
+    "v1_lgbm": {
+      "auc_test": 0.727236973641434,
+      "auc_ci": [
+        0.7120566702111604,
+        0.7425134266332427
+      ],
+      "logloss_test": 0.18807012121609354,
+      "brier_test": 0.048200020477099606,
+      "calib_max_abs_gap": 0.11874324118351091,
+      "calib_ece": 0.019146514497612895
+    },
+    "v2_logit": {
+      "auc_test": 0.764893718132621,
+      "auc_ci": [
+        0.7514692876479955,
+        0.7768524890431608
+      ],
+      "logloss_test": 0.18357340307040923,
+      "brier_test": 0.04885925356439962,
+      "calib_max_abs_gap": 0.1569478507236714,
+      "calib_ece": 0.024505980196332232
+    },
+    "v2_lgbm": {
+      "auc_test": 0.7645427839897995,
+      "auc_ci": [
+        0.749827293799976,
+        0.7792559989504267
+      ],
+      "logloss_test": 0.18125858410354181,
+      "brier_test": 0.047437432983908824,
+      "calib_max_abs_gap": 0.12067918626147098,
+      "calib_ece": 0.019540654485367664
+    }
+  },
+  "paired_bootstrap_delta_auc": {
+    "v2_logit_minus_v1_logit": {
+      "delta_auc": 0.028312391825769057,
+      "ci": [
+        0.021468046193728572,
+        0.03395149497475005
+      ],
+      "share_draws_gt0": 1.0
+    },
+    "v2_lgbm_minus_v1_lgbm": {
+      "delta_auc": 0.03730581034836544,
+      "ci": [
+        0.025707701323646907,
+        0.04923516840531638
+      ],
+      "share_draws_gt0": 1.0
+    },
+    "v2_lgbm_minus_v1_logit": {
+      "delta_auc": 0.027961457682947555,
+      "ci": [
+        0.017585351421465195,
+        0.03896894331972884
+      ],
+      "share_draws_gt0": 1.0
+    },
+    "v2_logit_minus_v1_lgbm": {
+      "delta_auc": 0.037656744491186944,
+      "ci": [
+        0.027384550054418002,
+        0.047114692967929854
+      ],
+      "share_draws_gt0": 1.0
+    }
+  },
+  "bootstrap_draws": 1000,
+  "cv": {
+    "scheme": "GroupKFold(5), groups = calendar month, train months only",
+    "ablation": [
+      {
+        "model": "logit",
+        "feature_set": "v1",
+        "cv_auc_mean": 0.7279150502314504,
+        "cv_auc_sd": 0.06135160875912585
+      },
+      {
+        "model": "lgbm_v1params",
+        "feature_set": "v1",
+        "cv_auc_mean": 0.7132220313455306,
+        "cv_auc_sd": 0.06685351998076129
+      },
+      {
+        "model": "logit",
+        "feature_set": "v1+cloud",
+        "cv_auc_mean": 0.7432391002212149,
+        "cv_auc_sd": 0.05603297806710254
+      },
+      {
+        "model": "lgbm_v1params",
+        "feature_set": "v1+cloud",
+        "cv_auc_mean": 0.7352463349069218,
+        "cv_auc_sd": 0.06218038367494086
+      },
+      {
+        "model": "logit",
+        "feature_set": "v1+scan",
+        "cv_auc_mean": 0.7435857746514615,
+        "cv_auc_sd": 0.05712147116385375
+      },
+      {
+        "model": "lgbm_v1params",
+        "feature_set": "v1+scan",
+        "cv_auc_mean": 0.7313387087742879,
+        "cv_auc_sd": 0.061059763498420766
+      },
+      {
+        "model": "logit",
+        "feature_set": "v1+burn",
+        "cv_auc_mean": 0.7421035397826883,
+        "cv_auc_sd": 0.05909871658061465
+      },
+      {
+        "model": "lgbm_v1params",
+        "feature_set": "v1+burn",
+        "cv_auc_mean": 0.756261386276732,
+        "cv_auc_sd": 0.052601576972855446
+      },
+      {
+        "model": "logit",
+        "feature_set": "v1+interactions",
+        "cv_auc_mean": 0.7294666535350732,
+        "cv_auc_sd": 0.06672129294870252
+      },
+      {
+        "model": "lgbm_v1params",
+        "feature_set": "v1+interactions",
+        "cv_auc_mean": 0.7177592705392053,
+        "cv_auc_sd": 0.06696941114427526
+      },
+      {
+        "model": "logit",
+        "feature_set": "v2_all",
+        "cv_auc_mean": 0.7557811252988763,
+        "cv_auc_sd": 0.057022974193049934
+      },
+      {
+        "model": "lgbm_v1params",
+        "feature_set": "v2_all",
+        "cv_auc_mean": 0.7713091539798181,
+        "cv_auc_sd": 0.05160050322485862
+      }
+    ],
+    "lgbm_grid_size": 36,
+    "lgbm_best_params": {
+      "n_estimators": 400,
+      "learning_rate": 0.03,
+      "num_leaves": 7,
+      "min_child_samples": 150,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.9,
+      "reg_lambda": 1.0
+    },
+    "lgbm_best_cv_auc": 0.7767666244400704,
+    "lgbm_v1params_v2feats_cv_auc": 0.7713091539798181
+  },
+  "top_features_lgbm_gain": [
+    {
+      "term": "month",
+      "gain_share": 0.1785600950704022
+    },
+    {
+      "term": "built_500m",
+      "gain_share": 0.1318536955623163
+    },
+    {
+      "term": "eff_clear_looks",
+      "gain_share": 0.12214431127146502
+    },
+    {
+      "term": "p_any_clear_sensor",
+      "gain_share": 0.10416297763886154
+    },
+    {
+      "term": "burnable_500m",
+      "gain_share": 0.0784488910381004
+    },
+    {
+      "term": "min_tcc",
+      "gain_share": 0.07564231097243852
+    },
+    {
+      "term": "frac_best_look",
+      "gain_share": 0.04561699276874185
+    },
+    {
+      "term": "hours_since_prev",
+      "gain_share": 0.04335146186747816
+    },
+    {
+      "term": "exp_clear_sensor",
+      "gain_share": 0.040807524528185576
+    },
+    {
+      "term": "min_p_cloud_direct",
+      "gain_share": 0.038184015077937644
+    },
+    {
+      "term": "frac_mean",
+      "gain_share": 0.029034818934324278
+    },
+    {
+      "term": "frac_min",
+      "gain_share": 0.023431995679496824
+    }
+  ],
+  "top_std_coefs_logit": [
+    {
+      "term": "eff_clear_looks",
+      "coef": 1.1709208595005454,
+      "se": 0.3476043680385903,
+      "p": 0.0007556613650013201
+    },
+    {
+      "term": "x_winter_night",
+      "coef": -0.8049122141799646,
+      "se": 0.4578193215314882,
+      "p": 0.07872304015731153
+    },
+    {
+      "term": "exp_clear_sensor",
+      "coef": -0.6097375811562568,
+      "se": 0.3424210771691875,
+      "p": 0.07496702526556687
+    },
+    {
+      "term": "built_500m",
+      "coef": 0.5845319048124522,
+      "se": 0.08181334931728415,
+      "p": 9.019210463637926e-13
+    },
+    {
+      "term": "min_tcc",
+      "coef": -0.4858611830933673,
+      "se": 0.07261584952144606,
+      "p": 2.2188998608392287e-11
+    },
+    {
+      "term": "any_snow",
+      "coef": -0.32075916635497426,
+      "se": 0.12542451434702243,
+      "p": 0.010546146824862206
+    },
+    {
+      "term": "burnable_500m",
+      "coef": 0.2519291013276173,
+      "se": 0.08523323533529933,
+      "p": 0.003118983402942402
+    },
+    {
+      "term": "x_tcc_snow",
+      "coef": 0.11219228433310355,
+      "se": 0.08801959370318134,
+      "p": 0.2024407584023098
+    },
+    {
+      "term": "best_eff_look",
+      "coef": 0.10950336960063066,
+      "se": 0.07540266285624933,
+      "p": 0.14643264843383239
+    },
+    {
+      "term": "x_clear_snow",
+      "coef": 0.0923360568056293,
+      "se": 0.09077482386621928,
+      "p": 0.30905878872131354
+    },
+    {
+      "term": "frac_min",
+      "coef": 0.07709592037795482,
+      "se": 0.026838722878664366,
+      "p": 0.004071569814697866
+    },
+    {
+      "term": "p_any_clear_sensor",
+      "coef": -0.043955990694255515,
+      "se": 0.0540580905954681,
+      "p": 0.4161463329869377
+    }
+  ],
+  "test_auc_by_stratum": [
+    {
+      "season": "summer",
+      "best_look_night": 0,
+      "n": 1932,
+      "recall": 0.050724637681159424,
+      "auc_v1_logit": 0.6805994480671222,
+      "auc_v1_lgbm": 0.6826358133220574,
+      "auc_v2_logit": 0.7283010259720027,
+      "auc_v2_lgbm": 0.7413120646295596
+    },
+    {
+      "season": "summer",
+      "best_look_night": 1,
+      "n": 4970,
+      "recall": 0.08390342052313883,
+      "auc_v1_logit": 0.6116132352189849,
+      "auc_v1_lgbm": 0.6087790430954161,
+      "auc_v2_logit": 0.6590220904760926,
+      "auc_v2_lgbm": 0.6836012411243857
+    },
+    {
+      "season": "winter",
+      "best_look_night": 0,
+      "n": 2565,
+      "recall": 0.019883040935672516,
+      "auc_v1_logit": 0.8658141856583524,
+      "auc_v1_lgbm": 0.8240090785717629,
+      "auc_v2_logit": 0.8790849673202614,
+      "auc_v2_lgbm": 0.8524810083142247
+    },
+    {
+      "season": "winter",
+      "best_look_night": 1,
+      "n": 5261,
+      "recall": 0.03174301463600076,
+      "auc_v1_logit": 0.7855602105565077,
+      "auc_v1_lgbm": 0.7601569534664475,
+      "auc_v2_logit": 0.7945745728801525,
+      "auc_v2_lgbm": 0.7732032989380485
+    }
+  ],
+  "features": {
+    "v1_numeric": [
+      "min_tcc",
+      "any_snow",
+      "hours_since_prev",
+      "share_night"
+    ],
+    "cloud": [
+      "exp_clear_sensor",
+      "p_any_clear_sensor",
+      "share_firemask_direct"
+    ],
+    "scan": [
+      "frac_min",
+      "frac_mean",
+      "frac_best_look",
+      "eff_clear_looks",
+      "best_eff_look"
+    ],
+    "burn": [
+      "burnable_500m",
+      "built_500m"
+    ],
+    "interactions": [
+      "x_winter_night",
+      "x_tcc_snow",
+      "x_clear_snow"
+    ],
+    "lgbm_only": [
+      "min_p_cloud_direct"
+    ],
+    "categorical": [
+      "landcover_class",
+      "event_type",
+      "month"
+    ]
+  },
+  "feature_build": {
+    "footprints": {
+      "footprints_used": 31782,
+      "dropped_not_4_corners": 0,
+      "share_edges_12_30_along": 1.0
+    },
+    "overpass_rows": 900413,
+    "overpass_rows_no_footprint": 0,
+    "pixel_area_validation": {
+      "fires_sampled": 93926,
+      "fires_matched_to_granule": 93922,
+      "spearman_frac_vs_track": 0.9980434324926895,
+      "spearman_frac_vs_scan": 0.42458583447524934,
+      "rel_area_at_edge_bin": 4.1680908203125
+    },
+    "firemask": {
+      "overpass_rows_in_corridor": 818680,
+      "rows_granule_sampled_in_corridor": 165041,
+      "rows_with_granule_specific_p_cloud": 163575,
+      "pooled_curve_cells": 40
+    },
+    "burnable_nan": 0
+  },
+  "feasibility": {
+    "firemask_cloud": "granule-specific only for sampled granules (2 days/ISO week/satellite) in the 32.5\u201340E/46.3\u201350.5N corridor; elsewhere pooled season \u00d7 day/night \u00d7 tcc-bin calibration from the same sample",
+    "scan_angle": "cross-track ground-distance fraction from 4-corner CMR footprints (no per-pixel geolocation); validated vs FIRMS track",
+    "burnable": "WorldCover 2021 within 500 m of the event point (task said 'of the cell'; the DETECTION_MODEL note says 500 m)",
+    "interactions": "season \u00d7 night and cloud \u00d7 snow"
+  },
+  "model_files": {
+    "v2_logit.pickle": "c79129e84adcffd53e2cbb344eea605b8dc5831cdd3e834ddf47af2e7d6e6393",
+    "v2_lgbm.txt": "bf02a25c9a716b6cca9794132d23fdbc4cfb384c55508068fcf797e4e2a5621a",
+    "v2_spec.json": "7388ffa482578a4cb79daeb55b4575ad73f7d76228402c2b74dc6c6a6bc6dfc1"
+  }
+}

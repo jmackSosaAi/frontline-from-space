@@ -1,0 +1,86 @@
+{
+  "hypothesis": "H7",
+  "label": "confirmatory",
+  "criterion": "per case |observed recall \u2212 filed predicted recall| <= 15 pp; supported iff both cases within band",
+  "verdict": "supported",
+  "karabakh_lower_than_sudan_same_rule": {
+    "1km_12h": true,
+    "5km_2d": true
+  },
+  "karabakh_lower_than_sudan_primary_cross_rule": false,
+  "primary": {
+    "karabakh_2020": {
+      "n_events": 40,
+      "n_event_days": 27,
+      "n_detected": 5,
+      "observed_recall": 0.125,
+      "ci95_lo": 0.02857142857142857,
+      "ci95_hi": 0.225,
+      "predicted_recall": 0.029603219028183195,
+      "pred_int90_lo": 0.022782500329940458,
+      "pred_int90_hi": 0.03894698075947952,
+      "diff_pp": 9.539678097181682,
+      "within_band": true,
+      "ci_inside_band": false,
+      "obs_inside_pred_int90": false,
+      "rule": "5km_2d"
+    },
+    "sudan_2023_2025": {
+      "n_events": 680,
+      "n_event_days": 466,
+      "n_detected": 20,
+      "observed_recall": 0.029411764705882353,
+      "ci95_lo": 0.013155982252141983,
+      "ci95_hi": 0.05067253153012878,
+      "predicted_recall": 0.11290172816561926,
+      "pred_int90_lo": 0.10586708458165514,
+      "pred_int90_hi": 0.12185214897738886,
+      "diff_pp": -8.348996345973692,
+      "within_band": true,
+      "ci_inside_band": true,
+      "obs_inside_pred_int90": false,
+      "rule": "1km_12h"
+    }
+  },
+  "secondary_rule": {
+    "karabakh_2020": {
+      "rule": "1km_12h",
+      "n_events": 40,
+      "n_event_days": 27,
+      "n_detected": 0,
+      "observed_recall": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.0,
+      "predicted_recall": 0.029603219028183195,
+      "pred_int90_lo": 0.022782500329940458,
+      "pred_int90_hi": 0.03894698075947952,
+      "diff_pp": -2.9603219028183196,
+      "within_band": true,
+      "ci_inside_band": true,
+      "obs_inside_pred_int90": false
+    },
+    "sudan_2023_2025": {
+      "rule": "5km_2d",
+      "n_events": 680,
+      "n_event_days": 466,
+      "n_detected": 120,
+      "observed_recall": 0.17647058823529413,
+      "ci95_lo": 0.14175245783165388,
+      "ci95_hi": 0.2147147147147147,
+      "predicted_recall": 0.11290172816561926,
+      "pred_int90_lo": 0.10586708458165514,
+      "pred_int90_hi": 0.12185214897738886,
+      "diff_pp": 6.356886006967486,
+      "within_band": true,
+      "ci_inside_band": true,
+      "obs_inside_pred_int90": false
+    }
+  },
+  "notes": [
+    "Karabakh event set = UCDP GED 26.1 (exact-location, single-day events in the T1 window and AOI), not dated settlement captures (none on disk); DEVIATIONS 2026-10-27.",
+    "Karabakh scored at the PREREG 5 km / \u00b12 day rule while the filed prediction is at the model's 1 km / 48 h definition (DEVIATIONS 2026-10-22); the 1 km row is the like-for-like comparison.",
+    "Sudan prediction assumed S-NPP + NOAA-20 + NOAA-21 overpass cadence; T2 fires on disk are S-NPP only, which should push observed recall below the prediction for cadence reasons alone.",
+    "\u00b115 pp band is wide relative to predictions of 3% and 11%: the band floor is 0 for both cases, so the test can fail only from above.",
+    "CI: cluster bootstrap over event-days, 2,000 draws, percentile 95%."
+  ]
+}

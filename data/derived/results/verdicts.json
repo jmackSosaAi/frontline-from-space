@@ -35,6 +35,19 @@
     "label": "confirmatory",
     "source": "h6_lead.json"
   },
+  "H7": {
+    "hypothesis": "H7",
+    "criterion": "per case |observed recall − filed predicted recall| <= 15 pp; supported iff both cases within band (Karabakh 5 km / ±2 d; Sudan 1 km / ±12 h)",
+    "result": "Karabakh 12.5% (95% CI 2.9–22.5, n=40) vs predicted 3.0% (+9.5 pp, within ±15 pp); Sudan 2.9% (95% CI 1.3–5.1, n=680) vs predicted 11.3% (-8.3 pp, within ±15 pp); Karabakh lower than Sudan under the same rule: True (1 km and 5 km); cross-rule primary comparison: False. Secondary: Karabakh at 1 km/±12 h 0.0%, Sudan at 5 km/±2 d 17.6%",
+    "verdict": "supported",
+    "jackson_prediction": "supported (PREREG: 'within band for Sudan (predicted high recall); Karabakh within band but lower')",
+    "claude_prediction": "supported (PREREG: 'within band for Sudan (predicted high recall); Karabakh within band but lower')",
+    "jackson_right": true,
+    "claude_right": true,
+    "label": "confirmatory",
+    "source": "h7_scored.json",
+    "note": "Karabakh events = UCDP GED (no settlement-capture list on disk; DEVIATIONS 2026-10-27). Band floor is 0 for both cases."
+  },
   "H9": {
     "hypothesis": "H9",
     "criterion": "joint distributed-lead regression: largest positive β at lead 0 or 1 and significant under wild-cluster bootstrap AND Driscoll–Kraay; every β at leads ≥ 2 within ±0.65 (1-week SESOI) under both 90% CIs",

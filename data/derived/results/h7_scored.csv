@@ -1,0 +1,9 @@
+case,rule,event_set,role,n_events,n_event_days,n_detected,observed_recall,ci95_lo,ci95_hi,predicted_recall,pred_int90_lo,pred_int90_hi,diff_pp,within_band,ci_inside_band,obs_inside_pred_int90
+karabakh_2020,1km_12h,precise,secondary_rule,40,27,0,0.00000,0.00000,0.00000,0.02960,0.02278,0.03895,-2.96032,True,True,False
+karabakh_2020,1km_12h,loose,sensitivity_event_precision,48,28,0,0.00000,0.00000,0.00000,0.02960,0.02278,0.03895,-2.96032,True,True,False
+karabakh_2020,5km_2d,precise,primary,40,27,5,0.12500,0.02857,0.22500,0.02960,0.02278,0.03895,9.53968,True,False,False
+karabakh_2020,5km_2d,loose,sensitivity_event_precision,48,28,6,0.12500,0.04255,0.21277,0.02960,0.02278,0.03895,9.53968,True,False,False
+sudan_2023_2025,1km_12h,precise,primary,680,466,20,0.02941,0.01316,0.05067,0.11290,0.10587,0.12185,-8.34900,True,True,False
+sudan_2023_2025,1km_12h,loose,sensitivity_event_precision,1083,603,41,0.03786,0.01668,0.06631,0.11290,0.10587,0.12185,-7.50439,True,True,False
+sudan_2023_2025,5km_2d,precise,secondary_rule,680,466,120,0.17647,0.14175,0.21471,0.11290,0.10587,0.12185,6.35689,True,True,False
+sudan_2023_2025,5km_2d,loose,sensitivity_event_precision,1083,603,223,0.20591,0.16821,0.24935,0.11290,0.10587,0.12185,9.30078,True,True,False

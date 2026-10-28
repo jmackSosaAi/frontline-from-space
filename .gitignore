@@ -15,3 +15,6 @@ data/raw/
 # Telegram login session (full account access)
 *.session
 *.session-journal
+
+# ACLED-derived figures (licence: never public)
+figures/private_acled/
