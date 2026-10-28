@@ -40,10 +40,11 @@ def wilson(k, n, z=1.96):
 
 def load(name):
     """All filled copies of a sheet: ra_impacts.csv, ra_impacts_<initials>.csv, ... -> one row per row_id."""
-    files = sorted(PACKET.glob(f"{name}*.csv"))
+    files = sorted(PACKET.glob(f"{name}*.csv")) + sorted(PACKET.glob(f"{name}*.xlsx"))   # RAs may return either
     if not files:
         return None, []
-    dfs = [pd.read_csv(f, dtype=str).assign(_rater=f.stem) for f in files]
+    dfs = [(pd.read_excel(f, dtype=str) if f.suffix == ".xlsx" else pd.read_csv(f, dtype=str)).assign(_rater=f.stem)
+           for f in files]
     allr = pd.concat(dfs)
     return allr, files
 
