@@ -104,6 +104,9 @@ def main() -> None:
             f = allf.chk_all_found.dropna(); p, lo, hi = wilson(int(f.sum()), len(f))
             rows.append({"sheet": "impacts", "field": "all_strikes_found_in_post", "accuracy": p, "lo95": lo, "hi95": hi,
                          "iffy_checked": len(f)})
+        nomiss = allr[(allr.get("chk_all_found", pd.Series(dtype=str)).map(yn) == False) &
+                      pd.to_numeric(allr.chk_missed_incidents_in_post, errors="coerce").isna()]
+        notes += [f"{r}: answered 'not all found' but gave no count" for r in nomiss.row_id.unique()]
         missed = allr.assign(m=pd.to_numeric(allr.chk_missed_incidents_in_post, errors="coerce")).groupby("row_id").m.max().fillna(0)
         rows.append({"sheet": "impacts", "field": "missed_incidents_per_post", "accuracy": missed.mean(),
                      "lo95": None, "hi95": None})

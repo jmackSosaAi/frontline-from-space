@@ -77,7 +77,7 @@ const HELP = {
   chk_casualties_ok: ["Killed / wounded correct?", "Do the numbers match the post for THIS incident? Blank/0 is correct if the post reports none."],
   chk_time_ok: ["Date / time correct?", "Is the date (and time, if given) when the strike happened, per the post?"],
   chk_all_found: ["Did the AI find every strike in this post?", "\"n_incidents_in_post\" above is how many strikes the AI found in the whole post. Yes if the post reports that many separate strikes, not more."],
-  chk_missed_incidents_in_post: ["If No: how many did it miss? (optional)", "", "number"],
+  chk_missed_incidents_in_post: ["If No: how many strikes did it miss? (required if No)", "Count the separate strikes in the post that are not covered. The row is not finished until this is filled in.", "number"],
   chk_has_incident: ["Does this post report a strike/attack?", "The AI found none. Answer Y if the post does describe at least one strike, shelling or attack with a place."],
   human_ok: ["Category correct?", "Is the post's category (shown above) right?"],
   human_post_type: ["If not, correct category", "Only if you answered N: type the right category.", "text"],
@@ -104,7 +104,11 @@ const editable = () => cols.filter(c => c in HELP);
 const ynCols = () => editable().filter(c => !HELP[c][2]);
 const key = () => "qa:" + fname;
 function store() { try { localStorage.setItem(key(), JSON.stringify({i, rows})); } catch (e) {} }
-function done(r) { return ynCols().every(c => r[c] === "y" || r[c] === "n"); }
+function done(r) {
+  if (!ynCols().every(c => r[c] === "y" || r[c] === "n")) return false;
+  if (r.chk_all_found === "n" && !(parseInt(r.chk_missed_incidents_in_post, 10) >= 1)) return false;  // count required
+  return true;
+}
 function render() {
   const r = rows[i];
   document.getElementById("post").textContent = r.text_en || r.text || "";

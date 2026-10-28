@@ -40,7 +40,7 @@ OPTION 2: SPREADSHEET
 
 1. Open your .xlsx file.
 2. Each row is one item. Read the "text_en" column (the post, in English) and compare it with the AI's columns next to it.
-3. In the yellow columns, pick y or n from the dropdown. Notes go in the note column.
+3. In the yellow columns, pick y or n from the dropdown. If you put n in chk_all_found, type the number of missed strikes in the next column (required). Notes go in the note column.
 4. Save the file and email it back to me with your initials added to the name.
 
 THE QUESTIONS (WHEN TO ANSWER YES)
@@ -51,7 +51,7 @@ Role A (ra_impacts). Each row is ONE strike the AI found. If the post reports se
 - Target type correct? The category fits what was hit: residential (homes, apartments), energy (power, gas, fuel), industrial (factories, businesses), military, transport (roads, rail, ports), agri (farms, grain), other, unknown.
 - Killed / wounded correct? Both match the post for this strike. "none reported" is correct if the post reports nobody hurt.
 - Date / time correct? The date (and time, if shown) is when the strike happened. "Overnight" posts usually mean the night before the post.
-- Did the AI find every strike in this post? "Strikes AI found in this post" shows how many it found in the whole post. Yes if the post reports that many separate strikes and no more. If No, you can optionally type how many it missed.
+- Did the AI find every strike in this post? "Strikes AI found in this post" shows how many it found in the whole post. Yes if the post reports that many separate strikes and no more. If No, you MUST also type how many strikes it missed (a number, 1 or more) in the next box. A row isn't finished without it.
 
 Role B, ra_empty. The AI found NO strike in these posts.
 - Does this post report a strike or attack? Yes if it describes at least one strike, shelling or attack at a named place. No if it's about something else (air-raid alert only, repairs, aid, statements).

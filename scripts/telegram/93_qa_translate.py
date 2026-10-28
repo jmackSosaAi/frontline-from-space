@@ -138,6 +138,12 @@ def main() -> None:
             j = list(df.columns).index(c) + 1
             col = ws.cell(row=1, column=j).column_letter
             dv.add(f"{col}2:{col}{len(df) + 1}")
+        if "chk_missed_incidents_in_post" in df.columns:          # required when chk_all_found = n
+            j = list(df.columns).index("chk_missed_incidents_in_post") + 1
+            col = ws.cell(row=1, column=j).column_letter
+            ws.cell(row=1, column=j).value = "chk_missed_incidents_in_post (REQUIRED if chk_all_found = n)"
+            nv = DataValidation(type="whole", operator="between", formula1="0", formula2="50", allow_blank=True)
+            ws.add_data_validation(nv); nv.add(f"{col}2:{col}{len(df) + 1}")
         ws.freeze_panes = "B2"
         wb.save(PACKET / f"{name}.xlsx")
     write_meta(PACKET / "ra_impacts.csv", inputs={"ra_impacts": PACKET / "ra_impacts.csv"},
