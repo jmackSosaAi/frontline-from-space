@@ -162,6 +162,10 @@ def main() -> None:
                 log(f"second model failed for {k}: {type(e).__name__}"); return k, None
         with ThreadPoolExecutor(a.workers) as ex:
             out2 = dict(ex.map(one, users.items()))
+        n_fail = sum(v is None for v in out2.values())
+        if n_fail > 0.1 * len(out2):                                 # e.g. no API credit: don't write a bogus packet
+            sys.exit(f"second model failed on {n_fail}/{len(out2)} posts; packet NOT written. Fix the API issue and "
+                     f"re-run (successful calls are cached), or use --rules-only.")
 
     rows = []
     for r in imp.itertuples():
