@@ -98,6 +98,11 @@ def main() -> None:
                          "iffy_acc": parts["iffy"][3] if "iffy" in parts else None, "agree_label_trusted": trusted})
             if not trusted:
                 notes.append(f"{c}: audit error upper bound > {MAX_AGREE_ERR:.0%}; check every 'agree' row for this field")
+        allf, _ = combine(allr, ["chk_all_found"]) if "chk_all_found" in allr else (pd.DataFrame(), [])
+        if len(allf) and allf.chk_all_found.notna().any():
+            f = allf.chk_all_found.dropna(); p, lo, hi = wilson(int(f.sum()), len(f))
+            rows.append({"sheet": "impacts", "field": "all_strikes_found_in_post", "accuracy": p, "lo95": lo, "hi95": hi,
+                         "iffy_checked": len(f)})
         missed = allr.assign(m=pd.to_numeric(allr.chk_missed_incidents_in_post, errors="coerce")).groupby("row_id").m.max().fillna(0)
         rows.append({"sheet": "impacts", "field": "missed_incidents_per_post", "accuracy": missed.mean(),
                      "lo95": None, "hi95": None})

@@ -40,6 +40,9 @@ accuracy number must come from people. Machines only decide *where people look*.
 
 ## Running it
 ```
+# after triage, make the packet compare-and-click: English translation of every post (machine, labelled), AI fields in
+# English, yes/no for every question, .xlsx copies with dropdowns
+# .venv/bin/python -I scripts/telegram/93_qa_translate.py   (run right after 91; refuses to run twice)
 .venv/bin/python -I scripts/telegram/91_qa_triage.py --dry-run    # cost + example requests, no network
 .venv/bin/python -I scripts/telegram/91_qa_triage.py --run        # second-model pass (~246 posts) + RA packet
 # give RAs: ra_impacts.csv / ra_empty.csv / ra_typing.csv + tools/qa_checker.html + docs/RA_GUIDE.md

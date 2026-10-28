@@ -47,7 +47,7 @@ kbd { border:1px solid var(--line); border-radius:4px; padding:0 4px; font-size:
   <h2>How to use</h2>
   <ol>
     <li>Type your initials, then choose a sheet: <code>ra_impacts.csv</code>, <code>ra_empty.csv</code> or <code>ra_typing.csv</code>.</li>
-    <li>Read the post on the left (copy it into DeepL or Google Translate, or open it in Telegram). On the right, answer each question.</li>
+    <li>Read the post on the left (already in English). On the right, compare what the AI extracted and answer each question.</li>
     <li>Keys: <kbd>Y</kbd>/<kbd>N</kbd> answer the next unanswered yes/no question, <kbd>→</kbd>/<kbd>←</kbd> move between rows.</li>
     <li>Your answers save in this browser as you go. When done (or before closing), click <b>Save CSV</b> and send the file back.</li>
   </ol>
@@ -56,11 +56,12 @@ kbd { border:1px solid var(--line); border-radius:4px; padding:0 4px; font-size:
 <main id="ui" hidden>
   <section class="card">
     <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
-      <button id="copy">Copy post text</button>
+      <button id="copy">Copy original (Ukrainian)</button>
       <a id="open" class="btn" target="_blank" rel="noopener noreferrer">Open in Telegram</a>
       <span id="rid" class="muted" style="margin-left:auto"></span>
     </div>
     <div id="post" class="post"></div>
+    <details style="margin-top:10px"><summary class="muted">Show Ukrainian original</summary><div id="orig" class="post" style="font-size:14px"></div></details>
   </section>
   <section class="card">
     <h3 style="margin-top:0">What the AI extracted</h3>
@@ -75,13 +76,15 @@ const HELP = {
   chk_target_type_ok: ["Target type correct?", "residential, energy, industrial, military, transport, agri, other, unknown. Is the category right for what was hit?"],
   chk_casualties_ok: ["Killed / wounded correct?", "Do the numbers match the post for THIS incident? Blank/0 is correct if the post reports none."],
   chk_time_ok: ["Date / time correct?", "Is the date (and time, if given) when the strike happened, per the post?"],
-  chk_missed_incidents_in_post: ["Strikes the AI missed in this post", "Count separate strikes in the post that are not in the AI's list for this post (total incidents shown above). 0 if none.", "number"],
+  chk_all_found: ["Did the AI find every strike in this post?", "\"n_incidents_in_post\" above is how many strikes the AI found in the whole post. Yes if the post reports that many separate strikes, not more."],
+  chk_missed_incidents_in_post: ["If No: how many did it miss? (optional)", "", "number"],
   chk_has_incident: ["Does this post report a strike/attack?", "The AI found none. Answer Y if the post does describe at least one strike, shelling or attack with a place."],
   human_ok: ["Category correct?", "Is the post's category (shown above) right?"],
   human_post_type: ["If not, correct category", "Only if you answered N: type the right category.", "text"],
   human_note: ["Note (optional)", "", "note"], chk_note: ["Note (optional)", "Anything odd or uncertain.", "note"],
 };
-const SHOW = ["event_date","event_time","oblast_raw","raion_raw","settlement_raw","location_withheld","weapon_raw","target_type","killed","wounded","is_debris_only","n_incidents_in_post","post_type"];
+const SHOW = ["place_en","weapon_en","target_type","killed","wounded","event_date","event_time","n_incidents_in_post","post_type"];
+const LABEL = {place_en:"Place", weapon_en:"Weapon", target_type:"Target type", killed:"Killed", wounded:"Wounded", event_date:"Date", event_time:"Time", n_incidents_in_post:"Strikes AI found in this post", post_type:"Category"};
 let rows = [], cols = [], i = 0, fname = "";
 function parseCSV(t) {
   const out = []; let row = [], f = "", q = false;
@@ -104,11 +107,12 @@ function store() { try { localStorage.setItem(key(), JSON.stringify({i, rows}));
 function done(r) { return ynCols().every(c => r[c] === "y" || r[c] === "n"); }
 function render() {
   const r = rows[i];
-  document.getElementById("post").textContent = r.text || "";
+  document.getElementById("post").textContent = r.text_en || r.text || "";
+  document.getElementById("orig").textContent = r.text || "";
   document.getElementById("rid").textContent = r.row_id || "";
   const a = document.getElementById("open"); a.href = r.url || "#"; a.hidden = !r.url;
   const kv = document.getElementById("kv"); kv.innerHTML = "";
-  SHOW.filter(c => cols.includes(c)).forEach(c => { kv.insertAdjacentHTML("beforeend", `<b>${c}</b><span></span>`); kv.lastChild.textContent = r[c] === "" ? "—" : r[c]; });
+  SHOW.filter(c => cols.includes(c)).forEach(c => { kv.insertAdjacentHTML("beforeend", `<b>${LABEL[c] || c}</b><span></span>`); kv.lastChild.textContent = r[c] === "" ? "—" : r[c]; });
   const qs = document.getElementById("qs"); qs.innerHTML = "";
   editable().forEach(c => {
     const [lab, help, kind] = HELP[c]; const d = document.createElement("div"); d.className = "q";
