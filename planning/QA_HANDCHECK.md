@@ -54,3 +54,22 @@ accuracy number must come from people. Machines only decide *where people look*.
 RA sheets contain raw public Telegram post text. Share them privately (direct file transfer or a private university
 drive folder), never on a public link, GitHub, OSF or Zenodo; RAs delete their copies when done. `_key.csv` is never
 shared. Only the aggregate `REPORT.md` / `qa_scores.csv` are published.
+
+## First returns (2026-11-03): rater AT (Role B), rater PD (Role A) pending
+Ingested `ra_{empty,typing,impacts}_AT.csv` (complete: 35/35, 100/100, imp-001..020). Raw `92_qa_score.py` output is
+misleading because three questions in the guide did not match the extraction rules (`prompts/impacts_v1.md`):
+- **Date/time** (6/20 "yes"): the packet never shows the post's publication date, and the AI's date comes from it, so
+  the rater answered "no date in the text". Not scoreable by humans as asked; use the rule check (event date within 2
+  days of the post) instead, and tell PD to answer Yes unless the post states a different date or time.
+- **Empty posts** (22/35 "has a strike"): ~20 of the 22 are daily or weekly statistics lists ("341 strikes on 21
+  settlements..."), aftermath, or commemoration posts, which the prompt tells the AI to skip on purpose. The guide asked
+  "a strike at a named place" and did not mention that exclusion. True misses by the prompt's own rule: about 0-2
+  (emp-021, emp-026 lead with a casualty line). Finding for the paper either way: the Telegram layer drops front-line
+  statistics lists by design, so it undercounts shelling of front-line settlements.
+- **Casualties** (15/20): the prompt puts a post-wide casualty total on one incident and leaves the others null, which
+  the packet shows as "none reported"; some "no" answers are that convention, not an error. Check per row against
+  sibling incidents of the same post before scoring.
+Real-looking errors so far: place 2/20, weapon 3/20 (all "several weapons named, none tied to this strike"), missed
+incidents in 3/20 posts. Category (typing) 76/100; disagreements mostly launch vs track vs daily_summary edge cases.
+Plan: adjudicate the three mismatched fields against the prompt rules (Jackson approves the adjudication list), score
+after PD returns, log the guide mismatch in DEVIATIONS.md.
