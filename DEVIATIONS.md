@@ -48,3 +48,11 @@ Written when `scripts/analysis/20_score_h7.py` was built; the event-set and prec
 - **Placebo chance rate (exploratory).** The ±7-day same-place placebo reported next to H1 in the paper is not a PREREG criterion and is not matched on detection opportunity (cloudy event days sit next to clearer placebo days). H1's verdict is unchanged; the placebo is shown as context only.
 - **H12 reading.** The H12 "opposite" answer is reported in the paper with the note already in `verdicts.json`: coefficients are negative at every lead and lag, so it is read as a period-level association, not timing. The criterion and the answer are unchanged.
 - **verdicts.json coverage.** H1, H2, H3 and H8 verdicts live in `h1_recall_meta.json`, `h2_auc.json`, `h3_summary.json` and `h8_summary.json`, not in `verdicts.json`. The paper's scorecard reads them from there; no verdict was changed.
+
+## 2026-11-09: Telegram extraction hand-check, guide wording and an incomplete agree-row check
+
+The Telegram layer is exploratory (2026-10-22 entry). Its extraction was hand-checked by two paid research assistants on a 200-incident stratified sample (`planning/QA_HANDCHECK.md`; scores in `data/derived/telegram/qa/REPORT.md`). Three things differ from the plan fixed on 2026-10-27:
+
+1. **Guide wording did not match the extraction rules for three questions** (date/time, posts with no extracted strike, casualties). The first rater's date/time answers reflect the wording, not the extraction (two-rater agreement 6/20 on that field). Adjudication (2026-11-09, made after seeing both raters' answers): the date/time figure is scored from the second rater only, 98.4%; the conservative two-rater figure, 90.2%, is reported beside it.
+2. **Inter-rater agreement on "every strike in the post found" was 12/20**, below the 85% bar set in advance. The completeness figure (73% of posts) is reported as provisional until the eight disagreements are adjudicated.
+3. **The agree-label audit found errors** in four of five fields (place 1/30, target type 1/30, casualties 3/30, date/time 1/30). The plan requires a human check of every remaining agree row for those fields (35 rows). The packet for that check is built (`scripts/telegram/94_qa_round2.py`) but the check has not been done; the reported accuracies weight the 30 audited rows up to the 65-row bucket instead, and are labelled as such.

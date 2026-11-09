@@ -73,3 +73,33 @@ Real-looking errors so far: place 2/20, weapon 3/20 (all "several weapons named,
 incidents in 3/20 posts. Category (typing) 76/100; disagreements mostly launch vs track vs daily_summary edge cases.
 Plan: adjudicate the three mismatched fields against the prompt rules (Jackson approves the adjudication list), score
 after PD returns, log the guide mismatch in DEVIATIONS.md.
+
+## Second return (2026-11-09): rater PD (Role A), all 165 impact rows
+Received 2026-11-03, ingested and scored 2026-11-09 (`ra_impacts_PD.csv`, complete). Buckets, from `_key.csv`: 135 iffy
+rows (all checked) and 65 agree rows (30 audited, 35 never seen by a person).
+
+| field | combined score (script, "n" from either rater) | PD alone | two-rater agreement on imp-001..020 |
+|---|---|---|---|
+| place | 92.4% | 92.4% | 20/20 |
+| weapon | 94.0% | 94.0% | 19/20 |
+| target type | 96.9% | 97.4% | 19/20 |
+| casualties | 91.2% | 92.8% | 17/20 |
+| date/time | 90.2% | 98.4% | 6/20 |
+| every strike in the post found | 72.1% of rows (73% of 160 posts) | same | 12/20 |
+
+Reading it:
+- All five detail fields clear the 85% paper threshold on either scoring.
+- **Completeness is the weak point.** In 27% of posts the AI missed at least one strike; mean 1.5 missed per post, driven by
+  list-style posts (several misses of 4-5). The paper must say the Telegram layer undercounts strikes in multi-strike posts.
+- Date/time agreement of 6/20 is the guide mismatch logged on 2026-11-03 (AT answered "no date in the text"), not rater
+  noise. Adjudication approved by Jackson 2026-11-09 and applied in `92_qa_score.py` (`EXCLUDE`): date/time is scored
+  from PD only, so the report now shows 98.4%.
+- "Every strike found" agreement is 12/20, below the 85% inter-rater bar. By the rule above the guide wording needs
+  clarifying and the 8 disagreements adjudicated by Jackson before that number is final.
+- Agree-label audit: errors found in place (1/30), target type (1/30), casualties (3/30), date/time (1/30); weapon clean
+  (0/30). By the decision rule the remaining **35 agree rows** need a human check for those four fields. Packet built 2026-11-09 by `94_qa_round2.py`
+  (`data/interim/telegram/qa/ra_packet_round2/ra_impacts_r2.{csv,xlsx}`, rows imp-166..imp-200); not yet sent.
+  (Earlier notes said 140 agree rows; that was the rules-only dry run. After the second-model pass the agree bucket is 65.)
+- The weapon interval prints as 94.0%-94.0% because the iffy bucket was checked in full and the audit was 30/30. That is
+  not zero uncertainty: with 0 errors in 30, agree-bucket accuracy could be as low as about 88.6% (Wilson), which puts
+  the whole-sample figure between about 90.3% and 94.0%. Report that range.

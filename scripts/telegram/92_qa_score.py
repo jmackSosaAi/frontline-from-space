@@ -23,6 +23,9 @@ from _common import INTERIM, DERIVED, write_meta, log
 PACKET = INTERIM / "qa" / "ra_packet"
 OUT = DERIVED / "qa"
 FIELDS = ["chk_place_ok", "chk_weapon_ok", "chk_target_type_ok", "chk_casualties_ok", "chk_time_ok"]
+# Adjudication (DEVIATIONS 2026-11-09): the guide's date/time question did not match the extraction rule for the first
+# rater (the packet never showed the post date), so that rater's date/time answers are not scored.
+EXCLUDE = {"chk_time_ok": ("ra_impacts_AT",)}
 MAX_AGREE_ERR = 0.12   # 30/30 clean audit rows -> upper bound 11.4%; one error -> ~17% (fails)
 
 
@@ -55,7 +58,7 @@ def combine(allr, cols):
     for rid, g in allr.groupby("row_id"):
         rec = {"row_id": rid}
         for c in cols:
-            vals = [yn(v) for v in g[c] if yn(v) is not None]
+            vals = [yn(v) for v, r in zip(g[c], g["_rater"]) if yn(v) is not None and r not in EXCLUDE.get(c, ())]
             rec[c] = None if not vals else all(vals)
             if len(set(vals)) > 1:
                 dis.append((rid, c))

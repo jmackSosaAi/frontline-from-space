@@ -1,0 +1,44 @@
+{
+  "output": "data/derived/telegram/qa/qa_scores.csv",
+  "written_utc": "2026-11-09T07:31:32+00:00",
+  "script": "92_qa_score.py",
+  "inputs": {
+    "_key.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/_key.csv",
+      "sha256": "eefa8474c0461039dbe5cbe3e3310f8091771eccf7311e0c561de0ccf71f6ece"
+    },
+    "ra_empty.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_empty.csv",
+      "sha256": "83947668d23ce0c608dd5ea53201b18df5ff39d8145ee0ee7bfd5f6a6dcc85f0"
+    },
+    "ra_empty_AT.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_empty_AT.csv",
+      "sha256": "416d7eac5b09ef30359f86ca9934472165c7baf3878666805804d68ad81109a8"
+    },
+    "ra_impacts.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_impacts.csv",
+      "sha256": "1e8c8c24287f0f149f0e94e8fee01e0e3ebd247af8c83135dc04bc36ef6e2bbe"
+    },
+    "ra_impacts_AT.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_impacts_AT.csv",
+      "sha256": "be3be74e588a9a493b7d17c796ff51279bd5597fa590a450d3ab1f1e11728490"
+    },
+    "ra_impacts_PD.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_impacts_PD.csv",
+      "sha256": "bd52e5161de43f568bcd2e758e10bcb09df83860f822eb85967eac889885d022"
+    },
+    "ra_typing.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_typing.csv",
+      "sha256": "663bb92927283dfca63fbfff6ff3ec630f766f643d8f43f236bf571bc2b8bbd6"
+    },
+    "ra_typing_AT.csv": {
+      "path": "data/interim/telegram/qa/ra_packet/ra_typing_AT.csv",
+      "sha256": "1ca4fd56dd5e279a8301916010ddf9e1da25f15f7ef49d1e6c776a83bd07403e"
+    }
+  },
+  "prompt_version": null,
+  "counts": {
+    "rows": 9,
+    "notes": 9
+  }
+}
