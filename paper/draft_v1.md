@@ -1,12 +1,12 @@
 # Front line from space: when a free fire satellite is blind to a war, and what it still shows
 
-**Draft v1, 2026-10-27.** Jackson Mackney, University of Chicago (jmackney@uchicago.edu). Pre-registered as `prereg-v1` (git tag, 2026-10-22) and on OSF (registration https://osf.io/xd2zj/). Not peer reviewed.
+**Draft v1, 2026-10-27, revised 2026-11-09.** Jackson Mackney, University of Chicago (jmackney@uchicago.edu). Pre-registered as `prereg-v1` (git tag, 2026-10-22) and on OSF (registration https://osf.io/xd2zj/). Not peer reviewed.
 
-> Status of this draft: every number below comes from a file in `data/derived/results/`, `data/derived/telegram/` or `predictions/` (or, for ACLED, a private aggregate in `data/interim/acled/`). Results marked **exploratory** were not in the pre-registration or were built after seeing a confirmatory result. Everything else is **confirmatory** and is scored against the criterion written before the data were opened.
+> Status of this draft: every number below comes from a file in `data/derived/results/`, `data/derived/telegram/` or `predictions/` (or, for ACLED, a private aggregate in `data/interim/acled/`; the V-set placebo is in `data/derived/results/v_placebo.csv`). Results marked **exploratory** were not in the pre-registration or were built after seeing a confirmatory result. Everything else is **confirmatory** and is scored against the criterion written before the data were opened.
 
 ## Abstract
 
-Analysts and journalists use NASA's free FIRMS fire feed (VIIRS, 375 m) as a witness to the war in Ukraine. Nobody had measured how often it misses. We pre-registered 14 hypotheses and scored them against 45,876 geolocated strike and battle events, a weekly settlement-control panel, and two wars it was never fit on. FIRMS caught 5.0% of held-out confirmed events. Under clear night skies in summer it caught 7.4%. On cloudy or snowy winter days it caught 0.06%. A pre-registered detection model reached AUC 0.737, short of the 0.75 we set. Two satellites passing 30–70 minutes apart under clear sky agreed on 54% of fires. Russia's territorial gains did not cluster in the weeks the sensor was blind (22%, against the 30% we predicted). What the fire record still says is mostly no. Front fires are elevated (2.1× the pre-war same-week baseline) but not 3×. Fires do not lead Russian gains at a size that matters: with raw fires the test is inconclusive, and after correcting for what the sensor could see, the 90% interval sits inside the smallest effect we pre-registered as meaningful (equivalence). An exploratory ±7-day placebo matches 3.8% of events at the same place on other days, against 5.0% on the event day, so most of the raw match rate is background fire. FIRMS is a real but thin witness. Read its zeros as "could not see" before "nothing happened."
+Analysts and journalists use NASA's free FIRMS fire feed (VIIRS, 375 m) as a witness to the war in Ukraine. We found no published measure of how often it misses. We pre-registered 14 hypotheses and scored them against 45,876 geolocated strike and battle events, a weekly settlement-control panel, and two wars it was never fit on. FIRMS caught 5.0% of held-out confirmed events. Under clear night skies in summer it caught 7.4%. On cloudy or snowy winter days it caught 0.06%. A pre-registered detection model reached AUC 0.737, short of the 0.75 we set. Two satellites passing 30–70 minutes apart under clear sky agreed on 54% of fires. Russia's territorial gains did not cluster in the quarter of front cell-weeks where the sensor had the fewest clear looks (22%, against the 30% we predicted). What the fire record still says is mostly no. Front fires are elevated (2.1× the pre-war same-week baseline) but not 3×. We found no clear sign that fires lead Russian gains at a size that matters: with raw fires the test is inconclusive (a meaningful effect is not ruled out), and after correcting for what the sensor could see, the 90% interval sits inside the smallest effect we pre-registered as meaningful (equivalence). Secondary tests turned up fire terms nobody predicted (an 8-week lead, small fires on the Ukrainian-held side), which we do not interpret. An exploratory ±7-day placebo matches 3.8% of events at the same place on other days, against 5.0% on the event day, so most of the raw match rate is background fire. FIRMS is a real but thin witness. Read its zeros as "could not see" before "nothing happened."
 
 ## 1. The question
 
@@ -42,13 +42,13 @@ Two more event sources are used only as exploratory graders: public Telegram pos
 
 **Pre-registration.** `PREREG.md` was signed on 2026-10-22, tagged `prereg-v1` and registered on OSF before any C1, T1 or T2 data were downloaded. It fixes the grid, the front definition, the matching rule, the smallest effect size of interest (SESOI) and a prediction for every hypothesis. Every change after the tag is dated in `DEVIATIONS.md`. Every figure caption says whether it is confirmatory or exploratory.
 
-**Holdouts.** Three sets were untouched at the tag: C1 (the Ukraine panel), T1 (Karabakh) and T2 (Sudan). The V events were split by calendar month into train and test months with a seeded draw. The detection model was fit on train months and scored once on test months.
+**Holdouts.** Three sets were untouched at the tag: C1 (the Ukraine panel), T1 (Karabakh) and T2 (Sudan). One exception is disclosed in PREREG §2: a snapshot of The Economist war-fire files, which cover C1 dates, was on disk from 2026-10-14 and was not opened before the tag. The V events were split by calendar month into train and test months with a seeded draw. The detection model was fit on train months and scored once on test months.
 
 **Matching rule.** An event counts as detected if at least one VIIRS fire lies within 1 km and was acquired between 12 hours before the event date starts and 12 hours after it ends (a 48-hour window, because the events are dated to the day, not the hour). The H7 Karabakh rule, written in PREREG, is looser: 5 km and ±2 days.
 
 **Detection opportunity.** For each H3 cell and day: the number of overpasses whose swath covers the cell, with ERA5 cloud cover below 0.5 at the overpass hour and snow depth below 1 cm. Summed to cell-week for the panel.
 
-**Panel.** H3 resolution-5 cells (~250 km²) by ISO week. Front cells have a centroid within 15 km of the weekly line between Russian- and Ukrainian-held settlement polygons (10 and 25 km as robustness). The outcome is net km² that changed from Ukrainian to Russian control. The lead–lag specification (H6) regresses net gain over t+1..t+4 on log(1+fires) at t, four lags of the outcome and detection opportunity, with cell and week fixed effects. Inference uses both a wild-cluster bootstrap by cell (Webb weights, 9,999 draws) and Driscoll–Kraay standard errors (lag 4); "significant" means p < 0.05 under both. The SESOI is 1.70 km² per log-unit of fire, half the mean absolute 4-week change in front cells in 2025, fixed before C1 was opened. H6b swaps raw fires for a corrected index: raw fires divided by the modelled probability of detection, with model uncertainty propagated.
+**Panel.** H3 resolution-5 cells (~250 km²) by ISO week. Front cells have a centroid within 15 km of the weekly line between Russian- and Ukrainian-held settlement polygons (10 and 25 km as robustness). The outcome is net km² that changed from Ukrainian to Russian control. The lead–lag specification (H6) regresses net gain over t+1..t+4 on log(1+fires) at t, four lags of the outcome and detection opportunity, with cell and week fixed effects. Inference uses both a wild-cluster bootstrap by cell (Webb weights, 9,999 draws) and Driscoll–Kraay standard errors (lag 4); "significant" means p < 0.05 under both. The SESOI is 1.70 km² per log-unit of fire, half the mean absolute 4-week change in front cells in 2025, fixed before C1 was opened. H6b swaps raw fires for a corrected index: raw fires divided by the modelled probability of detection, with model uncertainty propagated. The probability is clipped at 0.02 from below, and half of C1 front cell-weeks (49.8%) sit at that clip.
 
 ## 4. Results, part 1: the blindness map
 
@@ -58,7 +58,7 @@ FIRMS caught **5.0%** of V-test events (95% CI 4.7–5.4; n = 14,736). In the be
 
 **Verdict: supported** (criterion: overall recall < 50% and best ≥ 3× worst). Figure: `figures/h1_recall_strata.png`, `figures/h1_recall_event_type.png`.
 
-Most confirmed strikes are small, short, or not fires at all. A 375 m sensor that passes a few times a day was never going to see most of them. The point is the gradient. In a Ukrainian winter the sensor is effectively off.
+Most confirmed strikes are small, short, or not fires at all. A 375 m sensor that passes a few times a day was never going to see most of them. The point is the gradient, though part of it is the season of background fire and not the sensor: a same-place placebo matches almost as often as the event day (§4.8). In a Ukrainian winter the sensor is effectively off.
 
 ### 4.2 Can you predict when it misses? (H2, confirmatory)
 
@@ -74,7 +74,7 @@ For S-NPP detections with a NOAA-20 pass over the same cell 30–70 minutes away
 
 **Verdict: supported** (criterion: 40–70%). Figure: `figures/h3_concordance.png`.
 
-This needs no ground truth. Two near-identical sensors looking at the same ground within an hour, with a clear sky, agree only about half the time. Single detections are noisy. A single zero means very little.
+This needs no ground truth. Two near-identical sensors looking at the same ground within an hour, with a clear sky, agree only about half the time. Some of that is real change in the fire between passes and different viewing angles, not sensor error, but either way a single detection is a noisy reading. A single zero means very little.
 
 ### 4.4 The sensor's floor moves with the season (H14, confirmatory)
 
@@ -82,11 +82,11 @@ On pre-war Ukraine fires (2012–2021), the 5th-percentile fire radiative power 
 
 **Verdict: supported** (criterion: ratio ≥ 1.5). Figure: `figures/h14_frp_floor.png`.
 
-Hot summer ground hides small fires by day. So the summer-day fire record is a record of big fires only. That is why the big/small cutoff in H10 is set separately for each season and day/night.
+Hot summer ground hides small fires by day. So the summer-day fire record under-counts small fires. Part of this floor is our own filter: dropping low-confidence detections removes mostly daytime pixels. That is why the big/small cutoff in H10 is set separately for each season and day/night.
 
 ### 4.5 Losing a satellite (H8, confirmatory, descriptive)
 
-S-NPP is expected to stop in early November 2026. With S-NPP removed from both fires and overpasses, V-test recall fell from 5.0% to **4.3%** (−0.69 pp, CI −0.92 to −0.48; a 14% relative drop). In November–February it fell from 0.52% to 0.43%. A blind week here is one where the median day has no clear overpass at all, since the pre-registered 25th-percentile threshold is zero (DEVIATIONS 2026-10-22). Without S-NPP, north-east cells gain **1.1** blind weeks a year on average (20.8 → 21.9), and 2.3 weeks in 2022.
+S-NPP science-data delivery was scheduled to end on 2 November 2026 (NASA Earthdata alert, updated 5 October 2026). With S-NPP removed from both fires and overpasses, V-test recall fell from 5.0% to **4.3%** (−0.69 pp, CI −0.92 to −0.48; a 14% relative drop). In November–February it fell from 0.52% to 0.43%. A blind week here is one where the median day has no clear overpass at all, since the pre-registered 25th-percentile threshold is zero (DEVIATIONS 2026-10-22). Without S-NPP, north-east cells gain **1.1** blind weeks a year on average (20.8 → 21.9), and 2.3 weeks in 2022.
 
 H8 had no success criterion. Both directional predictions missed: the winter recall drop is far below the predicted 10–25 pp, because winter recall was already near zero, and the north-east blind season grew by less than the predicted 2 weeks on average. Figures: `figures/h8_recall_noSNPP.png`, `figures/h8_blind_season.png`.
 
@@ -94,11 +94,11 @@ Ukraine is blind for about 21 weeks a year with the full constellation.
 
 ### 4.6 Did Russia gain ground while the sensor was blind? (H4, confirmatory)
 
-The validation gate passed: more detection opportunity means more fires recorded (β = 0.0037 per unit, p < 0.001 under both methods). Then: **21.8%** of the 29,911 km² Russia gained in C1 front cells fell in the bottom quartile of detection opportunity (95% CI 17.6–26.2). Those cell-weeks are 25.0% of all front cell-weeks, so gains fell there at about their share of time.
+The validation gate passed: more detection opportunity means more fires recorded (β = 0.0037 per unit, p < 0.001 under both methods). Then: **21.8%** of the 29,911 km² of gross Russian gain in C1 front cells fell in the bottom quartile of detection opportunity (95% CI 17.6–26.2). The 29,911 km² sums cell-weeks with a gain; losses summed the same way total 35,245 km², so it is not net territorial change. Those cell-weeks are 25.0% of all front cell-weeks, so gains fell there at about their share of time.
 
 **Verdict: not supported** (criterion: CI excludes 30% from below). Single-source control columns give 12.8% (DeepState via VIINA), 17.7% (ISW via VIINA) and 25.5% (Wikipedia via VIINA). Figure: `figures/h4_blindspot.png`.
 
-Russia did not gain disproportionately while the satellite could not see. The blind spot is real, but gains did not concentrate in it, at least at this resolution.
+Russia did not gain disproportionately where the satellite had the fewest clear looks. Low-visibility cell-weeks are real, but gains did not concentrate in them, at least at this resolution.
 
 ### 4.7 Blindness outside Ukraine (H7, confirmatory)
 
@@ -113,7 +113,7 @@ Before downloading the Karabakh and Sudan data, we used the Ukraine model to fil
 
 **Verdict: supported** (criterion: both cases within ±15 pp of the filed prediction). Figures: `figures/h7_transfer.png`, `figures/h7_transfer_predictions.png`.
 
-This pass is weak evidence and should be read that way. The band's floor is zero for both predictions, so the test could only fail from above. The two cases miss in opposite directions. Neither observed value falls inside its filed 90% interval. The pre-registration called Sudan recall "high"; it is 2.9%. The Karabakh prediction was filed at the model's 1 km / 48 h definition but is scored at the PREREG 5 km / ±2 d rule, so that comparison is not like for like; at the prediction's own 1 km rule Karabakh caught 0 of 40 (DEVIATIONS 2026-10-22). Part of the Sudan gap is mechanical: the prediction assumed three satellites, the T2 data are S-NPP only. And Karabakh is scored on UCDP battle and shelling locations, not the dated settlement captures PREREG named, because no capture list exists on disk (DEVIATIONS 2026-10-27). We read "Karabakh lower" as a comparison under one common detection rule, the only like-for-like reading, and on that reading it holds (0% vs 2.9% at 1 km; 12.5% vs 17.6% at 5 km).[^karabakh]
+This pass is weak evidence and should be read that way. The band's floor is zero for both predictions, so the test could only fail from above. The two cases miss in opposite directions. Neither observed value falls inside its filed 90% interval. The pre-registration called Sudan recall "high"; it is 2.9%. The Karabakh prediction was filed at the model's 1 km / 48 h definition but is scored at the PREREG 5 km / ±2 d rule, so that comparison is not like for like; at the prediction's own 1 km rule Karabakh caught 0 of 40 (DEVIATIONS 2026-10-22). Part of the Sudan gap is mechanical: the prediction assumed three satellites, the T2 data are S-NPP only. And Karabakh is scored on UCDP battle and shelling locations, not the dated settlement captures PREREG named, because no capture list exists on disk (DEVIATIONS 2026-10-27). We read "Karabakh lower" as a comparison under one common detection rule, the only like-for-like reading. That reading was written down at scoring time with the results in view, not in PREREG. On it, the prediction holds (0% vs 2.9% at 1 km; 12.5% vs 17.6% at 5 km).[^karabakh]
 
 [^karabakh]: Across each case's primary rule (Karabakh at 5 km / ±2 d, Sudan at 1 km / ±12 h) Karabakh is higher, 12.5% vs 2.9%. Comparing across rules mixes sensor recall with window size, so we do not use it.
 
@@ -131,9 +131,9 @@ Week to week, ACLED event counts and FIRMS counts on front cells barely agree (P
 
 Source: Armed Conflict Location & Event Data (ACLED); acleddata.com, accessed 2026-10-26. Only aggregate numbers are reported; no ACLED-derived file is published.
 
-**Telegram.** Of 18,404 geocoded strikes reported by Ukrainian regional administrations and monitoring channels, FIRMS matched **1.26%** within 1 km / ±12 h, against a placebo of 0.65% (`data/derived/telegram/firms_match_cellweek_meta.json`). Most of these reports are of residential targets (9,009 of 18,404), and the largest classified weapon type is Shahed-type drones (4,206; 8,642 are unclassified). The sensor almost never sees them.
+**Telegram.** Of 18,404 geocoded strikes reported by Ukrainian regional administrations and monitoring channels, FIRMS matched **1.26%** within 1 km and a window from 1 hour before to 12 hours after the reported time (the whole Kyiv day for the 4,455 reports with a date only), against 0.65% for the same place and window 7 days earlier (`data/derived/telegram/firms_match_cellweek_meta.json`). This window is shorter than H1's 48 hours, so the rate should not be compared with H1's 5.0%. Most of these reports are of residential targets (9,009 of 18,404), and the largest classified weapon type is Shahed-type drones (4,206; 8,642 are unclassified). Few of them match a fire, but the test is weak: the reports are placed at a settlement or district centre, often kilometres from the hit, so a 1 km miss mixes sensor misses with geocoding error (3,983 are placed only to a district or a municipal seat). At 3 km the match is 5.5% against a 4.0% placebo.
 
-*How far to trust the extraction.* The strikes were pulled from post text by a language model, so two paid research assistants hand-checked a stratified sample of 200 extracted strikes (method and decision rules fixed beforehand in `planning/QA_HANDCHECK.md`; scores in `data/derived/telegram/qa/REPORT.md`; DEVIATIONS 2026-11-09). Weighted to the sample, the model had the place right in **92%** of strikes, the weapon in 94% (about 90–94% allowing for the audit size), the target type in 97% and the casualty count in 91%; all clear the 85% threshold set in advance. The date was right in 98%, scored from the one rater whose instructions matched the extraction rule (90% if the other rater's answers on 20 shared rows are counted; that choice was made after seeing the answers). Completeness is weaker: in **27% of 160 posts** the model missed at least one strike (1.5 missed per post on average, concentrated in list-style posts), and the two raters agreed on that question in only 12 of 20 shared rows, so the figure is provisional. Posts where the model extracted nothing were mostly daily statistics lists, which the extraction prompt skips by design. The Telegram strike count is therefore a floor, most clearly for heavily shelled front-line settlements, and the 1.26% match rate describes the strikes the model extracted, not every strike the channels reported. Thirty-five machine-cleared rows have not yet been checked by a person.
+*How far to trust the extraction.* The strikes were pulled from post text by a language model, so two paid research assistants hand-checked 165 of a stratified sample of 200 extracted strikes (one rater on all 165, both on the same 20) (method and decision rules fixed beforehand in `planning/QA_HANDCHECK.md`; scores in `data/derived/telegram/qa/REPORT.md`; DEVIATIONS 2026-11-09). Weighted to the sample, the model had the place right in **92%** of strikes, the weapon in 94% (about 90–94% allowing for the audit size), the target type in 97% and the casualty count in 91%; all clear the 85% threshold set in advance, but they are provisional: the audit found errors in four of the five fields, and the follow-up check of 35 machine-cleared rows that the plan requires in that case is not done. The date could not be fully checked by hand, because the packet did not show the post's publication date, which is where the model's date comes from. Counting both raters it was right in 90%; counting only the rater whose answers did not reflect that gap, 98% (that choice was made after seeing the answers). Completeness is weaker: in **27% of 160 posts** the model missed at least one strike (1.5 missed per post on average, concentrated in list-style posts), and the two raters agreed on that question in only 12 of 20 shared rows, so the figure is provisional. In posts where the model extracted nothing, one rater marked 22 of 35 (63%) as containing a strike. On our own reading about 20 of those 22 are daily statistics lists, aftermath or commemoration posts, which the extraction prompt skips by design, but that reading has not been checked by a second person. The Telegram strike count is therefore a floor, most clearly for heavily shelled front-line settlements, and the 1.26% match rate describes the strikes the model extracted, not every strike the channels reported. Thirty-five machine-cleared rows have not yet been checked by a person.
 
 ## 5. Results, part 2: what the fire record still reveals
 
@@ -151,7 +151,7 @@ With raw fires, β = **0.98** km² per log-unit (90% CI 0.13–1.82 under CRV1; 
 
 With the corrected index, β = **0.13** (90% CI −0.29–0.55, including model uncertainty). **H6b: equivalence.** The effect is inside ±SESOI.
 
-Prediction ("equivalence or inconclusive for both"): correct. The category changed between H6 and H6b, which PREREG flagged as a headline result. Once you account for when the sensor could see, the small raw association between fires and next month's Russian gains shrinks toward zero, which suggests some of the raw signal was the sensor's visibility, not the war. Two cautions: the two β are on different regressors (log raw fires vs log corrected index), so their sizes are not directly comparable; and the raw-fire category is itself fragile, since H6 reaches equivalence in four robustness variants (§6). Figure: `figures/h6_lead.png`.
+Prediction ("equivalence or inconclusive for both"): correct. The category changed between H6 and H6b, which PREREG flagged as a headline result. Once you account for when the sensor could see, the small raw association between fires and next month's Russian gains shrinks toward zero, which is consistent with some of the raw signal being the sensor's visibility, not the war, but does not show it. Two cautions: the two β are on different regressors (log raw fires vs log corrected index, with the detection probability clipped at 0.02 in half of cell-weeks), so their sizes are not directly comparable; and the raw-fire category is itself fragile, since H6 reaches equivalence in four robustness variants (§6). Figure: `figures/h6_lead.png`.
 
 ### 5.3 Lead time (H9, confirmatory)
 
@@ -186,11 +186,11 @@ H13 used 2024-07 to 2025-12 data, which were not held out, so it was exploratory
 | H1 | Recall < 50%, best ≥ 3× worst | supported | yes |
 | H2 | Detection model AUC ≥ 0.75 | not supported (0.737) | no |
 | H3 | Paired looks agree 40–70% | supported (53.6%) | yes |
-| H4 | ≥ 30% of gains in blind weeks | not supported (21.8%) | no |
+| H4 | ≥ 30% of gains in lowest-opportunity quartile | not supported (21.8%) | no |
 | H5 | Front fires ≥ 3× baseline in 9/12 months | not supported (2/12) | no |
 | H6 | Fires lead gains (raw) | inconclusive | yes |
 | H6b | Fires lead gains (corrected) | equivalence | yes |
-| H7 | Transfer within ±15 pp | supported (weak) | band yes; "Sudan high" no; "Karabakh lower" yes under a common rule (4.7) |
+| H7 | Transfer within ±15 pp | supported (weak) | band yes; "Sudan high" no; "Karabakh lower" no under the pre-registered rules, yes under a common rule chosen at scoring (4.7) |
 | H8 | Constellation loss | descriptive | both directions missed |
 | H9 | Lead ≤ 1 week | not supported (peak 8 weeks) | Jackson no |
 | H10 | Fire size × side | not supported | Jackson no |
@@ -203,7 +203,7 @@ Source: `data/derived/results/verdicts.json` plus the H1–H3 and H8 summaries.
 
 ## 6. Robustness
 
-The pre-registered list (front band 10/25 km, rear-strip reference, night-only fires, drop-one-oblast jackknife, single-source control columns, reverse direction and lead-2 placebo) ran 135 rows. Seven rows are flagged as flips: six variants that changed a verdict plus the jackknife summary row (`data/derived/results/robustness_summary.json`):
+The pre-registered list (front band 10/25 km, rear-strip reference, night-only fires, drop-one-oblast jackknife, single-source control columns, reverse direction and lead-2 placebo) produced a table of 135 rows: 120 with a verdict, 6 res-6 rows that were not run, 8 marking variants that could not be built or do not apply, and 1 sanity check. Seven rows are flagged as flips: six variants that changed a verdict plus the jackknife summary row (`data/derived/results/robustness_summary.json`):
 - H6 moves from inconclusive to equivalence with a 10 km band, when dropping either of two oblasts, or with DeepState-only control. It never moves toward "supported."
 - H12 moves from "opposite" to inconclusive with night-only fires or DeepState-only control.
 
@@ -216,7 +216,7 @@ H4, H5, H9, H10, H11 and H11s kept their verdicts in every variant that was run 
 - **Chance rate not pre-registered.** The ±7-day placebo came after H1 and is not matched on opportunity.
 - **Control data.** VIINA is settlement-level and majority-vote across sources. It is coarse at the edge of the line.
 - **Small samples where it matters.** Karabakh has 40 events; Kyiv has 29 fires in C1.
-- **Model v2's strongest feature** (built-up fraction) may encode what was hit, not what the sensor can see.
+- **Model v2's strongest new feature by LightGBM gain** (built-up fraction) may encode what was hit, not what the sensor can see.
 - **Terms of use.** ACLED's licence bars sharing derived data and using it to train or test models, so ACLED appears as aggregates only. Telegram posts are used under Telegram's terms: no model was trained on them and only cell-week aggregates are published.
 
 ## 8. Future work

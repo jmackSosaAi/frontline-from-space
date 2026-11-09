@@ -56,3 +56,10 @@ The Telegram layer is exploratory (2026-10-22 entry). Its extraction was hand-ch
 1. **Guide wording did not match the extraction rules for three questions** (date/time, posts with no extracted strike, casualties). The first rater's date/time answers reflect the wording, not the extraction (two-rater agreement 6/20 on that field). Adjudication (2026-11-09, made after seeing both raters' answers): the date/time figure is scored from the second rater only, 98.4%; the conservative two-rater figure, 90.2%, is reported beside it.
 2. **Inter-rater agreement on "every strike in the post found" was 12/20**, below the 85% bar set in advance. The completeness figure (73% of posts) is reported as provisional until the eight disagreements are adjudicated.
 3. **The agree-label audit found errors** in four of five fields (place 1/30, target type 1/30, casualties 3/30, date/time 1/30). The plan requires a human check of every remaining agree row for those fields (35 rows). The packet for that check is built (`scripts/telegram/94_qa_round2.py`) but the check has not been done; the reported accuracies weight the 30 audited rows up to the 65-row bucket instead, and are labelled as such.
+
+## 2026-11-09: pre-ship review, wording fixes and two disclosures
+
+A one-round review of `paper/draft_v1.md` (two number-tracing passes, one hostile referee, one judge; output in `planning/reviews/prereview_2026-11-09.json`) traced 248 numbers and changed no verdict. Twenty-seven wording fixes were applied to the paper and README. Two are disclosures rather than wording:
+
+- **H6b detection-probability clip.** The corrected fire index divides by modelled P(detect) clipped at 0.02 from below; 49.8% of C1 front cell-weeks sit at the clip (`h6_lead.json`). This operational choice was stated only in a figure caption; it is now in section 3 and section 5.2.
+- **V-set placebo file.** The 3.8% same-place, shifted-week placebo for V-test events was computed by `21_acled_grade.py` and stored only with the private ACLED aggregates. Its V-only rows are now published as `data/derived/results/v_placebo.csv` (recall 5.00%, placebo 3.78%, n = 14,736).

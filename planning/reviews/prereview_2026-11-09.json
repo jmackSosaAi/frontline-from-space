@@ -1,0 +1,469 @@
+{
+ "judge": {
+  "verdict": "ship_after_must_fix",
+  "must_fix": [
+   {
+    "where": "paper/draft_v1.md, status note (line 5); backs the 3.8% placebo in the Abstract, §4.8 and README",
+    "old_text": "(or, for ACLED, a private aggregate in `data/interim/acled/`)",
+    "new_text": "(or, for ACLED and the V-set placebo, a private aggregate in `data/interim/acled/`)",
+    "why": "The 3.8% V-test placebo is an abstract headline and carries the claim that most matches are background fire. No file in data/derived/results, data/derived/telegram, predictions or CAPTIONS holds it; DEVIATIONS 2026-10-27 says it came from the ACLED grading script, whose output sits in the off-limits ACLED folder. So the status note's promise that every non-ACLED number is in a public results file is false for this number, and I could not confirm 3.8%. Author action needed: export the V-only placebo (no ACLED rows) to something like data/derived/results/v_placebo.json, check it says 3.8%, and cite it. The text edit is only the stopgap if that export is not done.",
+    "needs_author": true
+   },
+   {
+    "where": "paper/draft_v1.md, header (line 3)",
+    "old_text": "**Draft v1, 2026-10-27.**",
+    "new_text": "**Draft v1, 2026-10-27, revised 2026-11-09.**",
+    "why": "The draft cites DEVIATIONS 2026-11-09 and hand-check results scored on 2026-11-09 (commit 9df4e71), so a 27 October date is visibly wrong.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, Abstract",
+    "old_text": "Nobody had measured how often it misses.",
+    "new_text": "We found no published measure of how often it misses.",
+    "why": "The prior-art scan only says no published omission-rate study 'turned up' (planning/scout_prior_art.md line 109). An absolute novelty claim is the easiest thing for a referee to knock down.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, Abstract (H4 sentence)",
+    "old_text": "Russia's territorial gains did not cluster in the weeks the sensor was blind (22%, against the 30% we predicted).",
+    "new_text": "Russia's territorial gains did not cluster in the quarter of front cell-weeks where the sensor had the fewest clear looks (22%, against the 30% we predicted).",
+    "why": "H4 tested the bottom quartile of detection opportunity (0 to 58 units; h4_blindspot.json q1_opportunity_cut 58), not blindness. §4.5 defines a blind week differently (median day with no clear overpass). Same word, two thresholds.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.6 closing paragraph",
+    "old_text": "Russia did not gain disproportionately while the satellite could not see. The blind spot is real, but gains did not concentrate in it, at least at this resolution.",
+    "new_text": "Russia did not gain disproportionately where the satellite had the fewest clear looks. Low-visibility cell-weeks are real, but gains did not concentrate in them, at least at this resolution.",
+    "why": "Same H4 mislabel as the abstract: the test was the lowest-opportunity quartile, not weeks the satellite 'could not see'.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §5.8 scorecard, H4 row",
+    "old_text": "| H4 | ≥ 30% of gains in blind weeks |",
+    "new_text": "| H4 | ≥ 30% of gains in lowest-opportunity quartile |",
+    "why": "Scorecard label must match what verdicts.json says H4 tested ('bottom-quartile-opportunity cell-weeks').",
+    "needs_author": false
+   },
+   {
+    "where": "README.md, Results block, H4 sentence",
+    "old_text": "Russian gains did not concentrate in blind weeks: 21.8% vs the 30% predicted",
+    "new_text": "Russian gains did not concentrate in the quarter of front cell-weeks with the fewest clear looks: 21.8% vs the 30% predicted",
+    "why": "Same H4 mislabel in the README.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.6 (H4 result sentence)",
+    "old_text": "**21.8%** of the 29,911 km² Russia gained in C1 front cells fell in the bottom quartile of detection opportunity (95% CI 17.6–26.2).",
+    "new_text": "**21.8%** of the 29,911 km² of gross Russian gain in C1 front cells fell in the bottom quartile of detection opportunity (95% CI 17.6–26.2). The 29,911 km² sums cell-weeks with a gain; losses summed the same way total 35,245 km², so it is not net territorial change.",
+    "why": "h4_by_opportunity_quartile.csv: ru_gain_km2 sums to 29,911 and ru_loss_km2 to 35,245. A conflict reader will take '29,911 km² Russia gained' in April 2022 to July 2024 as a net figure, which it cannot be.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, Abstract (H6 sentence)",
+    "old_text": "Fires do not lead Russian gains at a size that matters: with raw fires the test is inconclusive, and after correcting for what the sensor could see, the 90% interval sits inside the smallest effect we pre-registered as meaningful (equivalence).",
+    "new_text": "We found no clear sign that fires lead Russian gains at a size that matters: with raw fires the test is inconclusive (a meaningful effect is not ruled out), and after correcting for what the sensor could see, the 90% interval sits inside the smallest effect we pre-registered as meaningful (equivalence). Secondary tests turned up fire terms nobody predicted (an 8-week lead, small fires on the Ukrainian-held side), which we do not interpret.",
+    "why": "'Do not lead' states absence, but H6 is inconclusive: the raw 90% CI reaches 1.82 (CRV1) and 2.04 (Driscoll-Kraay), above the 1.70 SESOI (h6_lead.json). verdicts.json also shows significant unpredicted terms (H9 lead 8 beta 0.98, above the 0.65 one-week SESOI; H10 small Ukrainian-side beta 4.41; H11 phase B 0.87) that the abstract leaves out.",
+    "needs_author": false
+   },
+   {
+    "where": "README.md, Results block, H6 sentence",
+    "old_text": "Fires do not lead Russian gains at a meaningful size:",
+    "new_text": "No clear sign that fires lead Russian gains at a meaningful size:",
+    "why": "Same overstatement as the abstract; H6 raw is inconclusive, not a shown absence.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §3 Methods, Holdouts",
+    "old_text": "**Holdouts.** Three sets were untouched at the tag: C1 (the Ukraine panel), T1 (Karabakh) and T2 (Sudan).",
+    "new_text": "**Holdouts.** Three sets were untouched at the tag: C1 (the Ukraine panel), T1 (Karabakh) and T2 (Sudan). One exception is disclosed in PREREG §2: a snapshot of The Economist war-fire files, which cover C1 dates, was on disk from 2026-10-14 and was not opened before the tag.",
+    "why": "§3 says the tag came 'before any C1, T1 or T2 data were downloaded', but PREREG §2 discloses Economist files with C1-date fires and control on disk before the tag (confirmed unopened, PREREG line 120). A reader who compares the two will think the paper hid it.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §3 Methods, Panel (H6b definition)",
+    "old_text": "H6b swaps raw fires for a corrected index: raw fires divided by the modelled probability of detection, with model uncertainty propagated.",
+    "new_text": "H6b swaps raw fires for a corrected index: raw fires divided by the modelled probability of detection, with model uncertainty propagated. The probability is clipped at 0.02 from below, and half of C1 front cell-weeks (49.8%) sit at that clip.",
+    "why": "h6_lead.json p_detect: clip 0.02, share_clipped_at_0.02 0.498, median 0.0201. The planning note says 'clip P at 0.02 and state it'; it is stated only in a figure caption. Half the panel at the clip is a material method detail for the H6b headline. Author should also log the clip in DEVIATIONS (operational choice).",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §5.2",
+    "old_text": "shrinks toward zero, which suggests some of the raw signal was the sensor's visibility, not the war. Two cautions: the two β are on different regressors (log raw fires vs log corrected index), so their sizes are not directly comparable;",
+    "new_text": "shrinks toward zero, which is consistent with some of the raw signal being the sensor's visibility, not the war, but does not show it. Two cautions: the two β are on different regressors (log raw fires vs log corrected index, with the detection probability clipped at 0.02 in half of cell-weeks), so their sizes are not directly comparable;",
+    "why": "With half of cell-weeks at the clip, dividing by P mostly rescales any non-zero week, which alone can shrink beta per log-unit. Opportunity is already a control in H6. The step from 'beta shrinks' to 'it was visibility' is not identified, so 'suggests' is too strong.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.1 last paragraph",
+    "old_text": "The point is the gradient.",
+    "new_text": "The point is the gradient, though part of it is the season of background fire and not the sensor: a same-place placebo matches almost as often as the event day (§4.8).",
+    "why": "§4.1 reads the best/worst gradient as sensor sensitivity, while the paper's own placebo says most matches are background fire, and background fire is seasonal. An expert reading §4.1 alone is misled.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.3 (H3 interpretation)",
+    "old_text": "Single detections are noisy.",
+    "new_text": "Some of that is real change in the fire between passes and different viewing angles, not sensor error, but either way a single detection is a noisy reading.",
+    "why": "h3_summary.json pairs passes 30 to 70 minutes apart by cell with no viewing-angle matching. Small fires change in that time and pixel size differs across the swath (§4.2 notes about 4.2x at the edge), so calling all of the 46% disagreement noise will draw a remote-sensing objection.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.4 (H14 interpretation)",
+    "old_text": "So the summer-day fire record is a record of big fires only.",
+    "new_text": "So the summer-day fire record under-counts small fires. Part of this floor is our own filter: dropping low-confidence detections removes mostly daytime pixels.",
+    "why": "A 5th percentile of 2.22 MW (verdicts.json H14) is not 'big fires only'. PREREG §3 keeps only nominal and high confidence; in the VIIRS 375 m product the low class is mainly daytime pixels (product knowledge, not in the repo files; author should confirm against Schroeder et al. 2014), so the filter raises the daytime floor by construction.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.5 first sentence",
+    "old_text": "S-NPP is expected to stop in early November 2026.",
+    "new_text": "S-NPP science-data delivery was scheduled to end on 2 November 2026 (NASA Earthdata alert, updated 5 October 2026).",
+    "why": "Out of date and uncited: the draft is now dated after that day. The date and source are in planning/plan_draft_novelty.md line 19. Author must confirm whether delivery actually ended and say so, and adjust the §8 line 'after S-NPP actually stops' to match.",
+    "needs_author": true
+   },
+   {
+    "where": "paper/draft_v1.md, §4.7, 'Karabakh lower' sentence",
+    "old_text": "We read \"Karabakh lower\" as a comparison under one common detection rule, the only like-for-like reading, and on that reading it holds",
+    "new_text": "We read \"Karabakh lower\" as a comparison under one common detection rule, the only like-for-like reading. That reading was written down at scoring time with the results in view, not in PREREG. On it, the prediction holds",
+    "why": "The DEVIATIONS 2026-10-27 entry that records the reading already states the result ('true at both 1 km and 5 km') and says only the event-set and precision choices were fixed before the first run. Under each case's pre-registered rule Karabakh is higher (12.5% vs 2.9%). The earlier commit's scorecard said 'only under a common rule'; a later commit changed it to 'yes'.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §5.8 scorecard, H7 row",
+    "old_text": "\"Karabakh lower\" yes under a common rule (4.7)",
+    "new_text": "\"Karabakh lower\" no under the pre-registered rules, yes under a common rule chosen at scoring (4.7)",
+    "why": "The scorecard's 'yes' rests on a reading chosen with the answer known; verdicts.json H7 says 'cross-rule primary comparison: False'.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.8 Telegram, match sentence",
+    "old_text": "FIRMS matched **1.26%** within 1 km / ±12 h, against a placebo of 0.65% (`data/derived/telegram/firms_match_cellweek_meta.json`)",
+    "new_text": "FIRMS matched **1.26%** within 1 km and a window from 1 hour before to 12 hours after the reported time (the whole Kyiv day for the 4,455 reports with a date only), against 0.65% for the same place and window 7 days earlier (`data/derived/telegram/firms_match_cellweek_meta.json`). This window is shorter than H1's 48 hours, so the rate should not be compared with H1's 5.0%",
+    "why": "The window is described wrongly. scripts/telegram/50_aggregate.py uses [event_ts - 1 h, event_ts + 12 h] (FIRMS_BEFORE_H 1.0, FIRMS_AFTER_H 12.0), the Kyiv date for date-only events, and a one-sided placebo 7 days earlier. The meta file shows 13,949 timestamped and 4,455 date-only events.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.8 Telegram, last sentence of first paragraph",
+    "old_text": "The sensor almost never sees them.",
+    "new_text": "Few of them match a fire, but the test is weak: the reports are placed at a settlement or district centre, often kilometres from the hit, so a 1 km miss mixes sensor misses with geocoding error (3,983 are placed only to a district or a municipal seat). At 3 km the match is 5.5% against a 4.0% placebo.",
+    "why": "firms_match_cellweek_meta.json: raion n 3,320, hromada_seat n 663, match_3km 0.0546 vs placebo_3km 0.0397. The script's own comment says settlement centroids sit km from the hit, and DEVIATIONS 2026-10-27 rejects a 1 km rule on coarsely placed UCDP events for exactly this reason. 'Almost never sees' is not supported by a 1 km test on centroids.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.8 'How far to trust the extraction', first sentence",
+    "old_text": "two paid research assistants hand-checked a stratified sample of 200 extracted strikes",
+    "new_text": "two paid research assistants hand-checked 165 of a stratified sample of 200 extracted strikes (one rater on all 165, both on the same 20)",
+    "why": "REPORT.md shows 30 + 135 = 165 rows checked; QA_HANDCHECK.md says 35 agree rows were 'never seen by a person' and the second rater did only imp-001..020. The current wording implies 200 rows each checked by two people.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.8 'How far to trust the extraction', accuracy sentence",
+    "old_text": "all clear the 85% threshold set in advance.",
+    "new_text": "all clear the 85% threshold set in advance, but they are provisional: the audit found errors in four of the five fields, and the follow-up check of 35 machine-cleared rows that the plan requires in that case is not done.",
+    "why": "The decision rule fixed in advance (QA_HANDCHECK.md) says any audit error means every agree row gets a human check and accuracy is recomputed. REPORT.md marks 'agree label trusted' False for place, target type, casualties and time. DEVIATIONS 2026-11-09 promises the figures are 'labelled as such'; 'Weighted to the sample' is not that label.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.8 'How far to trust the extraction', date sentence",
+    "old_text": "The date was right in 98%, scored from the one rater whose instructions matched the extraction rule (90% if the other rater's answers on 20 shared rows are counted; that choice was made after seeing the answers).",
+    "new_text": "The date could not be fully checked by hand, because the packet did not show the post's publication date, which is where the model's date comes from. Counting both raters it was right in 90%; counting only the rater whose answers did not reflect that gap, 98% (that choice was made after seeing the answers).",
+    "why": "QA_HANDCHECK.md says the date question was 'not scoreable by humans as asked' and plans a default-yes instruction for the second rater. Leading with 98% as 'the date was right' presents the least conservative, post-hoc figure as a human check. The 90.2% and 98.4% are both in QA_HANDCHECK.md.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §4.8 'How far to trust the extraction', empty-post sentence",
+    "old_text": "Posts where the model extracted nothing were mostly daily statistics lists, which the extraction prompt skips by design.",
+    "new_text": "In posts where the model extracted nothing, one rater marked 22 of 35 (63%) as containing a strike. On our own reading about 20 of those 22 are daily statistics lists, aftermath or commemoration posts, which the extraction prompt skips by design, but that reading has not been checked by a second person.",
+    "why": "The cited REPORT.md gives missed_post_rate 62.9% (CI 46 to 77%, n 35). The paper leaves the measured number out and reports only the author's un-adjudicated reading from QA_HANDCHECK.md. Omitting the unfavourable number from a cited file is the kind of thing a referee finds.",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §6 Robustness, first sentence",
+    "old_text": "ran 135 rows.",
+    "new_text": "produced a table of 135 rows: 120 with a verdict, 6 res-6 rows that were not run, 8 marking variants that could not be built or do not apply, and 1 sanity check.",
+    "why": "robustness.csv verdict counts: 120 with a verdict, 6 'not run' (res-6 for H6, H9, H10, H11, H11s, H13), 8 blank, 1 'sanity'. 'Ran 135 rows' is false and clashes with the same section saying item 7 was not run. (The reviewer's count of 7 not-run rows was off by one.)",
+    "needs_author": false
+   },
+   {
+    "where": "paper/draft_v1.md, §7 Limitations, model v2 bullet",
+    "old_text": "- **Model v2's strongest feature** (built-up fraction)",
+    "new_text": "- **Model v2's strongest new feature by LightGBM gain** (built-up fraction)",
+    "why": "model_v2.json: month is first by LightGBM gain (0.179), built_500m second (0.132); in the logit eff_clear_looks has the largest coefficient. Built-up fraction is only the strongest of the new features by gain, which is what §4.2 correctly says.",
+    "needs_author": false
+   }
+  ],
+  "rejected": [
+   {
+    "finding": "Abstract: 'pre-registered 14 hypotheses and scored them against 45,876 events' blurs confirmatory with exploratory and is only true of H1, H2, H8, H14 (numbers-1)",
+    "why": "The sentence already lists all three test beds (events, a weekly panel, two other wars). PREREG does list H1 to H14, with H13 marked exploratory inside it, so '14 pre-registered' is accurate, and the paper labels H13 exploratory wherever it appears."
+   },
+   {
+    "finding": "§4.2 'strongest new feature by LightGBM gain' overstates built-up fraction because eff_clear_looks is new too (part of numbers-2 model v2 finding)",
+    "why": "model_v2.json gain shares: built_500m 0.132, eff_clear_looks 0.122. Built-up fraction is the strongest new feature by gain, so §4.2 is right. Only the Limitations bullet, which drops 'new' and 'by gain', is wrong (fixed above)."
+   },
+   {
+    "finding": "'Most of the raw match rate is background fire' is a stretch because 3.8 of 5.0 is 76% (part of numbers-2 placebo finding)",
+    "why": "76% is most. The real problem is that the 3.8% cannot be traced to an auditable file, which is kept as a must-fix."
+   },
+   {
+    "finding": "§4.8: '27% of 160 posts' is inconsistent with the cited file, which gives 72.1% of 165 rows (numbers-1)",
+    "why": "The same sentence cites planning/QA_HANDCHECK.md, which states '72.1% of rows (73% of 160 posts)'. The paper uses the post-level figure from a cited file and already calls it provisional. Naming the unit is polish, not an error."
+   },
+   {
+    "finding": "Robustness table has 7 'not run' res-6 rows including H13 reverse/placebo counted separately (detail of numbers-2 finding)",
+    "why": "robustness.csv has 6 rows with verdict 'not run' (H6, H9, H10, H11, H11s, H13) and 8 blank placeholder rows. The core point (not all 135 rows ran) is real and fixed with the correct counts."
+   },
+   {
+    "finding": "README H7 sentence must state the two different matching rules (numbers-2)",
+    "why": "The README only claims both cases fall inside the band, which is true, and already flags the pass as weak. It makes no Karabakh versus Sudan comparison. Adding the rules is polish."
+   },
+   {
+    "finding": "Abstract 'caught' wording and 'effectively off' in winter (part of referee H1 finding)",
+    "why": "The abstract itself says most matches are background fire, and November to February recall of 0.52% (h8_summary.json) makes 'effectively off' defensible. Only the missing link from the §4.1 gradient to the placebo is kept as a must-fix. The 1.4 to 1.5x chance figures behind the reviewer's arithmetic come from the ACLED script output and were skipped."
+   }
+  ],
+  "polish_count": 12,
+  "trust": "All three reviewer lanes returned, and the confirmatory numbers (H1 to H14, model v2, splits, intervals) match their result files; the problems are in how results are worded, not in the numbers, and nothing here changes a verdict. Weakest are the 3.8% placebo, which I could not trace to any auditable file (it and every ACLED number were skipped under the licence rule), the Telegram section, where the window was misdescribed and the hand-check is unfinished, and two items the author must settle (export the placebo, confirm the S-NPP shutdown); no file was edited or deleted."
+ },
+ "counts": {
+  "total": 26,
+  "n1": 130,
+  "n2": 118
+ },
+ "raw": [
+  {
+   "where": "Abstract, line 9 (also §4.8 'Most raw matches are background fire', line 128, the V-test part only)",
+   "paper_says": "An exploratory ±7-day placebo matches 3.8% of events at the same place on other days, against 5.0% on the event day",
+   "problem": "No source for the 3.8% V-test placebo outside ACLED-named files. data/derived/results/ has no placebo output (the only 'placebo' there is the H6/H10/H11 lead-6 robustness test). Only the README repeats the number, and it is not a source. DEVIATIONS.md 2026-10-27 says the placebo came from scripts/analysis/21_acled_grade.py, which I was barred from opening. I could not confirm 3.8%. The same sentence is used to claim most of the raw match rate is background fire.",
+   "evidence": "grep for placebo across data/derived/results, data/derived/telegram, figures/CAPTIONS.md and DEVIATIONS.md found no V-test placebo value. Source is probably under data/interim/acled/ (off limits).",
+   "severity": "unsupported",
+   "fix": "Add a non-ACLED derived file with the V-test placebo rate (for example data/derived/results/v_placebo.json) and cite it, or have someone with ACLED access confirm 3.8% and record the value in a file that can be audited.",
+   "lane": "numbers-1"
+  },
+  {
+   "where": "§4.8 Telegram paragraph, line 136",
+   "paper_says": "in 27% of 160 posts the model missed at least one strike",
+   "problem": "The machine-written QA report gives 72.1% of 165 rows with all strikes found, which is a 27.9% miss rate, about 28% on 165 rows. The '73% of 160 posts' figure appears only in the hand-written planning/QA_HANDCHECK.md table, and DEVIATIONS.md also says 73%. The paper's own cited source (qa/REPORT.md and qa_scores.csv) does not contain 27% or 160. The post count and the rate are therefore inconsistent with the cited file. The 12/20 inter-rater agreement does not settle which is right.",
+   "evidence": "data/derived/telegram/qa/qa_scores.csv: impacts,all_strikes_found_in_post,0.7212 (CI 0.648-0.784), iffy_checked 165. planning/QA_HANDCHECK.md line 88: '72.1% of rows (73% of 160 posts)'.",
+   "severity": "misleading",
+   "fix": "Either cite planning/QA_HANDCHECK.md for the post-level figure, or use the file value: 'in 28% of 165 checked rows (72.1% found all strikes; 95% CI 65-78%)'. Say which unit (row or post) the percentage uses.",
+   "lane": "numbers-1"
+  },
+  {
+   "where": "§4.2, line 65",
+   "paper_says": "LightGBM with the same features reached 0.727 (0.712–0.743).",
+   "problem": "The confirmatory file data/derived/results/h2_auc.json gives the LightGBM CI as 0.7113-0.7427, which rounds to 0.711-0.743. The paper's 0.712-0.743 matches model_v2.json (the v1_lgbm bootstrap re-run: 0.7121-0.7425), not the H2 result file. It is a different bootstrap draw of the same model, so it is a 0.001 discrepancy in the lower bound.",
+   "evidence": "h2_auc.json results.primary_all_types.lgbm.auc_ci = [0.71131, 0.74273]; model_v2.json test_metrics.v1_lgbm.auc_ci = [0.71206, 0.74251].",
+   "severity": "polish",
+   "fix": "Use 0.727 (0.711–0.743) to match h2_auc.json, the confirmatory H2 source.",
+   "lane": "numbers-1"
+  },
+  {
+   "where": "Abstract line 9, 'We pre-registered 14 hypotheses and scored them'",
+   "paper_says": "We pre-registered 14 hypotheses and scored them against 45,876 geolocated strike and battle events...",
+   "problem": "Label mismatch. H13 is on the PREREG list but is labelled exploratory in verdicts.json and in the paper's own status note. H12 has no jackson/claude prediction and is an open question. H11s is also scored but is not one of the 14. Saying 14 were scored as pre-registered tests blurs confirmatory with exploratory. Also, H4-H7 and H9-H12 are scored on the panel, not the 45,876 events, so 'scored them against 45,876 events' is only true of H1, H2, H8 and H14.",
+   "evidence": "data/derived/results/verdicts.json H13: \"label\": \"exploratory\"; criterion text 'EXPLORATORY (E period)'. PREREG.md line 96 'H13 ... (exploratory)'.",
+   "severity": "misleading",
+   "fix": "'We pre-registered 14 hypotheses (13 confirmatory, H13 exploratory); H1, H2 and H8 are scored against 45,876 geolocated events and the rest against a weekly control panel and two other wars.'",
+   "lane": "numbers-1"
+  },
+  {
+   "where": "README.md Results block, 'Blindness map', H4 sentence (and paper section 5.8 scorecard row H4 'gains in blind weeks')",
+   "paper_says": "Russian gains did not concentrate in blind weeks: 21.8% vs the 30% predicted (H4 not supported).",
+   "problem": "The 21.8% is the share of C1 Russian km2 gained in bottom-quartile-opportunity cell-weeks (opportunity <= 58). It is not a share in 'blind weeks'. H8 defines a blind week differently (median daily opportunity <= 0). Those cell-weeks hold 25.0% of all cell-weeks, so 21.8% is below parity, not just below 30%. The 30% is the pre-registered success threshold, not a model prediction. The label is wrong for the kind of number.",
+   "evidence": "data/derived/results/h4_blindspot.json: share_bottom_quartile 0.2181 (95% CI 0.176-0.262), q1_opportunity_cut 58.0, share_cell_weeks_bottom_q 0.2504, criterion '95% CI lower bound > 0.30'. verdicts.json H4 criterion text says 'bottom-quartile-opportunity cell-weeks'.",
+   "severity": "misleading",
+   "fix": "Say 'Russian gains in the lowest-opportunity quarter of cell-weeks were 21.8% of the total (95% CI 17.6-26.2%), against the 30% threshold (H4 not supported)'. In the scorecard use 'gains in lowest-opportunity quartile' instead of 'blind weeks'.",
+   "lane": "numbers-2"
+  },
+  {
+   "where": "paper section 7 Limitations, bullet 'Model v2's strongest feature' (line ~219)",
+   "paper_says": "Model v2's strongest feature (built-up fraction) may encode what was hit, not what the sensor can see.",
+   "problem": "Built-up fraction is not v2's strongest feature. By LightGBM gain, month is first (0.179) and built_500m second (0.132). In the v2 logit, eff_clear_looks has the largest standardised coefficient (1.17) and built_500m is fourth (0.58). Section 4.7 says 'strongest new feature by LightGBM gain', which also overstates it, because eff_clear_looks is new too and is third in gain.",
+   "evidence": "data/derived/results/model_v2.json top_features_lgbm_gain: month 0.1786, built_500m 0.1319, eff_clear_looks 0.1221; top_std_coefs_logit: eff_clear_looks 1.171, x_winter_night -0.805, exp_clear_sensor -0.610, built_500m 0.585.",
+   "severity": "misleading",
+   "fix": "Replace with 'Model v2's largest non-sensor feature (built-up fraction, second by LightGBM gain after month) may encode what was hit...'.",
+   "lane": "numbers-2"
+  },
+  {
+   "where": "paper section 5.8 scorecard footer (line ~202) and README.md closing line 'Verdicts: data/derived/results/verdicts.json'",
+   "paper_says": "Source: data/derived/results/verdicts.json plus the H1-H3 and H8 summaries.",
+   "problem": "verdicts.json has no entries for H1, H2, H3 or H8, so the scorecard cannot be reproduced from it alone. The README presents verdicts.json as the verdict source and does not mention the other files. Four scorecard rows (supported / not supported 0.737 / supported 53.6% / descriptive) have their verdicts only in h1_recall_meta.json (verdict.H1_supported), h2_auc.json, h3_summary.json (verdict.H3_supported) and h8_summary.json. DEVIATIONS 2026-10-27 notes this, but the README does not.",
+   "evidence": "verdicts.json keys: H4, H5, H6, H7, H9, H10, H11, H12, H13, H14, H6b, H11s. DEVIATIONS.md line 50: 'H1, H2, H3 and H8 verdicts live in h1_recall_meta.json, h2_auc.json, h3_summary.json and h8_summary.json, not in verdicts.json'.",
+   "severity": "polish",
+   "fix": "README: 'Verdicts: data/derived/results/verdicts.json (H4-H7, H9-H14); H1-H3 and H8 in h1_recall_meta.json, h2_auc.json, h3_summary.json, h8_summary.json.'",
+   "lane": "numbers-2"
+  },
+  {
+   "where": "paper section 6 Robustness, first sentence (line ~206)",
+   "paper_says": "The pre-registered list (...) ran 135 rows.",
+   "problem": "The 135 rows in robustness.csv include 7 'not run' res-6 rows (H6, H9, H10, H11, H11s, H13 and one more), the H13 reverse/placebo row marked 'exploratory; not run', and several blank header or summary rows, with one 'national series sanity' row. Not all 135 'ran'. The same section says item 7 was not run, so the two statements conflict.",
+   "evidence": "data/derived/results/robustness_summary.json 'rows': 135; robustness.csv verdict counts: 'not run' 7 (res-6 rows for H6, H9, H10, H11, H11s, H13; H13 reverse/placebo is blank with note 'exploratory; not run'), 3 rows with blank verdicts, 1 'sanity' row.",
+   "severity": "polish",
+   "fix": "Say 'The robustness table has 135 rows, of which 7 (the res-6 panel) were not run' or give the count of rows with a verdict.",
+   "lane": "numbers-2"
+  },
+  {
+   "where": "README.md Results block, H7 sentence",
+   "paper_says": "In Karabakh and Sudan recall was 12.5% and 2.9%, inside the +/-15 pp band (H7 supported, weak...)",
+   "problem": "The two recalls are scored under different rules (Karabakh at 5 km / +/-2 d, Sudan at 1 km / +/-12 h). Under the like-for-like 1 km rule Karabakh recall is 0.0% (0/40). Presented side by side without the rule, 12.5% reads as higher than Sudan's 2.9%, which is the cross-rule artefact. The comparison the scorecard relies on (Karabakh lower than Sudan) holds only under a common rule.",
+   "evidence": "data/derived/results/h7_scored.json: primary karabakh rule 5km_2d observed 0.125 (n=40); sudan rule 1km_12h observed 0.0294 (n=680); secondary karabakh 1km_12h 0.0, sudan 5km_2d 0.176; karabakh_lower_than_sudan_primary_cross_rule false; note says the 1 km row is the like-for-like comparison.",
+   "severity": "misleading",
+   "fix": "Add 'under different matching rules (Karabakh 5 km / 2 days, Sudan 1 km / 12 h); on a common rule Karabakh is lower than Sudan' after the two figures.",
+   "lane": "numbers-2"
+  },
+  {
+   "where": "README.md Results block, 'Blindness map', placebo sentence",
+   "paper_says": "A same-place +/-7-day placebo hits 3.8%, so most of the raw match rate is background fire (exploratory).",
+   "problem": "Could not trace the 3.8% (V-test placebo) to a results file outside the ACLED-named files. The only non-ACLED hits for 'placebo' are the robustness files and Telegram (0.65%), which carry different numbers. DEVIATIONS says the placebo script is 21_acled_grade.py, which is in the out-of-scope area. 'Most' is also a stretch: 3.8 of 5.0 is 76% of the match rate.",
+   "evidence": "No 3.8 placebo value in data/derived/results or data/derived/telegram non-ACLED files; DEVIATIONS.md line 34 attributes the placebo to scripts/analysis/21_acled_grade.py.",
+   "severity": "unsupported",
+   "fix": "Point to the file that holds the V-set placebo (or add a non-ACLED results file for it), or drop the number from the README until it can be traced.",
+   "lane": "numbers-2"
+  },
+  {
+   "where": "Abstract (line 9) and §5.2 (line 154)",
+   "paper_says": "Fires do not lead Russian gains at a size that matters: with raw fires the test is inconclusive, and after correcting for what the sensor could see, the 90% interval sits inside the smallest effect we pre-registered as meaningful (equivalence).",
+   "problem": "This reads a null as proof of absence. Under PREREG H6, 'inconclusive' means a meaningful effect cannot be ruled out: the raw-fire 90% CI goes up to 1.82 under CRV1 and 2.04 under Driscoll–Kraay, both above the SESOI of 1.70. The paper's own confirmatory tables also show fire terms that are significant and at or above a meaningful size: H9 has lead 8 at β 0.98, significant under both methods and above the 1-week SESOI of 0.65; H10 has small fires on the Ukrainian-held side at β 4.41, p<0.001 under both; H11 phase B is β 0.87, significant under both. The abstract's blanket 'do not lead' contradicts §5.3–5.5.",
+   "evidence": "data/derived/results/h6_lead.json H6.lf ci90_crv1 [0.13,1.82], ci90_dk [-0.09,2.04], sesoi 1.703; verdicts.json H9 'peak lead 8 (β 0.982, p_wild 0.000, p_dk 0.002)', 1-week SESOI 0.65; H10 'small_ua_side β 4.412 (p_wild 0.000, p_dk 0.000)'; H11 'β_B 0.873 (p_wild 0.001, p_dk 0.018)'",
+   "severity": "misleading",
+   "fix": "Abstract: \"We found no evidence that fires lead Russian gains at a size that matters, but could not rule one out with raw fires (inconclusive); with the corrected index the effect is inside the pre-registered smallest meaningful size (equivalence). The pre-registered secondary tests found some fire terms that were significant but not predicted (an 8-week lead; small fires on the Ukrainian-held side), which we do not interpret.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§3 Methods (line 51), §5.2 (line 154), Abstract",
+   "paper_says": "Once you account for when the sensor could see, the small raw association between fires and next month's Russian gains shrinks toward zero, which suggests some of the raw signal was the sensor's visibility, not the war.",
+   "problem": "The corrected index divides fires by a modelled P(detect) that is clipped at 0.02 for 49.8% of cell-weeks (mean 0.036). So log1p(fires/p) mostly adds about 3.9 log-units to any non-zero week and leaves zero weeks at 0. That changes the regressor's scale and shape, which alone can shrink β per log-unit. Opportunity is already a control in H6, so the step from 'β shrinks' to 'the signal was visibility' is not identified. The P(detect) model also failed its own criterion (AUC 0.737), and it was trained on whether filmed events got a match, which is not the same as the chance that a given fire is detected. The clip is in the figure caption and the planning note but not in Methods or DEVIATIONS.",
+   "evidence": "h6_lead.json p_detect {mean 0.036, median 0.0201, share_clipped_at_0.02 0.498, clip 0.02}; planning/PANEL.md line 68 'clip P at 0.02 and state it'; §3 says only 'raw fires divided by the modelled probability of detection'",
+   "severity": "unsupported",
+   "fix": "§3: add \"P(detect) is clipped at 0.02; 50% of front cell-weeks sit at the clip.\" §5.2: replace \"which suggests some of the raw signal was the sensor's visibility, not the war\" with \"Because the corrected regressor has a different scale (half of cell-weeks sit at the 0.02 clip), the change in category does not show by itself that the raw association came from visibility.\" Log the clip in DEVIATIONS under operational definitions.",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.8 Telegram (line 134)",
+   "paper_says": "FIRMS matched **1.26%** within 1 km / ±12 h, against a placebo of 0.65%",
+   "problem": "The window is described wrongly. In the code, the Telegram match uses [event_ts − 1 h, event_ts + 12 h] for timestamped events (13,949 of 18,404), and for date-only events the Kyiv date −1 h to +12 h. It is not the 48-hour ±12 h window of H1. The placebo is one-sided (7 days earlier only), not ±7 days like the V placebo. So 1.26% is not comparable with H1's 5.0% or the V placebo, and the text invites that comparison.",
+   "evidence": "scripts/telegram/50_aggregate.py lines 15–18 ('[event_ts - 1 h, event_ts + 12 h] (date-only events: the whole Kyiv date - 1 h .. + 12 h ...) plus a placebo column for the same place and window 7 days earlier'); firms_match_cellweek_meta.json by_window_kind ts n 13,949 match 0.0062, date n 4,455 match 0.0323",
+   "severity": "wrong",
+   "fix": "\"FIRMS matched 1.26% within 1 km in a 13-hour window from 1 h before to 12 h after the reported time (date-only reports: the local day), against 0.65% for the same place and window 7 days earlier. The window is narrower than H1's 48 hours, so the rate is not comparable with H1.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.8 Telegram (line 134)",
+   "paper_says": "The sensor almost never sees them.",
+   "problem": "A 1 km test cannot support 'almost never sees' when the points are place centroids. 3,320 strikes are geocoded only to a raion (district) and 663 to a hromada seat (municipal centre), and the rest to settlement centroids. The pipeline's own comment says settlement centroids sit kilometres from the actual hit in towns. DEVIATIONS 2026-10-27 uses exactly this argument to reject a 1 km rule for coarsely placed UCDP events ('would measure geocoding error, not the sensor'). At the 3 km diagnostic radius the match is 5.5% against a 4.0% placebo. The extraction hand-check scored whether the place name was right, not whether the point lies within 1 km of the hit.",
+   "evidence": "firms_match_cellweek_meta.json by_geo_level: raion n 3,320 match 0.0003, hromada_seat n 663, settlement n 14,413 match 0.0159; overall match_3km 0.0546, placebo_3km 0.0397; 50_aggregate.py line 54 comment 'settlement centroids sit km from the actual hit in towns'; DEVIATIONS 2026-10-27 'A 1 km rule on events placed only to within 25 km or a province would measure geocoding error, not the sensor.'",
+   "severity": "unsupported",
+   "fix": "Replace with: \"Most reports are geocoded to a settlement or district centre, often kilometres from the impact, so a 1 km match mixes sensor misses with geocoding error; 3,983 strikes placed only at district or municipal level cannot be matched at 1 km at all. At 3 km the match is 5.5% against a 4.0% placebo.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.8 'How far to trust the extraction' (line 136)",
+   "paper_says": "two paid research assistants hand-checked a stratified sample of 200 extracted strikes",
+   "problem": "This overstates the coverage. Of the 200-row sample, 35 agree rows were never seen by a person. One rater (PD) checked 165 impact rows. The other rater (AT) checked only the 20 shared impact rows, plus 35 empty-list posts and 100 typing rows. So 165 rows were checked, by one person each except for 20.",
+   "evidence": "planning/QA_HANDCHECK.md lines 78–79 '135 iffy rows (all checked) and 65 agree rows (30 audited, 35 never seen by a person)'; line 59 AT ingested 'imp-001..020'; REPORT.md checked counts 30 + 135",
+   "severity": "misleading",
+   "fix": "\"Two paid research assistants checked a stratified sample of extracted strikes: one checked 165 of 200 sampled rows, both checked the same 20 to measure agreement, and 35 rows the triage had machine-cleared have not been checked by anyone yet.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.8 'How far to trust the extraction' (line 136)",
+   "paper_says": "Weighted to the sample, the model had the place right in **92%** of strikes, the weapon in 94% ..., the target type in 97% and the casualty count in 91%; all clear the 85% threshold set in advance.",
+   "problem": "These are presented as final scores that passed a test set in advance. The decision rule fixed in advance says that once the 30-row audit finds any error in a field, the raters check that field on every agree row and the accuracy is recomputed on the full set. The audit found errors in place, target type, casualties and date, and the 35-row check has not been done. So under the paper's own rule, those four figures are provisional estimates scaled up from 30 audited rows to 65. DEVIATIONS 2026-11-09 promises they are 'labelled as such'; 'Weighted to the sample' is not that label. The caveat ('Thirty-five machine-cleared rows...') comes four sentences later and does not connect to these numbers. Casualties had 3 errors in 30 audited rows, so the unchecked rows could plausibly pull it close to 85%.",
+   "evidence": "planning/QA_HANDCHECK.md line 32–34 decision rule; REPORT.md 'agree label trusted' False for place, target_type, casualties, time; DEVIATIONS 2026-11-09 item 3 'the reported accuracies weight the 30 audited rows up to the 65-row bucket instead, and are labelled as such'",
+   "severity": "misleading",
+   "fix": "\"Provisional, pending a human check of 35 machine-cleared rows that the pre-set rule requires (the audit found errors in four of five fields), the extraction had the place right in about 92% of strikes, the target type in 97%, the casualty count in 91% and the weapon in 90–94%. These estimates clear the 85% bar set in advance, but the check that decides it is not finished.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.8 'How far to trust the extraction' (line 136)",
+   "paper_says": "The date was right in 98%, scored from the one rater whose instructions matched the extraction rule (90% if the other rater's answers on 20 shared rows are counted; that choice was made after seeing the answers).",
+   "problem": "The 98% is not a human check of the date. The packet never showed raters the post's publication date, which is where the model's date comes from. After the first rater returned, the second rater was told to 'answer Yes unless the post states a different date or time'. A default-yes instruction given after seeing results, then scored from that rater only, makes the headline the least conservative figure available. The disclosure is there, but the post-hoc number leads and the conservative one sits in parentheses.",
+   "evidence": "planning/QA_HANDCHECK.md lines 61–63 ('the packet never shows the post's publication date ... Not scoreable by humans as asked ... tell PD to answer Yes unless the post states a different date or time'); line 87 date/time combined 90.2%, PD alone 98.4%, agreement 6/20; DEVIATIONS 2026-11-09 item 1",
+   "severity": "misleading",
+   "fix": "\"Raters could not verify the date as asked (the packet did not show the post date), so date accuracy is not human-checked: the two-rater score is 90%; one rater, told after the first returns to answer yes unless the post gave a different date, scored 98%.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.8 'How far to trust the extraction' (line 136)",
+   "paper_says": "Posts where the model extracted nothing were mostly daily statistics lists, which the extraction prompt skips by design.",
+   "problem": "The paper leaves out the measured number: raters judged 62.9% (95% CI 46–77%, n=35) of posts with no extracted strike to contain a strike. The 'mostly statistics lists, about 0–2 true misses' reading comes from the author's own review of one rater's 35 answers. It was not adjudicated by a second person, and DEVIATIONS lists this as one of the three questions where the guide wording did not match the extraction rules. The 76% post-type accuracy is also not reported.",
+   "evidence": "data/derived/telegram/qa/REPORT.md 'empty | missed_post_rate | 62.9% | 46.3%–76.8% | 35'; 'typing | post_type | 76.0%'; planning/QA_HANDCHECK.md lines 64–67 (one rater, author's reading, 'about 0-2')",
+   "severity": "unsupported",
+   "fix": "\"Raters marked 63% (22 of 35) of posts with no extracted strike as containing one; on our reading most of these are daily statistics lists that the extraction skips by design, but that reading has not been adjudicated. Post-type labels were right in 76% of 100 posts.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "Abstract (line 9) and §4.1 (lines 57–61)",
+   "paper_says": "FIRMS caught 5.0% of held-out confirmed events. Under clear night skies in summer it caught 7.4%. ... The point is the gradient. In a Ukrainian winter the sensor is effectively off.",
+   "problem": "'Caught' describes detection, but the same abstract says most matches are background fire (placebo 3.8% against 5.0%), and §4.8 says the best stratum beats chance by only about 1.4–1.5×. So about two thirds of the best-stratum 7.4% is chance. Background fire is itself strongly seasonal (summer farm burning), so the 117× best/worst ratio and 'the gradient' partly measure the season of background fire, not sensor sensitivity to war events. The H1 verdict stands as pre-registered, but the interpretation in §4.1 ignores the paper's own placebo. Also, 'clear night skies' really means 'at least one clear night overpass in the 48-h window', and 'effectively off' describes the worst stratum, not winter as a whole (Nov–Feb recall 0.52%).",
+   "evidence": "§4.8 line 128 'Recall clearly beats chance only with 3+ clear overpasses or in the H1 best stratum, at about 1.4–1.5× chance'; h1_recall_meta.json ratio 117, ratio_ci_hi null; DEVIATIONS 2026-10-22 night definition; h8_summary.json winter_Nov_Feb recall 0.0052",
+   "severity": "misleading",
+   "fix": "Abstract: \"A FIRMS fire fell within 1 km and 48 hours of 5.0% of held-out confirmed events (7.4% when the window had a clear night overpass in summer; 0.06% in the cloudy, snowy winter stratum). An exploratory same-place placebo matches 3.8%, so most of these matches are background fire.\" §4.1: add \"Part of this gradient is the season of background fire, which the placebo shows is large (§4.8).\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.6 (line 97) and Data/limitations",
+   "paper_says": "**21.8%** of the 29,911 km² Russia gained in C1 front cells fell in the bottom quartile",
+   "problem": "A conflict expert will read '29,911 km² Russia gained' between April 2022 and July 2024 as a net territorial figure, and it is far too big for that: Russia lost ground over C1 because of the 2022 Kharkiv and Kherson counteroffensives. The number is a gross sum of positive cell-week net flips. Reverse flips in the same cells total about 35,200 km², which also points to VIINA status flicker. The limitations section does not mention flicker.",
+   "evidence": "data/derived/results/h4_by_opportunity_quartile.csv ru_gain_km2 sum 29,911, ru_loss_km2 sum 35,245; h4_blindspot.json total_ru_gain_km2_c1_front15 29911",
+   "severity": "misleading",
+   "fix": "\"21.8% of the 29,911 km² of gross Ukrainian-to-Russian flips in C1 front cells (the sum of positive weekly cell changes; flips the other way total 35,245 km², so this is not net territorial change) fell in ...\"; add to Limitations: \"VIINA majority-vote status flickers at the line, inflating gross flips in both directions.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "Abstract (line 9), §4.6 heading and text, scorecard H4",
+   "paper_says": "Russia's territorial gains did not cluster in the weeks the sensor was blind",
+   "problem": "H4's bottom quartile is detection opportunity 0–58 units per cell-week, not blindness. Elsewhere the paper defines 'blind' as the median day having no clear overpass (H8). Using the same word for two different thresholds misstates what H4 tested.",
+   "evidence": "h4_blindspot.json q1_opportunity_cut 58.0; h4_by_opportunity_quartile.csv Q1 opp_min 0, opp_max 58; §4.5 defines a blind week as median day with no clear overpass",
+   "severity": "misleading",
+   "fix": "\"Russia's gains did not cluster in the quarter of front cell-weeks with the fewest clear looks (21.8%, against the 30% we predicted).\" Scorecard: \"≥30% of gains in lowest-opportunity quartile\".",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.7 (line 116) and scorecard H7 (line 193)",
+   "paper_says": "We read \"Karabakh lower\" as a comparison under one common detection rule, the only like-for-like reading, and on that reading it holds",
+   "problem": "This reading was set when the scoring was written, and the DEVIATIONS entry that records it already states the result ('true at both 1 km and 5 km'). DEVIATIONS says only the event-set and precision choices were fixed before the first run, and the reading is not one of them. Under each case's pre-registered primary rule, Karabakh is higher (12.5% vs 2.9%). The scorecard's 'yes' therefore rests on an interpretation chosen with the answer in view.",
+   "evidence": "DEVIATIONS 2026-10-27 '\"Karabakh lower\" ... is read as lower than Sudan under the same detection rule (true at both 1 km and 5 km). The cross-rule primary comparison ... goes the other way.'; verdicts.json H7 'cross-rule primary comparison: False'",
+   "severity": "misleading",
+   "fix": "Scorecard: \"band yes; 'Sudan high' no; 'Karabakh lower' no under the primary rules, yes under a same-rule reading adopted at scoring time\". In §4.7 add: \"this reading was adopted when the scoring was written, not in PREREG.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.5 H8 (line 89)",
+   "paper_says": "S-NPP is expected to stop in early November 2026.",
+   "problem": "This is out of date and has no citation. The project's own planning cites a NASA Earthdata alert that Suomi NPP science-data delivery was to cease on 2 November 2026, and the paper is dated after that (the hand-check material is from 9 Nov). A remote-sensing reader will expect the date, the source, and the distinction between data delivery ending and the satellite itself.",
+   "evidence": "planning/plan_draft_novelty.md line 19 'NOAA/NESDIS will cease Suomi NPP science-data delivery at 13:00 UTC on 2 November 2026 [NASA Earthdata alert, updated 5 Oct 2026]'",
+   "severity": "wrong",
+   "fix": "\"Suomi NPP science-data delivery was scheduled to cease on 2 November 2026 (NASA Earthdata alert, updated 5 Oct 2026); FIRMS VIIRS now rests on NOAA-20 and NOAA-21.\" (confirm the cessation happened before submission)",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.3 H3 (line 77)",
+   "paper_says": "Two near-identical sensors looking at the same ground within an hour, with a clear sky, agree only about half the time. Single detections are noisy.",
+   "problem": "A VIIRS specialist will object to calling this noise. S-NPP and NOAA-20 fly about 50 minutes apart in the same orbit, so small, short-lived fires change or go out between the passes. The two passes also see a given cell at different scan angles, so pixel area (up to about 4× at swath edge, as §4.2 notes) and the detection floor differ between them. Much of the 46% disagreement is expected physics and geometry, not random error, and the test does not separate the two.",
+   "evidence": "data/derived/results/h3_summary.json definitions: pair = NOAA-20 granule 30–70 min away, no scan-angle matching; §4.2 'edge pixels are about 4.2× the area of nadir pixels'",
+   "severity": "misleading",
+   "fix": "\"Two similar sensors about 50 minutes apart under clear sky agree on about half of fires. Fire change between passes and different viewing geometry account for part of this, so a single detection, and especially a single zero, is weak evidence on its own.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "§4.4 H14 (lines 81–85)",
+   "paper_says": "Hot summer ground hides small fires by day. So the summer-day fire record is a record of big fires only.",
+   "problem": "Two remote-sensing issues. First, the fire filter (confidence nominal or high) treats day and night differently: in the VIIRS 375 m product the low-confidence class is mainly daytime pixels with sun glint or a weak (<15 K) I4 anomaly, so dropping it raises the daytime FRP floor by construction. Second, the 5th percentile of detected FRP mixes the detection floor with which fires happen (summer stubble burning is large). A summer-day 5th percentile of 2.22 MW also does not mean 'big fires only'. The verdict stands as pre-registered, but the mechanism and the 'only' are overclaimed.",
+   "evidence": "PREREG §3 'Fire: ... confidence nominal or high'; verdicts.json H14 summer-day p5 2.22 MW vs winter-night 0.58 MW",
+   "severity": "misleading",
+   "fix": "\"By day the detection floor is higher (solar contamination of the 3.7 µm channel and warmer background; our exclusion of low-confidence pixels, a mainly daytime class, adds to this), and summer fire types differ too. The summer-day record therefore under-represents small fires.\"",
+   "lane": "referee"
+  },
+  {
+   "where": "Header (line 3), §5.6 heading, §3",
+   "paper_says": "**Draft v1, 2026-10-27.** ... ### 5.6 Kyiv strikes (H12, confirmatory, open question)",
+   "problem": "These are small but visible to a referee. (a) The draft is dated 2026-10-27 but contains 2026-11-09 material (§4.8, DEVIATIONS 2026-11-09). (b) H12 measures FIRMS detections of any type inside Kyiv city, which can include static industrial heat sources, yet the heading and text call them 'strikes'. The national SESOI scaling (× 114 median front cells = 194 km²) and the Newey–West inference are not in PREREG or DEVIATIONS. (c) §3 says C1 was untouched, but PREREG §2 discloses an Economist snapshot with C1-dated files on disk before the tag; the paper does not mention it. (d) 'Nobody had measured how often it misses' is stronger than the prior-art scan supports ('no published omission-rate study turned up').",
+   "evidence": "DEVIATIONS 2026-11-09 entry; PREREG §3 'Kyiv fires: detections inside Kyiv city ... any type' (§3 Fire 'any type'); verdicts.json H12 criterion '±194 km² (1.70 × 114 median front cells/week)', 'Newey–West(4)'; PREREG §2 Disclosure; planning/scout_prior_art.md line 109",
+   "severity": "polish",
+   "fix": "Redate the header to 2026-11-09; retitle §5.6 'Kyiv fires (H12 ...)' and note that the type is not filtered; log the 194 km² scaling and Newey–West as operational choices in DEVIATIONS; add to §3: 'A snapshot of The Economist war-fire files covering C1 dates was on disk before the tag and was not opened (PREREG §2)'; change 'Nobody had measured' to 'We found no published measurement of'.",
+   "lane": "referee"
+  }
+ ]
+}

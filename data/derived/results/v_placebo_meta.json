@@ -1,0 +1,12 @@
+{
+  "output": "data/derived/results/v_placebo.csv",
+  "written": "2026-11-09",
+  "script": "scripts/analysis/21_acled_grade.py (V rows only, copied from its private output table; no ACLED rows)",
+  "rule": "H1 match rule at the same place with the window shifted 7 days earlier (placebo_m7) and 7 days later (placebo_p7); chance = their mean",
+  "rows": 22,
+  "headline": {
+    "V test n": 14736,
+    "recall": 0.05,
+    "chance": 0.0378
+  }
+}
