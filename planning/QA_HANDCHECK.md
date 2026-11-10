@@ -98,7 +98,8 @@ Reading it:
   clarifying and the 8 disagreements adjudicated by Jackson before that number is final.
 - Agree-label audit: errors found in place (1/30), target type (1/30), casualties (3/30), date/time (1/30); weapon clean
   (0/30). By the decision rule the remaining **35 agree rows** need a human check for those four fields. Packet built 2026-11-09 by `94_qa_round2.py`
-  (`data/interim/telegram/qa/ra_packet_round2/ra_impacts_r2.{csv,xlsx}`, rows imp-166..imp-200); not yet sent.
+  (`data/interim/telegram/qa/ra_packet_round2/ra_impacts_r2.{csv,xlsx}`, rows imp-166..imp-200). Decision 2026-11-10: not sent; the author chose not to
+  fund a second round. The accuracies stand as reported, with the 35 unchecked rows disclosed in the paper and DEVIATIONS.
   (Earlier notes said 140 agree rows; that was the rules-only dry run. After the second-model pass the agree bucket is 65.)
 - The weapon interval prints as 94.0%-94.0% because the iffy bucket was checked in full and the audit was 30/30. That is
   not zero uncertainty: with 0 errors in 30, agree-bucket accuracy could be as low as about 88.6% (Wilson), which puts
